@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { Link } from "gatsby";
 import Image from "../Image/Image";
-import "./Postlisting.css";
+import "./PostListing.css";
 
 class PostListing extends React.Component {
   getPostList() {
