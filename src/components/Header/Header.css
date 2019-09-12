@@ -1,0 +1,32 @@
+.header {
+    justify-content: center;
+    align-content: center;
+    padding: 10px 5px 5px;
+    background:linear-gradient(45deg, rgba(99,185,255,1) 0%,rgba(142,189,249,1) 25%,rgba(189,227,239,1) 50%,rgba(255,231,145,1) 75%,rgba(232,189,60,1) 100%);
+}
+.header .sitetittle{
+    float: left;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5rem;
+    color: #fff;
+}
+.header .nav {
+
+}
+.header .nav ul {
+    list-style: none;
+    display: flex;
+}
+.header .nav ul a {
+    width: 140px;
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 2px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+   
