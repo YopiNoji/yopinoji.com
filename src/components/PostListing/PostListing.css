@@ -3,12 +3,17 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 16px;
     align-items: stretch;
+    margin: 5px;
 }
 .postlisting .post{
-    max-width: 300px;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    margin: 1%;
+    border-radius: 25px;
+    box-shadow: 3px 3px 6px 0px  rgba(0,0,0,0.3);
+    background-color: #fff;
+}
+.postlisting .post-image{
+    position: relative;
+    margin: 10px;
 }
 .postlisting .post-title{
     padding: 10px;

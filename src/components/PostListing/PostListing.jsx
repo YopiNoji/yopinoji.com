@@ -32,14 +32,10 @@ class PostListing extends React.Component {
               <h2 className="post-title">{post.title}</h2>
               <span className="post-date">{post.date}</span>
               <span className="post-category">{post.category}</span>
-              <Image filename={post.cover} />
+              <div className="post-image">
+                <Image filename={post.cover} />
+              </div>
             </Link>
-            {/* <Link
-              key={post.category}
-              to={`/categories/${_.kebabCase(post.category)}`}
-            >
-                <h3>{post.category}</h3>
-            </Link> */}
           </div>
         ))}
       </div>
