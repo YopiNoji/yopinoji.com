@@ -39,7 +39,7 @@ Netlifyは本当に便利なサービスで、Gitリポジトリが更新され�
 6:40:04 PM: Finished processing build request in 1m52.780127598s
 ```
 
-netlify.toml側で`Build script returned non-zero exit code: 127`となるパターンです。  
+netlify.toml側でBuild script returned non-zero exit code: 127となるパターンです。  
 調べていくと上記のエラーの場合は、ビルド時のコマンドに誤りがあるケースが多いようです。  
 
 ただ今回、自分の場合はビルドコマンドに`npm run build`を設定してあり、  
@@ -140,11 +140,15 @@ netlify.tomlの問題を解決したので、ようやく正常にビルドで�
 10:18:22 PM: npm ERR!     /opt/buildhome/.npm/_logs/2019-09-12T13_18_22_436Z-debug.log
 ```
 
-今回は`Executing user command: npm run build`とあるようにビルドのコマンドは正常に動作しているようです。
+今回はExecuting user command: npm run buildとあるようにビルドのコマンドは正常に動作しているようです。
 
 ログを確認すると、下記のようにエラーがエラーが発生しているファイル名やエラー内容がログに書き出されています。  
-`Error: ./src/components/PostListing/PostListing.jsx`  
-`Module not found: Error: Can't resolve './Postlisting.css'`  
+
+```
+Error: ./src/components/PostListing/PostListing.jsx
+Module not found: Error: Can't resolve './Postlisting.css'
+```
+
 ログのおかげで、エラーが出ている箇所を追っていけば、解決できそうです。
 
 ただ、困ったのはローカルの開発環境で`npm run build`しても同じエラーが起こらないことでした。  

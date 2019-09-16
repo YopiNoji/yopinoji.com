@@ -16,15 +16,18 @@
     margin: 10px;
 }
 .postlisting .post-title{
+    font-family: 'Sawarabi Mincho', sans-serif;
     padding: 10px;
     color: #000;
     height: 120px;
 }
 .postlisting .post-date{
+    font-family: 'Orbitron', sans-serif;
     padding: 10px;
     color: #000;
 }
 .postlisting .post-category{
+    font-family: 'Orbitron', sans-serif;
     padding: 10px;
     color: #000;
 }

@@ -31,7 +31,7 @@ export default class PostTemplate extends React.Component {
           <SEO postPath={slug} postNode={postNode} postSEO />
           <div className="post-content">
             <h1 className="post-title">{post.title}</h1>
-            <span>{post.date}</span>
+            <span className="post-date">{post.date}</span>
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
             <div className="post-meta">
               <PostTags tags={post.tags} />

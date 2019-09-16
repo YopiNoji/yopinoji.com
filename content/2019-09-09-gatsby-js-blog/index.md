@@ -108,6 +108,8 @@ WordPressのようにプラグインのインストールだけで簡単にカ�
 
 ###パフォーマンスが良い
 
+![PageSpeed Insights](./20190909-google-pagespeed-insight-yopinoji-com.png)
+
 Webサーバーを使う動的なWebサイトでは、ページへのアクセスがあった際に、Webサーバーで処理をしたのちにページを表示しますが、  
 GatsbyJSで生成された静的なサイトで構築したWebサイトは、既に生成されてあるファイルを返すだけなので基本的に早いです。
 
