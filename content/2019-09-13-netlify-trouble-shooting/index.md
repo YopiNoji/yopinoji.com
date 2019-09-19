@@ -9,7 +9,7 @@ tags:
     - GatsbyJS
 ---
 
-![Chinese Salty Egg](./Netlify.png)
+![Netlify](./Netlify.png)
 
 Netlifyは本当に便利なサービスで、Gitリポジトリが更新されるたびに、  
 最新の状態にサイトを自動でビルド＆デプロイしてくれます。  
@@ -142,20 +142,22 @@ netlify.tomlの問題を解決したので、ようやく正常にビルドで�
 
 今回はExecuting user command: npm run buildとあるようにビルドのコマンドは正常に動作しているようです。
 
-ログを確認すると、下記のようにエラーがエラーが発生しているファイル名やエラー内容がログに書き出されています。  
+ログを確認すると、下記のようにエラーが発生しているファイル名やエラー内容がログに書き出されています。  
 
 ```
 Error: ./src/components/PostListing/PostListing.jsx
 Module not found: Error: Can't resolve './Postlisting.css'
 ```
 
-ログのおかげで、エラーが出ている箇所を追っていけば、解決できそうです。
+ログのおかげで、エラーが出ている箇所を追っていけば、解決できそうです。  
+今回、エラーが出ているのはPostListing.jsxというファイルですね。
 
 ただ、困ったのはローカルの開発環境で`npm run build`しても同じエラーが起こらないことでした。  
 ローカル環境では普通にビルド成功します。何故だ。
 
 結論を言うと、とても初歩的な問題でした。  
-PosListing.cssの”L”を小文字にしていたのが原因でした。
+PostListing.jsxでのタイピングミス。  
+インポートしているPosListing.cssの”L”を小文字にしていたのが原因でした。
 
 ```PostListing.jsx
 import React from "react";
@@ -168,7 +170,7 @@ import "./Poslisting.css";
 ```
 
 ローカル環境では、小文字で書かれたファイルも勝手に補完してくれていたようですが、  
-Netliftyでは、補完が効かなかったためビルドエラーが起こったようです。
+Netlifyでは、補完が効かなかったためビルドエラーが起こったようです。
 
 またしても、不覚です。
 

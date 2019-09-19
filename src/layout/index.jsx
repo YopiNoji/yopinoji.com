@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import TagListing from "../components/TagListing/TagListing";
 import "./index.css";
 
 export default class MainLayout extends React.Component {
@@ -15,6 +16,7 @@ export default class MainLayout extends React.Component {
         </Helmet>
         <Header config={config} />
         {children}
+        <TagListing />
         <Footer config={config} />
       </div>
     );

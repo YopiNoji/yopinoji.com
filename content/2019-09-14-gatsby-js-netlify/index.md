@@ -9,7 +9,7 @@ tags:
     - GatsbyJS
 ---
 
-![Chinese Salty Egg](./Netlify.png)
+![Netlify](./Netlify.png)
 
 GatbyJSで作ったサイトを公開する際に、使うサービスとして[Netlify](https://www.netlify.com)がおすすめという話です。
 
@@ -76,7 +76,7 @@ Netlifyは`npm run build`というコマンドを実行し、
 
 サイトの設定が完了したら、GitHubに更新をプッシュしてみましょう。  
 Production deploysのステータスがPublishedになっていれば、無事にビルドとデプロイが完了しています。  
-Failedになっている場合は、Netlifty上でビルドのログを確認できるのでエラーの箇所を修正する必要があります。
+Failedになっている場合は、Netlify上でビルドのログを確認できるのでエラーの箇所を修正する必要があります。
 
 自分の管理画面の画像を見てもらえると分かると思いますが、導入当初はビルドエラーに悩まされました。  
 その際の対処方法の記事も書いてありますので、よければ参照してみてください。
