@@ -1,15 +1,26 @@
 .postlisting{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 16px;
-    align-items: stretch;
-    margin: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 10px;
+    margin: 20px;
+}
+@media screen and (max-width: 480px){
+    .postlisting{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 .postlisting .post{
     border: 1px solid #ccc;
-    box-shadow: 3px 3px 6px 0px  rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px 0px  rgba(0,0,0,0.25);
     background-color: #fff;
     overflow: hidden;
+    -webkit-animation: fadeIn 1s ease-in-out 0s 1 normal;
+    animation: fadeIn 1s ease-in-out 0s 1 normal;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.postlisting .post:hover {
+    box-shadow: 3px 3px 7px 1px  rgba(0,0,0,0.3);
 }
 .postlisting .post-image-wrap{
     overflow: hidden;
@@ -42,4 +53,13 @@
     font-family: 'Orbitron', sans-serif;
     padding: 10px;
     color: #888;
+}
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
 }

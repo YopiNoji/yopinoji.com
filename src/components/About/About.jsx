@@ -7,8 +7,8 @@ class About extends Component {
     const { config } = this.props;
     return (
       <div className="about">
-        <h1>About</h1>
-        <p>Name:YopiNoji</p>
+        <h1>About This page</h1>
+        <p></p>
         <UserLinks config={config} labeled />
       </div>
     );

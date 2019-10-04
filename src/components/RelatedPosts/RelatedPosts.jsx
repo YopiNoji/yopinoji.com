@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Link } from "gatsby";
+import PostListing from "../PostListing/PostListing";
+import "./RelatedPosts.css";
 
 const RelatedPosts = ({ post }) => (
   <StaticQuery
@@ -51,13 +52,7 @@ const RelatedPosts = ({ post }) => (
       return (
         <div className="related-posts">
           <h2 className="related-posts-title">関連記事</h2>
-            {relatedPosts.map(relatedPost => (
-              <div className="related-post">
-                <Link to={relatedPost.node.fields.slug} key={relatedPost.node.frontmatter.title}>
-                  <li>{relatedPost.node.frontmatter.title}</li>
-                </Link>
-              </div>
-            ))}
+            <PostListing postEdges={relatedPosts} />
         </div>
       );
     }}

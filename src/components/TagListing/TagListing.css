@@ -15,8 +15,6 @@
     font-size: 0.75rem;
     color: #777;
     background: #fff;
-    font-weight: bold;
-    border-radius: 4px;
     transition: .4s;
 }
 .taglisting .tag:hover {

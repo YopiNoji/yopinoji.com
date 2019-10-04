@@ -3,16 +3,13 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
-  TelegramShareButton,
-  RedditShareButton,
+  LineShareButton,
   FacebookShareCount,
   LinkedinShareCount,
-  RedditShareCount,
   FacebookIcon,
   TwitterIcon,
-  TelegramIcon,
   LinkedinIcon,
-  RedditIcon
+  LineIcon,
 } from "react-share";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
@@ -31,12 +28,6 @@ class SocialLinks extends Component {
 
     return (
       <div className="social-links">
-        <RedditShareButton url={url} title={post.title}>
-          <RedditIcon round size={iconSize} />
-          <RedditShareCount url={url}>
-            {count => renderShareCount(count)}
-          </RedditShareCount>
-        </RedditShareButton>
         <TwitterShareButton url={url} title={post.title}>
           <TwitterIcon round size={iconSize} />
         </TwitterShareButton>
@@ -46,6 +37,9 @@ class SocialLinks extends Component {
             {count => renderShareCount(count)}
           </FacebookShareCount>
         </FacebookShareButton>
+        <LineShareButton url={url} title={post.title}>
+          <LineIcon round size={iconSize} />
+        </LineShareButton>
         <LinkedinShareButton
           url={url}
           title={post.title}
@@ -56,9 +50,6 @@ class SocialLinks extends Component {
             {count => renderShareCount(count)}
           </LinkedinShareCount>
         </LinkedinShareButton>
-        <TelegramShareButton url={url}>
-          <TelegramIcon round size={iconSize} />
-        </TelegramShareButton>
       </div>
     );
   }
