@@ -1,6 +1,6 @@
 ---
 title: "GatsbyJSを使ったブログのはじめ方"
-cover: '2019-09-12-how-to-start-gatsby-js/GatsbyJS.jpeg'
+cover: '2019-09-12-how-to-start-gatsby-js/header.png'
 category: "Tech"
 date: "2019/09/12"
 slug: "how-to-start-gatsby-js"
@@ -9,7 +9,7 @@ tags:
     - Blog
 ---
 
-![GatsbyJS](./GatsbyJS.jpeg)
+![GatsbyJS](./gatsby.png)
 
 GatsbyJSを使ったブログのはじめ方についての解説記事です。  
 ブログを例にしていますが、コーポレートサイトなど他のサイト制作にも活用できると思います。

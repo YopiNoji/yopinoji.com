@@ -29,12 +29,14 @@ class PostListing extends React.Component {
         postList.map(post => (
           <div className="post">
             <Link to={post.path} key={post.title}>
-              <h2 className="post-title">{post.title}</h2>
+              <div className="post-image-wrap">
+                <div className="post-image">
+                  <Image filename={post.cover} />
+                </div>
+              </div>
               <span className="post-date">{post.date}</span>
               <span className="post-category">{post.category}</span>
-              <div className="post-image">
-                <Image filename={post.cover} />
-              </div>
+              <h2 className="post-title">{post.title}</h2>
             </Link>
           </div>
         ))}

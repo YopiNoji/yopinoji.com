@@ -8,14 +8,17 @@
     font-weight: bold;
     letter-spacing: 0.5rem;
     color: #fff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.header .sitetittle:hover{
+    color: #00ffb3;
+    -webkit-text-stroke: 2.5px #222;
 }
 @media screen and (max-width: 480px){
     .header .sitetittle{
         letter-spacing: 0.05rem;
     }
-}
-.header .nav {
-
 }
 .header .nav ul {
     list-style: none;
@@ -30,6 +33,11 @@
     font-weight: bold;
     font-family: 'Orbitron', sans-serif;
     color: #fff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-
+.header .nav ul a:hover{
+    color: #00ffb3;
+    -webkit-text-stroke: 0.5px #222;
+}
    

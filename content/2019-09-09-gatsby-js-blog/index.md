@@ -1,6 +1,6 @@
 ---
 title: "GatsbyJSを使ってブログを作ってみた"
-cover: '2019-09-09-gatsby-js-blog/GatsbyJS.jpeg'
+cover: '2019-09-09-gatsby-js-blog/header.png'
 category: "Tech"
 date: "2019/09/09"
 slug: "gatsby-js-blog"
@@ -9,7 +9,7 @@ tags:
     - Blog
 ---
 
-![GatsbyJS](./GatsbyJS.jpeg)
+![GatsbyJS](./gatsby.png)
 
 GatbyJSというReact製の静的サイトジェネレーターを使って、ブログを作ってみたのでその話。
 

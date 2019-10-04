@@ -7,27 +7,39 @@
 }
 .postlisting .post{
     border: 1px solid #ccc;
-    border-radius: 25px;
     box-shadow: 3px 3px 6px 0px  rgba(0,0,0,0.3);
     background-color: #fff;
+    overflow: hidden;
 }
-.postlisting .post-image{
+.postlisting .post-image-wrap{
+    overflow: hidden;
+}
+.postlisting .post .post-image {
     position: relative;
-    margin: 10px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.postlisting .post:hover .post-image {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 0.7;
 }
 .postlisting .post-title{
     font-family: 'Sawarabi Mincho', sans-serif;
+    font-size: 1.25rem;
     padding: 10px;
-    color: #000;
-    height: 120px;
+    color: #222;
+    height: 100px;
 }
 .postlisting .post-date{
     font-family: 'Orbitron', sans-serif;
     padding: 10px;
-    color: #000;
+    color: #888;
 }
 .postlisting .post-category{
     font-family: 'Orbitron', sans-serif;
     padding: 10px;
-    color: #000;
+    color: #888;
 }

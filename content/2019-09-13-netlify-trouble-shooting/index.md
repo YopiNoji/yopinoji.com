@@ -1,6 +1,6 @@
 ---
 title: "GatsbyJSのサイトがNetlifyでビルドエラーになった件"
-cover: '2019-09-13-netlify-trouble-shooting/Netlify.png'
+cover: '2019-09-13-netlify-trouble-shooting/header.png'
 category: "Tech"
 date: "2019/09/13"
 slug: "netlify-trouble-shooting"
@@ -9,7 +9,7 @@ tags:
     - GatsbyJS
 ---
 
-![Netlify](./Netlify.png)
+![Netlify](./netlify.png)
 
 Netlifyは本当に便利なサービスで、Gitリポジトリが更新されるたびに、  
 最新の状態にサイトを自動でビルド＆デプロイしてくれます。  

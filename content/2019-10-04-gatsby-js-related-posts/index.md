@@ -1,12 +1,14 @@
 ---
 title: "GatsbyJSブログに関連記事を表示するコンポーネントを追加する"
-cover: '2019-10-04-gatsby-js-related-posts/GatsbyJS.jpeg'
+cover: '2019-10-04-gatsby-js-related-posts/header.png'
 category: "Tech"
 date: "2019/10/04"
 slug: "gatsby-js-related-posts"
 tags:
     - GatsbyJS
 ---
+
+![GatsbyJS](./gatsby.png)
 
 GatsbyJSで作成したブログに関連記事を表示させてみたので、その話です。 
 

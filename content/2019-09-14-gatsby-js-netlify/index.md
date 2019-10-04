@@ -1,6 +1,6 @@
 ---
 title: "GatsbyJSで作ったサイトを公開するならNetlifyがオススメ"
-cover: '2019-09-14-gatsby-js-netlify/Netlify.png'
+cover: '2019-09-14-gatsby-js-netlify/header.png'
 category: "Tech"
 date: "2019/09/14"
 slug: "gatsby-js-netlify"
@@ -9,7 +9,7 @@ tags:
     - GatsbyJS
 ---
 
-![Netlify](./Netlify.png)
+![Netlify](./netlify.png)
 
 GatbyJSで作ったサイトを公開する際に、使うサービスとして[Netlify](https://www.netlify.com)がおすすめという話です。
 

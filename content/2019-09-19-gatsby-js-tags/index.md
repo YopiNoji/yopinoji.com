@@ -1,12 +1,14 @@
 ---
 title: "GraphQLで一意の値を取得することでGatsbyJSブログにタグ一覧を作る"
-cover: '2019-09-19-gatsby-js-tags/GatsbyJS.jpeg'
+cover: '2019-09-19-gatsby-js-tags/header.png'
 category: "Tech"
 date: "2019/09/19"
 slug: "gatsby-js-tags"
 tags:
     - GatsbyJS
 ---
+
+![GatsbyJS](./gatsby.png)
 
 GatsbyJSで作成したブログにタグ一覧を表示する機能を実装したので、その話です。
 
