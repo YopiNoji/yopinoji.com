@@ -7,6 +7,7 @@ slug: "gatsby-js-netlify"
 tags:
     - Netlify
     - GatsbyJS
+    - Webサービス
 ---
 
 ![Netlify](./netlify.png)

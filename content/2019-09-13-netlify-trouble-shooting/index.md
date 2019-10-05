@@ -7,6 +7,7 @@ slug: "netlify-trouble-shooting"
 tags:
     - Netlify
     - GatsbyJS
+    - Webサービス
 ---
 
 ![Netlify](./netlify.png)
