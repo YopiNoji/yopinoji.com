@@ -12,7 +12,8 @@ tags:
 
 プログラミングの学習を進める際に、モチベーションを保つための一つの方法として「GitHubに芝生を生やす」という方法があります。  
 
-これはどういうことかと言うと、GitHubにはCommit/PushなどのアクションをするたびにContributionsという緑色の活動履歴を残せるのですが、自分のContributionsを緑色で埋めることをモチベーションにして学習を頑張ろうという方法です。
+これはどういうことかと言うと、GitHubにはCommit/PushなどのアクションをするたびにContributionsという緑色の活動履歴を残せるのですが、  
+自分のGitHubのContributionsを緑色で埋めることをモチベーションにして学習を頑張ろうという方法です。
 
 ![github-many-contributions-example](./github-many-contributions-example.png)
 
@@ -107,7 +108,7 @@ Contributionsの方も、今まではCommit/Pushで変化がなかったのに�
 
 ただ、今まで何十回としてきたコミットで生えているはずの芝生は生えていませんでした。  
 やはり、最初に設定しておかなければ芝生は生えないようです。  
-生えたはずの芝生を無駄にしたようで残念です。
+生えたはずの芝生を無駄にしたようでやや残念です。
 
 
 ##終わりに
@@ -115,3 +116,7 @@ Contributionsの方も、今まではCommit/Pushで変化がなかったのに�
 そんなわけで今日から自分もGitHubに芝生を生やせるようになりました。
 
 いつの日か自分のGitHubに大草原を作ることを目標に学習に励んでいきたいですね。
+
+##参考
+
+[意外と知らないGitHubで草を生やす条件とは](https://findy-code.io/engineer-lab/github-contributions-rule)
