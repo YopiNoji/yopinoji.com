@@ -46,7 +46,11 @@ npm -v
 - [Gatsby Starters](https://www.gatsbyjs.org/starters/?v=2)
 
 執筆時点で260種類以上あるのでどれを選ぶか迷うかもしれません。  
-個人的には、[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)や[gatsby-advanced-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-advanced-starter/)がコードの可読性が良くて好みです。  
+
+[GatsbyJSの作者が作ったスターター](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-default/)や[Netlify社が用意しているスターター](https://www.gatsbyjs.org/starters/netlify-templates/gatsby-starter-netlify-cms/)などが人気のようですが、  
+個人的にはコードの可読性があまり良くないと感じたためこちらは使っていません。
+
+個人的に[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)や[gatsby-advanced-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-advanced-starter/)がコードの可読性が良くて好みです。  
 
 スターターを決めたら、GatsbyJSのプロジェクトファイルを用意しましょう。  
 CUIでプロジェクトを作成するフォルダに移動し、以下のコマンドを入力します。  

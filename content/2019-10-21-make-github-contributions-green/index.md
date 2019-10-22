@@ -1,9 +1,9 @@
 ---
-title: "GitHubにCommit/Pushしているのに芝生が生えない件"
-cover: '2019-10-21-setup-github-contributions/header.png'
+title: "GitHubにCommit/Pushすることで緑豊かな芝生を生やしたい"
+cover: '2019-10-21-make-github-contributions-green/header.png'
 category: "Tech"
 date: "2019/10/21"
-slug: "setup-github-contributions"
+slug: "make-github-contributions-green"
 tags:
     - GitHub
 ---
@@ -13,15 +13,20 @@ tags:
 プログラミングの学習を進める際に、モチベーションを保つための一つの方法として「GitHubに芝生を生やす」という方法があります。  
 
 これはどういうことかと言うと、GitHubにはCommit/PushなどのアクションをするたびにContributionsという緑色の活動履歴を残せるのですが、  
-自分のGitHubのContributionsを緑色で埋めることをモチベーションにして学習を頑張ろうという方法です。
+自分のGitHubのContributionsを緑色で埋めることをモチベーションにしてアウトプットを頑張ろうという方法です。
 
 ![github-many-contributions-example](./github-many-contributions-example.png)
 
 毎日頑張ることで上記の画像のようにContributionsに緑豊かな大草原を生やすことだってできるのです。
 
-それを知って改めて自分のGitHubのContributionsを確認してみたのですが、 
+![github-contributions-art-example](./github-contributions-art-example.png)
 
-![github-many-contributions-example](./github-my-contributions.png)
+さらに頑張ることでContributionsで芸術作品を作ることだって可能です。  
+（これはすごい。）
+
+そういった例を知り、改めて自分のGitHubのContributionsを確認してみたのですが、 
+
+![github-my-contributions](./github-my-contributions.png)
 
 **・・・全然芝生生えてなかった。**
 
@@ -115,7 +120,7 @@ Contributionsの方も、今まではCommit/Pushで変化がなかったのに�
 
 そんなわけで今日から自分もGitHubに芝生を生やせるようになりました。
 
-いつの日か自分のGitHubに大草原を作ることを目標に学習に励んでいきたいですね。
+いつの日か自分のGitHubに大草原を作ることを目標にアウトプットに励んでいきたいですね。
 
 ##参考
 
