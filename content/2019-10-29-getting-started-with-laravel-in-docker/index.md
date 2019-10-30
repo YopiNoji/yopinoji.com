@@ -42,13 +42,13 @@ AWSのECS、GCPのGCEなどDockerコンテナごとデプロイできるサー�
 
 ##Dockerを使える環境を整える
 
-ダウンロードするためにはDockerHubにメールアドレスを登録してログインする必要があります。
-
 Windowsの場合はDocker Desktop for Windowsをインストールできます。  
 https://hub.docker.com/editions/community/docker-ce-desktop-windows
 
 Macの場合は以下のURLからDocker Desktop for Macをインストールできます。  
 https://hub.docker.com/editions/community/docker-ce-desktop-mac
+
+なお、上記をダウンロードするためにはDockerHubにメールアドレスを登録してログインする必要があります。
 
 インストールしたらDockerクライアントを立ち上げておきましょう。  
 Dockerを使うための準備は以上で完了です。

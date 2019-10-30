@@ -19,6 +19,9 @@ const CategoryListing = () => (
       const categories = data.allMarkdownRemark.distinct;
       return (
         <ul>
+          <Link to={`/about`}>
+            <li>About</li>
+          </Link>
           {categories.map(category => (
             <Link to={`/categories/${_.kebabCase(category)}`}>
               <li>{category}</li>
