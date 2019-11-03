@@ -21,6 +21,8 @@
 }
 .postlisting .post:hover {
     box-shadow: 3px 3px 7px 1px  rgba(0,0,0,0.3);
+    border: 1px dashed #999;
+    transform: translate(0px,-5px);
 }
 .postlisting .post-image-wrap{
     overflow: hidden;
