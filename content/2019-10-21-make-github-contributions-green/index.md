@@ -48,7 +48,7 @@ tags:
 試しにGitの設定を取得するコマンドを入力してみます。  
 メールの設定がされていれば、`user.email=your@mail.address`といった形式で設定内容が表示されるはずです。
 
-```
+```sh
 $ git config --global -l
 fatal: unable to read config file '/Users/yopinoji/.gitconfig': No such file or directory
 
@@ -59,7 +59,7 @@ fatal: unable to read config file '/Users/yopinoji/.gitconfig': No such file or 
 
 それでは次に、実際にGitで管理しているフォルダに移動して、Gitの設定を取得するコマンドを叩いてみます。
 
-```
+```sh
 $ git config --local -l
 core.repositoryformatversion=0
 core.filemode=true
@@ -81,7 +81,7 @@ Gitでのメールアドレスの設定を作ります。
 後々に再び設定するのは面倒なので、グローバルでの設定ファイルを作成します。  
 以下のコマンドを実行することで、`/Users/ユーザの名前/.gitconfig`に設定ファイルが作成されます。
 
-```
+```sh
 $ git config --global user.email "your@email.address"
 ```
 
@@ -90,7 +90,7 @@ $ git config --global user.email "your@email.address"
 
 コマンド入力後に設定が作成されたことを確認するために以下のコマンドを入力してみます。
 
-```
+```sh
 $ git config --global -l
 user.email=your@email.address
 ```

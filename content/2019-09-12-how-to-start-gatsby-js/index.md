@@ -25,7 +25,7 @@ NPMはNode.jsインストール時に一緒にインストールされます。
 インストールを確認するには、CUIにバージョンを確認するコマンドを入力してみます。  
 バージョン情報が出ていれば正常にインストールされています。
 
-```shell
+```sh
 node -v
 v10.16.0
 
@@ -56,7 +56,7 @@ npm -v
 CUIでプロジェクトを作成するフォルダに移動し、以下のコマンドを入力します。  
 今回の例では[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)を使用しています。
 
-```shell
+```sh
 npx gatsby new gatsby-site https://github.com/Vagr9K/gatsby-material-starter
 ```
 
@@ -75,14 +75,14 @@ npx gatsby new gatsby-site https://github.com/Vagr9K/gatsby-material-starter
 GatsbyJSのプロジェクトファイルを作成したら、ローカル環境でGatsbyJSを動作させてみましょう。  
 ひとまず、CUIから作成したフォルダに移動します。
 
-```
+```sh
 cd gatsby-site
 ```
 
 プロジェクトファイル（gatsby-site）に移動したら、開発環境を立ち上げます。  
 以下のコマンドを入力します。
 
-```
+```sh
 npm run develop
 ```
 
@@ -94,7 +94,7 @@ GatsbyJSのスターターで作られたサイトが表示されていれば、
 
 ちなみに、静的サイトを生成したい場合は、以下のコマンドの入力します。  
 
-```
+```sh
 npm run build
 ```
 

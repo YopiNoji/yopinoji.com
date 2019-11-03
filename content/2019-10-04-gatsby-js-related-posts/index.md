@@ -34,7 +34,7 @@ GatsbyJSで作成したブログに関連記事を表示させてみたので、
 
 ちなみに、GatsbyJSのGraphQLでは`filter`というクエリを使ってフィルタリングをすることができます。
 
-```
+```json
 {
   allMarkdownRemark(
     filter: { frontmatter: { category: { eq: "Tech" } } }
@@ -67,7 +67,7 @@ GatsbyJSで作成したブログに関連記事を表示させてみたので、
 試しに以下の関連記事コンポーネントを試してみてください。**（エラーになります。）**  
 下記では、親記事の情報を`post`に格納してコンポーネントに渡してあります。
 
-```
+```javascript
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";
@@ -122,7 +122,7 @@ export default RelatedPosts;
 
 以下のようなエラーになります。
 
-```
+```log
 Error: BabelPluginRemoveGraphQL: String interpolations are not allowed in graphql fragments. Included fragments should be referenced as `...MyModule_foo`.
 ```
 
@@ -134,7 +134,7 @@ Error: BabelPluginRemoveGraphQL: String interpolations are not allowed in graphq
 以下にサンプルを書いてみました。  
 例によって、呼び出し元から親記事の情報を変数`post`でコンポーネントに渡してあげています。
 
-```
+```javascript
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from "gatsby";

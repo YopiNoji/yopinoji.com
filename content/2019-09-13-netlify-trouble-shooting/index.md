@@ -33,7 +33,7 @@ Netlifyは本当に便利なサービスで、Gitリポジトリが更新され�
 
 自分が最初に直面したのは、以下のエラーです。
 
-```Netlify.log
+```log
 6:40:04 PM: Error running command: Build script returned non-zero exit code: 127
 6:40:04 PM: Failing build: Failed to build site
 6:40:04 PM: failed during stage 'building site': Build script returned non-zero exit code: 127
@@ -62,7 +62,7 @@ netlify.tomlはNetlifyでのビルド時にカスタム設定を使う際に必�
 netlify.tomlの問題を解決したので、ようやく正常にビルドできる。  
 そう思ったのもつかの間、新たなエラーが発生したのでした。
 
-```Netlify.error
+```log
 10:17:58 PM: Executing user command: npm run build
 10:17:59 PM: > gatsby-starter-advanced@1.1.0 build /opt/build/repo
 10:17:59 PM: > gatsby build
@@ -145,7 +145,7 @@ netlify.tomlの問題を解決したので、ようやく正常にビルドで�
 
 ログを確認すると、下記のようにエラーが発生しているファイル名やエラー内容がログに書き出されています。  
 
-```
+```log
 Error: ./src/components/PostListing/PostListing.jsx
 Module not found: Error: Can't resolve './Postlisting.css'
 ```
@@ -160,7 +160,7 @@ Module not found: Error: Can't resolve './Postlisting.css'
 PostListing.jsxでのタイピングミス。  
 インポートしているPosListing.cssの”L”を小文字にしていたのが原因でした。
 
-```PostListing.jsx
+```javascript
 import React from "react";
 import _ from "lodash";
 import { Link } from "gatsby";

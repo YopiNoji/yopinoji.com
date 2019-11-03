@@ -1,8 +1,8 @@
 ---
 title: "Nuxt.jsとFirebaseを使ってサクッとポートフォリオサイトを作ってみる"
-cover: '2019-11-01-getting-started-with-nuxt-js-and-firebase/header.png'
+cover: '2019-11-03-getting-started-with-nuxt-js-and-firebase/header.png'
 category: "Tech"
-date: "2019/11/01"
+date: "2019/11/03"
 slug: "getting-started-with-nuxt-js-and-firebase"
 tags:
     - Nuxt.js
@@ -61,14 +61,14 @@ Nuxt.jsの開発に必要なのは[Node.js](https://nodejs.org/ja/)の実行環�
 前準備が整ったら以下のコマンドを実行します。  
 なお、今回は`nuxt-portfolio`というプロジェクト名で作成していますが、適宜変更してしまって大丈夫です。
 
-```
+```sh
 $ npx create-nuxt-app nuxt-portfolio
 ```
 
 コマンドを実行するとCUI上で生成するプロジェクトについて幾つか質問されます。  
 矢印キー・スペースキー・エンターキーを操作して、どういった内容のプロジェクトを生成するのか選ぶ事ができます。
 
-```
+```sh
 ✨  Generating Nuxt.js project in nuxt-portfolio
 ? Project name nuxt-portfolio
 ? Project description My astounding Nuxt.js project
@@ -90,7 +90,7 @@ nvert selection)
 
 それでは早速作成したプロジェクトを動かしてみましょう。  
 
-```
+```sh
 $ cd nuxt-portfolio
 $ npm run dev
 ```
@@ -112,7 +112,7 @@ ABOUTページを追加するためにすることは、pagesディレクトリ�
 
 ファイルの中身は、ひとまず以下のような感じにしておきます。
 
-```
+```javascript
 <template>
   <div class="container">
     <nuxt-link to="/">TOP</nuxt-link>
@@ -159,7 +159,7 @@ Nuxt.jsでは、デフォルトでlayoutディレクトリの`default.vue`の内
 Nuxt.jsアプリ内のリンクの作成には[nuxt-link](https://ja.nuxtjs.org/api/components-nuxt-link/)というNuxt.jsから用意されているコンポーネントを用います。  
 下記を参考にしてください。
 
-```
+```javascript
 <template>
   <div>
     <nav>
@@ -221,7 +221,7 @@ Firebaseを使えるようにするために、[Firebase CLI](https://firebase.g
 
 何はともあれ、Firebase CLIをNPMを使ってローカルインストールするために以下を実行します。
 
-```
+```sh
 $ npm install --save-dev  firebase-tools
 ```
 
@@ -231,7 +231,7 @@ $ npm install --save-dev  firebase-tools
 package.jsonのscripts項目にfirebaseというスクリプトを追加します。  
 以下を参考にしてください。
 
-```
+```json
 {
   "name": "nuxt-portfolio",
   "version": "1.0.0",
@@ -273,21 +273,20 @@ package.jsonのscripts項目にfirebaseというスクリプトを追加しま�
 Firebase CLIの下準備ができたら、早速CLIからログインしてみましょう。  
 以下を実行する事で認証を行います。
 
-```
+```sh
 $ npm run firebase login:ci
 ```
 
 認証が完了したら、Firebaseを使うための設定ファイルを作成します。  
 以下のコマンドを実行する事で、Firebaseを使う上での設定を行う事ができます。
 
-```
+```sh
 $ npm run firebase init
-
 ```
 
 CUIから色々と選択できますが、今回はひとまずHostingだけを選んで進みます。
 
-```
+```sh
 
      ######## #### ########  ######## ########     ###     ######  ########
      ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
@@ -313,7 +312,7 @@ irm your choices.
 ホスティングを行うディレクトリはdistを入力します。  
 以下を参考にしてください。
 
-```
+```sh
 
 === Project Setup
 
@@ -348,21 +347,21 @@ i  Writing project information to .firebaserc...
 Nuxt.jsで作成したサイトを静的サイトとして生成してあげます。  
 Nuxt.jsが静的サイト生成機能を持っているので、下記を実行するだけでdistディレクトリに静的サイトを生成してくれます。
 
-```
+```sh
 $ npm run generate
 ```
 
 エラー等の問題がなければ、distディレクトリに生成された静的サイトが存在しているはずです。  
 それでは生成したサイトをFIrebaseにホスティングすることでWeb上に公開しましょう。
 
-```
+```sh
 $ npm run firebase deploy
 
 ```
 
 デプロイが開始され、問題なければ最後にホスティング先のURLが表示されます。
 
-```
+```sh
 === Deploying to 'yopinoji-app'...
 
 i  deploying hosting
@@ -389,4 +388,8 @@ Hosting URL: https://yopinoji-app.firebaseapp.com
 
 ##参考
 
-[「それコンテナにする意味あんの？」迷える子羊に捧げるコンテナ環境徹底比較](https://dev.classmethod.jp/cloud/aws/cmdevio2019-container/)
+[Nuxt.js　公式](https://ja.nuxtjs.org)
+
+[Firebase　公式](https://firebase.google.com)
+
+
