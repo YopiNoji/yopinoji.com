@@ -76,7 +76,7 @@ Laravelを動かす最低限の環境として、以下の3つのDockerイメー
 それでは、さっそくLaravel用のDockerファイルをGitからダウンロードしましょう。  
 下記のコマンドを入力します。
 
-```sh
+```bash
 $ git clone https://github.com/YopiNoji/docker-for-laravel.git
 $ cd docker-for-laravel/
 $ rm -rf .git
@@ -94,14 +94,14 @@ Docker Composeは複数のコンテナを使うDocker環境をYMLファイルに
 
 docker-compose.ymlに起動時の処理が定義してあるので、入力するコマンドはたったの１行だけです。
 
-```sh
+```bash
 $ docker-compose up -d --build
 ```
 
 上手くコンテナが立ち上げっていれば、以下のログが表示されるはずです。  
 上から順番にMySQLコンテナ、PHPコンテナ、Nginxコンテナになります。
 
-```sh
+```bash
 Successfully tagged docker-for-laravel_app:latest
 Starting docker-for-laravel_db_1 ... done
 Creating docker-for-laravel_app_1 ... done
@@ -113,7 +113,7 @@ Creating docker-for-laravel_web_1 ... done
 起動が完了したら、ちゃんと立ち上がっているのか念のために確認しておきましょう。  
 以下のコマンドを実行して、3つコンテナが存在していればOKです。
 
-```sh
+```bash
 $ docker ps
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                               NAMES
 393ea9dec90e        nginx                    "nginx -g 'daemon of…"   4 minutes ago       Up 4 minutes        0.0.0.0:80->80/tcp                  docker-for-laravel_web_1
@@ -129,7 +129,7 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 Dockerを立ち上げる際に、PHPのパッケージ管理ツールComposerからlaravel/installerをコンテナにインストールしておいたので、  
 下記のコマンドを実行するだけでLaravelを用意できます。
 
-```sh
+```bash
 $ docker-compose exec app laravel new
 ```
 
@@ -142,13 +142,13 @@ $ docker-compose exec app laravel new
 Laravel用に作成したMySQLにDBを作成します。  
 MySQLコンテナに入るために以下を入力します。
 
-```sh
+```bash
 $ docker-compose exec db mysql -uroot -ppassword
 ```
 
 MySQLコンテナに入れたら以下を入力してDBを作成します。
 
-```sh
+```bash
 mysql> create database laravel default character set utf8;
 ```
 
@@ -174,13 +174,13 @@ DBのセットアップが完了したので、試しにLaravelのDBにテーブ
 ひとまず、Laravelが配置してあるコンテナにアクセスします。  
 以下のコマンドでアクセスできるはずです。
 
-```sh
+```bash
 $ docker-compose exec app bash
 ```
 
 Laravelのアプリケーションコンテナにアクセスできたら、マイグレーション実行コマンド（php artisan migrate）を入力してみます。
 
-```sh
+```bash
 root@588739d27992:/var/www/html# php artisan migrate  
 Migration table created successfully.
 Migrating: 2014_10_12_000000_create_users_table

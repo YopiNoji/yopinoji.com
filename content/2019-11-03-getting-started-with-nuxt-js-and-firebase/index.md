@@ -61,14 +61,14 @@ Nuxt.jsの開発に必要なのは[Node.js](https://nodejs.org/ja/)の実行環�
 前準備が整ったら以下のコマンドを実行します。  
 なお、今回は`nuxt-portfolio`というプロジェクト名で作成していますが、適宜変更してしまって大丈夫です。
 
-```sh
+```bash
 $ npx create-nuxt-app nuxt-portfolio
 ```
 
 コマンドを実行するとCUI上で生成するプロジェクトについて幾つか質問されます。  
 矢印キー・スペースキー・エンターキーを操作して、どういった内容のプロジェクトを生成するのか選ぶ事ができます。
 
-```sh
+```bash
 ✨  Generating Nuxt.js project in nuxt-portfolio
 ? Project name nuxt-portfolio
 ? Project description My astounding Nuxt.js project
@@ -90,7 +90,7 @@ nvert selection)
 
 それでは早速作成したプロジェクトを動かしてみましょう。  
 
-```sh
+```bash
 $ cd nuxt-portfolio
 $ npm run dev
 ```
@@ -221,7 +221,7 @@ Firebaseを使えるようにするために、[Firebase CLI](https://firebase.g
 
 何はともあれ、Firebase CLIをNPMを使ってローカルインストールするために以下を実行します。
 
-```sh
+```bash
 $ npm install --save-dev  firebase-tools
 ```
 
@@ -273,20 +273,20 @@ package.jsonのscripts項目にfirebaseというスクリプトを追加しま�
 Firebase CLIの下準備ができたら、早速CLIからログインしてみましょう。  
 以下を実行する事で認証を行います。
 
-```sh
+```bash
 $ npm run firebase login:ci
 ```
 
 認証が完了したら、Firebaseを使うための設定ファイルを作成します。  
 以下のコマンドを実行する事で、Firebaseを使う上での設定を行う事ができます。
 
-```sh
+```bash
 $ npm run firebase init
 ```
 
 CUIから色々と選択できますが、今回はひとまずHostingだけを選んで進みます。
 
-```sh
+```bash
 
      ######## #### ########  ######## ########     ###     ######  ########
      ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
@@ -312,7 +312,7 @@ irm your choices.
 ホスティングを行うディレクトリはdistを入力します。  
 以下を参考にしてください。
 
-```sh
+```bash
 
 === Project Setup
 
@@ -347,21 +347,21 @@ i  Writing project information to .firebaserc...
 Nuxt.jsで作成したサイトを静的サイトとして生成してあげます。  
 Nuxt.jsが静的サイト生成機能を持っているので、下記を実行するだけでdistディレクトリに静的サイトを生成してくれます。
 
-```sh
+```bash
 $ npm run generate
 ```
 
 エラー等の問題がなければ、distディレクトリに生成された静的サイトが存在しているはずです。  
 それでは生成したサイトをFIrebaseにホスティングすることでWeb上に公開しましょう。
 
-```sh
+```bash
 $ npm run firebase deploy
 
 ```
 
 デプロイが開始され、問題なければ最後にホスティング先のURLが表示されます。
 
-```sh
+```bash
 === Deploying to 'yopinoji-app'...
 
 i  deploying hosting
