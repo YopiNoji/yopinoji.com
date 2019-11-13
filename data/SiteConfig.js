@@ -16,7 +16,7 @@ const config = {
   dateFormat: "YYYY-MM-DD", // Date format for display.
   userName: "YopiNoji", // Username to display in the author segment.
   userEmail: "yopinoji@gmail.com", // Email used for RSS feed's author segment
-  userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
+  userTwitter: "YopiNoji", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Tokyo, Japan", // User location to display in the author segment.
   userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
   userDescription: "", // User description to display in the author segment.
