@@ -356,7 +356,6 @@ $ npm run generate
 
 ```bash
 $ npm run firebase deploy
-
 ```
 
 デプロイが開始され、問題なければ最後にホスティング先のURLが表示されます。
