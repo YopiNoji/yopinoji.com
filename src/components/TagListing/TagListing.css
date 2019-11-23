@@ -7,12 +7,14 @@
     padding-bottom: 10px;
     margin: 0 auto;
     font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
 }
 .taglisting .tag{
+    margin: 2.5px;
     max-width: 180px;
-    text-align: left;
+    text-align: center;
     border: 2px solid #777;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #777;
     background: #fff;
     transition: .4s;
