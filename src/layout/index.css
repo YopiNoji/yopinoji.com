@@ -9,7 +9,7 @@ html {
 
 body {
     margin: 0;
-    background-image: url("../../static/images/Subtle-Prism.svg");
+    background-color: #eee;
     background-size: cover;
 }
 

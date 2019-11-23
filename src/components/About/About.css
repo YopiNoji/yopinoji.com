@@ -4,6 +4,8 @@
     padding: 5px;
     min-height: 300px;
     background-color: #fff;
+    animation: fadeIn 0.75s ease-in-out 0s 1 normal;
+    -webkit-animation: fadeIn 0.75s ease-in-out 0s 1 normal;
 }
 
 .about .profile .profile-photo{
