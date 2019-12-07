@@ -22,7 +22,7 @@ class About extends Component {
             <p>好きなもの：技術、猫、スポーツ観戦、ゲーム</p>
             <p>苦手なもの：虫、朝起きること</p>
             <p>住所：東京/日本</p>
-            <p>連絡先：<a href="https://twitter.com/YopiNoji" target="_blank">TwitterのDM</a>または<a href="https://yopinoji.info" target="_blank">こちらのContactページ</a>へ</p>
+            <p>連絡先：<a href="https://twitter.com/YopiNoji" target="_blank">TwitterのDM</a>または<a href="https://yopinoji.info/contact" target="_blank">こちらのContactページ</a>へ</p>
             <UserInfo config={config} />
           </div>
         </div>

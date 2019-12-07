@@ -27,6 +27,7 @@ const CategoryListing = () => (
               <li>{category}</li>
             </Link>
           ))}
+          <a href="https://yopinoji.info/contact" target="_blank">Contact</a>
         </ul>
       );
     }}
