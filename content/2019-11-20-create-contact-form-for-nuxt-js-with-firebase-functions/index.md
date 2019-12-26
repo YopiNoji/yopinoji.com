@@ -124,7 +124,7 @@ exports.sendMail = functions.https.onCall((data, context) => {
 })
 ```
 
-ソースについて軽く解説すると、`nodemailer`というNode.jsでメールを送信するためのNPMパッケージがあるので、  
+ソースについて軽く解説すると、`nodemailer`というNode.jsでメールを送信するためのnpmパッケージがあるので、  
 それを用いてGmailのアカウントを使いお問い合わせ内容をメールで転送します。
 
 GmailアカウントのIDとPasswordはソースに直書きだとまずいので、Firebaseの環境変数として登録しておきます。  
@@ -243,7 +243,7 @@ FB_MESSAGING_SENDER_ID = ''
 上記のFirebaseプロジェクトの設定画面に行くと、「プロジェクトにはまだアプリがありません」と出ている箇所があります。
 
 Firebase Hostingだけの利用だとここにアプリを作成する必要はなかったのですが、  
-Firebase Functionsなどを使う際にFirebaseのNPMライブラリを使う場合はここでアプリを作成する必要があるみたいです。
+Firebase Functionsなどを使う際にFirebaseのnpmライブラリを使う場合はここでアプリを作成する必要があるみたいです。
 
 そのため、アプリを作成してあげてください。
 なお、アプリを作成する際にFirebase Toolsのインストールなど色々出てきますが、[以前の記事](/getting-started-with-nuxt-js-and-firebase)から続けている方は既に設定済みなので読み飛ばしてしまって問題ありません。

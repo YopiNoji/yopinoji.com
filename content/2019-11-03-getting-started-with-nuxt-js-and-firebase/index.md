@@ -85,7 +85,7 @@ nvert selection)
 ```
 
 今回は上記のような内容でプロジェクトを作成しました。  
-パッケージマネージャーはNPM、UIフレームワークは使わない、ESLint・Prettierはありという感じですね。  
+パッケージマネージャーはnpm、UIフレームワークは使わない、ESLint・Prettierはありという感じですね。  
 ここでの設定は自分の好きな感じにするといいと思います。
 
 それでは早速作成したプロジェクトを動かしてみましょう。  
@@ -211,15 +211,15 @@ CSSやJavaScriptで装飾して好きなようにサイトを構築してくだ�
 サクッと登録を済ませてプロジェクトを作成しましょう。
 
 プロジェクトを作成したら、先ほどのNuxt.jsに戻ります。  
-Firebaseを使えるようにするために、[Firebase CLI](https://firebase.google.com/docs/cli/?hl=ja)をNPMからインストールする必要があります。
+Firebaseを使えるようにするために、[Firebase CLI](https://firebase.google.com/docs/cli/?hl=ja)をnpmからインストールする必要があります。
 
-[公式のガイド](https://firebase.google.com/docs/cli/?hl=ja)によるとNPMでFirebase CLIをグローバルインストールするのを推奨しているようですが、  
+[公式のガイド](https://firebase.google.com/docs/cli/?hl=ja)によるとnpmでFirebase CLIをグローバルインストールするのを推奨しているようですが、  
 個人的にグローバルで使えるようにPCに色々とインストールするのがあまり好きではないのでローカルインストールで使います。  
 （Dockerで開発環境を整える事でPCに直接インストールを避けるという方法もありますが、ここでは解説しません。）
 
-「そもそもNPMのグローバルインストールとかローカルインストールって何？」という方は[こちら](https://qiita.com/heyheyww/items/092fcbc490a249a2d05c)を参照してみてください。
+「そもそもnpmのグローバルインストールとかローカルインストールって何？」という方は[こちら](https://qiita.com/heyheyww/items/092fcbc490a249a2d05c)を参照してみてください。
 
-何はともあれ、Firebase CLIをNPMを使ってローカルインストールするために以下を実行します。
+何はともあれ、Firebase CLIをnpmを使ってローカルインストールするために以下を実行します。
 
 ```bash
 $ npm install --save-dev  firebase-tools

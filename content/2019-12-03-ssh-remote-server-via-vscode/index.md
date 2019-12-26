@@ -12,7 +12,7 @@ Visual Studio Code（VSCode）でEC2にSSHしてコード編集する方法が�
 
 AWSのEC2を使ってる前提で書いてますが、リモートサーバのコードをエディタを使って編集したい用途なら何にでも活用できるはずです。
 
-##前準備
+## 前準備
 VSCodeでSSHを使う前の準備段階として、SSHのコンフィグ（設定ファイル）を定義してあげる必要があります。
 
 `.ssh/config`にSSH接続先のリモートサーバを定義を記述します。
@@ -32,7 +32,7 @@ Host yopinoji-com
 
 SSH接続に問題が無いようであれば前準備は完了です。
 
-##VSCodeでSSHできるようにする
+## VSCodeでSSHできるようにする
 
 それでは実施にVSCodeでSSH接続する手順です。
 
@@ -61,7 +61,7 @@ SSH接続に成功すると、VSCode左下が接続先になっているはず�
 
 あとは自由にSSH接続先でフォルダを開いて編集するだけです。
 
-##終わりに
+## 終わりに
 
 今回、AWSのEC2にあるコードをエディタから直接編集する目的でVSCodeのプラグインを試してみましたが、  
 少し設定を弄って、VSCodeのプラグインを入れるだけなのでとても楽な上に便利でした。
@@ -71,7 +71,7 @@ SSH接続に成功すると、VSCode左下が接続先になっているはず�
 リモートサーバのコードを直接編集する用途なら本当にオススメなので是非試してみてください。
 
 
-##参考
+## 参考
 
 [Visual Studio Code Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
