@@ -163,6 +163,9 @@ export default {
 ユーザーからの細かい要望にも答えやすいのは魅力です。  
 ただ、場合によってはコードが長くなりやすいかもしれないですね。
 
+PDFの図表やテーブルなど`pdfmake`を使ったスタイリングについては、以下のページから試すことが可能です。  
+http://pdfmake.org/playground.html
+
 Chrome、Safari、IE11、EdgeなどのブラウザでPDF出力を確認しましたが、特に問題なさそうでした。
 
 ## jspdfを使いHTMLを画像化（Canvas化）してPDF出力するサンプル
