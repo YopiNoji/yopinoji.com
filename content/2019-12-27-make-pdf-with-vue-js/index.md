@@ -14,9 +14,11 @@ tags:
 
 ## そもそもなぜクライアントサイドのJSでPDF出力したいのか
 
-- サーバサイドに負荷をあまりかけたくないから
+クライアントサイドでPDF出力しようと思ったのは主に以下の理由です。
+
+- サーバサイドにあまり負荷をかけたくないから
 - クライアントサイドのJSでPDF出力する方法を知っておけば、サーバサイドの言語に縛られずPDF出力可能になるから
-- 単純にJavaScriptが好きだから
+- 単純にJavaScriptでの実装が好きだから
 
 ## 求めるもの
 
@@ -64,7 +66,9 @@ https://www.npmtrends.com/jspdf-vs-pdfkit-vs-pdfmake
 
 ## pdfmakeで日本語フォントの情報が載ったvfs_fonts.jsを用意して読み込むサンプル
 
-`pdfmake`を使ったサンプルです。
+`pdfmake`を使い、`vfs_fonts.js`を読み込むサンプルです。
+`vfs_fonts.js`は本来は`node_modules/pdfmake/build/`直下にいるのですが、こいつだけ日本語化したものを後から読み込ませてあげる構成です。
+こうすることで`pdfMake`自体はnpmで管理することを実現しています。
 
 日本語フォント入りの`vfs_fonts.js`は自分で生成することも可能ですが、手間だったので今回は省きます。  
 偉大な先人が作成してくださった[vfs_fonts.js](https://github.com/naoa/pdfmake/blob/master/build/vfs_fonts.js)を使わせてもらうのが楽です。
@@ -75,8 +79,6 @@ pdfmake自体は`npm`か`yarn`を使ってインストールします。
 ```
 npm i pdfmake --save
 ```
-
-`pdfMake`自体はnpmで管理し、日本語フォントの情報のみを読み込むことでシンプルな構成を実現しています。
 
 以下のサンプルプログラムはVue.jsを使って書いています。  
 `vfs_fonts.js`を用意すれば、そのままコンポーネントとして使えるはずです。
