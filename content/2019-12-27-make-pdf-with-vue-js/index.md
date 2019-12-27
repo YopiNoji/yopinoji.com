@@ -68,8 +68,8 @@ https://www.npmtrends.com/jspdf-vs-pdfkit-vs-pdfmake
 ## pdfmakeで日本語フォントの情報が載ったvfs_fonts.jsを用意して読み込むサンプル
 
 `pdfmake`を使い、`vfs_fonts.js`を読み込むサンプルです。
-`vfs_fonts.js`は本来は`node_modules/pdfmake/build/`直下にいるのですが、こいつだけ日本語化したものを後から読み込ませてあげる構成です。
-こうすることで`pdfMake`自体はnpmで管理することを実現しています。
+`vfs_fonts.js`は本来は`node_modules/pdfmake/build/`直下にいるのですが、こいつだけ日本語フォントに対応したものを後から読み込ませてあげます。  
+こうすることで`pdfMake`自体は`npm`で管理しつつ日本語フォントに対応することを実現しています。
 
 日本語フォント入りの`vfs_fonts.js`は自分で生成することも可能ですが、手間だったので今回は省きます。  
 偉大な先人が作成してくださった[vfs_fonts.js](https://github.com/naoa/pdfmake/blob/master/build/vfs_fonts.js)を使わせてもらうのが楽です。
@@ -171,8 +171,12 @@ Chrome、Safari、IE11、EdgeなどのブラウザでPDF出力を確認しまし
 ## jspdfを使いHTMLを画像化（Canvas化）してPDF出力するサンプル
 
 `jspdf`を使う例も置いておきます。  
-今回の例ではHTMLをCanvasに変換して画像としてPDFに書き出す方法を使っています。
-そのため、Canvasに変換するためのパッケージとして`html2canvas`というパッケージも導入する必要があります。
+今回の例ではHTMLをCanvasに変換して画像としてPDFに書き出す方法を使っています。  
+そのため、どんな言語の文字であってもフォントなしでPDF出力可能です。  
+（ただし、文字を画像として出力するので、PDF内を文字で検索することはできません。）
+
+Canvasに変換するためのパッケージとして`html2canvas`というパッケージも導入する必要があります。  
+このパッケージを使うことでHTML要素を指定して画像化することができます。
 
 使用するパッケージは`npm`か`yarn`を使ってインストールします。  
 今回は例によって`npm`を使います。
@@ -243,7 +247,7 @@ export default {
 
 ## 結論
 
-凝ったPDFを作りたい場合はpdfmakeを、とりあえずWebページをそのままPDFにしたい場合はjspdfを選ぶといいんじゃないのかな。
+凝ったPDFを作りたい場合は`pdfmake`を、とりあえずWebページをそのままPDFにしたい場合は`jspdf`を選ぶといいんじゃないのかな。
 
 ## 最後に
 
