@@ -6,10 +6,10 @@ RUN \
   apk add vips-dev fftw-dev --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community --repository http://dl-3.alpinelinux.org/alpine/edge/main && \
   rm -fR /var/cache/apk/*
 
-RUN npm install -g gatsby-cli yarn --force
+RUN npm install -g gatsby-cli
 
 WORKDIR /app
 COPY ./package.json .
-RUN yarn install && yarn cache clean
+RUN npm install && npm cache clean --force
 COPY . .
-CMD ["yarn", "develop", "-H", "0.0.0.0" ]
+CMD ["npm", "run", "develop", "--", "--host", "0.0.0.0" ]
