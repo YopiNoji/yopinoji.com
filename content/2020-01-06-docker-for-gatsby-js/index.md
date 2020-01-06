@@ -83,7 +83,7 @@ node_modules
 ```
 
 最後に`.dockerignore`の紹介です。  
-こいつは無くても動くはずです。
+こいつは無くても動くはずです。  
 ただ、ブラックホールより重いことに定評のある`node_modules`をコンテナにコピーするのは気が引けるので、一応用意します。
 
 ![heaviest_objects_in_the_universe](./heaviest_objects_in_the_universe.jpg)
