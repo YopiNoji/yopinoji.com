@@ -10,4 +10,4 @@ WORKDIR /app
 COPY ./package.json .
 RUN npm install && npm cache clean --force
 COPY . .
-CMD ["npm", "run", "develop", "--", "--host", "0.0.0.0" ]
+# CMD ["npm", "run", "develop", "--", "--host", "0.0.0.0" ]
