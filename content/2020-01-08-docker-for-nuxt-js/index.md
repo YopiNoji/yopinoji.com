@@ -1,5 +1,5 @@
 ---
-title: "Nuxt.jsををDocker(Docker Compose)を使って動かす"
+title: "Nuxt.jsのプロジェクトをDocker(Docker Compose)を使って動かす"
 cover: '2020-01-08-docker-for-nuxt-js/header.png'
 category: "Tech"
 date: "2020-01-08"
