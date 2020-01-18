@@ -1,22 +1,22 @@
 ---
-title: "GatsbyJSを使ったブログのはじめ方"
+title: "Gatsbyを使ったブログのはじめ方"
 cover: '2019-09-12-how-to-start-gatsby-js/header.png'
 category: "Tech"
 date: "2019/09/12"
 slug: "how-to-start-gatsby-js"
 tags:
-    - GatsbyJS
+    - Gatsby
     - Blog
 ---
 
-![GatsbyJS](./gatsby.png)
+![Gatsby](./gatsby.png)
 
-GatsbyJSを使ったブログのはじめ方についての解説記事です。  
+Gatsbyを使ったブログのはじめ方についての解説記事です。  
 ブログを例にしていますが、コーポレートサイトなど他のサイト制作にも活用できると思います。
 
 ##開発環境準備
 
-GatsbyJSは[Node.js](https://nodejs.org/ja/)が使える環境で動きます。  
+Gatsbyは[Node.js](https://nodejs.org/ja/)が使える環境で動きます。  
 インストールしていない場合は、PCに[Node.js](https://nodejs.org/ja/)をインストールしておきましょう。
 
 インストールが済んだら、Node.js本体とそのパッケージ管理ツールnpmが使えることを確認しましょう。  
@@ -35,24 +35,24 @@ npm -v
 
 環境構築前に用意する必要があるものは以上です。
 
-ちなみに、GatsbyJS公式の手順ではGatsby CLIというCLIツールをインストールして環境構築する方法が載っていますが、  
+ちなみに、Gatsby公式の手順ではGatsby CLIというCLIツールをインストールして環境構築する方法が載っていますが、  
 今回はCLIツールをインストールしない方法での環境構築手順になります。
 
-##GatsbyJSプロジェクトの作成
+##Gatsbyプロジェクトの作成
 
-まず、GatsbyJSでWebサイトを作る際のスターターを選択しましょう。  
-スターターとは、GatsbyJSでWebサイトを作る際の雛形やテンプレートのようなもので、開発者やユーザーがスターターを用意してくれています。
+まず、GatsbyでWebサイトを作る際のスターターを選択しましょう。  
+スターターとは、GatsbyでWebサイトを作る際の雛形やテンプレートのようなもので、開発者やユーザーがスターターを用意してくれています。
 
 - [Gatsby Starters](https://www.gatsbyjs.org/starters/?v=2)
 
 執筆時点で260種類以上あるのでどれを選ぶか迷うかもしれません。  
 
-[GatsbyJSの作者が作ったスターター](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-default/)や[Netlify社が用意しているスターター](https://www.gatsbyjs.org/starters/netlify-templates/gatsby-starter-netlify-cms/)などが人気のようですが、  
+[Gatsbyの作者が作ったスターター](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-default/)や[Netlify社が用意しているスターター](https://www.gatsbyjs.org/starters/netlify-templates/gatsby-starter-netlify-cms/)などが人気のようですが、  
 個人的にはコードの可読性があまり良くないと感じたためこちらは使っていません。
 
 個人的に[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)や[gatsby-advanced-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-advanced-starter/)がコードの可読性が良くて好みです。  
 
-スターターを決めたら、GatsbyJSのプロジェクトファイルを用意しましょう。  
+スターターを決めたら、Gatsbyのプロジェクトファイルを用意しましょう。  
 CUIでプロジェクトを作成するフォルダに移動し、以下のコマンドを入力します。  
 今回の例では[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)を使用しています。
 
@@ -61,7 +61,7 @@ npx gatsby new gatsby-site https://github.com/Vagr9K/gatsby-material-starter
 ```
 
 コマンドを実行すると、実行したフォルダ直下にgatsby-siteというフォルダができているはずです。  
-そのフォルダがGatsbyJSのプロジェクトファイルになります。
+そのフォルダがGatsbyのプロジェクトファイルになります。
 
 ちなみに、今回使用した[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)では、以下がデフォルトで含まれています。
 
@@ -70,9 +70,9 @@ npx gatsby new gatsby-site https://github.com/Vagr9K/gatsby-material-starter
 - CSS ModuleによるCSS記述
 - JSXによる記述
 
-##GatsbyJSの開発環境を立ち上げる
+##Gatsbyの開発環境を立ち上げる
 
-GatsbyJSのプロジェクトファイルを作成したら、ローカル環境でGatsbyJSを動作させてみましょう。  
+Gatsbyのプロジェクトファイルを作成したら、ローカル環境でGatsbyを動作させてみましょう。  
 ひとまず、CUIから作成したフォルダに移動します。
 
 ```bash
@@ -88,7 +88,7 @@ npm run develop
 
 コマンド入力したことで、CUIに色々とステータスが表示されますが、  
 一通り収まった後に、[localhost:8000](http://localhost:8000)にアクセスしてみます。  
-GatsbyJSのスターターで作られたサイトが表示されていれば、開発環境の構築は完了です。  
+Gatsbyのスターターで作られたサイトが表示されていれば、開発環境の構築は完了です。  
 
 ![gatsby-material-starter](./gatsby-material-starter.png)
 
@@ -98,11 +98,11 @@ GatsbyJSのスターターで作られたサイトが表示されていれば、
 npm run build
 ```
 
-publicフォルダにGatsbyJSにより静的サイトが生成されます。
+publicフォルダにGatsbyにより静的サイトが生成されます。
 
 ##フォルダ構成の解説
 
-ここからは、簡単にGatsbyJSプロジェクトのフォルダ構成を解説していきます。  
+ここからは、簡単にGatsbyプロジェクトのフォルダ構成を解説していきます。  
 ただ、使用するスターターによってフォルダ構成は異なるので参考程度に考えてもらえればと思います。  
 今回は[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)でのフォルダ構成を例に解説していきます。
 
@@ -138,12 +138,12 @@ WordPressでいうところの固定ページを作る際に弄ります。
 
 あとは自分好みにソースコードを改修してサイトを作っていくだけです。
 
-GatsbyJSはホットリロード対応なので、  
+Gatsbyはホットリロード対応なので、  
 ソースを修正して保存するとその内容がすぐにローカル開発環境へ反映されて確認することができます。
 
-GatsbyJSで作成したサイトをWeb上で公開する方法については、別記事で解説しているので、  
+Gatsbyで作成したサイトをWeb上で公開する方法については、別記事で解説しているので、  
 公開する際にはそちらも参考にしてみてください。
 
 ##参考
 
-[GatsbyJS ドキュメント](https://www.gatsbyjs.org/docs/)
+[Gatsby ドキュメント](https://www.gatsbyjs.org/docs/)

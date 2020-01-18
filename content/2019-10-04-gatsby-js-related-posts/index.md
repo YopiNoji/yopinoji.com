@@ -1,16 +1,16 @@
 ---
-title: "GatsbyJSブログに関連記事を表示するコンポーネントを追加する"
+title: "Gatsbyブログに関連記事を表示するコンポーネントを追加する"
 cover: '2019-10-04-gatsby-js-related-posts/header.png'
 category: "Tech"
 date: "2019/10/04"
 slug: "gatsby-js-related-posts"
 tags:
-    - GatsbyJS
+    - Gatsby
 ---
 
-![GatsbyJS](./gatsby.png)
+![Gatsby](./gatsby.png)
 
-GatsbyJSで作成したブログに関連記事を表示させてみたので、その話です。 
+Gatsbyで作成したブログに関連記事を表示させてみたので、その話です。 
 
 ##関連記事をどのような条件で表示させるのか
 
@@ -32,7 +32,7 @@ GatsbyJSで作成したブログに関連記事を表示させてみたので、
 
 [タグ一覧を作ったとき](gatsby-js-tags/)と同じように、関連記事コンポーネントではStaticQueryを使って作ります。 
 
-ちなみに、GatsbyJSのGraphQLでは`filter`というクエリを使ってフィルタリングをすることができます。
+ちなみに、GatsbyのGraphQLでは`filter`というクエリを使ってフィルタリングをすることができます。
 
 ```json
 {
@@ -218,4 +218,4 @@ export default RelatedPosts;
 
 ##参考
 
-[GatsbyJS公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
+[Gatsby公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
