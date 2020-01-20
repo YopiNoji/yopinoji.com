@@ -27,7 +27,7 @@ GUIの左側の入力欄にクエリを入力して実行ボタンを押すと�
 
 試しに、自分の環境で以下のクエリを実行してみます。
 
-```json
+```JavaScript
 {
   allMarkdownRemark(
     limit: 1000
@@ -66,7 +66,7 @@ GUIの左側の入力欄にクエリを入力して実行ボタンを押すと�
 記事データを取得するクエリを元に、frontmatter配列の中にあるtags項目から重複を除いてデータを取得するクエリを書いてみました。  
 試しに、下記のクエリを実行してみます。
 
-```json
+```JavaScript
 {
   allMarkdownRemark(
     limit: 1000
