@@ -1,12 +1,12 @@
 ---
-title: "GatsbyJSのサイトがNetlifyでビルドエラーになった件"
+title: "GatsbyのサイトがNetlifyでビルドエラーになった件"
 cover: '2019-09-13-netlify-trouble-shooting/header.png'
 category: "Tech"
 date: "2019/09/13"
 slug: "netlify-trouble-shooting"
 tags:
     - Netlify
-    - GatsbyJS
+    - Gatsby
     - Webサービス
 ---
 
@@ -19,7 +19,7 @@ Netlifyは本当に便利なサービスで、Gitリポジトリが更新され�
 ただ、設定はちゃんと行っているのに、Netlifyでビルドエラーが起こることもあると思います。  
 （というか自分はビルドエラーに悩まされました。）
 
-そういう訳で、自分のGatsbyJSを使ったサイトでNetlifyのビルドに失敗した際の解決策を以下に記述していきます。
+そういう訳で、自分のGatsbyを使ったサイトでNetlifyのビルドに失敗した際の解決策を以下に記述していきます。
 
 ##前提
 
@@ -52,7 +52,7 @@ netlify.tomlはNetlifyでのビルド時にカスタム設定を使う際に必�
 どうやらnetlify.tomlが存在する場合、Webからビルドコマンドを設定していてもnetlify.tomlの設定が優先されてしまうようです。  
 
 そもそも、なぜこうなったのかというと、  
-プロジェクト作成時にGatsbyJSのスターターを利用したのですが、  
+プロジェクト作成時にGatsbyのスターターを利用したのですが、  
 自分が使用したスターターに既にnetlify.tomlが存在していたことが原因でした。  
 
 なんとも不覚です。

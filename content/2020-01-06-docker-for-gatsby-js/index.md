@@ -1,11 +1,11 @@
 ---
-title: "GatsbyJS製のブログをDocker(Docker Compose)を使って動かす"
+title: "Gatsby製のブログをDocker(Docker Compose)を使って動かす"
 cover: '2020-01-06-docker-for-gatsby-js/header.png'
 category: "Tech"
 date: "2020-01-06"
 slug: "docker-for-gatsby-js"
 tags:
-    - GatsbyJS
+    - Gatsby
     - Docker
 ---
 
@@ -16,7 +16,7 @@ tags:
 
 ## オレオレDocker環境の紹介
 
-今回は`Dockerfile`と`docker-compose.yml`の２つをGatsbyJSプロジェクト直下に配置して、GatsbyJSプロジェクトをDocker化します。
+今回は`Dockerfile`と`docker-compose.yml`の２つをGatsbyプロジェクト直下に配置して、GatsbyプロジェクトをDocker化します。
 
 Docker Composeは複数のコンテナを使うDocker環境をYMLファイルに定義することで、それらを連動して起動することができるツールです。  
 今回はコンテナを複数使う訳ではないですが、Docker Composeを使うとコマンド１つで起動できて楽なので使います。
@@ -45,7 +45,7 @@ services:
 
 とてもシンプルな構成かと思います。
 
-Dockerコンテナ内部の`/app`フォルダでGatsbyJSを動かす算段です。  
+Dockerコンテナ内部の`/app`フォルダでGatsbyを動かす算段です。  
 8000番のポートを解放して、PCから[localhost:8000](http://localhost:8000)にアクセスすることでサイトを確認できるようにしてあります。
 
 ### Dockerfile
@@ -72,7 +72,7 @@ Linuxディストリビューションは、ファイルの軽量さに定評の
 Alpine Linuxを用いる際の注意点として、npmの`sharp`モジュールを動かすために`vips-dev`などのインストールが別途必要になります。  
 こいつのインストールも`Dockerfile`に定義します。
 
-その後、`package.json`をDockerコンテナにコピーして、それを元に依存性パッケージをインストールして、GatsbyJSプロジェクトをコピーします。
+その後、`package.json`をDockerコンテナにコピーして、それを元に依存性パッケージをインストールして、Gatsbyプロジェクトをコピーします。
 
 最後に、`--host 0.0.0.0`を指定して開発環境を立ち上げるだけです。
 
@@ -90,7 +90,7 @@ node_modules
 
 ### Docker起動
 
-さて、上で紹介した`Dockerfile`と`docker-compose.yml`と`.dockerignore`をGatsbyJSプロジェクト配下に配置しましょう。
+さて、上で紹介した`Dockerfile`と`docker-compose.yml`と`.dockerignore`をGatsbyプロジェクト配下に配置しましょう。
 
 配置したら下記のコマンドを入力します。
 
@@ -102,7 +102,7 @@ docker-compose up -d --build
 もし、動かない場合はご連絡いただければ幸いです。
 
 コンテナが起動したら[localhost:8000](http://localhost:8000)にアクセスします。  
-問題なくGatsbyJSブログが動いていれば問題ありません。
+問題なくGatsbyブログが動いていれば問題ありません。
 
 ## 最後に
 

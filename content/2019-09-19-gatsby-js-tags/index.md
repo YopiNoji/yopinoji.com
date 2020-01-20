@@ -1,28 +1,28 @@
 ---
-title: "GraphQLで一意の値を取得することでGatsbyJSブログにタグ一覧を作る"
+title: "GraphQLで一意の値を取得することでGatsbyブログにタグ一覧を作る"
 cover: '2019-09-19-gatsby-js-tags/header.png'
 category: "Tech"
 date: "2019/09/19"
 slug: "gatsby-js-tags"
 tags:
-    - GatsbyJS
+    - Gatsby
 ---
 
-![GatsbyJS](./gatsby.png)
+![Gatsby](./gatsby.png)
 
-GatsbyJSで作成したブログにタグ一覧を表示する機能を実装したので、その話です。
+Gatsbyで作成したブログにタグ一覧を表示する機能を実装したので、その話です。
 
 なお、本記事では既に記事に対してタグ機能が実装済みという前提で話が進んでいきます。  
 GraphQLを用いて重複しないタグ情報を取得するということについて主に書いています。  
 
-##そもそもGatsbyJSはどのようにデータ取得しているのか
+##そもそもGatsbyはどのようにデータ取得しているのか
 
 ![GraphQL](./graphql-gui.png)
 
-もう既にご存知かもしれませんが、GatsbyJSではGraphQLを用いてデータを取得しています。  
+もう既にご存知かもしれませんが、GatsbyではGraphQLを用いてデータを取得しています。  
 GraphQLで取得したデータを元に、静的サイトを生成しているわけです。
 
-GatsbyJSをローカル環境で動作している場合、[localhost:8000/___graphql](http://localhost:8000/___graphql)にアクセスすることで、GraphQLのクエリをGUIから試してみることができます。  
+Gatsbyをローカル環境で動作している場合、[localhost:8000/___graphql](http://localhost:8000/___graphql)にアクセスすることで、GraphQLのクエリをGUIから試してみることができます。  
 GUIの左側の入力欄にクエリを入力して実行ボタンを押すと、取得したデータ（JSON形式）を確認する事ができます。  
 
 試しに、自分の環境で以下のクエリを実行してみます。
@@ -83,11 +83,11 @@ GUIの左側の入力欄にクエリを入力して実行ボタンを押すと�
 
 ##StaticQueryを用いたコンポーネントを作成する
 
-GatsbyJSでReactコンポーネントからGraphQLを呼ぶ場合、StaticQueryというものを使います。  
+GatsbyでReactコンポーネントからGraphQLを呼ぶ場合、StaticQueryというものを使います。  
 このStaticQueryを使う事で、ページ生成用のファイル以外からもGraphQLを使う事ができます。
 
 StaticQueryを用いてタグの一覧を表示するコンポーネントを作ってみました。  
-GatsbyJSのLinkコンポーネントを用いて、各タグが使われている記事の一覧を表示するページへのリンクもつけてみました。
+GatsbyのLinkコンポーネントを用いて、各タグが使われている記事の一覧を表示するページへのリンクもつけてみました。
 
 ```javascript
 import React from "react";
@@ -132,9 +132,9 @@ export default TagListing;
 
 ##終わりに
 
-今回は、GatsbyJSでタグの一覧を表示する機能を作ってみましたが、  
+今回は、Gatsbyでタグの一覧を表示する機能を作ってみましたが、  
 カテゴリーの一覧を作るなどにも活用する事ができるので、もし機会があれば是非試してみてください。
 
 ##参考
 
-[GatsbyJS公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
+[Gatsby公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
