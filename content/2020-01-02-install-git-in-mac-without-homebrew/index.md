@@ -5,8 +5,8 @@ category: "Tech"
 date: "2020-01-02"
 slug: "install-git-in-mac-without-homebrew"
 tags:
-    - Mac
     - Git
+    - Mac
 ---
 
 最近、年末年始ということで思い切ってPCのクリーンインストールを行い、Gitなど開発に使うものを全てインストールしなおしました。
