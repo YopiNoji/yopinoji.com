@@ -1,5 +1,5 @@
 ---
-title: "Git操作を改めてまとめたカンニングペーパー的な記事"
+title: "Git 操作を改めてまとめたカンニングペーパー的な記事"
 cover: '2020-01-29-how-to-manipulate-git/header.png'
 category: "Tech"
 date: "2020-01-29"
@@ -42,7 +42,15 @@ git checkout .
 git clean -df .
 ```
 
-## git add した差分の取り消し
+## git add の取り消し
+
+### 個別に取り消す場合
+
+```
+git rm -r --cache target_folder
+```
+
+### 全部取り消す場合
 
 ```
 git reset HEAD .

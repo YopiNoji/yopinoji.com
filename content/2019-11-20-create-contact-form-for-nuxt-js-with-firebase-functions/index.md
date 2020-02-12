@@ -12,7 +12,7 @@ tags:
 [Nuxt.jsとFirebaseを使ったポートフォリオサイトの作り方](/getting-started-with-nuxt-js-and-firebase)について以前解説しましたが、  
 そのサイトにFirebase Functionsを使ったお問い合わせフォームを作成したのでその手順です。
 
-##Firebase Functionsとは何か
+## Firebase Functionsとは何か
 
 まず今回使うFirebase Functionsですが、ざっくりと簡単に説明すると「Webサーバ不要なサーバレスのAPIをNode.jsで作れるよ」というものです。
 
@@ -171,7 +171,7 @@ $ npm install nodemailer
 
 これでFirebase Functionsを使い、お問い合わせ内容をメールで転送するAPIの作成はほぼ完成です。
 
-##Nuxt.jsでFirebase Functionsを使う画面を作る
+## Nuxt.jsでFirebase Functionsを使う画面を作る
 
 次はAPIにお問い合わせ内容を送るための画面をNuxt.js(Vue.js)で作っていきます。
 
@@ -369,12 +369,12 @@ $ npm run firebase deploy
 
 お問い合わせ送信用のAPIにログ関数を仕込んで色々と試してみてください。
 
-##終わりに
+## 終わりに
 
 Webサーバを用いないサーバレスの構成で、ここまで実装を行うことができるFirebaseは本当に便利です。  
 Firebase上の他のサービスも活用することでもっと深いところまで作れると思うので、是非試してみてください。
 
-##参考
+## 参考
 
 [Firebase　公式](https://firebase.google.com)
 

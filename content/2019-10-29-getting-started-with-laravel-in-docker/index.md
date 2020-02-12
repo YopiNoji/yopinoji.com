@@ -11,9 +11,9 @@ tags:
 
 Laravelの開発環境をDockerを使って構築してみたのでその話です。
 
-##なぜDockerを使うのか
+## なぜDockerを使うのか
 
-###少ないソースコードで簡単に開発環境を構築し管理できる
+### 少ないソースコードで簡単に開発環境を構築し管理できる
 
 まず、Dockerではコンテナという単位でサービス(MySQLやNginxなど)を動かしています。  
 このコンテナというものはDockerイメージを元に作成することができます。
@@ -26,7 +26,7 @@ DockerイメージにはMySQLのイメージやNginxのイメージなどが存�
 コード量も少なく学習コストも少ないため、簡単に触りやすいというのはとても良いことだと思います。  
 また、インフラの情報をコードで管理できるというのもDockerの利点ですね。
 
-###コンテナごとデプロイすることで複数の環境で同じ環境を作ることができる
+### コンテナごとデプロイすることで複数の環境で同じ環境を作ることができる
 
 同じアプリケーションを開発してるのに開発メンバーの参入時期によって開発環境が違うということが、チームで開発する際に稀にあると思います。  
 
@@ -40,7 +40,7 @@ AWSのECS、GCPのGCEなどDockerコンテナごとデプロイできるサー�
 問題があった際に本番環境と同じ環境での検証が困難といったこともあると思います（経験談）。  
 それらのチグハグな環境をDockerをコンテナごとデプロイすることで統一することができます。
 
-##Dockerを使える環境を整える
+## Dockerを使える環境を整える
 
 Windowsの場合はDocker Desktop for Windowsをインストールできます。  
 https://hub.docker.com/editions/community/docker-ce-desktop-windows
@@ -53,7 +53,7 @@ https://hub.docker.com/editions/community/docker-ce-desktop-mac
 インストールしたらDockerクライアントを立ち上げておきましょう。  
 Dockerを使うための準備は以上で完了です。
 
-##Docker立ち上げ用のファイルを用意する
+## Docker立ち上げ用のファイルを用意する
 
 Laravel用のDocker環境として有名なものに[Laradock](https://laradock.io)というものがあります。  
 Laradockはドキュメントが充実していて、さらにSymfonyやWordPressなど他のPHPを使った開発環境構築をサポートしているなど、なかなか便利ではあります。
@@ -84,7 +84,7 @@ $ rm -rf .git
 
 なお、今回はこのまま「docker-for-laravel」というプロジェクトフォルダに環境を構築しますが、作成するアプリによってプロジェクトフォルダの名前は適宜書き換えた方が良いと思います。
 
-##Docker Composeを使い開発環境を立ち上げる
+## Docker Composeを使い開発環境を立ち上げる
 
 MySQLとNginxとPHPの3つのコンテナを立ち上げます。
 
@@ -121,7 +121,7 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 0d652fa7d142        mysql:5.7                "docker-entrypoint.s…"   7 minutes ago       Up 4 minutes        0.0.0.0:3306->3306/tcp, 33060/tcp   docker-for-laravel_db_1
 ```
 
-##Docker環境にLaravelをインストールする
+## Docker環境にLaravelをインストールする
 
 さて、ここまでで既にLaravelを動かすための環境は概ね用意できました。  
 ただし、肝心のLaravelプロジェクトはまだ存在していない状態なので早速インストールしましょう。
@@ -137,7 +137,7 @@ $ docker-compose exec app laravel new
 
 ![laravel_default_top](./laravel_default_top.png)
 
-##MySQLにLaravel用のDBを作る
+## MySQLにLaravel用のDBを作る
 
 Laravel用に作成したMySQLにDBを作成します。  
 MySQLコンテナに入るために以下を入力します。
@@ -166,7 +166,7 @@ DB_PASSWORD=password
 
 これでDBのセットアップは完了です。
 
-##試しにDBにマイグレーションしてみる
+## 試しにDBにマイグレーションしてみる
 
 DBのセットアップが完了したので、試しにLaravelのDBにテーブルを作ってみましょう。  
 今回はLaravelセットアップ時ににデフォルトで作成されるマイグレーションファイルを元にしてテーブルを作ってみます。
@@ -197,7 +197,7 @@ DB接続に問題なければ上記の表示になるはずです。
 割と簡単にLaravel開発環境を構築できたのではないでしょうか。
 
 
-##参考
+## 参考
 
 [「それコンテナにする意味あんの？」迷える子羊に捧げるコンテナ環境徹底比較](https://dev.classmethod.jp/cloud/aws/cmdevio2019-container/)
 

@@ -19,7 +19,7 @@ tags:
 
 そんな中で、[draw.io](https://www.draw.io)というWebサービスを知ってからは作図はそちらで行うことが増えたので、その紹介です。
 
-##draw.ioとは？
+## draw.ioとは？
 
 ![draw.io](./drawio.png)
 
@@ -34,7 +34,7 @@ draw.io自体はオープンソースになっていて、[JGraph社のGitHub](h
 
 また、JGraph社のGitHubを見ていて気づいたのですが、Web版だけでなくオフラインでも使えるデスクトップ版もあるようですね。
 
-##draw.ioを実際に使ってみる
+## draw.ioを実際に使ってみる
 
 ![draw.io-01](./drawio-01.png)
 
@@ -71,7 +71,7 @@ AWS・GCP・Azureなどのクラウドサービスのアイコンを使ったシ
 
 そんなこんなでこのような図表を作ることができました。
 
-##参考
+## 参考
 
 [draw.io](https://www.draw.io)
 
