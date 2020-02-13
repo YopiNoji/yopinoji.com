@@ -1,5 +1,5 @@
 ---
-title: "Nuxt.jsとFirebaseを使ってサクッとポートフォリオサイトを作ってみる"
+title: "Nuxt.js と Firebase を使ってサクッとポートフォリオサイトを作ってみる"
 cover: '2019-11-03-getting-started-with-nuxt-js-and-firebase/header.png'
 category: "Tech"
 date: "2019/11/03"

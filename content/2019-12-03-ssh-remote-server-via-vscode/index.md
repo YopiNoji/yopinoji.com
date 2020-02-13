@@ -1,5 +1,5 @@
 ---
-title: "VSCodeでリモートサーバにSSH接続して直接コード編集するためのプラグインが最高だった"
+title: "VSCode でリモートサーバに SSH 接続して直接コード編集するためのプラグインが最高だった"
 cover: '2019-12-03-ssh-remote-server-via-vscode/header.png'
 category: "Tech"
 date: "2019/12/03"

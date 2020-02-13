@@ -1,5 +1,5 @@
 ---
-title: "GatsbyのサイトがNetlifyでビルドエラーになった件"
+title: "Gatsby のサイトが Netlify でビルドエラーになった件"
 cover: '2019-09-13-netlify-trouble-shooting/header.png'
 category: "Tech"
 date: "2019/09/13"

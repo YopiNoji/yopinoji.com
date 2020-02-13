@@ -1,5 +1,5 @@
 ---
-title: "Gatsbyを使ってブログを作ってみた"
+title: "Gatsby を使ってブログを作ってみた"
 cover: '2019-09-09-gatsby-js-blog/header.png'
 category: "Tech"
 date: "2019/09/09"
@@ -11,7 +11,7 @@ tags:
 
 ![Gatsby](./gatsby.png)
 
-GatbyJSというReact製の静的サイトジェネレーターを使って、ブログを作ってみたのでその話。
+GatbyJS という React 製の静的サイトジェネレーターを使って、ブログを作ってみたのでその話。
 
 ## Gatsbyとは何か
 

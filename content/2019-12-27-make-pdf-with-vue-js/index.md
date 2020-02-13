@@ -1,5 +1,5 @@
 ---
-title: "クライアントサイドのJavaScript(Vue.js)でPDFを出力する方法"
+title: "クライアントサイドの JavaScript (Vue.js) で PDF を出力する方法"
 cover: '2019-12-27-make-pdf-with-vue-js/header.png'
 category: "Tech"
 date: "2019-12-27"

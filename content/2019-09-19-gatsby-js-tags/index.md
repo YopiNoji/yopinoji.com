@@ -1,5 +1,5 @@
 ---
-title: "GraphQLで一意の値を取得することでGatsbyブログにタグ一覧を作る"
+title: "GraphQL で一意の値を取得することで Gatsby ブログにタグ一覧を作る"
 cover: '2019-09-19-gatsby-js-tags/header.png'
 category: "Tech"
 date: "2019/09/19"

@@ -1,5 +1,5 @@
 ---
-title: "Firebase Functionsを使ってNuxt.js製のサイトにお問い合わせフォームを追加する"
+title: "Firebase Functions を使って Nuxt.js 製のサイトにお問い合わせフォームを追加する"
 cover: '2019-11-20-create-contact-form-for-nuxt-js-with-firebase-functions/header.png'
 category: "Tech"
 date: "2019/11/20"

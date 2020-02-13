@@ -1,5 +1,5 @@
 ---
-title: "Gatsby製のブログをDocker(Docker Compose)を使って動かす"
+title: "Gatsby 製のブログを Docker (Docker Compose) を使って動かす"
 cover: '2020-01-06-docker-for-gatsby-js/header.png'
 category: "Tech"
 date: "2020-01-06"

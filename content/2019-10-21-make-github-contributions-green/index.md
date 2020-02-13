@@ -1,5 +1,5 @@
 ---
-title: "GitHubにCommit/Pushすることで緑豊かな芝生を生やしたい"
+title: "GitHub に Commit/Push することで緑豊かな芝生を生やしたい"
 cover: '2019-10-21-make-github-contributions-green/header.png'
 category: "Tech"
 date: "2019/10/21"

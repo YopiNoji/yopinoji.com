@@ -1,5 +1,5 @@
 ---
-title: "Gatsbyで作ったサイトを公開するならNetlifyがオススメ"
+title: "Gatsby で作ったサイトを公開するなら Netlify がオススメ"
 cover: '2019-09-14-gatsby-js-netlify/header.png'
 category: "Tech"
 date: "2019/09/14"

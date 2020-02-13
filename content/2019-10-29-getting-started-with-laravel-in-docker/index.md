@@ -1,5 +1,5 @@
 ---
-title: "Laravelの開発環境をDockerを使ってサクッと作成する"
+title: "Laravel の開発環境を Docker を使ってサクッと作成する"
 cover: '2019-10-29-getting-started-with-laravel-in-docker/header.png'
 category: "Tech"
 date: "2019/10/29"

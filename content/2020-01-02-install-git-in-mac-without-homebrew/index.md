@@ -1,5 +1,5 @@
 ---
-title: "Homebrewを使わずにMacOSにGitをインストールする方法とその問題点"
+title: "Homebrew を使わずに MacOS に Git をインストールする方法とその問題点"
 cover: '2020-01-02-install-git-in-mac-without-homebrew/header.png'
 category: "Tech"
 date: "2020-01-02"

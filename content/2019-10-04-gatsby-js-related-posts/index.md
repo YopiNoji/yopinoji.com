@@ -1,5 +1,5 @@
 ---
-title: "Gatsbyブログに関連記事を表示するコンポーネントを追加する"
+title: "Gatsby ブログに関連記事を表示するコンポーネントを追加する"
 cover: '2019-10-04-gatsby-js-related-posts/header.png'
 category: "Tech"
 date: "2019/10/04"
