@@ -10,17 +10,17 @@ tags:
 ---
 
 前回の記事の続きみたいな感じです。  
-開発環境を動かすためにNode.jsが必要なプロジェクトを全てDocker化したかったので、  
-Nuxt.jsで動かしているポートフォリオサイトもDocker化しました。
+開発環境を動かすために Node.js が必要なプロジェクトを全て Docker 化したかったので、  
+Nuxt.js で動かしているポートフォリオサイトも Docker 化しました。
 
-## オレオレDocker環境の紹介
+## オレオレ Docker 環境の紹介
 
-Dockerとは何ぞやということについては解説を省きます。
+Docker とは何ぞやということについては解説を省きます。
 
-今回は`Dockerfile`と`docker-compose.yml`の２つをNuxt.jsプロジェクト直下に配置して、Nuxt.jsプロジェクトをDocker化します。
+今回は `Dockerfile` と `docker-compose.yml` の 2 つを Nuxt.js プロジェクト直下に配置して、Nuxt.js プロジェクトを Docker 化します。
 
-Docker Composeは複数のコンテナを使うDocker環境をYMLファイルに定義することで、それらを連動して起動することができるツールです。  
-今回の例はコンテナを複数使う訳ではないですが、Docker Composeを使うとコマンド１つで起動できて楽なので使います。
+Docker Compose は複数のコンテナを使う Docker 環境を YML ファイルに定義することで、それらを連動して起動できるツールです。  
+今回の例はコンテナを複数使う訳ではないですが、Docker Compose を使うとコマンド 1 つで起動できて楽なので使います。
 
 ### docker-compose.yml
 
@@ -41,12 +41,12 @@ services:
       - NODE_ENV=development
 ```
 
-まずは`docker-compose.yml`の紹介です。
+まずは `docker-compose.yml` の紹介です。
 
-Dockerコンテナ内部の`/usr/src/`フォルダでNuxt.jsを動かす算段です。  
-3000番のポートを解放して、PCから[localhost:3000](http://localhost:3000)にアクセスすることでサイトを確認できるようにしてあります。
+Docker コンテナ内部の `/usr/src/` フォルダで Nuxt.js を動かす算段です。  
+3000 番のポートを解放して、PC から[localhost:3000](http://localhost:3000)にアクセスすることでサイトを確認できるようにしてあります。
 
-Docker Composeを動かした際に、`npm run dev`コマンドをコンテナ内で実行します。  
+Docker Compose を動かした際に、`npm run dev`コマンドをコンテナ内で実行します。
 
 ### Dockerfile
 
@@ -62,16 +62,16 @@ RUN npm install \
 # CMD ["npm", "run", "dev"]
 ```
 
-次は`Dockerfile`の紹介です。
+次は `Dockerfile` の紹介です。
 
-Linuxディストリビューションは、ファイルの軽量さに定評のあるAlpine Linuxを用います。  
-ただ、Node.jsのバージョンが最新のDockerイメージを使うと、依存関係にあるプログラム（`node-gyp`）が動作しないので、  
-Node.jsのバージョンは指定しています。
+Linux ディストリビューションは、ファイルの軽量さに定評のある Alpine Linux を用います。  
+ただ、Node.js のバージョンが最新の Docker イメージを使うと、依存関係にあるプログラム（`node-gyp`）が動作しないので、  
+Node.js のバージョンは指定しています。
 
-その後、`package.json`をDockerコンテナにコピーして、それを元に依存性パッケージをインストールして、Nuxt.jsプロジェクトをコピーします。
+その後、`package.json`を Docker コンテナにコピーして、それを元に依存性パッケージをインストールして、Nuxt.js プロジェクトをコピーします。
 
-Docker Compose側で`npm run dev`のコマンドは実行してあげているので、最後の行はコメントアウトしています。  
-Docker Composeを使わない時は、ここでコマンド実行してあげることでコンテナを起動したままにします。
+Docker Compose 側で `npm run dev` のコマンドは実行してあげているので、最後の行はコメントアウトしています。  
+Docker Compose を使わない時は、ここでコマンド実行してあげることでコンテナを起動したままにします。
 
 ### .dockerignore
 
@@ -80,13 +80,13 @@ node_modules
 .nuxt
 ```
 
-最後に`.dockerignore`の紹介です。  
+最後に `.dockerignore` の紹介です。  
 こいつは無くても動くはずです。  
 ただ、ビルド時間の短縮には繋がるはずです。
 
-### Docker起動
+### Docker 起動
 
-さて、上で紹介した`Dockerfile`と`docker-compose.yml`と`.dockerignore`をNuxt.jsプロジェクト配下に配置しましょう。
+さて、上で紹介した `Dockerfile` と `docker-compose.yml` と `.dockerignore` を Nuxt.js プロジェクト配下に配置しましょう。
 
 配置したら下記のコマンドを入力します。
 
@@ -97,7 +97,7 @@ docker-compose up -d --build
 初回はビルドに時間が少しかかりますが、問題なく動くはずです。
 
 コンテナが起動したら[localhost:3000](http://localhost:3000)にアクセスします。  
-問題なくNuxt.jsブログが動いていれば問題ありません。
+問題なく Nuxt.js ブログが動いていれば問題ありません。
 
 ### トラブルシューティング
 
@@ -132,10 +132,10 @@ These dependencies were not found:
 * core-js/modules/web.dom.iterable in ./.nuxt/axios.js, ./.nuxt/components/nuxt-link.client.js
 ```
 
-どうやらnpmの依存関係に`core-js`のバージョン3系がインストールされているとエラーが起こるようです。
+どうやら npm の依存関係に `core-js` のバージョン 3 系がインストールされているとエラーが起こるようです。
 
-`core-js`自体はバージョン2系のメンテナンスを終了しちゃってるみたいなので、  
-本当はインストールしたくないのですが、渋々`core-js`のバージョン2系をインストールします。
+`core-js`自体はバージョン 2 系のメンテナンスを終了しちゃってるみたいなので、  
+本当はインストールしたくないのですが、渋々`core-js`のバージョン 2 系をインストールします。
 
 ```
 npm i --save core-js@2

@@ -9,7 +9,7 @@ tags:
 ---
 
 表題の通り。  
-Docker の操作について自分用に改めてまとめた記事です。  
+Docker の操作について自分用にあらためてまとめた記事です。  
 なお、Docker と言いつつ、Docker Compose を普段よく使うので混ざった感じになります。  
 どんどん追加していきます。
 
@@ -98,5 +98,5 @@ Docker Compose 使う場合、使う必要がないです。
 docker exec　-it {container-id} bash
 ```
 
-対象のコンテナIDは、`docker ps` で調べる必要があります。
+対象のコンテナ ID は、`docker ps` で調べる必要があります。
 

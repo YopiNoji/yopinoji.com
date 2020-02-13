@@ -1,9 +1,5 @@
-#README(Japanese)
+# README
 
-##これは何？
-Gatsbyを用いて作成したブログです。
+## What is this? 
 
-#README(English)
-
-##What is this? 
 Blog that made by Gatsby

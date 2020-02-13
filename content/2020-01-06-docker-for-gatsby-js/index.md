@@ -9,17 +9,17 @@ tags:
     - Docker
 ---
 
-年末年始にPCのクリーンインストールを行い、思い切ってPCを購入時の真っ白な状態に戻したのですが、  
-その時に**「わざわざNode.jsをPCのインストールしなくてもDockerでNode.jsを動かせる環境を作ればよくない？」**とふと思い、  
-当ブログの開発環境もDocker化したのでその記録です。
+年末年始に PC のクリーンインストールを行い、思い切って PC を購入時の真っ白な状態に戻したのですが、  
+その時に**「わざわざ Node.js を PC のインストールしなくても Docker で Node.js を動かせる環境を作ればよくない？」**とふと思い、  
+当ブログの開発環境も Docker 化したのでその記録です。
 
 
-## オレオレDocker環境の紹介
+## オレオレ Docker 環境の紹介
 
-今回は`Dockerfile`と`docker-compose.yml`の２つをGatsbyプロジェクト直下に配置して、GatsbyプロジェクトをDocker化します。
+今回は `Dockerfile` と `docker-compose.yml` の 2 つを Gatsby プロジェクト直下に配置して、Gatsby プロジェクトを Docker 化します。
 
-Docker Composeは複数のコンテナを使うDocker環境をYMLファイルに定義することで、それらを連動して起動することができるツールです。  
-今回はコンテナを複数使う訳ではないですが、Docker Composeを使うとコマンド１つで起動できて楽なので使います。
+Docker Compose は複数のコンテナを使う Docker 環境を YML ファイルに定義することで、それらを連動して起動できるツールです。  
+今回はコンテナを複数使う訳ではないですが、Docker Compose を使うとコマンド 1 つで起動できて楽なので使います。
 
 それじゃ、**いかれた仲間を紹介するぜ！**
 
@@ -41,12 +41,12 @@ services:
       - NODE_ENV=development
 ```
 
-まずは`docker-compose.yml`だ！
+まずは `docker-compose.yml` だ！
 
 とてもシンプルな構成かと思います。
 
-Dockerコンテナ内部の`/app`フォルダでGatsbyを動かす算段です。  
-8000番のポートを解放して、PCから[localhost:8000](http://localhost:8000)にアクセスすることでサイトを確認できるようにしてあります。
+Docker コンテナ内部の `/app` フォルダで Gatsby を動かす算段です。  
+8000 番のポートを解放して、PC から[localhost:8000](http://localhost:8000)にアクセスすることでサイトを確認できるようにしてあります。
 
 ### Dockerfile
 
@@ -66,13 +66,13 @@ COPY . .
 CMD ["npm", "run", "develop", "--", "--host", "0.0.0.0" ]
 ```
 
-次は`Dockerfile`の紹介だ！
+次は `Dockerfile` の紹介だ！
 
-Linuxディストリビューションは、ファイルの軽量さに定評のあるAlpine Linuxを用います。  
-Alpine Linuxを用いる際の注意点として、npmの`sharp`モジュールを動かすために`vips-dev`などのインストールが別途必要になります。  
-こいつのインストールも`Dockerfile`に定義します。
+Linux ディストリビューションは、ファイルの軽量さに定評のある Alpine Linux を用います。  
+Alpine Linux を用いる際の注意点として、npm の `sharp` モジュールを動かすために `vips-dev` などのインストールが別途必要になります。  
+こいつのインストールも `Dockerfile` に定義します。
 
-その後、`package.json`をDockerコンテナにコピーして、それを元に依存性パッケージをインストールして、Gatsbyプロジェクトをコピーします。
+その後、`package.json`を Docker コンテナにコピーして、それを元に依存性パッケージをインストールして、Gatsby プロジェクトをコピーします。
 
 最後に、`--host 0.0.0.0`を指定して開発環境を立ち上げるだけです。
 
@@ -82,15 +82,15 @@ Alpine Linuxを用いる際の注意点として、npmの`sharp`モジュール�
 node_modules
 ```
 
-最後に`.dockerignore`の紹介です。  
+最後に `.dockerignore` の紹介です。  
 こいつは無くても動くはずです。  
-ただ、ブラックホールより重いことに定評のある`node_modules`をコンテナにコピーするのは気が引けるので、一応用意します。
+ただ、ブラックホールより重いことに定評のある `node_modules` をコンテナにコピーするのは気が引けるので、一応用意します。
 
 ![heaviest_objects_in_the_universe](./heaviest_objects_in_the_universe.jpg)
 
 ### Docker起動
 
-さて、上で紹介した`Dockerfile`と`docker-compose.yml`と`.dockerignore`をGatsbyプロジェクト配下に配置しましょう。
+さて、上で紹介した `Dockerfile` と `docker-compose.yml` と `.dockerignore` を Gatsby プロジェクト配下に配置しましょう。
 
 配置したら下記のコマンドを入力します。
 
@@ -102,9 +102,9 @@ docker-compose up -d --build
 もし、動かない場合はご連絡いただければ幸いです。
 
 コンテナが起動したら[localhost:8000](http://localhost:8000)にアクセスします。  
-問題なくGatsbyブログが動いていれば問題ありません。
+問題なく Gatsby ブログが動いていれば問題ありません。
 
 ## 最後に
 
-開発環境をDocker化することで、わざわざ自分のPCにNode.jsやらをインストールする呪縛から解放されました！
+開発環境を Docker 化することで、わざわざ自分の PC に Node.js やらをインストールする呪縛から解放されました！
 やったね！
