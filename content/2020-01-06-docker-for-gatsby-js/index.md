@@ -90,7 +90,7 @@ node_modules
 
 ### Docker起動
 
-さて、上で紹介した `Dockerfile` と `docker-compose.yml` と `.dockerignore` を Gatsby プロジェクト配下に配置しましょう。
+さて、上で紹介した `Dockerfile` 、 `docker-compose.yml` 、 `.dockerignore` を Gatsby プロジェクト配下に配置しましょう。
 
 配置したら下記のコマンドを入力します。
 

@@ -336,7 +336,7 @@ Previewing CloudFormation changeset before deployment
 Deploy this changeset? [y/N]: 
 ```
 
-デプロイの準備が完了すると、変更点が表示されデプロイを実行するかどうか聞いてきます。  
+デプロイの準備が完了すると、変更箇所を表示しデプロイを実行するのか聞いてきます。  
 問題なければ、`Y`を入力します。
 
 ```bash
@@ -403,7 +403,7 @@ Successfully created/updated stack - SAMPLE in ap-northeast-1
 
 ![SAM Result CloudFormation](./sam-result-cloudformation.png)
 
-AWS の CloudFormation をみると SAMPLE プロジェクトのデプロイが上手く行ったことが確認できます。
+AWS の CloudFormation をみると SAMPLE プロジェクトのデプロイが上手く行ったと分かります。
 
 ## すでに存在する Lambda を SAM で扱う
 
@@ -492,5 +492,5 @@ https://docs.aws.amazon.com/serverless-application-model/index.html
 ## 最後に
 
 今回、SAM を使って Lambda を使ったサーバレスアプリの作成を試してみたのですが、  
-まだまだ試せていない機能（関数のローカル実行な d お）も多く、今後の拡張にも期待できる良い OSS だと思います。  
+まだまだ試せていない機能（関数のローカル実行など）も多く、今後の拡張にも期待できる良い OSS だと思います。  
 AWS でサーバレスアーキテクチャを試すなら、是非とも試してみてほしいです。

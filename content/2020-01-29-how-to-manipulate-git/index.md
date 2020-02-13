@@ -11,15 +11,21 @@ tags:
 表題の通り。  
 Git 操作をよく忘れるので、あらためてまとめておいて自分用のカンニングペーパーとして使うための記事です。
 
-## リポジトリの確認
+## 初期設定
+
+```bash
 
 ```
+
+## リポジトリの確認
+
+```bash
 git remote -v
 ```
 
 ## 全ブランチの確認
 
-```
+```bash
 git branch -a
 ```
 
@@ -27,7 +33,7 @@ git branch -a
 
 ## リモートブランチからローカルブランチを作成
 
-```
+```bash
 git checkout -b local_branch_name remotes/origin/remote_branch_name
 ```
 
@@ -37,7 +43,7 @@ git checkout -b local_branch_name remotes/origin/remote_branch_name
 
 いったん消したら戻ってこないので気をつけてね！
 
-```
+```bash
 git checkout .
 git clean -df .
 ```
@@ -46,13 +52,13 @@ git clean -df .
 
 ### 個別に取り消す場合
 
-```
+```bash
 git rm -r --cache target_folder
 ```
 
 ### 全部取り消す場合
 
-```
+```bash
 git reset HEAD .
 ```
 
@@ -60,7 +66,7 @@ git reset HEAD .
 
 OSS に貢献する際など、フォークしたリポジトリを扱う場合。
 
-```
+```bash
 git remote add root_branch https://github.com/(Fork元のユーザ名)/(フォークしたいリポジトリ.git)
 git fetch root_branch
 git merge root_branch/master
