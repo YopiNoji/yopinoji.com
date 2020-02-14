@@ -58,5 +58,8 @@ public/
 # Bundle stats
 bundle-stats.json
 
-#MacOS
+# MacOS
 .DS_Store
+
+# textlint
+.textlintcache
