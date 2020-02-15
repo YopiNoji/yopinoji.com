@@ -7,8 +7,7 @@ RUN \
   apk add vips-dev fftw-dev --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community --repository http://dl-3.alpinelinux.org/alpine/edge/main && \
   rm -fR /var/cache/apk/*
 
-RUN git config --global user.email "your@email.address"
-RUN git config --global user.name "Your Name"
+RUN git config --global user.email "yopinoji@yahoo.co.jp"
 
 WORKDIR /app
 COPY ./package.json .
