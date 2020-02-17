@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-advanced",
-  "description": "Gatsby starter that includes examples for advanced use cases.",
-  "version": "1.1.0",
+  "name": "gatsby-js-blog",
+  "description": "Gatsby blog",
+  "version": "1.0.0",
   "author": "YopiNoji",
   "dependencies": {
     "gatsby": "^2.19.16",
@@ -70,8 +70,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
     "dev": "npm run develop",

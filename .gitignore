@@ -61,5 +61,9 @@ bundle-stats.json
 # MacOS
 .DS_Store
 
+<<<<<<< HEAD
 # .textlintcache
+=======
+# textlint
+>>>>>>> 11ff261e7ac22d8679e10e0633f19a5a00ba46fd
 .textlintcache
