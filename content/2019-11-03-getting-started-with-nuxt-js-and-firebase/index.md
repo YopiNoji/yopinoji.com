@@ -352,7 +352,7 @@ $ npm run generate
 ```
 
 エラー等の問題がなければ、dist ディレクトリに生成された静的サイトが存在しているはずです。  
-それでは生成したサイトを FIrebase にホスティングすることで Web 上に公開しましょう。
+それでは生成したサイトを Firebase にホスティングすることで Web サイトを公開しましょう。
 
 ```bash
 $ npm run firebase deploy

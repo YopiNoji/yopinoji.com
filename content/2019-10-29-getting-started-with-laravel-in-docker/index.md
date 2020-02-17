@@ -61,7 +61,7 @@ Laradock はドキュメントが充実していて、さらに Symfony や Word
 ただ、Laradock は色々なプロジェクトをサポートしている影響でコード量が多くなり管理や設定がめんどうな側面がある上に、  
 初回起動に時間が結構かかる（20 分くらい待った記憶があります）のがやや難点だと感じています。
 
-そのため、今回は Laradock は使わずに Laravel 専用のコンパクトな Docker 環境を用意して使おうと思います。  
+そのため、Laradock は使わずに Laravel 専用のコンパクトな Docker 環境を用意して使おうと思います。  
 Laravel を動かす最低限の環境として、以下の 3 つの Docker イメージを使い、3 つの Docker コンテナを作成します。
 
 - [PHP 7.2 fpm](https://hub.docker.com/_/php)（PHP の実行環境）
@@ -86,7 +86,7 @@ $ rm -rf .git
 
 ## Docker Compose を使い開発環境を立ち上げる
 
-MySQL と Nginx と PHP の 3 つのコンテナを立ち上げます。
+MySQL、Nginx、PHP の 3 つのコンテナを立ち上げます。
 
 プロジェクトフォルダに入ったら、早速環境を立ち上げていきましょう。
 環境の立ち上げには Docker Compose を用います。  
@@ -139,8 +139,8 @@ $ docker-compose exec app laravel new
 
 ## MySQLにLaravel用のDBを作る
 
-Laravel 用に作成した MySQL に DB を作成します。  
-MySQL コンテナに入るために以下を入力します。
+次に MySQL に DB を作成します。  
+MySQL コンテナに入るため、以下を入力します。
 
 ```bash
 $ docker-compose exec db mysql -uroot -ppassword

@@ -69,7 +69,7 @@ https://www.npmtrends.com/jspdf-vs-pdfkit-vs-pdfmake
 ## pdfmake で日本語フォントの情報が載った vfs_fonts.js を用意して読み込むサンプル
 
 `pdfmake`を使い、`vfs_fonts.js`を読み込むサンプルです。
-`vfs_fonts.js`は本来は `node_modules/pdfmake/build/` 直下にいるのですが、こいつだけ日本語フォントに対応したものを後から読み込ませてあげます。  
+`vfs_fonts.js` は元々 `node_modules/pdfmake/build/` 直下にいるのですが、こいつだけ日本語フォントに対応したものを後から読み込ませてあげます。  
 こうすることで `pdfMake` 自体は `npm` で管理しつつ日本語フォントに対応することを実現しています。
 
 日本語フォント入りの `vfs_fonts.js` は自分で生成することも可能ですが、手間だったので今回は省きます。  
