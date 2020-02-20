@@ -11,11 +11,24 @@ tags:
 表題の通り。  
 Git 操作をよく忘れるので、あらためてまとめておいて自分用のカンニングペーパーとして使うための記事です。
 
-## 初期設定
+## 設定する系
+
+### 設定の確認
 
 ```bash
+git config --global -l
+git config --local -l
+```
+
+`local` がローカルの Git リポジトリのコンフィグの確認、`global` は PC 全体でのコンフィグの確認です。
+
+### 設定の追加
 
 ```
+git config --global user.email "your@email.address"
+```
+
+ちなみに、GitHub に登録してあるメールアドレスの設定をしておかないと、GitHub の Contributions は増えないので注意してください。
 
 ## リポジトリの確認
 
