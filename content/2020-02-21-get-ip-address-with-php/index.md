@@ -1,5 +1,5 @@
 ---
-title: "PHP でクライアントとサーバの IP アドレスを取得する"
+title: "PHP でクライアントとサーバのグローバル IP アドレスを取得する"
 cover: '2020-02-21-get-ip-address-with-php/header.png'
 category: "Tech"
 date: "2020-02-21"
