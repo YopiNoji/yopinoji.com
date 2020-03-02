@@ -12,7 +12,7 @@ tags:
 
 ![Netlify](./netlify.png)
 
-GatbyJS で作ったサイトを公開する際に、使うサービスとして[Netlify](https://www.netlify.com)がおすすめという話です。
+Gatby で作ったサイトを公開する際に、使うサービスとして[Netlify](https://www.netlify.com)がおすすめという話です。
 
 実際に当サイトも[Netlify](https://www.netlify.com)を使って公開していますが、とても便利だと感じています。
 
