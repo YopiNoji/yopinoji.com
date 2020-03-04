@@ -11,7 +11,6 @@ RUN git config --global user.email "yopinoji@yahoo.co.jp"
 
 WORKDIR /app
 COPY ./package.json .
-RUN npm install && npm cache clean --force
-RUN npm run clean
 COPY . .
+RUN npm install && npm cache clean --force && npm run clean
 # CMD ["npm", "run", "develop", "--", "--host", "0.0.0.0" ]

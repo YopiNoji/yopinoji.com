@@ -18,7 +18,7 @@ class About extends Component {
           <div className="profile-list">
             <p>名前：よぴのじ</p>
             <p>年齢：２０代</p>
-            <p>職業：エンジニア</p>
+            <p>職業：エンジニア（フルスタック寄り）</p>
             <p>好きなもの：技術、猫、スポーツ観戦、ゲーム</p>
             <p>苦手なもの：虫、朝起きること</p>
             <p>住所：東京/日本</p>
