@@ -184,5 +184,5 @@ Netlify では、補完が効かなかったためビルドエラーが起こっ
 
 ## 参考
 
-[Netlify公式](https://www.netlify.com)
+[Netlify公式](https://www.netlify.com){:target="_blank"}
 

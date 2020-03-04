@@ -151,4 +151,4 @@ Gatsby で作成したサイトを Web 上で公開する方法については�
 
 ## 参考
 
-[Gatsby ドキュメント](https://www.gatsbyjs.org/docs/)
+[Gatsby ドキュメント](https://www.gatsbyjs.org/docs/){:target="_blank"}
