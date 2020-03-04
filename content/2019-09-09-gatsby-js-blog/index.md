@@ -137,6 +137,6 @@ Gatsby だけで今まで WordPress などで構築していたウェブサイ�
 
 ## 参考
 
-[Gatsby公式](https://www.gatsbyjs.org){:target="_blank"}
+[Gatsby公式](https://www.gatsbyjs.org)
 
-[React用静的サイトジェネレータのGatsbyJsでブログを構築した](https://tsukamon.com/blogs/2){:target="_blank"}
+[React用静的サイトジェネレータのGatsbyJsでブログを構築した](https://tsukamon.com/blogs/2)
