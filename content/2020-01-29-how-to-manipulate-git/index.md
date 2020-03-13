@@ -30,13 +30,15 @@ git config --global user.email "your@email.address"
 
 ちなみに、GitHub に登録してあるメールアドレスの設定をしておかないと、GitHub の Contributions は増えないので注意してください。
 
-## リポジトリの確認
+## 確認する系
+
+### リポジトリの確認
 
 ```bash
 git remote -v
 ```
 
-## 全ブランチの確認
+### 全ブランチの確認
 
 ```bash
 git branch -a
@@ -44,7 +46,10 @@ git branch -a
 
 頭が `remotes` から始まるものがリモートブランチで、それ以外がローカルブランチだと考えておけば OK です。
 
-## リモートブランチからローカルブランチを作成
+
+## ブランチ作成
+
+### リモートブランチからローカルブランチを作成
 
 ```bash
 git checkout -b local_branch_name remotes/origin/remote_branch_name
@@ -52,7 +57,9 @@ git checkout -b local_branch_name remotes/origin/remote_branch_name
 
 ちなみに `origin` はクローン元のリポジトリのこと。
 
-## ローカル変更の取り消し
+## 取り消す系 
+
+### ローカル変更の取り消し
 
 いったん消したら戻ってこないので気をつけてね！
 
@@ -61,15 +68,15 @@ git checkout .
 git clean -df .
 ```
 
-## git add の取り消し
+### git add の取り消し
 
-### 個別に取り消す場合
+#### 個別に取り消す場合
 
 ```bash
 git rm -r --cache target_folder
 ```
 
-### 全部取り消す場合
+#### 全部取り消す場合
 
 ```bash
 git reset HEAD .
