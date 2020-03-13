@@ -130,3 +130,7 @@ npm start
 
 上記の画面が出てくれば完了です。  
 お疲れ様でした！
+
+あとは、ここら辺のチュートリアルを読みながらコードを書きましょう。
+
+https://docs.expo.io/versions/latest/tutorial/planning/
