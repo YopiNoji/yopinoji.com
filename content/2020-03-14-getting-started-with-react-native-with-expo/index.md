@@ -11,6 +11,17 @@ tags:
 
 Expo CLI を使って React Native で開発を始めるにあたってのメモ書きです。
 
+## Expo とは
+
+まず、Expo とは何かについてですが、簡単にいうと以下のことが実現可能なツールです。
+
+- React Native でのアプリ制作を支援するためのツール
+- [React Native の公式チュートリアル](https://reactnative.dev/docs/getting-started)にも記載があるぐらいにはオフィシャルなツール
+- QR コードを専用アプリで読み取ることで、ビルド不要で実機を使ってデバッグできる
+- Appleの審査を通すことなくアプリの更新が可能（いわゆる Over The Air アップデート）
+
+といった具合に便利なツールです。
+
 ## Expo CLI による React Native のはじめ方
 
 開発を始めるにあたって、Node.js が必要になります。  
@@ -128,9 +139,27 @@ npm start
 
 ![react-native-web-dev](./react-native-web-dev.png)
 
-上記の画面が出てくれば完了です。  
-お疲れ様でした！
+上記の画面が出てくれば、環境構築は完了です。
+
+## 実際にスマートフォンから作ったアプリを確認してみる
+
+Expo を使った開発では、[Expo Client](https://apps.apple.com/jp/app/expo-client/id982107779) というアプリを用いることで、実機を使いデバッグしながら開発を行うことができます。
+
+ひとまず、スマホに [Expo Client](https://apps.apple.com/jp/app/expo-client/id982107779) をインストールして、サインアップまで済ませておきましょう。
+
+[Expo Client](https://apps.apple.com/jp/app/expo-client/id982107779) のインストールを済ませたら、スマホのカメラで先ほどのブラウザ画面に表示されていた QR コードを読み取ってみましょう。
+
+![capture_QR_by_iPhone.PNG](./capture_QR_by_iPhone.PNG)
+
+読み取る際のイメージは、iPhone の場合だと上記のような感じです。  
+純正のカメラアプリで読み取ると、「Expoで開く」という表示が出るので、それを押下します。
+
+[Expo Client](https://apps.apple.com/jp/app/expo-client/id982107779) アプリで開いた際に、作成したアプリが表示されれば完了です。
+
+## 最後に
 
 あとは、ここら辺のチュートリアルを読みながらコードを書きましょう。
 
 https://docs.expo.io/versions/latest/tutorial/planning/
+
+ちなみにこの投稿に続けて、React Native で Todoリストを作成するチュートリアルを書こうかなと思っています。
