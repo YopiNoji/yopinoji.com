@@ -1,11 +1,11 @@
 ---
 title: "Git 操作を改めてまとめたカンニングペーパー的な記事"
-cover: '2020-01-29-how-to-manipulate-git/header.png'
+cover: "2020-01-29-how-to-manipulate-git/header.png"
 category: "Tech"
 date: "2020-01-29"
 slug: "how-to-manipulate-git"
 tags:
-    - Git
+  - Git
 ---
 
 表題の通り。  
@@ -46,7 +46,6 @@ git branch -a
 
 頭が `remotes` から始まるものがリモートブランチで、それ以外がローカルブランチだと考えておけば OK です。
 
-
 ## ブランチ作成
 
 ### リモートブランチからローカルブランチを作成
@@ -55,9 +54,19 @@ git branch -a
 git checkout -b local_branch_name remotes/origin/remote_branch_name
 ```
 
-ちなみに `origin` はクローン元のリポジトリのこと。
+ちなみに `origin` はクローン元のリポジトリのことです。
 
-## 取り消す系 
+### 特定のコミットからブランチを作成
+
+`git log` でコミットハッシュを特定してブランチ作成するときは、以下のコマンドです。
+
+```bash
+git checkout 7aba6ab4b94bc5 -b feature/some-function
+```
+
+上記を活用することで
+
+## 取り消す系
 
 ### ローカル変更の取り消し
 
@@ -92,4 +101,3 @@ git fetch root_branch
 git merge root_branch/master
 git push origin master
 ```
-

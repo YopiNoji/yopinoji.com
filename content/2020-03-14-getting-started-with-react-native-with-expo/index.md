@@ -1,12 +1,12 @@
 ---
 title: "Expo CLI をグローバルインストールしないで React Native のプロジェクトを Expo で始めてみる"
-cover: '2020-03-14-getting-started-with-react-native-with-expo/header.png'
+cover: "2020-03-14-getting-started-with-react-native-with-expo/header.png"
 category: "Tech"
 date: "2020/03/14"
 slug: "getting-started-with-react-native-with-expo"
 tags:
-    - React Native
-    - Expo
+  - React Native
+  - Expo
 ---
 
 Expo CLI を使って React Native で開発を始めるにあたってのメモ書きです。
@@ -18,9 +18,11 @@ Expo CLI を使って React Native で開発を始めるにあたってのメモ
 - React Native でのアプリ制作を支援するためのツール
 - [React Native の公式チュートリアル](https://reactnative.dev/docs/getting-started)にも記載があるぐらいにはオフィシャルなツール
 - QR コードを専用アプリで読み取ることで、ビルド不要で実機を使ってデバッグできる
-- Appleの審査を通すことなくアプリの更新が可能（いわゆる Over The Air アップデート）
+- Apple の審査を通すことなくアプリの更新が可能（いわゆる Over The Air アップデート）
 
 といった具合に便利なツールです。
+
+ただ、便利な分で色々と制約があるのですが、とりあえずサクッとプロトタイプを作る用途には向いています。
 
 ## Expo CLI による React Native のはじめ方
 
@@ -45,7 +47,7 @@ npm install expo-cli --global
 現在、node 使っている人にはだいたいインストールされているはずです。
 
 npx ではコマンドが完了すると、使ったパッケージは削除されるので、環境を汚染する心配はありません。  
-npx について更に知りたい場合は、以下を参照してください。
+npx についてさらに知りたい場合は、以下を参照してください。
 
 https://qiita.com/tonkotsuboy_com/items/8227f5993769c3df533d
 
@@ -58,15 +60,15 @@ npx expo-cli init
 入力すると、以下のように作成するプロジェクトの情報を選ぶ CUI が出てくるので、コマンド操作で選びます。
 
 ```bash
-? Choose a template: 
+? Choose a template:
   ----- Managed workflow -----
-  blank                 a minimal app as clean as an empty canvas 
-❯ blank (TypeScript)    same as blank but with TypeScript configuration 
-  tabs                  several example screens and tabs using react-navigation 
+  blank                 a minimal app as clean as an empty canvas
+❯ blank (TypeScript)    same as blank but with TypeScript configuration
+  tabs                  several example screens and tabs using react-navigation
   ----- Bare workflow -----
   minimal               bare and minimal, just the essentials to get you started
- 
-  minimal (TypeScript)  same as minimal but with TypeScript configuration 
+
+  minimal (TypeScript)  same as minimal but with TypeScript configuration
 
 ? What is the name of your project? todo-app-by-react-native-with-expo
 ```
@@ -125,7 +127,6 @@ npm i --save-dev expo-cli
   },
   "private": true
 }
-
 ```
 
 Expo CLI がローカルで使えるようになったら、開発環境を立ち上げてみます。
@@ -152,7 +153,7 @@ Expo を使った開発では、[Expo Client](https://apps.apple.com/jp/app/expo
 ![capture_QR_by_iPhone.PNG](./capture_QR_by_iPhone.PNG)
 
 読み取る際のイメージは、iPhone の場合だと上記のような感じです。  
-純正のカメラアプリで読み取ると、「Expoで開く」という表示が出るので、それを押下します。
+純正のカメラアプリで読み取ると、「Expo で開く」という表示が出るので、それを押下します。
 
 [Expo Client](https://apps.apple.com/jp/app/expo-client/id982107779) アプリで開いた際に、作成したアプリが表示されれば完了です。
 
@@ -162,4 +163,4 @@ Expo を使った開発では、[Expo Client](https://apps.apple.com/jp/app/expo
 
 https://docs.expo.io/versions/latest/tutorial/planning/
 
-ちなみにこの投稿に続けて、React Native で Todoリストを作成するチュートリアルを書こうかなと思っています。
+ちなみにこの投稿に続けて、React Native で Todo リストを作成するチュートリアルを書こうかなと思っています。
