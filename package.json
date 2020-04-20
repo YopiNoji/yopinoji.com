@@ -79,14 +79,12 @@
     "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean:old": "rm -rf public && rm -rf .cache",
     "clean": "gatsby clean",
-    "lint:js": "eslint --ext .js,.jsx .",
-    "lint:md": "remark content/posts/",
+    "eslint": "eslint --ext .js,.jsx .",
+    "lint:md": "remark content/**/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
-    "format:js": "prettier '**/*.{js,jsx}' --write",
-    "format:diff": "textlint --cache $(git diff master --name-only) --fix",
-    "format:full": "textlint --cache README.md content/**/*.md --fix",
-    "lint:diff": "textlint --cache $(git diff master --name-only) -f pretty-error",
-    "lint:full": "textlint --cache README.md content/**/*.md -f pretty-error"
+    "prettier": "prettier '**/*.{js,jsx}' --write",
+    "texlint:diff": "textlint --cache $(git diff master --name-only) --fix",
+    "texlint:full": "textlint --cache README.md content/**/*.md --fix"
   },
   "husky": {
     "hooks": {
