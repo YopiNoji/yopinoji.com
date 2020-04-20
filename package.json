@@ -88,13 +88,17 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged",
-      "pre-push": "lint-staged && pretty-quick --staged"
+      "pre-add": "lint-staged && pretty-quick --staged",
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
   "lint-staged": {
     "*.md": [
       "textlint --cache --fix"
+    ],
+    "*.js*": [
+      "prettier --write",
+      "eslint --fix"
     ]
   },
   "remarkConfig": {
