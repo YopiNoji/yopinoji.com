@@ -88,7 +88,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-add": "lint-staged && pretty-quick --staged",
       "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
