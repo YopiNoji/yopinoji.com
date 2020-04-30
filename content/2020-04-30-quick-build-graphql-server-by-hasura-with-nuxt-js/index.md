@@ -33,7 +33,7 @@ Hasura を使えば、**データベースさえ用意すれば爆速で GraphQL
 - 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることができる
 - GUI からデータベースや Hasura の機能について設定することができる
 - Webhooks やサーバレスなファンクションなども使える
-  できる Webhooks - ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
+  できる Webhooks できる Webhooks - ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
 - [GitHub](https://github.com/hasura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
@@ -142,7 +142,7 @@ Hasura を用意できたら、次はクライアントサイドですね。
 npm i @nuxtjs/apollo apollo-cache-inmemory graphql-tag
 ```
 
-インストールしたパッケージを使うため、`nuxt.config.js` に以下を書き加えます。
+インストールしたパッケージを使うため、`nuxt.config.js` に以下を書き加えます。  
 Apollo に関する記述でまだ未定義のファイルが見受けられますが、いったん気にしない方向で。
 
 ```js

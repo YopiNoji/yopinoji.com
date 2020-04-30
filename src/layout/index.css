@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Orbitron|Sawarabi+Mincho&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Orbitron|Sawarabi+Mincho|Noto+Sans+JP:wght@300&display=swap");
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    background-color: #eee;
-    background-size: cover;
+  margin: 0;
+  background-color: #eee;
+  background-size: cover;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
