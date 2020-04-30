@@ -7,6 +7,7 @@ slug: "deploy-to-aws-s3-by-using-github-actions"
 tags:
   - GitHub Actions
   - AWS
+  - Nuxt.js
 ---
 
 GitHub 謹製の CI ツール、GitHub Actions をご存知でしょうか？
