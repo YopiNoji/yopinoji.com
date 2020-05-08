@@ -1,5 +1,5 @@
 ---
-title: "Hasura を使って爆速で GraphQL Server を立てる with Nuxt.js"
+title: "Hasura を使って爆速で GraphQL サーバーを立てる with Nuxt.js"
 cover: "2020-04-30-quick-build-graphql-server-by-hasura-with-nuxt-js/header.png"
 category: "Tech"
 date: "2020/04/30"
@@ -33,7 +33,7 @@ Hasura とは何なのか、ざっくりとまとめると以下のようにな�
 - 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることができる
 - GUI からデータベースや Hasura の機能について設定することができる
 - Webhooks やサーバレスなファンクションなども使える
-  できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
+  できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
 - [GitHub](https://github.com/hasura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
@@ -271,6 +271,61 @@ div {
 やっていることは Hasura に先ほどのクエリを投げて、返ってきた結果を表示しているだけです。
 
 最後に実際にページを立ち上げてみて、Hasura に登録した値が表示されていれば OK です。
+
+## トラブルシューティング
+
+### Nuxt.js で TypeScript を使った際に gql ファイルのインポートでエラーになる
+
+TypeScript で開発を行う際に、Apollo Client で使う gql ファイルが見つからずエラーになる場合があります。
+
+以下のようなエラーが出るパターンですね。
+
+```log
+ ERROR  ERROR in /Users/yopinoji/Workspace/nuxt-hasura/pages/users.vue(12,20):
+12:20 Cannot find module '~/apollo/queries/fetchUsers'.
+    10 | import Vue from 'vue'
+    11 | import UsersList from '~/components/Users/UsersList.vue'
+  > 12 | import fetchUsers from '~/apollo/queries/fetchUsers'
+       |                    ^
+    13 |
+    14 | export default Vue.extend({
+    15 |   name: 'Users',
+
+```
+
+この問題は、gql ファイルが何なのか TypeScript 側で宣言されていないことで発生しています。  
+なので、gql ファイルに関する定義を宣言してあげれば解決します。
+
+最初に、以下の npm パッケージをインストールします。
+
+```bash
+npm i graphql
+```
+
+次に、gql ファイルの定義を宣言するファイルを追加します。
+`declare-gql.ts` というファイル名で作成しますが、ファイル名は変えてしまっても問題ありません。
+
+```ts
+declare module "*.gql" {
+  import Graphql from "graphql";
+  export default Graphql;
+}
+```
+
+最後に、`tsconfig.json` に以下の記述を追記します。
+
+```json
+{
+  // 中略
+  // Omission
+  "files": ["declare-gql.d.ts"],
+  "include": ["apollo/queries/*.gql", "apollo/queries/**/*.gql"]
+  // 中略
+  // Omission
+}
+```
+
+これで TypeScript 環境でビルドした際に gql ファイルがインポートできなくなることから解消されるはずです。
 
 ## 最後に
 
