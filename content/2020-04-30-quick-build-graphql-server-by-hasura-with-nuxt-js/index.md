@@ -33,7 +33,7 @@ Hasura とは何なのか、ざっくりとまとめると以下のようにな�
 - 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることができる
 - GUI からデータベースや Hasura の機能について設定することができる
 - Webhooks やサーバレスなファンクションなども使える
-  できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
+  できる Webhooks できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
 - [GitHub](https://github.com/hasura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
@@ -224,7 +224,7 @@ export default (error, nuxtContext) => {
 
 最後に GraphQL のクエリを投げるページの作成ですね。
 
-```vue
+```js
 <template>
   <div>
     <ul>
