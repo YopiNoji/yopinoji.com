@@ -10,7 +10,7 @@ tags:
   - AWS
 ---
 
-前回のつづき的な記事。
+[前回](quick-build-graphql-server-by-hasura-with-nuxt-js/)のつづき的な記事。
 
 前回は Hasura と Nuxt.js による GraphQL での動作をローカル環境で動かしてみるところまで進めました。
 
