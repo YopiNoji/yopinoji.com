@@ -33,7 +33,7 @@ Hasura とは何なのか、ざっくりとまとめると以下のようにな�
 - 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることができる
 - GUI からデータベースや Hasura の機能について設定することができる
 - Webhooks やサーバレスなファンクションなども使える
-  できる Webhooks できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
+  できる Webhooks できる Webhooks できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
 - [GitHub](https://github.com/hasura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
@@ -285,7 +285,7 @@ TypeScript で開発を行う際に、Apollo Client で使う gql ファイル�
 12:20 Cannot find module '~/apollo/queries/fetchUsers'.
     10 | import Vue from 'vue'
     11 | import UsersList from '~/components/Users/UsersList.vue'
-  > 12 | import fetchUsers from '~/apollo/queries/fetchUsers'
+  > 12 | import fetchUsers from '~/apollo/queries/fetchUsers.gql'
        |                    ^
     13 |
     14 | export default Vue.extend({
