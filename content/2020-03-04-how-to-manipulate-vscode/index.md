@@ -1,11 +1,11 @@
 ---
 title: "VSCode 操作ショートカットのカンニングペーパー"
-cover: '2020-03-04-how-to-manipulate-vscode/header.png'
+cover: "2020-03-04-how-to-manipulate-vscode/header.png"
 category: "Tech"
 date: "2020-03-04"
 slug: "how-to-manipulate-vscode"
 tags:
-    - VSCode
+  - VSCode
 ---
 
 表題の通り。  
@@ -20,7 +20,6 @@ VSCode 操作ショートカットのカンニングペーパーです。
 `cmd` + `shift` + `p`
 
 ショートカットや操作の一覧を確認できます。
-
 
 ## ターミナル起動
 
@@ -59,3 +58,9 @@ VSCode 操作ショートカットのカンニングペーパーです。
 `cmd` + `k` → `v`
 
 Markdown をプレビューで確認できます。
+
+## コメントアウト
+
+カーソルで選択してから下記でコメントアウトできます。
+
+`cmd` + `?`
