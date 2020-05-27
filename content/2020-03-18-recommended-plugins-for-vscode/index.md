@@ -14,6 +14,17 @@ VSCode のおすすめプラグインについて、リストアップしてい�
 
 あと、今の会社に VSCode ユーザーが少ないので、VSCode 教の新規入信者に対して「これ入れておくといいよ」って言う用途にも使う予定です。
 
+## [Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks)
+
+コードの特定の行をブックマークに登録しておいて、ボタン 1 つでブックマークまで飛べるようになるプラグインです。  
+稀にとんでもない行数のコードに遭遇するようなことも IT 業界で働いているとありますが、そんなときでも楽々作業できます。
+
+Mac の場合、以下の操作でコード行を登録して、ジャンプできます。
+
+`cmd` + `opt` + `k`でブックマーク登録・解除。  
+`cmd` + `opt` + `l`で次のブックマークへジャンプ。  
+`cmd` + `opt` + `j`で前のブックマークへジャンプ。
+
 ## [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 自分が VSCode を使う理由のひとつでもあります。
