@@ -66,6 +66,20 @@ git checkout 7aba6ab4b94bc5 -b feature/some-function
 
 上記を活用することで
 
+## 変更する系
+
+### 直前のコミットメッセージを変更する
+
+割とよくあるコミットメッセージのタイプミス。  
+以下のようにタイプミスしたとしても、コミットメッセージを修正できます。
+
+```bash
+git add .
+git commit -m "Refactoringggg component"
+
+git commit --amend -m "Refactoring component"
+```
+
 ## 取り消す系
 
 ### ローカル変更の取り消し
