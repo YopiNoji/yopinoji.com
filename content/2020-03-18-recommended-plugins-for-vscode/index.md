@@ -25,6 +25,20 @@ Mac の場合、以下の操作でコード行を登録して、ジャンプで�
 `cmd` + `opt` + `l`で次のブックマークへジャンプ。  
 `cmd` + `opt` + `j`で前のブックマークへジャンプ。
 
+## [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+ところで、REST API を触る時に使うツールは何を使いますか？
+
+有名どころを言えば、[Postman](https://www.postman.com/) でしょうか？  
+（今までの職場、だいたい皆 Postman 使ってるところが多かったです）
+
+でも、Postman ってインストールやら設定やらが面倒ではないですか？
+
+ご安心ください。  
+VSCode をお使いの方は、エディタ上から REST API を実行できます。
+
+`.rest` の拡張子を持つファイルを作成し、そこに呼び出したい API の URL を書けば今すぐにでも使えます。
+
 ## [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 自分が VSCode を使う理由のひとつでもあります。
