@@ -49,6 +49,13 @@ tags:
 
 Nuxt.js と Firebase で別々に `package.json` を持っており、Nuxt.js で生成した静的サイトを Firebase でホスティングする形です。
 
+処理の流れとしては以下のような形になります。
+
+- `develop` ブランチの更新を検知して GitHub Actions が動く
+- 最新のブランチをチェックアウト
+- Nuxt.js で静的サイトを生成する
+- 生成された静的サイトを Firebase にホスティングする
+
 注意しておきたいのは、Firebase の Node.js のバージョンは 8.x 系を用いていて、Nuxt.js は 12.x 系の Node.js を使ってビルドする必要がある点です。  
 （現時点での Firebase は古いバージョンの Node.js しか対応していないのが少し残念な感じではあります）
 
