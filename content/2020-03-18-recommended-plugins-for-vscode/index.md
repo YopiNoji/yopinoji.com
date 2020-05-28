@@ -41,8 +41,6 @@ VSCode をお使いの方は、エディタ上から REST API を実行できま
 
 ## [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-自分が VSCode を使う理由のひとつでもあります。
-
 このプラグインを活用することで、ソースコードを保存した際に ESLint のルールに乗っ取って自動でソースコードを整形してくれます。  
 こいつのおかげで、わざわざ ESLint のルールを確認してソースコードを修正する手間は限りなくなくなります。
 
@@ -50,11 +48,10 @@ VSCode をお使いの方は、エディタ上から REST API を実行できま
 
 ## [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-自分が VSCode を使うもう 1 つの理由です。
+ソースコードを自動整形してくれます。
 
-例によって設定が必要ですが、ソースコードを自動整形してくれます。
-
-CSS や SCSS、JSON の整形もできるのが地味に嬉しいところ。
+CSS や SCSS、JSON の整形もできるのが地味に嬉しいところ。  
+（CSS ってインデントが崩れてくることがよくありませんか？）
 
 ## [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
