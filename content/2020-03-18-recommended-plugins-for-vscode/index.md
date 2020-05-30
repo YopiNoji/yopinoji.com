@@ -39,6 +39,13 @@ VSCode をお使いの方は、エディタ上から REST API を実行できま
 
 `.rest` の拡張子を持つファイルを作成し、そこに呼び出したい API の URL を書けば今すぐにでも使えます。
 
+## [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+
+VSCode でペアプログラミングできるプラグイン。  
+簡潔に言うと、VSCode を使った開発環境に他の VSCode ユーザーを招待して一緒に作業できるようになります。
+
+リモートワークなどで物理的な距離が離れていても、VSCode と音声チャットツールさえあれば共同作業可能になります。
+
 ## [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 このプラグインを活用することで、ソースコードを保存した際に ESLint のルールに乗っ取って自動でソースコードを整形してくれます。  
