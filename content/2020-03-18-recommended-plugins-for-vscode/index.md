@@ -39,6 +39,8 @@ VSCode をお使いの方は、エディタ上から REST API を実行できま
 
 `.rest` の拡張子を持つファイルを作成し、そこに呼び出したい API の URL を書けば今すぐにでも使えます。
 
+もちろん、Request header や Request Body などを設定して、認証などの情報を孵化した形での REST API を使用することもできます。
+
 ## [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 
 VSCode でペアプログラミングできるプラグイン。  
