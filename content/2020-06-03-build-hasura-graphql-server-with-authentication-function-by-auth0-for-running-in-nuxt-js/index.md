@@ -17,7 +17,7 @@ Hasura については、[こちらの過去記事](quick-build-graphql-server-b
 
 なお、この記事が参考にしている内容は下記の英語文献なので、そちらも参考にしてみてください。
 
-https://auth0.com/blog/building-a-collaborative-todo-app-with-realtime-graphql-using-hasura/#React-App-Configuration
+https://auth0.com/blog/building-a-collaborative-todo-app-with-realtime-graphql-using-hasura/
 
 ## 前提条件
 
