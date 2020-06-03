@@ -89,7 +89,7 @@ npm i husky lint-staged eslint prettier -D
 ```json
 {
   // 中略 //
-  // Omission //
+  // Omitted //
   "scripts": {
     "eslint:format": "eslint --ext .js,.ts,.vue,.jsx,.tsx --ignore-path .gitignore .",
     "prettier:format": "prettier '**/*.{js,jsx,ts,tsx,vue}' --write"
@@ -108,7 +108,7 @@ npm i husky lint-staged eslint prettier -D
     "*.json": ["prettier --write"]
   }
   // 中略 //
-  // Omission //
+  // Omitted //
 }
 ```
 

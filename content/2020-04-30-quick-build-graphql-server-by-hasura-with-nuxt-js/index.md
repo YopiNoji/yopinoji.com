@@ -26,15 +26,15 @@ Hasura を使えば、**データベースさえ用意すれば爆速で GraphQL
 
 ## Hasura って何？
 
-Hasura とは何なのか、ざっくりとまとめると以下のようになります。
+Hasura とは何なのか、ざっくりとまとめると以下のようになります。（2020 年 4 月現在）
 
 - いわゆる Backend as a Service (BaaS) とか Platform as a Service (PaaS) の部類
 - データベースさえ用意すれば、GraphQL サーバーの処理を書かなくても GraphQL を使う API を用意できる
-- 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることができる
-- GUI からデータベースや Hasura の機能について設定することができる
+- 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることが可能
+- GUI からデータベースや Hasura の機能について設定できる
+- [GitHub](https://github.com/hasできるGitHubできるGitHubura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
+- 使用可能な RDBMS は PostgreSQL に限られる
 - Webhooks やサーバレスなファンクションなども使える
-  できる Webhooks できる Webhooks できる Webhooks できる Webhooks- ただし、使用できる RDBMS は PostgreSQL に限られる（2020 年 4 月現在）
-- [GitHub](https://github.com/hasura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
 
@@ -149,7 +149,7 @@ Apollo に関する記述でまだ未定義のファイルが見受けられま�
 export default {
 
   // --- 中略 --- //
-  // --- omission --- //
+  // --- Omitted --- //
 
   /*
    ** Nuxt.js modules
@@ -176,7 +176,7 @@ export default {
   },
 
   // --- 中略 --- //
-  // --- omission --- //
+  // --- Omitted --- //
 
   }
 }
@@ -317,11 +317,11 @@ declare module "*.gql" {
 ```json
 {
   // 中略
-  // Omission
+  // Omitted
   "files": ["declare-gql.d.ts"],
   "include": ["apollo/queries/*.gql", "apollo/queries/**/*.gql"]
   // 中略
-  // Omission
+  // Omitted
 }
 ```
 
