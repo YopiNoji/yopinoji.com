@@ -50,9 +50,13 @@
   position: relative;
   padding-left: 10px;
   margin-top: 40px;
+  user-select: none;
 }
 .post-content li {
   padding: 0.5rem 0;
+}
+.post-content p {
+  user-select: none;
 }
 .post-content .post-meta {
   display: flex;
