@@ -127,7 +127,7 @@ export default RelatedPosts;
 
 以下のようなエラーになります。
 
-```log
+```
 Error: BabelPluginRemoveGraphQL: String interpolations are not allowed in graphql fragments. Included fragments should be referenced as `...MyModule_foo`.
 ```
 

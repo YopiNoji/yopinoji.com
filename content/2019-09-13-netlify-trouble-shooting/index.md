@@ -1,13 +1,13 @@
 ---
 title: "Gatsby のサイトが Netlify でビルドエラーになった件"
-cover: '2019-09-13-netlify-trouble-shooting/header.png'
+cover: "2019-09-13-netlify-trouble-shooting/header.png"
 category: "Tech"
 date: "2019/09/13"
 slug: "netlify-trouble-shooting"
 tags:
-    - Netlify
-    - Gatsby
-    - Webサービス
+  - Netlify
+  - Gatsby
+  - Webサービス
 ---
 
 ![Netlify](./netlify.png)
@@ -28,12 +28,11 @@ Netlify は本当に便利なサービスで、Git リポジトリが更新さ�
 前提として、Netlify 側の設定は上記のようになっています。  
 紐付く Git リポジトリに更新がかかるたびに、`npm run build`して public フォルダに静的サイトを生成してくれる設定です。
 
-
 ## すでに存在する netlify.toml にコマンドを上書きされているパターン
 
 自分が最初に直面したのは、以下のエラーです。
 
-```log
+```
 6:40:04 PM: Error running command: Build script returned non-zero exit code: 127
 6:40:04 PM: Failing build: Failed to build site
 6:40:04 PM: failed during stage 'building site': Build script returned non-zero exit code: 127
@@ -62,7 +61,7 @@ netlify.toml は Netlify でのビルド時にカスタム設定を使う際に�
 netlify.toml の問題を解決したので、ようやく正常にビルドできる。  
 そう思ったのもつかの間、新たなエラーが発生したのでした。
 
-```log
+```
 10:17:58 PM: Executing user command: npm run build
 10:17:59 PM: > gatsby-starter-advanced@1.1.0 build /opt/build/repo
 10:17:59 PM: > gatsby build
@@ -89,7 +88,7 @@ netlify.toml の問題を解決したので、ようやく正常にビルドで�
 10:18:07 PM: info bootstrap finished - 7.800 s
 10:18:22 PM: failed during stage 'building site': Build script returned non-zero exit code: 1
 10:18:22 PM: error Generating JavaScript bundles failed
-10:18:22 PM: 
+10:18:22 PM:
 10:18:22 PM:   Error: ./src/components/PostListing/PostListing.jsx
 10:18:22 PM:   Module not found: Error: Can't resolve './Postlisting.css' in '/opt/build/repo  /src/components/PostListing'
 10:18:22 PM:   resolve './Postlisting.css' in '/opt/build/repo/src/components/PostListing'
@@ -126,7 +125,7 @@ netlify.toml の問題を解決したので、ようやく正常にビルドで�
 10:18:22 PM:    @ ./src/templates/category.jsx
 10:18:22 PM:    @ ./.cache/async-requires.js
 10:18:22 PM:    @ ./.cache/production-app.js
-10:18:22 PM: 
+10:18:22 PM:
 10:18:22 PM: npm ERR! code ELIFECYCLE
 10:18:22 PM: npm ERR! errno 1
 10:18:22 PM: npm ERR! gatsby-starter-advanced@1.1.0 build: `gatsby build`
@@ -145,7 +144,7 @@ netlify.toml の問題を解決したので、ようやく正常にビルドで�
 
 ログを確認すると、下記のようにエラーが発生しているファイル名やエラー内容がログに書き出されています。
 
-```log
+```
 Error: ./src/components/PostListing/PostListing.jsx
 Module not found: Error: Can't resolve './Postlisting.css'
 ```
@@ -167,7 +166,7 @@ import { Link } from "gatsby";
 import Image from "../Image/Image";
 import "./Poslisting.css";
 
-以下略
+以下略;
 ```
 
 ローカル環境では、小文字で書かれたファイルも勝手に補完してくれていたようですが、  
@@ -184,5 +183,4 @@ Netlify では、補完が効かなかったためビルドエラーが起こっ
 
 ## 参考
 
-[Netlify公式](https://www.netlify.com)
-
+[Netlify 公式](https://www.netlify.com)

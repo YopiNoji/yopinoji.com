@@ -1,12 +1,12 @@
 ---
 title: "Nuxt.js のプロジェクトを Docker (Docker Compose) を使って動かす"
-cover: '2020-01-08-docker-for-nuxt-js/header.png'
+cover: "2020-01-08-docker-for-nuxt-js/header.png"
 category: "Tech"
 date: "2020-01-08"
 slug: "docker-for-nuxt-js"
 tags:
-    - Nuxt.js
-    - Docker
+  - Nuxt.js
+  - Docker
 ---
 
 前回の記事の続きみたいな感じです。  
@@ -25,7 +25,7 @@ Docker Compose は複数のコンテナを使う Docker 環境を YML ファイ�
 ### docker-compose.yml
 
 ```yml
-version: '3'
+version: "3"
 services:
   web:
     build:
@@ -75,7 +75,7 @@ Docker Compose を使わない時は、ここでコマンド実行してあげ�
 
 ### .dockerignore
 
-```.dockerignore
+```
 node_modules
 .nuxt
 ```
@@ -101,7 +101,7 @@ docker-compose up -d --build
 
 ### トラブルシューティング
 
-#### Nuxt.jsをDocker化したタイミングでcore-js関連のエラーが出るようになった
+#### Nuxt.js を Docker 化したタイミングで core-js 関連のエラーが出るようになった
 
 ```
 These dependencies were not found:

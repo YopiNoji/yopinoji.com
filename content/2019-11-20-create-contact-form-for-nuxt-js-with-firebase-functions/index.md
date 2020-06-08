@@ -1,15 +1,15 @@
 ---
 title: "Firebase Functions を使って Nuxt.js 製のサイトにお問い合わせフォームを追加する"
-cover: '2019-11-20-create-contact-form-for-nuxt-js-with-firebase-functions/header.png'
+cover: "2019-11-20-create-contact-form-for-nuxt-js-with-firebase-functions/header.png"
 category: "Tech"
 date: "2019/11/20"
 slug: "create-contact-form-for-nuxt-js-with-firebase-functions"
 tags:
-    - Nuxt.js
-    - Firebase
+  - Nuxt.js
+  - Firebase
 ---
 
-[Nuxt.jsとFirebaseを使ったポートフォリオサイトの作り方](/getting-started-with-nuxt-js-and-firebase)について以前解説しましたが、  
+[Nuxt.js と Firebase を使ったポートフォリオサイトの作り方](/getting-started-with-nuxt-js-and-firebase)について以前解説しましたが、  
 そのサイトに Firebase Functions を使ったお問い合わせフォームを作成したのでその手順です。
 
 ## Firebase Functions とは何か
@@ -51,7 +51,7 @@ Before we get started, keep in mind:
   * You are initializing in an existing Firebase project directory
 
 ? Which Firebase CLI features do you want to set up for this folder? Press Space
- to select features, then Enter to confirm your choices. 
+ to select features, then Enter to confirm your choices.
  ◯ Database: Deploy Firebase Realtime Database Rules
  ◯ Firestore: Deploy rules and create indexes for Firestore
 ❯◉ Functions: Configure and deploy Cloud Functions
@@ -87,19 +87,19 @@ package pre-configured. Functions can be deployed with firebase deploy.
 `functions`フォルダにある `index.js` を下記に書き換えてください。
 
 ```javascript
-const functions = require('firebase-functions')
-const nodemailer = require('nodemailer')
-const gmailEmail = functions.config().gmail.email
-const gmailPassword = functions.config().gmail.password
-const gmailDestination = functions.config().gmail.destination
+const functions = require("firebase-functions");
+const nodemailer = require("nodemailer");
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+const gmailDestination = functions.config().gmail.destination;
 const mailTransport = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
+  host: "smtp.gmail.com",
   secure: true,
   auth: {
     user: gmailEmail,
     pass: gmailPassword
   }
-})
+});
 
 exports.sendMail = functions.https.onCall((data, context) => {
   const email = {
@@ -108,20 +108,20 @@ exports.sendMail = functions.https.onCall((data, context) => {
     subject: data.form.subject.contents,
     text:
       data.form.message.contents +
-      '\n' +
-      'Email:' +
+      "\n" +
+      "Email:" +
       data.form.email.contents +
-      '\n' +
-      'Name:' +
+      "\n" +
+      "Name:" +
       data.form.name.contents
-  }
+  };
   mailTransport.sendMail(email, (err, info) => {
     if (err) {
-      return console.log(err)
+      return console.log(err);
     }
-    return console.log('success')
-  })
-})
+    return console.log("success");
+  });
+});
 ```
 
 ソースについて軽く解説すると、`nodemailer`という Node.js でメールを送信するための npm パッケージがあるので、  
@@ -206,7 +206,7 @@ modules: [
 次に、Nuxt.js プロジェクトの `plugins` フォルダに `firebase.js` を作成します。
 
 ```javascript
-import firebase from 'firebase'
+import firebase from "firebase";
 
 const config = {
   apiKey: process.env.FB_API_KEY,
@@ -215,19 +215,19 @@ const config = {
   projectId: process.env.FB_PROJECTID,
   storageBucket: process.env.FB_STORAGE_BUCKET,
   messagingSenderId: process.env.FB_MESSAGING_SENDER_ID
-}
+};
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(config)
+  firebase.initializeApp(config);
 }
 
-export default firebase
+export default firebase;
 ```
 
 最後に、上記の `firebase.js` で使用する `.env` を作成します。  
 雛形は以下を使ってください。
 
-```env
+```
 FB_API_KEY = ''
 FB_AUTH_DOMAIN = ''
 FB_DATABASE_URL = ''
@@ -376,6 +376,4 @@ Firebase 上の他のサービスも活用することでもっと深いとこ�
 
 ## 参考
 
-[Firebase　公式](https://firebase.google.com)
-
-
+[Firebase 　公式](https://firebase.google.com)

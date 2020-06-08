@@ -106,7 +106,7 @@ GUI の Data タブからサクッと作れます。
 
 追加したレコードを以下のクエリで取得してみます。
 
-```gql
+```graphql
 query {
   users {
     id
@@ -280,7 +280,7 @@ TypeScript で開発を行う際に、Apollo Client で使う gql ファイル�
 
 以下のようなエラーが出るパターンですね。
 
-```log
+```
  ERROR  ERROR in /Users/yopinoji/Workspace/nuxt-hasura/pages/users.vue(12,20):
 12:20 Cannot find module '~/apollo/queries/fetchUsers'.
     10 | import Vue from 'vue'

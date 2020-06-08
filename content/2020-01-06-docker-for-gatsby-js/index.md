@@ -1,18 +1,17 @@
 ---
 title: "Gatsby 製のブログを Docker (Docker Compose) を使って動かす"
-cover: '2020-01-06-docker-for-gatsby-js/header.png'
+cover: "2020-01-06-docker-for-gatsby-js/header.png"
 category: "Tech"
 date: "2020-01-06"
 slug: "docker-for-gatsby-js"
 tags:
-    - Gatsby
-    - Docker
+  - Gatsby
+  - Docker
 ---
 
 年末年始に PC のクリーンインストールを行い、思い切って PC を購入時の真っ白な状態に戻したのですが、  
 その時に**「わざわざ Node.js を PC のインストールしなくても Docker で Node.js を動かせる環境を作ればよくない？」**とふと思い、  
 当ブログの開発環境も Docker 化したのでその記録です。
-
 
 ## オレオレ Docker 環境の紹介
 
@@ -26,7 +25,7 @@ Docker Compose は複数のコンテナを使う Docker 環境を YML ファイ�
 ### docker-compose.yml
 
 ```yml
-version: '3'
+version: "3"
 services:
   web:
     build:
@@ -78,7 +77,7 @@ Alpine Linux を用いる際の注意点として、npm の `sharp` モジュー
 
 ### .dockerignore
 
-```.dockerignore
+```
 node_modules
 ```
 
@@ -88,7 +87,7 @@ node_modules
 
 ![heaviest_objects_in_the_universe](./heaviest_objects_in_the_universe.jpg)
 
-### Docker起動
+### Docker 起動
 
 さて、上で紹介した `Dockerfile` 、 `docker-compose.yml` 、 `.dockerignore` を Gatsby プロジェクト配下に配置しましょう。
 
