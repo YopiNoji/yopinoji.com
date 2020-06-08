@@ -12,7 +12,7 @@ class Header extends Component {
     }
     return (
       <header className="header">
-        <Link to={"/"} className="sitetittle">
+        <Link to="/" className="sitetittle">
           <h1>{siteTitle}</h1>
         </Link>
         <nav className="nav">
