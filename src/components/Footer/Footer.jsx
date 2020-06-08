@@ -15,7 +15,9 @@ class Footer extends Component {
         <div className="notice-container">
           <h4>{copyright}</h4>
           <Link to={url}>
-            <button className="subscribe">Subscribe</button>
+            <button className="subscribe" type="button">
+              Subscribe
+            </button>
           </Link>
         </div>
       </footer>

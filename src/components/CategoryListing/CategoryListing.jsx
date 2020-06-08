@@ -1,7 +1,6 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import _ from "lodash";
-import { Link } from "gatsby";
 
 const CategoryListing = () => (
   <StaticQuery
@@ -19,7 +18,7 @@ const CategoryListing = () => (
       const categories = data.allMarkdownRemark.distinct;
       return (
         <ul>
-          <Link to={`/about`}>
+          <Link to="/about">
             <li>About</li>
           </Link>
           {categories.map(category => (
@@ -27,7 +26,13 @@ const CategoryListing = () => (
               <li>{category}</li>
             </Link>
           ))}
-          <a href="https://yopinoji.info/contact" target="_blank">Contact</a>
+          <a
+            href="https://yopinoji.info/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contact
+          </a>
         </ul>
       );
     }}

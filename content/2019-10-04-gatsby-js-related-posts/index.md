@@ -1,11 +1,11 @@
 ---
 title: "Gatsby ブログに関連記事を表示するコンポーネントを追加する"
-cover: '2019-10-04-gatsby-js-related-posts/header.png'
+cover: "2019-10-04-gatsby-js-related-posts/header.png"
 category: "Tech"
 date: "2019/10/04"
 slug: "gatsby-js-related-posts"
 tags:
-    - Gatsby
+  - Gatsby
 ---
 
 ![Gatsby](./gatsby.png)
@@ -58,7 +58,7 @@ Gatsby で作成したブログに関連記事を表示させてみたので、�
 }
 ```
 
-試しに、開発環境の[localhost:8000/___graphql](http://localhost:8000/___graphql)で上記クエリを実行してみると、  
+試しに、開発環境の[localhost:8000/\_\_\_graphql](http://localhost:8000/___graphql)で上記クエリを実行してみると、  
 記事カテゴリーが Tech の記事データのみを取得できます。
 
 上記クエリを利用したコンポーネントを作れば簡単に関連記事コンポーネントが作れると思いますよね。  
@@ -98,19 +98,24 @@ const RelatedPosts = ({ post }) => (
       }
     `}
     render={data => {
-      const relatedPosts = data.allMarkdownRemark.edges
+      const relatedPosts = data.allMarkdownRemark.edges;
 
-      if (!relatedPosts) { return null; }
+      if (!relatedPosts) {
+        return null;
+      }
       return (
         <div className="related-posts">
           <p className="related-posts-title">関連記事</p>
-            {relatedPosts.map(relatedPost => (
-              <div className="related-post">
-                <Link to={relatedPost.node.fields.slug} key={relatedPost.node.frontmatter.title}>
-                  <p>{relatedPost.node.frontmatter.title}</p>
-                </Link>
-              </div>
-            ))}
+          {relatedPosts.map(relatedPost => (
+            <div className="related-post">
+              <Link
+                to={relatedPost.node.fields.slug}
+                key={relatedPost.node.frontmatter.title}
+              >
+                <p>{relatedPost.node.frontmatter.title}</p>
+              </Link>
+            </div>
+          ))}
         </div>
       );
     }}
@@ -126,7 +131,7 @@ export default RelatedPosts;
 Error: BabelPluginRemoveGraphQL: String interpolations are not allowed in graphql fragments. Included fragments should be referenced as `...MyModule_foo`.
 ```
 
-**なぜなら StaticQuery はコンパイルされ、テンプレートリテラルでの文字列補間をサポートしないため、「Static(静的）」と呼ばれます。**   
+**なぜなら StaticQuery はコンパイルされ、テンプレートリテラルでの文字列補間をサポートしないため、「Static(静的）」と呼ばれます。**  
 これを行おうとすると、ビルド時に上記エラーが表示されるというわけです。
 
 そのため、**全記事のデータを StaticQuery で取得してから関連記事をフィルタリングするコンポーネントを作る必要があります。**
@@ -143,9 +148,7 @@ const RelatedPosts = ({ post }) => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(
-          sort: { fields: [fields___date], order: DESC }
-        ){
+        allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
           edges {
             node {
               frontmatter {
@@ -165,36 +168,34 @@ const RelatedPosts = ({ post }) => (
       }
     `}
     render={data => {
-      const relatedPosts = data.allMarkdownRemark.edges.filter(
-        edge => 
-        {
-          if(edge.node.frontmatter.title === post.title){
-            return false
-          }
-          if(edge.node.frontmatter.category !== post.category){
-            return false
-          }
-          for (let i = 0; i < edge.node.frontmatter.tags.length; i++) {
-            if (edge.node.frontmatter.tags[i] !== post.tags[i]){
-              return false
-            }
-            else{
-              return true
+      const relatedPosts = data.allMarkdownRemark.edges.filter(edge => {
+        if (edge.node.frontmatter.title === post.title) {
+          return false;
+        }
+        for (let i = 0; i < edge.node.frontmatter.tags.length; i++) {
+          for (let j = 0; j < post.tags.length; j++) {
+            if (edge.node.frontmatter.tags[i] === post.tags[j]) {
+              return true;
             }
           }
         }
-      );
-      if (!relatedPosts) { return null; }
+      });
+      if (!relatedPosts) {
+        return null;
+      }
       return (
         <div className="related-posts">
           <p className="related-posts-title">関連記事</p>
-            {relatedPosts.map(relatedPost => (
-              <div className="related-post">
-                <Link to={relatedPost.node.fields.slug} key={relatedPost.node.frontmatter.title}>
-                  <p>{relatedPost.node.frontmatter.title}</p>
-                </Link>
-              </div>
-            ))}
+          {relatedPosts.map(relatedPost => (
+            <div className="related-post">
+              <Link
+                to={relatedPost.node.fields.slug}
+                key={relatedPost.node.frontmatter.title}
+              >
+                <p>{relatedPost.node.frontmatter.title}</p>
+              </Link>
+            </div>
+          ))}
         </div>
       );
     }}
@@ -202,7 +203,6 @@ const RelatedPosts = ({ post }) => (
 );
 
 export default RelatedPosts;
-
 ```
 
 上記の関連記事コンポーネントは、全記事を取得してから JavaScript の filter 関数でフィルタリングするように作ってみました。
@@ -218,4 +218,4 @@ export default RelatedPosts;
 
 ## 参考
 
-[Gatsby公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
+[Gatsby 公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)

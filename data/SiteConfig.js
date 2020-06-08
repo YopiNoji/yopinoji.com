@@ -10,7 +10,6 @@ const config = {
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "", // FB Application ID for using app insights
   googleAnalyticsID: "UA-131756589-2", // GA tracking ID.
-  disqusShortname: "https-yopinoji-com", // Disqus shortname.
   postDefaultCategoryID: "Tech", // Default category for posts.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "YYYY-MM-DD", // Date format for display.

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import UserLinks from "../UserLinks/UserLinks";
-import UserInfo from "..//UserInfo/UserInfo";
+import UserInfo from "../UserInfo/UserInfo";
 import Image from "../Image/Image";
 import "./About.css";
 
@@ -13,7 +12,7 @@ class About extends Component {
         <div className="profile">
           <h2>プロフィール</h2>
           <div className="profile-photo">
-            <Image filename={"wanisan.png"} />
+            <Image filename="wanisan.png" />
           </div>
           <div className="profile-list">
             <p>年齢：２０代</p>
@@ -23,11 +22,19 @@ class About extends Component {
             <p>住所：東京/日本</p>
             <p>
               連絡先：
-              <a href="https://twitter.com/YopiNoji" target="_blank">
+              <a
+                href="https://twitter.com/YopiNoji"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 TwitterのDM
               </a>
               または
-              <a href="https://yopinoji.info/contact" target="_blank">
+              <a
+                href="https://yopinoji.info/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 こちらのContactページ
               </a>
               へ
@@ -53,7 +60,11 @@ class About extends Component {
             </p>
             <p>
               また、当サイト内で誤った情報を見つけた場合は
-              <a href="https://twitter.com/YopiNoji" target="_blank">
+              <a
+                href="https://twitter.com/YopiNoji"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 TwitterのDM
               </a>
               でご連絡いただけますと幸いです。

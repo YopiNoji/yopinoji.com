@@ -1,7 +1,7 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import _ from "lodash";
-import { Link } from "gatsby";
+
 import "./TagListing.css";
 
 const TagListing = () => (
@@ -23,7 +23,9 @@ const TagListing = () => (
           <p className="taglisting-title">All Tags</p>
           {tags.map(tag => (
             <Link to={`/tags/${_.kebabCase(tag)}`}>
-              <button className="tag">{tag}</button>
+              <button className="tag" type="button">
+                {tag}
+              </button>
             </Link>
           ))}
         </div>
