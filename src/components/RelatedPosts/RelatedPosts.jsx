@@ -36,6 +36,7 @@ const RelatedPosts = ({ post }) => (
             if (edge.node.frontmatter.tags[i] === post.tags[j]) {
               return true;
             }
+            return false;
           }
         }
         return false;
