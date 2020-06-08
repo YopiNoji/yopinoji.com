@@ -26,10 +26,11 @@ const Image = ({ filename }) => (
         return n.node.relativePath.includes(filename);
       });
 
-      if (!image) return <Img />;
-
-      const imageSizes = image.node.childImageSharp.sizes;
-      return <Img sizes={imageSizes} />;
+      if (image) {
+        const imageSizes = image.node.childImageSharp.sizes;
+        return <Img sizes={imageSizes} />;
+      }
+      return null;
     }}
   />
 );
