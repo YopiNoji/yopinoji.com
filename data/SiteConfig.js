@@ -4,7 +4,6 @@ const config = {
   siteTitleAlt: "YopiNoji.com", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://yopinoji.com", // Domain of your website without pathPrefix.
-  pathPrefix: "", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
     "よぴのじの個人ブログ。プログラミングや技術など興味のある分野について書いています。", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
@@ -43,14 +42,6 @@ const config = {
 };
 
 // Validate
-
-// Make sure pathPrefix is empty if not needed
-if (config.pathPrefix === "/") {
-  config.pathPrefix = "";
-} else {
-  // Make sure pathPrefix only contains the first forward slash
-  config.pathPrefix = `/${config.pathPrefix.replace(/^\/|\/$/g, "")}`;
-}
 
 // Make sure siteUrl doesn't have an ending forward slash
 if (config.siteUrl.substr(-1) === "/")
