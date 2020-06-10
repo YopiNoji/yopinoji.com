@@ -1,8 +1,8 @@
 ---
 title: "Netlify と Gatsby の構成でブログを作るなら差分ビルド（Incremental Builds）のプラグインを使うべき"
-cover: "2020-06-12-better-to-use-gatsby-incremental-builds-on-netlify/header.png"
+cover: "2020-06-10-better-to-use-gatsby-incremental-builds-on-netlify/header.png"
 category: "Tech"
-date: "2020/06/12"
+date: "2020/06/10"
 slug: "better-to-use-gatsby-incremental-builds-on-netlify"
 tags:
   - Gatsby
