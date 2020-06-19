@@ -207,7 +207,7 @@ npm install @nuxtjs/auth
 
 `nuxt.config.js` に以下を追記します。
 
-```json
+```js
   // 中略
   // Omitted
 
@@ -226,7 +226,10 @@ npm install @nuxtjs/auth
     strategies: {
       auth0: {
         domain: 'your_account.auth0.com',
-        client_id: 'yourclientidinauth0'
+        client_id: 'yourclientidinauth0',
+        response_type: 'id_token token',
+        token_key: 'id_token',
+        userinfo_endpoint: false,
       }
     },
     redirect: {
@@ -243,7 +246,23 @@ npm install @nuxtjs/auth
 
 Auth0 の `domain` と `client_id` については、Auth0 のダッシュボードから確認できます。
 
-ログイン後のリダイレクト先などは、適宜書き換えてしまってください。
+`response_type` `token_key` については、デフォルトの設定だとアクセストークン（JWT トークンではない）を用いる設定になっています。
+
+ただ、今回は Hasura と JWT を使って認証するため、Auth0 からも JWT のトークンをもらってくる必要があります。  
+Auth0 での JWT トークンは、ID トークンと呼ばれているものなので、それをトークンに使うことを指定する必要があります。
+
+`userinfo_endpoint` について `false` にしている理由はというと、  
+Nuxt.js の Auth Module は Auth0 でログイン後に `/userinfo` という Auth0 API を叩いているのですが、  
+その API アクセスに Auth0 のアクセストークンを用いている都合で `/userinfo` を叩かないようにしている感じです。
+
+ただ、`/userinfo` からユーザーの情報を取得しないため、ユーザ情報を Auth Module 経由で取得できなくなりますので注意してください。  
+（今回、ユーザー情報は Hasura 経由で取得します）
+
+Auth0 + Nuxt.js + Auth Module でのトークン関連の問題点は以下に情報がまとまっています。
+
+https://github.com/nuxt-community/auth-module/issues/366
+
+そのほか、ログイン後のリダイレクト先などは、適宜書き換えてしまってください。
 
 ![Auth0 URL settings](./auth0_url_settings.png)
 
@@ -251,11 +270,6 @@ Auth0 の `domain` と `client_id` については、Auth0 のダッシュボー
 今回は、Nuxt.js のデフォルトのローカル環境である `http://localhost:3000` を設定しておきます。
 
 あとは、`store` フォルダに `index.js` を追加して、Nuxt.js で Vuex を使えるようにしてあげるだけです。
-
-```js
-// For Using Auth Module by Auth0
-// $store.state.auth
-```
 
 ファイルの中身は空で大丈夫です。  
 （一応、Auth Module を使うためだと、コメント追加して明示しておいてもいいと思います）
@@ -295,8 +309,6 @@ export default Vue.extend({
 Auth0 と Nuxt.js Auth Module を使ったログイン画面は上記のように実装します。  
 たった 1 行のメソッドを実行するだけです。
 
-（options API を使った TypeScript で書いてしまっているので、適宜書き換えてください）
-
 ### ログアウト画面の実装
 
 ```ts
@@ -321,9 +333,9 @@ export default Vue.extend({
   },
   methods: {
     async logout() {
-      await this.$auth.logout({
-        returnTo: window.location.origin
-      })
+      await this.$auth.logout()
+      window.location.href =
+        'https://your_account.auth0.com/v2/logout'
     }
   }
 })
@@ -331,39 +343,29 @@ export default Vue.extend({
 
 ```
 
-Auth0 と Nuxt.js Auth Module を使ったログアウト画面は上記のように実装します。  
-（Nuxt.js のレイアウト機能を活用して、メニューとして実装した方がいいかもしれません）
+Auth0 と Nuxt.js Auth Module を使ったログアウト画面は上記のように実装します。
 
-### コールバック画面の実装
+ログアウト後に、Auth0 のログアウト URL へリダイレクトしてあげることで、Auth0 のトークンが無効になり無事ログアウトできます。
 
-Auth0 で認証された後にコールバックされてくる画面も作っておきます。
+### Hasura GraphQL にアクセスする
 
-```ts
-// pages/callback.vue
-<template>
-  <div>
-    <p>Now Loading....</p>
-  </div>
-</template>
-```
+さて、最後に Hasura からデータ取得を行いましょう。
 
-（まあ、ただロード中と表示するだけですが）
+[過去記事](quick-build-graphql-server-by-hasura-with-nuxt-js)で述べた情報に加えて、以下のことが必要になります。
 
-### ホーム画面の実装
-
-最後にログイン後に遷移してくるホーム画面です。
+- Apollo のリクエストヘッダーに JWT のトークンを持たせる
 
 ```ts
-// pages/index.vue
-<template>
-  <div>
-    <p>Hello {{ $store.state.auth.name }}</p>
-  </div>
-</template>
-
+// 中略
+// Omitted
+  mounted() {
+    this.$apolloHelpers.onLogin(this.$auth.getToken('auth0'))
+  }
+  // 中略
+// Omitted
 ```
 
-`$store.state.auth` で Auth0 からの情報を参照可能です。
+例として、上記のようにしてあげると Nuxt.js では設定を行うことができます。
 
 ## 最後に
 

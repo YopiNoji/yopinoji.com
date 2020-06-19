@@ -105,6 +105,24 @@ git rm -r --cache target_folder
 git reset HEAD .
 ```
 
+## 削除する系
+
+GitHub でブランチ自動削除を設定することもできますので、設定しておいたほうがいいでしょう。
+
+今回は主にローカル環境で溜まっていく作業ブランチの整理方法について。
+
+### ローカル環境においてマージ済みブランチの全削除（master/develop は除く）
+
+```bash
+git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
+```
+
+### 単体でのブランチ削除
+
+```bash
+git branch -D your_local_branch
+```
+
 ## fork したリポジトリで本家に追従する
 
 OSS に貢献する際など、フォークしたリポジトリを扱う場合。
