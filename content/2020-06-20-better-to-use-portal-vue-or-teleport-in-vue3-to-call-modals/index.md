@@ -110,14 +110,14 @@ export default {
 <html>
   <portal-target name="destination">
     <!--
-      ここに<modal>を呼び出す
+      実際には、ここに<modal>が表示される。
     -->
   </portal-target>
 
   <template name="ComponentA">
     <template name="ComponentB">
       <portal to="destination">
-        <!-- コンポーネントBで表示を制御できる -->
+        <!-- コンポーネントBで表示を制御できる。 -->
         <modal v-if="isOpen">メッセージ</modal>
       </portal>
     </template>
