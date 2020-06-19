@@ -116,7 +116,7 @@ export default {
   <template name="ComponentA">
     <template name="ComponentB">
       <portal to="destination">
-        <modal>メッセージ</modal>
+        <modal v-if="isOpen">メッセージ</modal>
       </portal>
     </template>
   </template>
