@@ -123,6 +123,17 @@ git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
 git branch -D your_local_branch
 ```
 
+## マージする系
+
+### 作業ブランチへのマージ
+
+```bash
+git fetch
+git merge origin/develop
+```
+
+作業ブランチに対して、`develop` ブランチをマージする例。
+
 ## fork したリポジトリで本家に追従する
 
 OSS に貢献する際など、フォークしたリポジトリを扱う場合。
