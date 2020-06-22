@@ -117,12 +117,15 @@ https://auth0.com/docs/rules/references/context-object
 ![Hasura data permisson](./hasura_data_permisson.png)
 
 Hasura を使用する権限については上記の画面から追加できます。  
-（初期では `admin` のみ設定されています）
+初期では `admin` のみ設定されています。
 
-ちなみに、今回の解説ではユーザーの権限による分岐に関しては、詳細な説明を割愛しています。  
-（ユーザー権限による分岐をクライアントサイドで実装例を載せていないです）
+一般ユーザーが使う `user` 権限についても追加する必要があります。
 
-まあ、形式上のものだと思って眺めてもらえればと思います。
+なお、権限がないのにリソースへアクセスしようとすると、以下のようなエラーでデータが取得できないことになります。
+
+```
+Error: GraphQL error: field "users" not found in type: 'query_root'
+```
 
 ### Auth0 の情報を Hasura に連携する Auth0 Rules
 
