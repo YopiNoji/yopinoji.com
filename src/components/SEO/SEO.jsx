@@ -26,7 +26,6 @@ class SEO extends Component {
     }
     image = urljoin(config.siteUrl, image);
     const blogURL = urljoin(config.siteUrl);
-    console.log([postURL, image]);
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
