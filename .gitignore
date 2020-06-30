@@ -63,3 +63,6 @@ bundle-stats.json
 
 # textlint
 .textlintcache
+
+# VSCode
+.vscode

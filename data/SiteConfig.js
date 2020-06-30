@@ -2,7 +2,7 @@ const config = {
   siteTitle: "YopiNoji.com", // Site title.
   siteTitleShort: "YopiNoji.com", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "YopiNoji.com", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteLogo: "/logos/logo.png", // Logo used for SEO and manifest.
   siteUrl: "https://yopinoji.com", // Domain of your website without pathPrefix.
   siteDescription:
     "よぴのじの個人ブログ。プログラミングや技術など興味のある分野について書いています。", // Website description used for RSS feeds/meta description tag.

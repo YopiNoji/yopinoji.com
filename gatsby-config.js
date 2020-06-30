@@ -9,7 +9,7 @@ module.exports = {
       feed_url: urljoin(config.siteUrl, config.siteRss),
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl)}/logos/logo-512.png`,
+      image_url: `${urljoin(config.siteUrl)}/logos/logo.png`,
       copyright: config.copyright
     }
   },
@@ -77,12 +77,12 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: "/logos/logo-192x192.png",
+            src: "/logos/logo.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/logos/logo-512x512.png",
+            src: "/logos/logo.png",
             sizes: "512x512",
             type: "image/png"
           }
