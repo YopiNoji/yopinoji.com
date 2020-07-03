@@ -132,7 +132,174 @@ export default {
 どうです？  
 [Portal-Vue](https://portal-vue.linusb.org/) を使う理由が理解できたのではないでしょうか。
 
-（もっと良い方法をご存知の方がいたらぜひ教えてください！）
+## Nuxt.js で実際に使ってみる
+
+事前に `create-nuxt-app` で Nuxt.js で動くアプリを用意しておいてください。
+
+利用する環境は以下のバージョンで行います。
+
+```bash
+$ npx nuxt -v
+@nuxt/cli v2.12.1
+
+$ node -v
+v12.17.0
+```
+
+まず最初にインストールから行います
+
+```bash
+npm i portal-vue
+```
+
+インストールが完了したら、`nuxt.config.js` のモジュールに以下を追記します。
+
+```js
+{
+  modules: ["portal-vue/nuxt"];
+}
+```
+
+次に、表示する内容を制御するためのコンポーネントを作ります。
+
+名前はひとまず `components/Notification.vue` にしておきます。
+
+ちなみに、今回作ったコンポーネントは [Vuetify](https://vuetifyjs.com/ja/) を使っています。
+
+```ts
+<template>
+  <portal to="notification">
+    <v-snackbar v-model="open" :timeout="timeout" :color="color">
+      {{ message }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="open = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+  </portal>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    open: {
+      type: Boolean,
+      default: false
+    },
+    message: {
+      type: String,
+      default: '予期せぬエラーが起こりました。システム管理者に連絡してください'
+    },
+    timeout: {
+      type: Number,
+      default: 3000
+    },
+    // @see https://vuetifyjs.com/ja/styles/colors/
+    color: {
+      type: String,
+      default: 'error'
+    }
+  }
+})
+</script>
+
+```
+
+呼び出すコンポーネントを作り終えたら、呼び出す先も作ります。
+
+Nuxt.js では、各ページで共通したレイアウトを設定できるの、今回はレイアウトに呼び出すことでコード量を削減します。
+
+モーダルなどを呼び出したい場所に `<portal-target name="notification" />` と記述してあげるだけです。  
+ここで設定した場所にモーダルなど呼び出したい要素が呼び出されます。  
+今回は `notification` という名前にしていますが、適宜変えてしまっても問題ありません。
+
+`layouts/default.vue` を用いたサンプルが以下です。
+
+```ts
+<template>
+  <v-app>
+    <portal-target name="notification" />
+    <v-content>
+      <v-container fluid>
+        <nuxt />
+      </v-container>
+    </v-content>
+  </v-app>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'Default'
+})
+</script>
+
+```
+
+あとは任意のコンポーネントで呼び出すだけです。
+
+今回は、axios で API を叩いた時にエラーだった場合を想定した例を書いてみました。
+
+```ts
+<template>
+  <v-container>
+    <Notification
+      :open="openNotification"
+      :message="messageNotification"
+      color="error"
+    />
+    <v-row>
+      <v-col :cols="10">
+        <-- This is just sample component -->
+      </v-col>
+      <v-col :cols="2">
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Notification from '@/components/Notification.vue'
+
+export default Vue.extend({
+  components: {
+    Notification
+  },
+  data() {
+    return {
+      openNotification: false,
+      messageNotification:
+        '予期せぬエラーが発生しました。システム管理者に問い合わせてください'
+    }
+  },
+  async created() {
+    const res = await this.getExample()
+  },
+  methods: {
+    async getExample() {
+      const example = await this.$axios
+        .get(
+          'https://example.com/api/get'
+        )
+        .catch(() => {
+          this.openNotification = true
+          this.messageNotification = 'サンプルの取得に失敗しました。'
+        })
+      return example
+    }
+  }
+})
+</script>
+
+```
+
+このように、どんなコンポーネントの構造であっても、呼び出したい要素を指定した場所に呼び出すことができます。  
+`z-index` など気にする必要はありません。
 
 ## 最後に
 
