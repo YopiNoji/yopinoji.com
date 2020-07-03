@@ -47,8 +47,9 @@
   border-bottom: solid 3px rgb(119, 195, 223);
 }
 .post-content h3 {
+  border-left: solid 5px rgb(119, 195, 223);
   position: relative;
-  padding-left: 10px;
+  padding-left: 12px;
   margin-top: 40px;
   user-select: none;
 }

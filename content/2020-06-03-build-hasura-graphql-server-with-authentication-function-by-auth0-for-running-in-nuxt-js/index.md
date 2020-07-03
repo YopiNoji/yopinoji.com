@@ -195,9 +195,16 @@ Hasura 側で保持する Users テーブルを作成します。
 Nuxt.js と Hasura を使った環境のセットアップは、[こちらの過去記事](./quick-build-graphql-server-by-hasura-with-nuxt-js)にも書いてあるので参考にしてください。  
 （GraphQL を使って、Hasura と情報のやりとりをする方法までは載っています）
 
-### Auth Module の導入
+### Auth Module を導入する方法
 
-さて、今回は認証機能の実装を Auth Module を使って、大幅に楽をしようと思います。  
+認証機能の実装には 2 通りの方法があります。
+
+- Nuxt.js のコミュニティから提供されている Auth Module を使用する
+- Auth0 から提供されている SDK を利用して自前で実装する方法
+
+**最初に述べておきますが、この方法にはユーザー情報を取得できなくなるという問題を抱えています。**
+
+それでは、認証機能の実装を Auth Module を使って実装する手順を書いておきます。  
 Auth Module については以下を参照してください。
 
 https://auth.nuxtjs.org/
@@ -249,33 +256,25 @@ npm install @nuxtjs/auth
 
 Auth0 の `domain` と `client_id` については、Auth0 のダッシュボードから確認できます。
 
-`response_type` `token_key` については、デフォルトの設定だとアクセストークン（JWT トークンではない）を用いる設定になっています。
+`response_type` `token_key` については、デフォルトの設定だとアクセストークンを用いる設定になっています。
 
-ただ、今回は Hasura と JWT を使って認証するため、Auth0 からも JWT のトークンをもらってくる必要があります。  
-Auth0 での JWT トークンは、ID トークンと呼ばれているものなので、それをトークンに使うことを指定する必要があります。
+ただ、今回は Hasura と JWT を使って認証するため、Auth0 から JWT トークン（ID トークン）をもらってくる必要があります。
 
 `userinfo_endpoint` について `false` にしている理由はというと、  
-Nuxt.js の Auth Module は Auth0 でログイン後に `/userinfo` という Auth0 API を叩いているのですが、  
-その API アクセスに Auth0 のアクセストークンを用いている都合で `/userinfo` を叩かないようにしている感じです。
+Auth Module は Auth0 でログイン後に `/userinfo` という Auth0 API を叩いているのですが、  
+その API アクセスに Auth0 のアクセストークンを用いている都合で `/userinfo` を叩かないようにしています。
 
-ただ、`/userinfo` からユーザーの情報を取得しないため、ユーザ情報を Auth Module 経由で取得できなくなりますので注意してください。  
-（今回、ユーザー情報は Hasura 経由で取得します）
+**このように、`/userinfo` からユーザーの情報を取得しないため、ユーザ情報を取得できなくなりますので注意してください。**
 
-Auth0 + Nuxt.js + Auth Module でのトークン関連の問題点は以下に情報がまとまっています。
-
-https://github.com/nuxt-community/auth-module/issues/366
-
-そのほか、ログイン後のリダイレクト先などは、適宜書き換えてしまってください。
+アクセストークン、ID トークン両方保持するには、`@auth0/auth0-spa-js` など他のパッケージで実装することで解決できます。
 
 ![Auth0 URL settings](./auth0_url_settings.png)
 
 また、Auth0 のダッシュボードから、ログイン API を叩ける URL を指定しておく必要があります。  
 今回は、Nuxt.js のデフォルトのローカル環境である `http://localhost:3000` を設定しておきます。
 
-あとは、`store` フォルダに `index.js` を追加して、Nuxt.js で Vuex を使えるようにしてあげるだけです。
-
-ファイルの中身は空で大丈夫です。  
-（一応、Auth Module を使うためだと、コメント追加して明示しておいてもいいと思います）
+あとは、`store` フォルダに `index.js` を追加して、Nuxt.js で Vuex を使えるようにしてあげるだけです。  
+ファイルの中身は空で大丈夫です。
 
 ### ログイン画面の実装
 
