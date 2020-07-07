@@ -30,6 +30,10 @@ https://hasura.io/docs/1.0/graphql/manual/deployment/enable-https.html
 
 ## Ubuntu へのリクエストをリバースプロキシで Hasura に捌く（ついでに CORS も対応）
 
+AWS EC2 で動く Ubuntu にどうやって Hasura GraphQL サーバーを立てるのかについては[別記事](quick-build-graphql-server-for-aws-by-hasura)で簡単にまとめてあるので、[そちら](quick-build-graphql-server-for-aws-by-hasura)を参考にしてください。
+
+Ubuntu に SSH 接続ができているという状態から解説をします。
+
 ```bash
 $ sudo apt update
 $ sudo apt install nginx
