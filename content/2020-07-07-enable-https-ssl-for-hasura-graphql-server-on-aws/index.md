@@ -105,6 +105,8 @@ services:
 
 変更箇所の差分は上記のような感じですね。
 
+これで Nginx 経由で Hasura にアクセスできるようになりました。
+
 ## AWS のロードバランサーで Hasura のエンドポイントを HTTPS(SSL) 対応する
 
 ![Get SSL by AWS Certificate Manager](./awc_cm_01.png)
