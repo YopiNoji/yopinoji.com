@@ -1,12 +1,12 @@
 ---
 title: "Laravel の開発環境を Docker を使ってサクッと作成する"
-cover: '2019-10-29-getting-started-with-laravel-in-docker/header.png'
+cover: "2019-10-29-getting-started-with-laravel-in-docker/header.png"
 category: "Tech"
 date: "2019/10/29"
 slug: "getting-started-with-laravel-in-docker"
 tags:
-    - Laravel
-    - Docker
+  - Laravel
+  - Docker
 ---
 
 Laravel の開発環境を Docker を使って構築してみたのでその話です。
@@ -65,8 +65,8 @@ Laradock はドキュメントが充実していて、さらに Symfony や Word
 Laravel を動かす最低限の環境として、以下の 3 つの Docker イメージを使い、3 つの Docker コンテナを作成します。
 
 - [PHP 7.2 fpm](https://hub.docker.com/_/php)（PHP の実行環境）
-- [MySQL 5.7](https://hub.docker.com/_/mysql)（DB サーバ）
-- [Nginx](https://hub.docker.com/_/nginx)（Web サーバ）
+- [MySQL 5.7](https://hub.docker.com/_/mysql)（DB サーバー）
+- [Nginx](https://hub.docker.com/_/nginx)（Web サーバー）
 
 また、今回用意する環境では Laravel を使うために PHP の実行コンテナの中に Composer や Node.js をインストールしていきます。  
 （つまり、端末に直接 Composer 等のインストールをする必要はありません。Docker 便利ですよね）
@@ -121,7 +121,7 @@ CONTAINER ID        IMAGE                    COMMAND                  CREATED   
 0d652fa7d142        mysql:5.7                "docker-entrypoint.s…"   7 minutes ago       Up 4 minutes        0.0.0.0:3306->3306/tcp, 33060/tcp   docker-for-laravel_db_1
 ```
 
-## Docker環境にLaravelをインストールする
+## Docker 環境に Laravel をインストールする
 
 さて、ここまでですでに Laravel を動かすための環境はおおむね用意できました。  
 ただし、肝心の Laravel プロジェクトはまだ存在していない状態なので早速インストールしましょう。
@@ -137,7 +137,7 @@ $ docker-compose exec app laravel new
 
 ![laravel_default_top](./laravel_default_top.png)
 
-## MySQLにLaravel用のDBを作る
+## MySQL に Laravel 用の DB を作る
 
 次に MySQL に DB を作成します。  
 MySQL コンテナに入るため、以下を入力します。
@@ -166,7 +166,7 @@ DB_PASSWORD=password
 
 これで DB のセットアップは完了です。
 
-## 試しにDBにマイグレーションしてみる
+## 試しに DB にマイグレーションしてみる
 
 DB のセットアップが完了したので、試しに Laravel の DB にテーブルを作ってみましょう。  
 今回は Laravel セットアップ時ににデフォルトで作成されるマイグレーションファイルを元にしてテーブルを作ってみます。
@@ -181,7 +181,7 @@ $ docker-compose exec app bash
 Laravel のアプリケーションコンテナにアクセスできたら、マイグレーション実行コマンド（php artisan migrate）を入力してみます。
 
 ```bash
-root@588739d27992:/var/www/html# php artisan migrate  
+root@588739d27992:/var/www/html# php artisan migrate
 Migration table created successfully.
 Migrating: 2014_10_12_000000_create_users_table
 Migrated:  2014_10_12_000000_create_users_table (0.05 seconds)
@@ -196,11 +196,10 @@ DB 接続に問題なければ上記の表示になるはずです。
 ここまで動くことを確認できれば、あとは好きなように Laravel を弄って開発していくだけです。  
 割と簡単に Laravel 開発環境を構築できたのではないでしょうか。
 
-
 ## 参考
 
 [「それコンテナにする意味あんの？」迷える子羊に捧げるコンテナ環境徹底比較](https://dev.classmethod.jp/cloud/aws/cmdevio2019-container/)
 
 [docker-compose による nginx + HTTP/2 + PHP-FPM7 + MySQL 環境の構築方法](https://tech.recruit-mp.co.jp/infrastructure/post-12795/)
 
-[Laravelの動く環境をdocker-compose(PHP 7.2 + nginx + MySQL)でいい感じにする](http://rabbitfoot141.hatenablog.com/entry/2018/08/16/222403)
+[Laravel の動く環境を docker-compose(PHP 7.2 + nginx + MySQL)でいい感じにする](http://rabbitfoot141.hatenablog.com/entry/2018/08/16/222403)

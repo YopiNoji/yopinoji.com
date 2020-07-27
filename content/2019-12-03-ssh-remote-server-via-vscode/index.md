@@ -1,21 +1,23 @@
 ---
 title: "VSCode でリモートサーバに SSH 接続して直接コード編集するためのプラグインが最高だった"
-cover: '2019-12-03-ssh-remote-server-via-vscode/header.png'
+cover: "2019-12-03-ssh-remote-server-via-vscode/header.png"
 category: "Tech"
 date: "2019/12/03"
 slug: "ssh-remote-server-via-vscode"
 tags:
-    - VSCode
+  - VSCode
 ---
+
 AWS の EC2 にあるプログラムを直で編集して開発する必要があったのですが、  
 Visual Studio Code（VSCode）で EC2 に SSH してコード編集する方法が簡単かつ便利だったので共有です。
 
-AWS の EC2 を使ってる前提で書いてますが、リモートサーバのコードをエディタを使って編集したい用途なら何にでも活用できるはずです。
+AWS の EC2 を使ってる前提で書いてますが、リモートサーバーのコードをエディタを使って編集したい用途なら何にでも活用できるはずです。
 
 ## 前準備
+
 VSCode で SSH を使う前の準備段階として、SSH のコンフィグ（設定ファイル）を定義してあげる必要があります。
 
-`.ssh/config`に SSH 接続先のリモートサーバを定義を記述します。
+`.ssh/config`に SSH 接続先のリモートサーバーを定義を記述します。
 
 以下はサンプルです。  
 各自の環境に合わせて適宜書き換えてください。
@@ -67,7 +69,7 @@ SSH 先で VSCode による開発行う際に役立つ情報をおまけとし�
 
 ### SSH 先でコマンドライン操作を行う
 
-Mac の場合、`control` + `shift` + `` ` `` で VSCode でのコマンドライン入力が行えるようになります。 
+Mac の場合、`control` + `shift` + `` ` `` で VSCode でのコマンドライン入力が行えるようになります。
 SSH 先で入力することで SSH 先でのコマンドライン入力することが可能になります。
 
 これが何を意味するのかというと、わざわざ Mac のターミナルから SSH 接続を行い SSH 先で操作を行う行為が一切不要になります。
@@ -83,11 +85,8 @@ SSH 先で入力することで SSH 先でのコマンドライン入力する�
 
 また、時間が経つと SSH 接続が勝手に切れるということもなく、非常に使いやすいです。
 
-リモートサーバのコードを直接編集する用途なら本当にオススメなのでぜひ試してみてください。
-
+リモートサーバーのコードを直接編集する用途なら本当にオススメなのでぜひ試してみてください。
 
 ## 参考
 
 [Visual Studio Code Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
-
-

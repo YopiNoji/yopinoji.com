@@ -15,12 +15,12 @@ tags:
 Node.js で Apollo Server、Golang、Python、Scala。  
 手段は色々あると思います。
 
-だけど、どの手順でもわざわざサーバサイドのプログラム組むのはしんどいですよね。
+だけど、どの手順でもわざわざサーバーサイドのプログラム組むのはしんどいですよね。
 
 そんなあなたに [Hasura](https://hasura.io/) です。
 
 Hasura を使えば、**データベースさえ用意すれば爆速で GraphQL サーバーを立てれます。**  
-サーバサイドのプログラムを書く手間がありません。
+サーバーサイドのプログラムを書く手間がありません。
 
 そう、Hasura ならね。
 
@@ -34,7 +34,7 @@ Hasura とは何なのか、ざっくりとまとめると以下のようにな�
 - GUI からデータベースや Hasura の機能について設定できる
 - [GitHub](https://github.com/hasできるGitHubできるGitHubura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
 - 使用可能な RDBMS は PostgreSQL に限られる
-- Webhooks やサーバレスなファンクションなども使える
+- Webhooks やサーバーレスなファンクションなども使える
 
 より詳しい情報は[こちら](https://hasura.io/blog/what-is-hasura-ce3b5c6e80e8/)からアクセスできます。（英語文献）
 

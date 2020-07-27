@@ -1,13 +1,13 @@
 ---
 title: "Gatsby で作ったサイトを公開するなら Netlify がオススメ"
-cover: '2019-09-14-gatsby-js-netlify/header.png'
+cover: "2019-09-14-gatsby-js-netlify/header.png"
 category: "Tech"
 date: "2019/09/14"
 slug: "gatsby-js-netlify"
 tags:
-    - Netlify
-    - Gatsby
-    - Webサービス
+  - Netlify
+  - Gatsby
+  - Webサービス
 ---
 
 ![Netlify](./netlify.png)
@@ -23,7 +23,7 @@ Gatby で作ったサイトを公開する際に、使うサービスとして[N
 
 - GitHub と連携してビルド＆デプロイを自動で行ってくれる
 - SSL 証明書が無料（独自ドメインを HTTPS で使える）
-- デフォルトで CDN によりキャッシュされて高速配信可能（日本にも CDN サーバあるみたい）
+- デフォルトで CDN によりキャッシュされて高速配信可能（日本にも CDN サーバーあるみたい）
 - ストレージは 100GB まで無料
 - データ転送量は月 100GB まで無料
 
@@ -84,6 +84,6 @@ Failed になっている場合は、Netlify 上でビルドのログを確認�
 
 ## 参考
 
-[Netlify公式](https://www.netlify.com)
+[Netlify 公式](https://www.netlify.com)
 
-[NetlifyはGitHubなどからデプロイできる静的Webホスティングサービス](https://tech.qookie.jp/posts/info-netlify-static-web-deploy/)
+[Netlify は GitHub などからデプロイできる静的 Web ホスティングサービス](https://tech.qookie.jp/posts/info-netlify-static-web-deploy/)

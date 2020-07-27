@@ -1,32 +1,31 @@
 ---
 title: "AWS SAM を使って AWS サーバレスアプリ（Lambda、DynamoDBなど） の Git 管理を実現する"
-cover: '2020-02-12-how-to-manage-aws-lambda-with-aws-sam/header.png'
+cover: "2020-02-12-how-to-manage-aws-lambda-with-aws-sam/header.png"
 category: "Tech"
 date: "2020-02-12"
 slug: "how-to-manage-aws-lambda-with-aws-sam"
 tags:
-    - AWS
-    - Lambda
-    - SAM
-    - Docker
+  - AWS
+  - Lambda
+  - SAM
+  - Docker
 ---
 
-サーバレスアーキテクチャの実現など何かと便利な AWS Lambda ですが、Git 管理など考えだすと色々と悩むことも多いかと思います。  
+サーバーレスアーキテクチャの実現など何かと便利な AWS Lambda ですが、Git 管理など考えだすと色々と悩むことも多いかと思います。  
 そんな中で、[AWS サーバーレスアプリケーションモデル (SAM)](https://aws.amazon.com/jp/serverless/sam/) という神 OSS を試してみたので、それについての記事です。
 
-
-## SAMとは何か
+## SAM とは何か
 
 SAM を使ってみた感想を簡単にいうと以下のような感じです。
 
 - Lambda の Git 管理が可能になる
-- yml ファイルにサーバレスアプリで使う以下の情報を定義しておくことが可能
-    - DynamoDB のキー構成
-    - Lambda のメモリサイズやタイムアウト時間
-    - API Gateway の構成
-    - 他多数
-- yml ファイルに書いた定義のサーバレスアプリ（Lambda/DynamoDB/APIGateway など）をコマンド数行で AWS にデプロイできる
-- ローカル環境でサーバレスアプリのデバッグが可能
+- yml ファイルにサーバーレスアプリで使う以下の情報を定義しておくことが可能
+  - DynamoDB のキー構成
+  - Lambda のメモリサイズやタイムアウト時間
+  - API Gateway の構成
+  - 他多数
+- yml ファイルに書いた定義のサーバーレスアプリ（Lambda/DynamoDB/APIGateway など）をコマンド数行で AWS にデプロイできる
+- ローカル環境でサーバーレスアプリのデバッグが可能
 
 控えめに言って神だと思います。
 
@@ -64,7 +63,7 @@ Dockerfile は上記を用います。
 Python のイメージを使いつつ、必要なパッケージをインストールする構成ですね。
 
 ```yml
-version: '3'
+version: "3"
 services:
   app:
     build:
@@ -208,9 +207,9 @@ SAMPLE プロジェクトの配下は以下のような構成になっている�
 ```
 
 この中で核となるのは **template.yaml** です！  
-**template.yaml** に書かれた情報を元に SAM は AWS でサーバレスアプリを構築してくれます。
+**template.yaml** に書かれた情報を元に SAM は AWS でサーバーレスアプリを構築してくれます。
 
-Lambda だけでなく、DynamoDB や S3 など Lambda と連携させる AWS のサービスを **template.yaml** に記述することで好きなようにサーバレスアプリを構築するというわけです。
+Lambda だけでなく、DynamoDB や S3 など Lambda と連携させる AWS のサービスを **template.yaml** に記述することで好きなようにサーバーレスアプリを構築するというわけです。
 
 **template.yaml** の記述方法については、以下に詳しい情報が載っているので、そちらを参照してください。
 
@@ -283,7 +282,7 @@ Configuring SAM deploy
         Saved arguments to config file
         Running 'sam deploy' for future deployments will use the parameters saved above.
         The above parameters can be changed by modifying samconfig.toml
-        Learn more about samconfig.toml syntax at 
+        Learn more about samconfig.toml syntax at
         https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
 
         Deploying with following values
@@ -316,16 +315,16 @@ Waiting for changeset to be created..
 
 CloudFormation stack changeset
 ------------------------------------------------------------------------------------------------------
-Operation                          LogicalResourceId                  ResourceType                     
+Operation                          LogicalResourceId                  ResourceType
 ------------------------------------------------------------------------------------------------------
-+ Add                              HelloWorldFunctionHelloWorldPerm   AWS::Lambda::Permission          
-                                   issionProd                                                          
-+ Add                              HelloWorldFunctionRole             AWS::IAM::Role                   
-+ Add                              HelloWorldFunction                 AWS::Lambda::Function            
-+ Add                              ServerlessRestApiDeployment47fc2   AWS::ApiGateway::Deployment      
-                                   d5f9d                                                               
-+ Add                              ServerlessRestApiProdStage         AWS::ApiGateway::Stage           
-+ Add                              ServerlessRestApi                  AWS::ApiGateway::RestApi         
++ Add                              HelloWorldFunctionHelloWorldPerm   AWS::Lambda::Permission
+                                   issionProd
++ Add                              HelloWorldFunctionRole             AWS::IAM::Role
++ Add                              HelloWorldFunction                 AWS::Lambda::Function
++ Add                              ServerlessRestApiDeployment47fc2   AWS::ApiGateway::Deployment
+                                   d5f9d
++ Add                              ServerlessRestApiProdStage         AWS::ApiGateway::Stage
++ Add                              ServerlessRestApi                  AWS::ApiGateway::RestApi
 ------------------------------------------------------------------------------------------------------
 
 Changeset created successfully. arn:aws:cloudformation:ap-northeast-1:123451234512:changeSet/samcli-deploy1581566154/0e18d903-3d5c-474e-9285-f8be55bd31ed
@@ -333,7 +332,7 @@ Changeset created successfully. arn:aws:cloudformation:ap-northeast-1:1234512345
 
 Previewing CloudFormation changeset before deployment
 ======================================================
-Deploy this changeset? [y/N]: 
+Deploy this changeset? [y/N]:
 ```
 
 デプロイの準備が完了すると、変更箇所を表示しデプロイを実行するのか聞いてきます。  
@@ -344,55 +343,55 @@ Deploy this changeset? [y/N]:
 
 CloudFormation events from changeset
 -----------------------------------------------------------------------------------------------------
-ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason    
+ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason
 -----------------------------------------------------------------------------------------------------
-CREATE_IN_PROGRESS        AWS::IAM::Role            HelloWorldFunctionRole    -                       
-CREATE_IN_PROGRESS        AWS::IAM::Role            HelloWorldFunctionRole    Resource creation       
-                                                                              Initiated               
-CREATE_COMPLETE           AWS::IAM::Role            HelloWorldFunctionRole    -                       
-CREATE_IN_PROGRESS        AWS::Lambda::Function     HelloWorldFunction        -                       
-CREATE_IN_PROGRESS        AWS::Lambda::Function     HelloWorldFunction        Resource creation       
-                                                                              Initiated               
-CREATE_COMPLETE           AWS::Lambda::Function     HelloWorldFunction        -                       
-CREATE_IN_PROGRESS        AWS::ApiGateway::RestAp   ServerlessRestApi         Resource creation       
-                          i                                                   Initiated               
-CREATE_IN_PROGRESS        AWS::ApiGateway::RestAp   ServerlessRestApi         -                       
-                          i                                                                           
-CREATE_COMPLETE           AWS::ApiGateway::RestAp   ServerlessRestApi         -                       
-                          i                                                                           
-CREATE_IN_PROGRESS        AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   -                       
-                          ment                      ment47fc2d5f9d                                    
-CREATE_IN_PROGRESS        AWS::Lambda::Permission   HelloWorldFunctionHello   -                       
-                                                    WorldPermissionProd                               
-CREATE_IN_PROGRESS        AWS::Lambda::Permission   HelloWorldFunctionHello   Resource creation       
-                                                    WorldPermissionProd       Initiated               
-CREATE_COMPLETE           AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   -                       
-                          ment                      ment47fc2d5f9d                                    
-CREATE_IN_PROGRESS        AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   Resource creation       
-                          ment                      ment47fc2d5f9d            Initiated               
-CREATE_IN_PROGRESS        AWS::ApiGateway::Stage    ServerlessRestApiProdSt   -                       
-                                                    age                                               
-CREATE_IN_PROGRESS        AWS::ApiGateway::Stage    ServerlessRestApiProdSt   Resource creation       
-                                                    age                       Initiated               
-CREATE_COMPLETE           AWS::ApiGateway::Stage    ServerlessRestApiProdSt   -                       
-                                                    age                                               
-CREATE_COMPLETE           AWS::Lambda::Permission   HelloWorldFunctionHello   -                       
-                                                    WorldPermissionProd                               
-CREATE_COMPLETE           AWS::CloudFormation::St   SAMPLE                    -                       
-                          ack                                                                         
+CREATE_IN_PROGRESS        AWS::IAM::Role            HelloWorldFunctionRole    -
+CREATE_IN_PROGRESS        AWS::IAM::Role            HelloWorldFunctionRole    Resource creation
+                                                                              Initiated
+CREATE_COMPLETE           AWS::IAM::Role            HelloWorldFunctionRole    -
+CREATE_IN_PROGRESS        AWS::Lambda::Function     HelloWorldFunction        -
+CREATE_IN_PROGRESS        AWS::Lambda::Function     HelloWorldFunction        Resource creation
+                                                                              Initiated
+CREATE_COMPLETE           AWS::Lambda::Function     HelloWorldFunction        -
+CREATE_IN_PROGRESS        AWS::ApiGateway::RestAp   ServerlessRestApi         Resource creation
+                          i                                                   Initiated
+CREATE_IN_PROGRESS        AWS::ApiGateway::RestAp   ServerlessRestApi         -
+                          i
+CREATE_COMPLETE           AWS::ApiGateway::RestAp   ServerlessRestApi         -
+                          i
+CREATE_IN_PROGRESS        AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   -
+                          ment                      ment47fc2d5f9d
+CREATE_IN_PROGRESS        AWS::Lambda::Permission   HelloWorldFunctionHello   -
+                                                    WorldPermissionProd
+CREATE_IN_PROGRESS        AWS::Lambda::Permission   HelloWorldFunctionHello   Resource creation
+                                                    WorldPermissionProd       Initiated
+CREATE_COMPLETE           AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   -
+                          ment                      ment47fc2d5f9d
+CREATE_IN_PROGRESS        AWS::ApiGateway::Deploy   ServerlessRestApiDeploy   Resource creation
+                          ment                      ment47fc2d5f9d            Initiated
+CREATE_IN_PROGRESS        AWS::ApiGateway::Stage    ServerlessRestApiProdSt   -
+                                                    age
+CREATE_IN_PROGRESS        AWS::ApiGateway::Stage    ServerlessRestApiProdSt   Resource creation
+                                                    age                       Initiated
+CREATE_COMPLETE           AWS::ApiGateway::Stage    ServerlessRestApiProdSt   -
+                                                    age
+CREATE_COMPLETE           AWS::Lambda::Permission   HelloWorldFunctionHello   -
+                                                    WorldPermissionProd
+CREATE_COMPLETE           AWS::CloudFormation::St   SAMPLE                    -
+                          ack
 -----------------------------------------------------------------------------------------------------
 
 Stack SAMPLE outputs:
 -----------------------------------------------------------------------------------------------------
-OutputKey-Description                              OutputValue                                      
+OutputKey-Description                              OutputValue
 -----------------------------------------------------------------------------------------------------
-HelloWorldFunctionIamRole - Implicit IAM Role      arn:aws:iam::123451234512:role/SAMPLE-           
-created for Hello World function                   HelloWorldFunctionRole-D7WTP3555NM3              
-HelloWorldApi - API Gateway endpoint URL for       https://syyzchdkxg.execute-api.ap-               
-Prod stage for Hello World function                northeast-1.amazonaws.com/Prod/hello/            
-HelloWorldFunction - Hello World Lambda Function   arn:aws:lambda:ap-                               
-ARN                                                northeast-1:123451234512:function:SAMPLE-        
-                                                   HelloWorldFunction-ICQ6V41BKCJK                  
+HelloWorldFunctionIamRole - Implicit IAM Role      arn:aws:iam::123451234512:role/SAMPLE-
+created for Hello World function                   HelloWorldFunctionRole-D7WTP3555NM3
+HelloWorldApi - API Gateway endpoint URL for       https://syyzchdkxg.execute-api.ap-
+Prod stage for Hello World function                northeast-1.amazonaws.com/Prod/hello/
+HelloWorldFunction - Hello World Lambda Function   arn:aws:lambda:ap-
+ARN                                                northeast-1:123451234512:function:SAMPLE-
+                                                   HelloWorldFunction-ICQ6V41BKCJK
 -----------------------------------------------------------------------------------------------------
 
 Successfully created/updated stack - SAMPLE in ap-northeast-1
@@ -433,33 +432,33 @@ sam init --name PROJECT
 以下の例のように、template.yaml に対して `FunctionName` や `TableName` を追記しておきます。
 
 ```yml
-AWSTemplateFormatVersion: '2010-09-09'
-Transform: 'AWS::Serverless-2016-10-31'
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
 Description: An AWS Serverless Specification template describing your function.
 Resources:
   Lambda:
-    Type: 'AWS::Serverless::Function'
+    Type: "AWS::Serverless::Function"
     Properties:
       FunctionName: S3_zip
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
       CodeUri: function/
-      Description: ''
+      Description: ""
       MemorySize: 3008
       Timeout: 300
-      Role: 'arn:aws:iam::123451234512:role/service-role/Lambda_S3_Zip'
+      Role: "arn:aws:iam::123451234512:role/service-role/Lambda_S3_Zip"
       Events:
         DynamoDB1:
           Type: DynamoDB
           Properties:
             Stream:
-              'Fn::GetAtt':
+              "Fn::GetAtt":
                 - DynamoDB
                 - StreamArn
             StartingPosition: TRIM_HORIZON
             BatchSize: 100
   DynamoDB:
-    Type: 'AWS::DynamoDB::Table'
+    Type: "AWS::DynamoDB::Table"
     Properties:
       TableName: S3_zip
       AttributeDefinitions:
@@ -477,13 +476,11 @@ Resources:
         WriteCapacityUnits: 5
       StreamSpecification:
         StreamViewType: NEW_IMAGE
-
 ```
 
 英語資料のみですが、以下から template.yaml の書き方などを調べることができます。
 
 https://docs.aws.amazon.com/serverless-application-model/index.html
-
 
 最後に、`CodeUri` に記載してあるパスに、Zip でダウンロードしてきたソースコードを展開しておく必要があります。
 
@@ -491,6 +488,6 @@ https://docs.aws.amazon.com/serverless-application-model/index.html
 
 ## 最後に
 
-今回、SAM を使って Lambda を使ったサーバレスアプリの作成を試してみたのですが、  
+今回、SAM を使って Lambda を使ったサーバーレスアプリの作成を試してみたのですが、  
 まだまだ試せていない機能（関数のローカル実行など）も多く、今後の拡張にも期待できる良い OSS だと思います。  
-AWS でサーバレスアーキテクチャを試すなら、是非とも試してみてほしいです。
+AWS でサーバーレスアーキテクチャを試すなら、是非とも試してみてほしいです。

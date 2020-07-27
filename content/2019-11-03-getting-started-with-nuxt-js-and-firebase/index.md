@@ -1,12 +1,12 @@
 ---
 title: "Nuxt.js と Firebase を使ってサクッとポートフォリオサイトを作ってみる"
-cover: '2019-11-03-getting-started-with-nuxt-js-and-firebase/header.png'
+cover: "2019-11-03-getting-started-with-nuxt-js-and-firebase/header.png"
 category: "Tech"
 date: "2019/11/03"
 slug: "getting-started-with-nuxt-js-and-firebase"
 tags:
-    - Nuxt.js
-    - Firebase
+  - Nuxt.js
+  - Firebase
 ---
 
 Vue.js のフレームワークである Nuxt.js とバックエンドを簡単に用意できる Firebase という Web サービスを用いて、  
@@ -19,10 +19,10 @@ Vue.js のフレームワークである Nuxt.js とバックエンドを簡単�
 簡単に説明すると、Vue.js を使ってアプリケーションを開発する際のめんどくさい部分をあらかじめ用意してくれているフレームワークです。  
 Vue.js + Vuex(情報の保持）+ Vue Router(ルーティング）という Vue 開発の鉄板構成を簡単に試すことができるので、Vue.js を勉強中の方にもおすすめできると思います。
 
-動作には Node.js が動くサーバが必要ですが、Nuxt.js で製作したサイトは静的サイトとして生成することも可能なので、  
-静的サイトのホスティングサービス（Netlify や Firebase）を使うことでサーバを用意せずとも簡単に Web 上にサイトを公開することもできます。
+動作には Node.js が動くサーバーが必要ですが、Nuxt.js で製作したサイトは静的サイトとして生成することも可能なので、  
+静的サイトのホスティングサービス（Netlify や Firebase）を使うことでサーバーを用意せずとも簡単に Web 上にサイトを公開することもできます。
 
-他にも、SPA での問題点を改善するためにサーバサイドレンダリングをサポートしているなど色々と魅力的な機能が備わっています。
+他にも、SPA での問題点を改善するためにサーバーサイドレンダリングをサポートしているなど色々と魅力的な機能が備わっています。
 
 ### Firebase とは
 
@@ -38,15 +38,15 @@ Google が提供している mobile Backend as a Service（mBaaS）になりま�
 ### それで何ができるのか
 
 さて、ここまで Nuxt.js と Firebase について簡単に説明してきましたが、  
-それらを活用すると Web サーバを用意せずに、ほぼフロントエンドの実装（Vue.js）のみでウェブサイトを作成できます。
+それらを活用すると Web サーバーを用意せずに、ほぼフロントエンドの実装（Vue.js）のみでウェブサイトを作成できます。
 
 以下のような方におすすめの構成です。
 
 - 簡単なウェブサイト（ポートフォリオや LP など）を作りたい
 - Vue.js を書ける、または勉強中
 - HTML や CSS に関する知識があり、マークアップができる
-- Web サーバにお金をかけたくない
-- サーバサイドのプログラムを管理したり書いたりするのはめんどくさい、またはサーバサイドのプログラムは書けない
+- Web サーバーにお金をかけたくない
+- サーバーサイドのプログラムを管理したり書いたりするのはめんどくさい、またはサーバーサイドのプログラムは書けない
 
 自分自身はポートフォリオサイトの作成に Nuxt.js と Firebase を活用しましたが、ドメイン料金（年間 1500 円ほど）以外は無料で運用できているので満足しています。  
 「Vue.js を用いた簡単なウェブサイトを作りたい、だけどお金や手間をできるだけ減らしたい・・・」という方に非常におすすめです。  
@@ -72,7 +72,7 @@ $ npx create-nuxt-app nuxt-portfolio
 ✨  Generating Nuxt.js project in nuxt-portfolio
 ? Project name nuxt-portfolio
 ? Project description My astounding Nuxt.js project
-? Author name 
+? Author name
 ? Choose the package manager Npm
 ? Choose UI framework None
 ? Choose custom server framework None (Recommended)
@@ -144,19 +144,18 @@ export default {}
 
 `about.vue`を保存した後に[localhost:3000/about](http://localhost:3000/about)にアクセスすると、先ほど作成したページが表示されているはずです。
 
-このように、Nuxt.jsでは簡単にルーティングされたページを追加する事ができます。
-
+このように、Nuxt.js では簡単にルーティングされたページを追加する事ができます。
 
 ## Nuxt.js で作ったサイトに各ページへのリンク付きメニューを作成する
 
-Webサイトを製作していると、全ページに適用したい共通のメニューを作りたいこともあると思います。  
-Nuxt.jsでは、デフォルトでlayoutディレクトリの`default.vue`の内容を全ページに適応してくれます。  
+Web サイトを製作していると、全ページに適用したい共通のメニューを作りたいこともあると思います。  
+Nuxt.js では、デフォルトで layout ディレクトリの`default.vue`の内容を全ページに適応してくれます。  
 そのため、これを活用して簡単なメニューを作ってみます。
 
 ![nuxt-layout-default](./nuxt-layout-default.png)
 
-全ページに適応されるメニューを作成するには、layoutディレクトリの`default.vue`にメニューを作成するだけです。  
-Nuxt.jsアプリ内のリンクの作成には[nuxt-link](https://ja.nuxtjs.org/api/components-nuxt-link/)というNuxt.jsから用意されているコンポーネントを用います。  
+全ページに適応されるメニューを作成するには、layout ディレクトリの`default.vue`にメニューを作成するだけです。  
+Nuxt.js アプリ内のリンクの作成には[nuxt-link](https://ja.nuxtjs.org/api/components-nuxt-link/)という Nuxt.js から用意されているコンポーネントを用います。  
 下記を参考にしてください。
 
 ```javascript
@@ -299,7 +298,7 @@ You're about to initialize a Firebase project in this directory:
   /Users/yopinoji/Workspace/nuxt-portfolio
 
 ? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to conf
-irm your choices. 
+irm your choices.
  ◯ Database: Deploy Firebase Realtime Database Rules
  ◯ Firestore: Deploy rules and create indexes for Firestore
  ◯ Functions: Configure and deploy Cloud Functions
@@ -317,7 +316,7 @@ irm your choices.
 === Project Setup
 
 First, let's associate this project directory with a Firebase project.
-You can create multiple project aliases by running firebase use --add, 
+You can create multiple project aliases by running firebase use --add,
 but for now we'll just set up a default project.
 
 ? Please select an option: Use an existing project
@@ -387,8 +386,6 @@ Hosting URL: https://yopinoji-app.firebaseapp.com
 
 ## 参考
 
-[Nuxt.js　公式](https://ja.nuxtjs.org)
+[Nuxt.js 　公式](https://ja.nuxtjs.org)
 
-[Firebase　公式](https://firebase.google.com)
-
-
+[Firebase 　公式](https://firebase.google.com)
