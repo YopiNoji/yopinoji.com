@@ -181,3 +181,11 @@ jobs:
 
 ワークフローの設定を終えたら、試しに `master` ブランチで Markdown を更新してみましょう。  
 GitHub のリポジトリ上に更新内容が反映された PDF が生成されているはずです。
+
+## 最後に
+
+あとは肝心の職務経歴書を書くだけです。
+
+以下に OSS として公開されているテンプレートがあるので参考にすると楽です。
+
+https://github.com/okohs/Curriculum-Vitae-template
