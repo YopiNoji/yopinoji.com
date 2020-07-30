@@ -169,12 +169,12 @@ npm i portal-vue
 ```ts
 <template>
   <portal to="notification">
-    <v-snackbar v-model="open" :timeout="timeout" :color="color">
+    <v-snackbar v-model="open" :color="color">
       {{ message }}
       <template v-slot:action="{ attrs }">
-        <v-btn color="blue" text v-bind="attrs" @click="open = false">
-          Close
-        </v-btn>
+        <v-btn color="blue" text v-bind="attrs" @click="$emit('close')"
+          >Close</v-btn
+        >
       </template>
     </v-snackbar>
   </portal>
@@ -192,10 +192,6 @@ export default Vue.extend({
     message: {
       type: String,
       default: '予期せぬエラーが起こりました。システム管理者に連絡してください'
-    },
-    timeout: {
-      type: Number,
-      default: 3000
     },
     // @see https://vuetifyjs.com/ja/styles/colors/
     color: {
@@ -251,6 +247,7 @@ export default Vue.extend({
       :open="openNotification"
       :message="messageNotification"
       color="error"
+      @close="openNotification = false"
     />
     <v-row>
       <v-col :cols="10">
