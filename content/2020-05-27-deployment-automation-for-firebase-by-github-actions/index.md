@@ -56,7 +56,7 @@ Nuxt.js と Firebase で別々に `package.json` を持っており、Nuxt.js �
 - Nuxt.js で静的サイトを生成する
 - 生成された静的サイトを Firebase にホスティングする
 
-注意しておきたいのは、Firebase の Node.js のバージョンは 8.x 系を用いていて、Nuxt.js は 12.x 系の Node.js を使ってビルドする必要がある点です。  
+注意しておきたいのは、Firebase の Node.js のバージョンは 10.x 系を用いていて、Nuxt.js は 12.x 系の Node.js を使ってビルドする必要がある点です。  
 （現時点での Firebase は古いバージョンの Node.js しか対応していないのが少し残念な感じではあります）
 
 さて、それらを考慮して作成した yml ファイルが以下になります。
@@ -90,22 +90,22 @@ jobs:
         run: cp .env.example .env
 
       # Nuxt.js 依存性パッケージをインストール
-      - name: yarn install in Nuxt.js
-        run: yarn
+      - name: npm install in Nuxt.js
+        run: npm i
 
       # Nuxt.js で静的サイトを生成
       - name: Nuxt generate
-        run: yarn generate
+        run: npm run generate
 
       # Firebase 用に Node.js をセットアップ
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "8.x"
+          node-version: "10.x"
 
-      # Firebase 依存性パッケージインストールs
-      - name: yarn install in Firebase
-        run: cd functions && yarn
+      # Firebase 依存性パッケージインストール
+      - name: npm install in Firebase
+        run: cd functions && npm i
 
       # Firebase へデプロイ
       - name: deploy to Firebase
@@ -117,7 +117,62 @@ jobs:
           PROJECT_ID: your-firebase-project-id
 ```
 
-yml ファイルを書くにあたって、以下のサイトを参考にさせていただきました。  
-Firebase のトークンの発行などは以下を参考にしながら行えばできるはずです。
+さて、上記の GitHub Actions を使うには、Firebase のトークンを取得して `secrets.FIREBASE_TOKEN` に設定してあげる必要があります。
+
+トークンを取得するためには、`firebase-tools` をインストールしてログインしてあげるだけです。
+以下のコマンドを参考にしてください。
+
+```bash
+$ npm i -g firebase-tools
+$ firebase login:ci
+```
+
+ログインに完了すると以下のようにトークンが表示されます。
+
+```bash
+Waiting for authentication...
+
+✔  Success! Use this token to login on a CI server:
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+![GitHub Sercret](./github-sercret.png)
+
+トークンが取得できたら GitHub から設定してあげれば完了です。
+
+もし分からない場合でも、以下を参考にしながら行えばできるはずです。
 
 https://fireship.io/snippets/github-actions-deploy-angular-to-firebase-hosting/
+
+## トラブルシューティング
+
+### Firebase の Functions のビルドで失敗する
+
+```bash
+Error: Error occurred while parsing your function triggers.
+
+Error: 'linux-x64' binaries cannot be used on the 'linuxmusl-x64' platform. Please remove the 'node_modules/sharp' directory and run 'npm install' on the 'linuxmusl-x64' platform.
+    at Object.hasVendoredLibvips (/github/workspace/functions/node_modules/sharp/lib/libvips.js:68:13)
+    at Object.<anonymous> (/github/workspace/functions/node_modules/sharp/lib/constructor.js:7:22)
+    at Module._compile (internal/modules/cjs/loader.js:1138:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1158:10)
+    at Module.load (internal/modules/cjs/loader.js:986:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:879:14)
+    at Module.require (internal/modules/cjs/loader.js:1026:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/github/workspace/functions/node_modules/sharp/lib/index.js:3:15)
+    at Module._compile (internal/modules/cjs/loader.js:1138:30)
+```
+
+`sharp` というライブラリが `linuxmusl-x64` のプラットフォームでは使えないと怒られています。
+
+なので、npm でライブラリをインストールする際に、以下のようにプラットフォームを指定してあげましょう。
+
+```yml
+# 依存性パッケージをインストール
+- name: npm install
+  run: npm install --arch=x64 --platform=linuxmusl
+```
+
+これで問題なく動くはずです。
