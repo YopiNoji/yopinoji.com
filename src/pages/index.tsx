@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from '../layout/default'
-import PostListing from '../components/PostListing'
+import PostListing from '../components/PostListing/PostListing'
 import { graphql } from "gatsby";
 
 type PropsType = {
