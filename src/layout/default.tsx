@@ -1,11 +1,11 @@
 import React from "react"
 
 // Introのpropsのtype aliasを定義
-type ContentProps = {
+type PropsType = {
     children: React.ReactElement;
 }
   
-const Content: React.FC<ContentProps> = props => {
+const Layout: React.FC<PropsType> = props => {
   const [isMenuOpen, setMenuOpen] = React.useState(false)
   return (
     <>
@@ -77,4 +77,4 @@ const Content: React.FC<ContentProps> = props => {
   )
 }
 
-export default Content
+export default Layout

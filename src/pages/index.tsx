@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from '../layout/default'
 
-function Index(): React.ReactElement {
+const Index: React.FC = () => {
   return (
     <Layout>
       <div className="rounded overflow-hidden shadow-lg">

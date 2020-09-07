@@ -2,8 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../layout/default'
 
-export default function post({ data }): React.ReactElement {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+type PropsType = {
+  data: any;
+}
+
+const Post: React.FC<PropsType> = props => {
+  const { markdownRemark } = props.data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
@@ -32,3 +36,4 @@ export const pageQuery = graphql`
     }
   }
 `
+export default Post
