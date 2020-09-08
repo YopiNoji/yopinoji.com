@@ -8,8 +8,8 @@ type PropsType = {
 }
 
 const Post: React.FC<PropsType> = props => {
-  const { markdownRemark } = props.data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const html = props.data.markdownRemark?.html ? props.data.markdownRemark?.html : ''
+  const frontmatter = props.data.markdownRemark?.frontmatter ? props.data.markdownRemark?.frontmatter : ''
   return (
     <Layout>
       <div className="container">
