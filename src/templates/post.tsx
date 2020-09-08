@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../layout/default'
-import { Query } from '../gatsby-graphql'
+import { PostQuery } from '../gatsby-graphql'
 
 type PropsType = {
-  data: Query;
+  data: PostQuery;
 }
 
 const Post: React.FC<PropsType> = props => {
@@ -23,7 +23,7 @@ const Post: React.FC<PropsType> = props => {
   )
 }
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query Post($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {

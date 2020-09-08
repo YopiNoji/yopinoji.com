@@ -2,10 +2,10 @@ import React from "react"
 import Layout from '../layout/default'
 import PostListing from '../components/PostListing/PostListing'
 import { graphql } from "gatsby"
-import { IndexQueryQuery } from '../gatsby-graphql'
+import { IndexQuery } from '../gatsby-graphql'
 
 type PropsType = {
-  data: IndexQueryQuery;
+  data: IndexQuery;
 }
 
 const Index: React.FC<PropsType>  = props => {
@@ -19,7 +19,7 @@ const Index: React.FC<PropsType>  = props => {
 export default Index
 
 export const pageQuery = graphql`
-query IndexQuery {
+query Index {
   allMarkdownRemark {
     edges {
       node {

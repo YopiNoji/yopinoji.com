@@ -2929,17 +2929,17 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexQueryQuery = { allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
+export type IndexQuery = { allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
 
-export type Unnamed_1_QueryVariables = Exact<{
+export type PostQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type Unnamed_1_Query = { markdownRemark?: Maybe<(
+export type PostQuery = { markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'html'>
     & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'slug' | 'title'>> }
   )> };
