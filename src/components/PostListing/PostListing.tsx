@@ -7,17 +7,18 @@ type PropsType = {
 }
 
 const Post: React.FC<PropsType> = props => {
-  const postList: MarkdownRemarkFrontmatter[] = [];
-  props.data.allMarkdownRemark.edges.forEach(edges => {
-    postList.push({
-      slug: edges.node.frontmatter.slug,
+  const postList: MarkdownRemarkFrontmatter[] = props.data.allMarkdownRemark.edges.map(edges => {
+    if (!edges || !edges.node || !edges.node.frontmatter) { return {} }
+    const post = {
+      slug: String(edges.node.frontmatter.slug),
       category: edges.node.frontmatter.category,
       tags: edges.node.frontmatter.tags,
       cover: edges.node.frontmatter.cover,
       title: edges.node.frontmatter.title,
       date: edges.node.frontmatter.date,
-    });
-  });
+    }
+    return post
+  })
   return (
     <div className="container max-w-md mx-auto mt-10">
     {postList.map((row, index) => (
