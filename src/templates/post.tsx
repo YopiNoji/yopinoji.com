@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../layout/default'
+import { Query } from '../gatsby-graphql'
 
 type PropsType = {
-  data: any;
+  data: Query;
 }
 
 const Post: React.FC<PropsType> = props => {

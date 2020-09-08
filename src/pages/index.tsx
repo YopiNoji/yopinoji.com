@@ -1,16 +1,17 @@
 import React from "react"
 import Layout from '../layout/default'
 import PostListing from '../components/PostListing/PostListing'
-import { graphql } from "gatsby";
+import { graphql } from "gatsby"
+import { IndexQueryQuery } from '../gatsby-graphql'
 
 type PropsType = {
-  data: any;
+  data: IndexQueryQuery;
 }
 
 const Index: React.FC<PropsType>  = props => {
   return (
     <Layout>
-      <PostListing postEdges={props.data.allMarkdownRemark.edges} />
+      <PostListing data={props.data} />
     </Layout>
   )
 }
