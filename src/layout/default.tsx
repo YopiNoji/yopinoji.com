@@ -10,7 +10,7 @@ const Layout: React.FC<PropsType> = props => {
   return (
     <div className="min-h-screen m-12">
       <Header />
-      <div className="container max-w-md mx-auto my-12">
+      <div className="container mx-auto my-12">
         {props.children} 
       </div>
       <Footer />
