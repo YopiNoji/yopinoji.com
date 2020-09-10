@@ -2,7 +2,7 @@
 title: "ブログ用のおしゃれなヘッダー画像を簡単に作るなら Canva がおすすめ"
 cover: '2019-10-05-blog-header-image-canva/header.png'
 category: "Tech"
-date: "2019/10/05"
+date: "2019-10-05"
 slug: "blog-header-image-canva"
 tags:
     - Webサービス

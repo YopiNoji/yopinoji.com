@@ -2,7 +2,7 @@
 title: "Expo CLI をグローバルインストールしないで React Native のプロジェクトを Expo で始めてみる"
 cover: "2020-03-14-getting-started-with-react-native-with-expo/header.png"
 category: "Tech"
-date: "2020/03/14"
+date: "2020-03-14"
 slug: "getting-started-with-react-native-with-expo"
 tags:
   - React Native

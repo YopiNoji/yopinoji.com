@@ -2,7 +2,7 @@
 title: "GitHub Actions で ブランチ更新を検知して AWS S3 に Nuxt.js 制の静的サイトをデプロイしてみる"
 cover: "2020-04-04-deploy-to-aws-s3-by-using-github-actions/header.png"
 category: "Tech"
-date: "2020/04/04"
+date: "2020-04-04"
 slug: "deploy-to-aws-s3-by-using-github-actions"
 tags:
   - GitHub Actions

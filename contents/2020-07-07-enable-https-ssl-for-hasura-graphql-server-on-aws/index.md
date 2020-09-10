@@ -2,7 +2,7 @@
 title: "AWS EC2 の Hasura GraphQL サーバーで HTTPS(SSL) を有効にする"
 cover: "2020-07-07-enable-https-ssl-for-hasura-graphql-server-on-aws/header.png"
 category: "Tech"
-date: "2020/07/07"
+date: "2020-07-07"
 slug: "enable-https-ssl-for-hasura-graphql-server-on-aws"
 tags:
   - GraphQL

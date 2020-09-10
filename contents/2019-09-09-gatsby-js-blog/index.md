@@ -2,7 +2,7 @@
 title: "Gatsby を使ってブログを作ってみた"
 cover: '2019-09-09-gatsby-js-blog/header.png'
 category: "Tech"
-date: "2019/09/09"
+date: "2019-09-09"
 slug: "gatsby-js-blog"
 tags:
     - Gatsby

@@ -2,7 +2,7 @@
 title: "Git Commit を検知して ESLint や Prettier を自動で走らせてコードの品質を保つ方法"
 cover: "2020-05-10-use-lint-tool-automatically-before-git-commit/header.png"
 category: "Tech"
-date: "2020/05/10"
+date: "2020-05-10"
 slug: "use-lint-tool-automatically-before-git-commit"
 tags:
   - npm

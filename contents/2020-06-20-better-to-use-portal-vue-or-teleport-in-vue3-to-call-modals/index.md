@@ -2,7 +2,7 @@
 title: "Vue.js でのモーダル呼び出しには Vuex ではなく、Portal-Vue を使うべき"
 cover: "2020-06-20-better-to-use-portal-vue-or-teleport-in-vue3-to-call-modals/header.png"
 category: "Tech"
-date: "2020/06/20"
+date: "2020-06-20"
 slug: "better-to-use-portal-vue-or-teleport-in-vue3-to-call-modals"
 tags:
   - Vue.js

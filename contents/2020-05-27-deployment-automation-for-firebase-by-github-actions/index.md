@@ -2,7 +2,7 @@
 title: "GitHub Actions で Firebase に Nuxt.js 製の静的サイトを自動デプロイする yml ファイル"
 cover: "2020-05-27-deployment-automation-for-firebase-by-github-actions/header.png"
 category: "Tech"
-date: "2020/05/27"
+date: "2020-05-27"
 slug: "deployment-automation-for-firebase-by-github-actions"
 tags:
   - GitHub Actions

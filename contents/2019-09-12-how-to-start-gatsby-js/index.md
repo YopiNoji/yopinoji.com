@@ -2,7 +2,7 @@
 title: "Gatsby を使ったブログのはじめ方"
 cover: '2019-09-12-how-to-start-gatsby-js/header.png'
 category: "Tech"
-date: "2019/09/12"
+date: "2019-09-12"
 slug: "how-to-start-gatsby-js"
 tags:
     - Gatsby

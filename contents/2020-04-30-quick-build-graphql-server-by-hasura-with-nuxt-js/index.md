@@ -2,7 +2,7 @@
 title: "Hasura を使って爆速で GraphQL サーバーを立てる with Nuxt.js"
 cover: "2020-04-30-quick-build-graphql-server-by-hasura-with-nuxt-js/header.png"
 category: "Tech"
-date: "2020/04/30"
+date: "2020-04-30"
 slug: "quick-build-graphql-server-by-hasura-with-nuxt-js"
 tags:
   - GraphQL

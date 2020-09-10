@@ -2,7 +2,7 @@
 title: "Hasura で AWSの EC2 / RDS を用いて GraphQL サーバーを立てる"
 cover: "2020-05-09-quick-build-graphql-server-for-aws-by-hasura/header.png"
 category: "Tech"
-date: "2020/05/09"
+date: "2020-05-09"
 slug: "quick-build-graphql-server-for-aws-by-hasura"
 tags:
   - GraphQL

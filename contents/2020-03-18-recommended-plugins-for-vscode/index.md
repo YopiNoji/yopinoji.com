@@ -2,7 +2,7 @@
 title: "VSCode のおすすめプラグインをリストアップしていく記事"
 cover: "2020-03-18-recommended-plugins-for-vscode/header.png"
 category: "Tech"
-date: "2020/03/18"
+date: "2020-03-18"
 slug: "recommended-plugins-for-vscode"
 tags:
   - VSCode

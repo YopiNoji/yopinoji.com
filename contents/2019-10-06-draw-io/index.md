@@ -2,7 +2,7 @@
 title: "プログラムの仕様を伝えるための図を Web で描きたいときは draw.io がおすすめ"
 cover: '2019-10-06-draw-io/header.png'
 category: "Tech"
-date: "2019/10/06"
+date: "2019-10-06"
 slug: "draw-io"
 tags:
     - Webサービス

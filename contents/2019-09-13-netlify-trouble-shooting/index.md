@@ -2,7 +2,7 @@
 title: "Gatsby のサイトが Netlify でビルドエラーになった件"
 cover: "2019-09-13-netlify-trouble-shooting/header.png"
 category: "Tech"
-date: "2019/09/13"
+date: "2019-09-13"
 slug: "netlify-trouble-shooting"
 tags:
   - Netlify
