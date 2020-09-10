@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { IndexQueryQuery, MarkdownRemarkFrontmatter } from '../../gatsby-graphql'
+import { IndexQuery, MarkdownRemarkFrontmatter } from '../../gatsby-graphql'
 
 type PropsType = {
-  data: IndexQueryQuery;
+  data: IndexQuery;
 }
 
 const Post: React.FC<PropsType> = props => {
