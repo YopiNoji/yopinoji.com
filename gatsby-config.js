@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://yopinoji.com/`,
     title: `Gatsby Typescript Tailwind`,
     description: `An example config of Gatsby + TypeScript + Tailwind CSS`,
     author: `@gatsbyjs`,
@@ -85,6 +86,64 @@ module.exports = {
         //   './node_modules/gatsby-*/**/*.{ts,tsx}',
         // ],
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  title: edge.node.frontmatter.title,
+                  categories: edge.node.frontmatter.tags,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  custom_elements: [
+                    { "content:encoded": edge.node.html },
+                    { author: '' }
+                  ],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  edges {
+                    node {
+                      html
+                      frontmatter {
+                        category
+                        cover
+                        date
+                        tags
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "RSS Feed",
+          },
+        ],
+      },
+    },
   ],
 }
