@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from '../layout/default'
+import Layout from '../layout/Base'
 import { PostQuery } from '../gatsby-graphql'
 
 type PropsType = {

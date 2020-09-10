@@ -6,7 +6,7 @@ type PropsType = {
     children: React.ReactNode;
 }
   
-const Layout: React.FC<PropsType> = props => {
+const Base: React.FC<PropsType> = props => {
   return (
     <div className="min-h-screen m-12">
       <Header />
@@ -18,4 +18,4 @@ const Layout: React.FC<PropsType> = props => {
   )
 }
 
-export default Layout
+export default Base

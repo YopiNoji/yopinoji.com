@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from '../layout/default'
+import Layout from '../layout/Base'
 import PostListing from '../components/PostListing/PostListing'
 import { graphql } from "gatsby"
 import { IndexQuery } from '../gatsby-graphql'

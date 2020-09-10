@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from '../layout/default'
+import Layout from '../layout/Base'
 
 const Index: React.FC  = props => {
   return (
