@@ -80,10 +80,10 @@ module.exports = {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./src/gatsby-graphql.ts`,
-        documentPaths: [
-          './src/**/*.{ts,tsx}',
-          './node_modules/gatsby-*/**/*.{ts,tsx}',
-        ],
+        // documentPaths: [
+        //   './src/**/*.{ts,tsx}',
+        //   './node_modules/gatsby-*/**/*.{ts,tsx}',
+        // ],
       }
     }
   ],

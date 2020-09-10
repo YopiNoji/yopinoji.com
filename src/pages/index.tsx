@@ -20,7 +20,9 @@ export default Index
 
 export const pageQuery = graphql`
 query Index {
-  allMarkdownRemark {
+  allMarkdownRemark(
+    sort: { order: DESC, fields: [frontmatter___date] }
+  ) {
     edges {
       node {
         frontmatter {
