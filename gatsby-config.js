@@ -14,7 +14,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `images`,
-        path: `${__dirname}/src/static`,
+        path: `${__dirname}/src/assets`,
       },
     },
     'gatsby-plugin-postcss',
@@ -35,7 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `${__dirname}/src/static/icon.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/assets/icon.png`, // This path is relative to the root of the site.
       },
     },
     {
