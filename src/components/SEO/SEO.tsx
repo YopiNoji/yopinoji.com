@@ -10,7 +10,10 @@ type PropsType = {
 
 const SEO: React.FC<PropsType> = props => {
     const { postMeta, isPost, siteMeta } = props;
-    const title = postMeta?.title ? siteMeta?.title + postMeta?.title : siteMeta?.title;
+    console.log(postMeta?.frontmatter?.title)
+    console.log(siteMeta?.title)
+    console.log(siteMeta?.title + postMeta?.frontmatter?.title)
+    const title = postMeta?.frontmatter?.title ? siteMeta?.title + ' | ' + postMeta?.frontmatter?.title : siteMeta?.title;
     const description = siteMeta?.description ? siteMeta?.description : '';
     const image = siteMeta?.image ? siteMeta?.image : '';
     const blogURL = siteMeta?.siteUrl ? siteMeta?.siteUrl : '';
