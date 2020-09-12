@@ -23,7 +23,7 @@ const Post: React.FC<PropsType> = props => {
     {postList.map((row, index) => (
       <div className="rounded overflow-hidden shadow-lg m-2 p-2" key={index}>
         <Link to={String(row.slug)} key={row.title}>
-          {/* <Image filename={post.cover} /> */}
+          {/* <Image filename={String(row.cover)} /> */}
           <div className="px-6 py-4">
             <h2 className="text-2xl mb-2 leading-snug">{row.title}</h2>
             <p className="text-lg mb-2">
