@@ -3,10 +3,10 @@ import Layout from '../layout/Base'
 import PostListing from '../components/PostListing/PostListing'
 import SEO from '../components/SEO/SEO'
 import { graphql } from "gatsby"
-import { IndexQuery } from '../gatsby-graphql'
+import { Query } from '../gatsby-graphql'
 
 type PropsType = {
-  data: IndexQuery;
+  data: Query;
 }
 
 const Index: React.FC<PropsType>  = props => {

@@ -1,19 +1,16 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { SiteSiteMetadata, MarkdownRemarkFrontmatter } from '../gatsby-graphql'
+import { SiteSiteMetadata, MarkdownRemark } from '../../gatsby-graphql'
 
 type PropsType = {
-    postMeta: SiteSiteMetadata | null | undefined,
-    isPost: boolean | null | undefined,
-    siteMeta: MarkdownRemarkFrontmatter
+    postMeta: MarkdownRemark | null | undefined,
+    isPost: boolean,
+    siteMeta: SiteSiteMetadata | null | undefined,
 }
 
 const SEO: React.FC<PropsType> = props => {
     const { postMeta, isPost, siteMeta } = props;
-    console.log(postMeta?.frontmatter?.title)
-    console.log(siteMeta?.title)
-    console.log(siteMeta?.title + postMeta?.frontmatter?.title)
-    const title = postMeta?.frontmatter?.title ? siteMeta?.title + ' | ' + postMeta?.frontmatter?.title : siteMeta?.title;
+    const title = isPost ? String(siteMeta?.title) + ' | ' + postMeta?.frontmatter?.title : String(siteMeta?.title);
     const description = siteMeta?.description ? siteMeta?.description : '';
     const image = siteMeta?.image ? siteMeta?.image : '';
     const blogURL = siteMeta?.siteUrl ? siteMeta?.siteUrl : '';

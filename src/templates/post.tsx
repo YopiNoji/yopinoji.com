@@ -2,10 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../layout/Base'
 import SEO from '../components/SEO/SEO'
-import { PostQuery } from '../gatsby-graphql'
+import { Query } from '../gatsby-graphql'
 
 type PropsType = {
-  data: PostQuery;
+  data: Query;
 }
 
 const Post: React.FC<PropsType> = props => {
