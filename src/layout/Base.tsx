@@ -3,9 +3,9 @@ import Header from './Header'
 import Footer from './Footer'
 
 type PropsType = {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
-  
+
 const Base: React.FC<PropsType> = props => {
   return (
     <div className="min-h-screen m-12">

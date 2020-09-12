@@ -1,9 +1,12 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://yopinoji.com/`,
-    title: `Gatsby Typescript Tailwind`,
-    description: `An example config of Gatsby + TypeScript + Tailwind CSS`,
-    author: `@gatsbyjs`,
+    title: `YopiNoji.com`,
+    description: `A Online notes.`,
+    image: `/icons/icon-144x144.png`,
+    author: `@YopiNoji`,
+    lang: `ja`,
+    charSet: `utf-8`
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -85,6 +88,12 @@ module.exports = {
         //   './src/**/*.{ts,tsx}',
         //   './node_modules/gatsby-*/**/*.{ts,tsx}',
         // ],
+      }
+    },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: 'UA-131756589-2'
       }
     },
     {
