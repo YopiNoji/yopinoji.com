@@ -7,6 +7,10 @@ h2 {
     @apply text-xl py-4;
 }
 
+img {
+    @apply py-4 px-2;
+}
+
 ul {
     list-style-type: disc;
     padding: theme('padding.2');

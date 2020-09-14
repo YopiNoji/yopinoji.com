@@ -2465,6 +2465,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___trackingId'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___tailwind'
@@ -2485,7 +2486,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___options___failOnError'
   | 'pluginCreator___pluginOptions___classPrefix'
   | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___trackingId'
+  | 'pluginCreator___pluginOptions___codegenDelay'
   | 'pluginCreator___pluginOptions___query'
   | 'pluginCreator___pluginOptions___feeds'
   | 'pluginCreator___pluginOptions___feeds___query'
@@ -2686,6 +2687,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___classPrefix'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___trackingId'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___tailwind'
@@ -2706,7 +2708,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___options___failOnError'
   | 'pluginOptions___classPrefix'
   | 'pluginOptions___fileName'
-  | 'pluginOptions___trackingId'
+  | 'pluginOptions___codegenDelay'
   | 'pluginOptions___query'
   | 'pluginOptions___feeds'
   | 'pluginOptions___feeds___query'
@@ -2826,6 +2828,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  trackingId?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   tailwind?: Maybe<Scalars['Boolean']>;
@@ -2845,7 +2848,7 @@ export type SitePluginPluginOptions = {
   options?: Maybe<SitePluginPluginOptionsOptions>;
   classPrefix?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
-  trackingId?: Maybe<Scalars['String']>;
+  codegenDelay?: Maybe<Scalars['Int']>;
   query?: Maybe<Scalars['String']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -2869,6 +2872,7 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  trackingId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   tailwind?: Maybe<BooleanQueryOperatorInput>;
@@ -2888,7 +2892,7 @@ export type SitePluginPluginOptionsFilterInput = {
   options?: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
-  trackingId?: Maybe<StringQueryOperatorInput>;
+  codegenDelay?: Maybe<IntQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
