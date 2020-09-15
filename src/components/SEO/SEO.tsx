@@ -15,6 +15,7 @@ const SEO: React.FC<PropsType> = props => {
     const image = siteMeta?.image ? siteMeta?.siteUrl + siteMeta?.image : '';
     const blogURL = siteMeta?.siteUrl ? siteMeta?.siteUrl : '';
     const postURL = blogURL + ''
+    console.log(image)
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",

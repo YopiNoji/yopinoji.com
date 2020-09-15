@@ -28,6 +28,7 @@ query Index {
       siteUrl
       description
       author
+      image
     }
   }
   allMarkdownRemark(

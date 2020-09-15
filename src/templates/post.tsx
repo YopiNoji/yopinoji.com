@@ -29,6 +29,7 @@ export const pageQuery = graphql`
         siteUrl
         description
         author
+        image
       }
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
