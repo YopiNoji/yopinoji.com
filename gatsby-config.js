@@ -3,7 +3,7 @@ module.exports = {
     siteUrl: `https://yopinoji.com/`,
     title: `YopiNoji.com`,
     description: `名も無い野良の技術者の個人ブログ`,
-    image: `Yopinoji.png`,
+    image: `/Yopinoji.png`,
     author: `@YopiNoji`,
     lang: `ja`,
     charSet: `utf-8`
