@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://yopinoji.com/`,
     title: `YopiNoji.com`,
-    description: `A Online notes.`,
+    description: `名も無い野良の技術者の個人ブログ`,
     image: `Yopinoji.png`,
     author: `@YopiNoji`,
     lang: `ja`,
@@ -35,11 +35,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `YopiNoji.com`,
+        short_name: `YopiNoji.com`,
+        lang: `ja`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
         icon: `${__dirname}/src/assets/icon.png`, // This path is relative to the root of the site.
       },
