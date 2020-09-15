@@ -12,7 +12,7 @@ const SEO: React.FC<PropsType> = props => {
     const { postMeta, isPost, siteMeta } = props;
     const title = isPost ? String(siteMeta?.title) + ' | ' + postMeta?.frontmatter?.title : String(siteMeta?.title);
     const description = siteMeta?.description ? siteMeta?.description : '';
-    const image = siteMeta?.image ? siteMeta?.image : '';
+    const image = siteMeta?.image ? siteMeta?.siteUrl + siteMeta?.image : '';
     const blogURL = siteMeta?.siteUrl ? siteMeta?.siteUrl : '';
     const postURL = blogURL + ''
     const schemaOrgJSONLD = [
