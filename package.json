@@ -19,6 +19,7 @@
     "lint": "eslint . --ext ts,tsx --fix",
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "develop-in-container": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby build && gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

@@ -1,0 +1,16 @@
+version: "3"
+services:
+  yopinoji.com:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yopinoji.com
+    tty: true
+    command: npm run develop-in-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - /usr/src/node_modules
+      - .:/usr/src
+    environment:
+      - NODE_ENV=development
