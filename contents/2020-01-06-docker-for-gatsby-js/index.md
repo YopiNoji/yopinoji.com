@@ -37,8 +37,6 @@ services:
     volumes:
       - /usr/src/node_modules
       - .:/usr/src
-    environment:
-      - NODE_ENV=development
 ```
 
 まずは `docker-compose.yml` の紹介です。

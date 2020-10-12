@@ -13,7 +13,7 @@ tags:
 開発環境を動かすために Node.js が必要なプロジェクトを全て Docker 化したかったので、  
 Nuxt.js で動かしているポートフォリオサイトも Docker 化しました。
 
-## オレオレ Docker 環境の紹介
+## 自分が使っている Docker 環境の紹介
 
 Docker とは何ぞやということについては解説を省きます。
 
@@ -27,21 +27,22 @@ Docker Compose は複数のコンテナを使う Docker 環境を YML ファイ�
 ```yml
 version: "3"
 services:
-  web:
+  your-site-name:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: your-site-name
     ports:
       - "3000:3000"
     command: npm run dev
     volumes:
       - /usr/src/node_modules
       - .:/usr/src
-    environment:
-      - NODE_ENV=development
 ```
 
 まずは `docker-compose.yml` の紹介です。
+
+`your-site-name` の箇所は自由に書き換えてください。
 
 Docker コンテナ内部の `/usr/src/` フォルダで Nuxt.js を動かす算段です。  
 3000 番のポートを解放して、PC から[localhost:3000](http://localhost:3000)にアクセスすることでサイトを確認できるようにしてあります。
@@ -57,8 +58,8 @@ ENV HOST 0.0.0.0
 
 WORKDIR /usr/src
 COPY ./package.json .
-RUN npm install \
-    && npm cache clean --force
+RUN npm install
+COPY . .
 # CMD ["npm", "run", "dev"]
 ```
 
@@ -66,7 +67,9 @@ RUN npm install \
 
 Linux ディストリビューションは、ファイルの軽量さに定評のある Alpine Linux を用います。  
 ただ、Node.js のバージョンが最新の Docker イメージを使うと、依存関係にあるプログラム（`node-gyp`）が動作しないので、  
-Node.js のバージョンは指定しています。
+Node.js のバージョンを下げて指定しています。
+
+もし動かない場合は、Node.js のバージョンを変えることや Alpine Linux 以外を使うことで解消すると思います。
 
 その後、`package.json`を Docker コンテナにコピーして、それを元に依存性パッケージをインストールして、Nuxt.js プロジェクトをコピーします。
 
@@ -81,8 +84,9 @@ node_modules
 ```
 
 最後に `.dockerignore` の紹介です。  
-こいつは無くても動くはずです。  
-ただ、ビルド時間の短縮には繋がるはずです。
+`.dockerignore` というファイルを作成し、そこに除外対象のファイルを記入することで、Docker で扱うファイルから除外できます。
+
+こいつは無くても動くはずです。
 
 ### Docker 起動
 
