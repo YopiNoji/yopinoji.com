@@ -121,15 +121,17 @@ Hasura を使用する権限については上記の画面から追加できま�
 
 一般ユーザーが使う `user` 権限についても追加する必要があります。
 
-なお、権限がないのにリソースへアクセスしようとすると、以下のようなエラーでデータが取得できないことになります。
+なお、権限がないのにリソースへアクセスしようとすると、以下のようなエラーでデータが取得できないことになってしまいます。
 
 ```
 Error: GraphQL error: field "users" not found in type: 'query_root'
 ```
 
+データがないという風に読み取れるので最初は焦るかもしれませんが、単純に権限がなくてデータにアクセスできない時もこのエラーが出るようです。（執筆時点での情報）
+
 ### Auth0 の情報を Hasura に連携する Auth0 Rules
 
-Auth0 で保持しているユーザー情報を Hasura の DB に連携してあげるための Rules は以下です。
+Auth0 で保持しているユーザー情報を Hasura の DB に連携してあげるための Rules は以下のように記述します。
 
 ```js
 function userSyncRule(user, context, callback) {
@@ -153,12 +155,12 @@ function userSyncRule(user, context, callback) {
     {
       headers: {
         "content-type": "application/json",
-        "x-hasura-admin-secret": configuration.HASURA_GRAPHQL_ADMIN_SECRET
+        "x-hasura-admin-secret": configuration.HASURA_GRAPHQL_ADMIN_SECRET,
       },
       url: "http://your-graphql-endpoint/v1/graphql",
-      body: JSON.stringify({ query: mutation, variables: { userId, email } })
+      body: JSON.stringify({ query: mutation, variables: { userId, email } }),
     },
-    function(error, response, body) {
+    function (error, response, body) {
       console.log(body);
       callback(error, user, context);
     }
@@ -183,8 +185,8 @@ Hasura 側で保持する Users テーブルを作成します。
 - created_at - timestamp with time zone, default: now()
 - last_login - timestamp with time zone, default: now()
 
-テーブルの定義は上記のような形で作成します。  
-（主キーなどの設定は適宜書き換えてください）
+今回はテーブルの定義は上記のような形で作成します。  
+（各自のプロジェクトに合わせて適宜書き換えてください）
 
 これらのユーザー情報を保持するテーブルは、Auth0 にログインした際に先ほどの Rules を使って Hasura に登録されます。
 
@@ -195,86 +197,90 @@ Hasura 側で保持する Users テーブルを作成します。
 Nuxt.js と Hasura を使った環境のセットアップは、[こちらの過去記事](./quick-build-graphql-server-by-hasura-with-nuxt-js)にも書いてあるので参考にしてください。  
 （GraphQL を使って、Hasura と情報のやりとりをする方法までは載っています）
 
-### Auth Module を導入する方法
+### @auth0/auth0-spa-js を利用してログイン機能を実装する手順
 
-認証機能の実装には 2 通りの方法があります。
-
-- Nuxt.js のコミュニティから提供されている Auth Module を使用する
-- Auth0 から提供されている SDK を利用して自前で実装する方法
-
-**最初に述べておきますが、この方法にはユーザー情報を取得できなくなるという問題を抱えています。**
-
-それでは、認証機能の実装を Auth Module を使って実装する手順を書いておきます。  
-Auth Module については以下を参照してください。
-
-https://auth.nuxtjs.org/
-
-パッケージのインストールするために、以下を実行します。
+[`@auth0/auth0-spa-js`](https://auth0.github.io/auth0-spa-js/) を使います。
 
 ```bash
-npm install @nuxtjs/auth
+$ npm install @auth0/auth0-spa-js
 ```
 
-`nuxt.config.js` に以下を追記します。
+また、今回は Nuxt.js のプラグイン機能にログイン関数を閉じ込めるので、`plugins/auth0.js` を作成します。  
+`nuxt.config.js` にプラグインを登録する必要があります。
+
+`plugins/auth0.js` の Auth0 クライアントを生成している箇所については、各自のプロジェクトで使われている Auth0 の設定を記述してください。  
+（例では `.env` から読み込んでいます）
 
 ```js
-  // 中略
-  // Omitted
+import { Auth0Client } from "@auth0/auth0-spa-js";
 
-  /*
-   ** Nuxt.js modules
-   */
-  modules: ['@nuxtjs/auth'],
+export default (context, inject) => {
+  // Auth0 クライアントの作成
+  const auth0Client = new Auth0Client({
+    domain: process.env.AUTH0_DOMAIN,
+    client_id: process.env.AUTH0_CLIENT_ID,
+    redirect_uri: window.location.origin,
+    cacheLocation: "localstorage",
+  });
 
-  // 中略
-  // Omitted
+  const login = () => {
+    auth0Client.loginWithRedirect();
+  };
 
-  /*
-   ** auth module configuration
-   */
-  auth: {
-    strategies: {
-      auth0: {
-        domain: 'your_account.auth0.com',
-        client_id: 'yourclientidinauth0',
-        response_type: 'id_token token',
-        token_key: 'id_token',
-        userinfo_endpoint: false,
-      }
-    },
-    redirect: {
-      login: '/login', // redirect path when not logined.
-      logout: '/login', // redirect path when logouted.
-      callback: '/callback', // callback url
-      home: '/' // redirect path when logined.
+  const loginPopup = () => {
+    auth0Client.loginWithPopup();
+  };
+
+  const syncUser = async () => {
+    const isAuthenticated = await auth0Client.isAuthenticated();
+    if (isAuthenticated && !context.store.state.auth.isAuthenticated) {
+      const user = await auth0Client.getUser();
+      const token = await auth0Client.getTokenSilently();
+      const JWT = await auth0Client.getIdTokenClaims();
+      const idToken = JWT.__raw;
+      window.localStorage.setItem("idToken", idToken);
+      const accessToken = window.localStorage.getItem("idToken");
+      await context.app.$apolloHelpers.onLogin("Bearer " + accessToken);
+      // You can write custom function here.
     }
-  },
+  };
 
-  // 中略
-  // Omitted
+  const getToken = async () => {
+    const isAuthenticated = await auth0Client.isAuthenticated();
+    let accessToken = "";
+    if (isAuthenticated && !context.store.state.auth.isAuthenticated) {
+      const JWT = await auth0Client.getIdTokenClaims();
+      const idToken = JWT.__raw;
+      window.localStorage.setItem("idToken", idToken);
+      accessToken = window.localStorage.getItem("idToken");
+    }
+    return accessToken;
+  };
+
+  const logout = async () => {
+    auth0Client.logout();
+  };
+
+  const auth0 = {
+    login,
+    loginPopup,
+    logout,
+    syncUser,
+  };
+  inject("auth0", auth0);
+};
 ```
 
-Auth0 の `domain` と `client_id` については、Auth0 のダッシュボードから確認できます。
+`plugins/auth0.js` は何をやっているのか簡単に説明すると、`@auth0/auth0-spa-js` からログインやログアウトの関数を作成し、それを Vue コンポーネントから呼び出し可能なように注入しています。  
+これで Auth0 のログインやログアウトなどの機能を以下のように画面側で呼び出すことができるようになります。
 
-`response_type` `token_key` については、デフォルトの設定だとアクセストークンを用いる設定になっています。
+```js
+HandleOnClick() {
+  this.$auth0.login()
+}
+```
 
-ただ、今回は Hasura と JWT を使って認証するため、Auth0 から JWT トークン（ID トークン）をもらってくる必要があります。
-
-`userinfo_endpoint` について `false` にしている理由はというと、  
-Auth Module は Auth0 でログイン後に `/userinfo` という Auth0 API を叩いているのですが、  
-その API アクセスに Auth0 のアクセストークンを用いている都合で `/userinfo` を叩かないようにしています。
-
-**このように、`/userinfo` からユーザーの情報を取得しないため、ユーザ情報を取得できなくなりますので注意してください。**
-
-アクセストークン、ID トークン両方保持するには、`@auth0/auth0-spa-js` など他のパッケージで実装することで解決できます。
-
-![Auth0 URL settings](./auth0_url_settings.png)
-
-また、Auth0 のダッシュボードから、ログイン API を叩ける URL を指定しておく必要があります。  
-今回は、Nuxt.js のデフォルトのローカル環境である `http://localhost:3000` を設定しておきます。
-
-あとは、`store` フォルダに `index.js` を追加して、Nuxt.js で Vuex を使えるようにしてあげるだけです。  
-ファイルの中身は空で大丈夫です。
+`@auth0/auth0-spa-js` が提供してくれている関数には様々な物があるので必要に応じて注入してください。
 
 ### ログイン画面の実装
 
@@ -300,7 +306,7 @@ export default Vue.extend({
   },
   methods: {
     login() {
-      this.$auth.loginWith('auth0')
+      this.$auth0.loginPopup()
     }
   }
 })
@@ -325,7 +331,7 @@ Auth0 と Nuxt.js Auth Module を使ったログイン画面は上記のよう�
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Login',
+  name: 'Logout',
   layout: 'default',
   components: {
     //
@@ -335,9 +341,7 @@ export default Vue.extend({
   },
   methods: {
     async logout() {
-      await this.$auth.logout()
-      window.location.href =
-        'https://your_account.auth0.com/v2/logout'
+      await this.$auth0.logout()
     }
   }
 })
@@ -345,9 +349,8 @@ export default Vue.extend({
 
 ```
 
-Auth0 と Nuxt.js Auth Module を使ったログアウト画面は上記のように実装します。
-
-ログアウト後に、Auth0 のログアウト URL へリダイレクトしてあげることで、Auth0 のトークンが無効になり無事ログアウトできます。
+ログアウトも同様です。  
+注入した関数を呼び出すだけです。
 
 ### Hasura GraphQL にアクセスする
 
@@ -358,13 +361,10 @@ Auth0 と Nuxt.js Auth Module を使ったログアウト画面は上記のよ�
 - Apollo のリクエストヘッダーに JWT のトークンを持たせる
 
 ```ts
-// 中略
-// Omitted
-  mounted() {
-    this.$apolloHelpers.onLogin(this.$auth.getToken('auth0'))
-  }
-  // 中略
-// Omitted
+async mounted() {
+  const token = await this.$auth0.getToken()
+  this.$apolloHelpers.onLogin("Bearer " + token)
+}
 ```
 
 例として、上記のようにしてあげると Nuxt.js では設定を行うことができます。
