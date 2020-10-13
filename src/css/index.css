@@ -20,6 +20,10 @@ ul {
   padding-left: theme("padding.4");
 }
 
+p {
+  @apply select-none py-2;
+}
+
 @tailwind components;
 
 @tailwind utilities;
