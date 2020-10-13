@@ -10,7 +10,7 @@ tags:
   - Nuxt.js
 ---
 
-インフラエンジニア（！？）なので、最近 GitHub Actions の yml ファイルばかり書いています。
+インフラエンジニアも兼務しているので、最近 GitHub Actions の yml ファイルばかり書いています。
 
 というとこで、GitHub Actions の知見について少しばかり共有します。
 

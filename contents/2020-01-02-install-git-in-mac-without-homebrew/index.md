@@ -1,12 +1,12 @@
 ---
 title: "Homebrew を使わずに MacOS に Git をインストールする方法とその問題点"
-cover: '2020-01-02-install-git-in-mac-without-homebrew/header.png'
+cover: "2020-01-02-install-git-in-mac-without-homebrew/header.png"
 category: "Tech"
 date: "2020-01-02"
 slug: "install-git-in-mac-without-homebrew"
 tags:
-    - Git
-    - Mac
+  - Git
+  - Mac
 ---
 
 最近、年末年始ということで思い切って PC のクリーンインストールを行い、Git など開発に使うものを全てインストールしなおしました。
@@ -31,8 +31,15 @@ Mac でターミナルを開いて、`git`と入力します。
 
 ![install-git-in-mac-without-homebrew-01](./install-git-in-mac-without-homebrew-01.png)
 
-Git がインストールされていない場合、コマンドラインデベロッパーツールのインストールを促されます。  
-コマンドラインデベロッパーツールは iOS アプリ開発で使う XCode をインストールすると入るツールなのですが、実は XCode 抜きでもいれることができます。
+Git がインストールされていない場合、コマンドラインデベロッパーツールのインストールを促されます。
+
+また、以下のコマンドからインストールすることも可能です。
+
+```bash
+$ xcode-select --install
+```
+
+他にも Xcode 経由でインストールすることも可能ですが、当方の PC に Xcode をインストールしていないため説明は省かせていただきます。
 
 ![install-git-in-mac-without-homebrew-02](./install-git-in-mac-without-homebrew-02.png)
 
@@ -41,7 +48,7 @@ Git がインストールされていない場合、コマンドラインデベ�
 ## 問題点
 
 さて、Homebrew 抜きで Git を使える状態まで持っていくことはできたのですが、  
-残念ながら、**このインストール方法には重大な問題点があったのです。**
+残念ながら、**このインストール方法には重大な問題点があります。**
 
 それは、**Git のバージョンを簡単に変更できないことです。**
 
@@ -57,11 +64,11 @@ https://forest.watch.impress.co.jp/docs/news/1223826.html
 brew upgrade
 ```
 
-Homebrew を使っていない場合、今後のことも考えて Homebrew で Git をインストールしなおすのが賢明ですね。
+ただ、コマンドラインデベロッパーツール経由の場合、ツールの更新を待つ必要があります。
+
+Homebrew を使っていない場合、今後のことも考えて Homebrew で Git をインストールしなおすのが賢明かなと思います。
 
 ## 結論
 
 何か問題があった際にすぐにバージョンを切り替えられるのは Homebrew の強みですね。  
 やっぱり Git のインストールは Homebrew 使った方がいいですね。
-
-    
