@@ -231,24 +231,10 @@ export default (context, inject) => {
     auth0Client.loginWithPopup();
   };
 
-  const syncUser = async () => {
-    const isAuthenticated = await auth0Client.isAuthenticated();
-    if (isAuthenticated && !context.store.state.auth.isAuthenticated) {
-      const user = await auth0Client.getUser();
-      const token = await auth0Client.getTokenSilently();
-      const JWT = await auth0Client.getIdTokenClaims();
-      const idToken = JWT.__raw;
-      window.localStorage.setItem("idToken", idToken);
-      const accessToken = window.localStorage.getItem("idToken");
-      await context.app.$apolloHelpers.onLogin("Bearer " + accessToken);
-      // You can write custom function here.
-    }
-  };
-
   const getToken = async () => {
     const isAuthenticated = await auth0Client.isAuthenticated();
     let accessToken = "";
-    if (isAuthenticated && !context.store.state.auth.isAuthenticated) {
+    if (isAuthenticated) {
       const JWT = await auth0Client.getIdTokenClaims();
       const idToken = JWT.__raw;
       window.localStorage.setItem("idToken", idToken);
