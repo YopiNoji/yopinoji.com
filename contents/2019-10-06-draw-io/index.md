@@ -1,11 +1,11 @@
 ---
 title: "プログラムの仕様を伝えるための図を Web で描きたいときは draw.io がおすすめ"
-cover: '2019-10-06-draw-io/header.png'
+cover: "2019-10-06-draw-io/header.png"
 category: "Tech"
 date: "2019-10-06"
 slug: "draw-io"
 tags:
-    - Webサービス
+  - Webサービス
 ---
 
 自分はプログラムの設計や仕様を人に説明するときには、図を描くことが多いです。  
@@ -19,7 +19,7 @@ tags:
 
 そんな中で、[draw.io](https://www.draw.io)という Web サービスを知ってからは作図はそちらで行うことが増えたので、その紹介です。
 
-## draw.ioとは？
+## draw.io とは？
 
 ![draw.io](./drawio.png)
 
@@ -30,7 +30,7 @@ JGraph というイギリスの会社によって作られた図表のドロー�
 作成した図は、端末の他に Google ドライブや GitHub などに保存できます。  
 また、AWS や GCP、Azure の各サービスのアイコンを使うことができ、クラウドサービスを使ったサービスの構成図を描くことができます。
 
-draw.io 自体はオープンソースになっていて、[JGraph社のGitHub](https://github.com/jgraph/drawio)からソースコードを確認することも可能です。
+draw.io 自体はオープンソースになっていて、[JGraph 社の GitHub](https://github.com/jgraph/drawio)からソースコードを確認することも可能です。
 
 また、JGraph 社の GitHub を見ていて気づいたのですが、Web 版だけでなくオフラインでも使えるデスクトップ版もあるようですね。
 
@@ -71,10 +71,18 @@ AWS・GCP・Azure などのクラウドサービスのアイコンを使った�
 
 そんなこんなでこのような図表を作ることができました。
 
+## VSCode でもプラグインを追加することで使える
+
+なんと自分がよく使うコードエディタ「VSCode」でも、プラグインを追加することで draw.io を使えるようになりました。
+
+詳しくは以下を参照してください。
+
+https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio
+
+これでコードを書きながら、フローチャートなどの図表も同時に書くことが可能になりそうです。
+
 ## 参考
 
 [draw.io](https://www.draw.io)
 
-[draw.io公式サイト](https://about.draw.io)
-
-
+[draw.io 公式サイト](https://about.draw.io)
