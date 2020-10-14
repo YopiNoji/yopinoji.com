@@ -148,6 +148,6 @@ Docker がエラーを吐くことなく立ち上げることができたら、�
 これで GraphQL サーバーの構築は完了です。  
 あとは、表示されている GraphQL のエンドポイントに対して、リクエストを送るなりするなどクライアントサイドの開発を進めるだけです。
 
-HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。
+ただ、今回は AWS EC2 で構築しましたが、EKS で構築した方が設定の変更などが簡単になりそうなのでそちらで試してみるのもありだと思います。
 
-どうでしょう。超簡単じゃないですか？
+HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。
