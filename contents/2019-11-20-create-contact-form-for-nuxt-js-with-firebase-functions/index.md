@@ -97,8 +97,8 @@ const mailTransport = nodemailer.createTransport({
   secure: true,
   auth: {
     user: gmailEmail,
-    pass: gmailPassword
-  }
+    pass: gmailPassword,
+  },
 });
 
 exports.sendMail = functions.https.onCall((data, context) => {
@@ -113,7 +113,7 @@ exports.sendMail = functions.https.onCall((data, context) => {
       data.form.email.contents +
       "\n" +
       "Name:" +
-      data.form.name.contents
+      data.form.name.contents,
   };
   mailTransport.sendMail(email, (err, info) => {
     if (err) {
@@ -214,7 +214,7 @@ const config = {
   databaseURL: process.env.FB_DATABASE_URL,
   projectId: process.env.FB_PROJECTID,
   storageBucket: process.env.FB_STORAGE_BUCKET,
-  messagingSenderId: process.env.FB_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
 };
 
 if (!firebase.apps.length) {
