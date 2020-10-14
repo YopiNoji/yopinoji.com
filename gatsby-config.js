@@ -139,6 +139,7 @@ module.exports = {
                     node {
                       html
                       frontmatter {
+                        slug
                         category
                         cover
                         date
