@@ -69,12 +69,24 @@ Linux ディストリビューションは、ファイルの軽量さに定評�
 ただ、Node.js のバージョンが最新の Docker イメージを使うと、依存関係にあるプログラム（`node-gyp`）が動作しないので、  
 Node.js のバージョンを下げて指定しています。
 
-もし動かない場合は、Node.js のバージョンを変えることや Alpine Linux 以外を使うことで解消すると思います。
-
 その後、`package.json`を Docker コンテナにコピーして、それを元に依存性パッケージをインストールして、Nuxt.js プロジェクトをコピーします。
 
 Docker Compose 側で `npm run dev` のコマンドは実行してあげているので、最後の行はコメントアウトしています。  
 Docker Compose を使わない時は、ここでコマンド実行してあげることでコンテナを起動したままにします。
+
+もし動かない場合は、Node.js のバージョンを変えることや Alpine Linux 以外を使うことでも解消すると思います。  
+以下は簡単なサンプルです。
+
+```Dockerfile
+FROM node:14
+EXPOSE 3000
+ENV HOST 0.0.0.0
+
+WORKDIR /usr/src
+COPY ./package.json .
+RUN npm install
+COPY . .
+```
 
 ### .dockerignore
 
