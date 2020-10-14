@@ -1,12 +1,12 @@
 ---
 title: "ブログ用のおしゃれなヘッダー画像を簡単に作るなら Canva がおすすめ"
-cover: '2019-10-05-blog-header-image-canva/header.png'
+cover: "2019-10-05-blog-header-image-canva/header.png"
 category: "Tech"
 date: "2019-10-05"
 slug: "blog-header-image-canva"
 tags:
-    - Webサービス
-    - Blog
+  - Webサービス
+  - Blog
 ---
 
 ブログ記事のヘッダー画像を作成するツールをいくつか試していたのですが、  
@@ -43,7 +43,7 @@ Photoshop など高機能よりな画像編集ツールは、色々と便利な�
 さて、それでは自己流のブログ用ヘッダー画像の作り方について簡単に紹介しようと思います。  
 ヘッダー画像とは上記のイメージで使われているような画像のことです。
 
-何はともあれ[Canva公式サイト](https://www.canva.com)から会員登録してログインするところから始めましょう。
+何はともあれ[Canva 公式サイト](https://www.canva.com)から会員登録してログインするところから始めましょう。
 
 ![canva01](./canva-01.png)
 
@@ -58,7 +58,7 @@ Canva にログインした直後のメニュー画面です。
 作成するデザインを選ぶと、画像編集できるデザイン用のページに飛ばされます。
 
 ヘッダー画像を作る際に元となるテンプレートが用意されているので、今回はこれを活用します。  
-ちなみにテンプレートは有料（1$程度）のものもあるので、無料で使いたい方は無料表記があるものから選びましょう。
+ちなみにテンプレートは有料（1\$程度）のものもあるので、無料で使いたい方は無料表記があるものから選びましょう。
 
 ![canva03](./canva-03.png)
 
@@ -112,10 +112,10 @@ Photoshop や Photoscape などの高機能でゴツいツールが不要な方�
 
 ## 参考
 
-[Canva公式サイト](https://www.canva.com)
+[Canva 公式サイト](https://www.canva.com)
 
 [Canva - Wikipedia](https://en.wikipedia.org/wiki/Canva)
 
-[無料デザインツールCanvaとは？できることを解説 - サルワカ](https://saruwakakun.com/design/canva/whats)
+[無料デザインツール Canva とは？できることを解説 - サルワカ](https://saruwakakun.com/design/canva/whats)
 
-[Photoshopより簡単、オーストラリア発のデザインツールCanvaが日本上陸 - TechCrunch](https://jp.techcrunch.com/2017/05/24/canva-japan-launch/)
+[Photoshop より簡単、オーストラリア発のデザインツール Canva が日本上陸 - TechCrunch](https://jp.techcrunch.com/2017/05/24/canva-japan-launch/)

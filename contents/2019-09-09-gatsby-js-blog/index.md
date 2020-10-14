@@ -1,12 +1,12 @@
 ---
 title: "Gatsby を使ってブログを作ってみた"
-cover: '2019-09-09-gatsby-js-blog/header.png'
+cover: "2019-09-09-gatsby-js-blog/header.png"
 category: "Tech"
 date: "2019-09-09"
 slug: "gatsby-js-blog"
 tags:
-    - Gatsby
-    - Blog
+  - Gatsby
+  - Blog
 ---
 
 ![Gatsby](./gatsby.png)
@@ -86,7 +86,7 @@ WordPress のようにプラグインのインストールだけで簡単にカ�
 
 それでは Gatsby はどうなのかと言う話ですが、結論から言うと自分の場合は独自ドメインの維持費のみで済んでいます。  
 ドメインの維持費は年間で 1500 円ほどです。月々に換算すると 125 円ほどです。安いです。  
-（ちなみに自分は以前 WordPress 製のブログをレンタルサーバーで動かしていましたが、その際は月々1500 円ほど維持費が必要でした）
+（ちなみに自分は以前 WordPress 製のブログをレンタルサーバーで動かしていましたが、その際は月々 1500 円ほど維持費が必要でした）
 
 なぜこんなに安いのかと言うと、Gatsby で生成した静的サイトをホスティングするだけでいいからです。  
 データベースや Web サーバーを用意する必要はありません。  
@@ -125,6 +125,7 @@ Gatsby で生成された静的なサイトで構築したウェブサイトは�
 ページを遷移する際の移り変りをスムーズに行えてユーザ体験として良いものを提供できるところは好きですね。
 
 ## 終わりに
+
 今回 Gatsby を用いてブログを構築してまだ間もないですが、  
 Gatsby だけで今まで WordPress などで構築していたウェブサイトが一部代替できそうなところにとても魅力を感じています。
 
@@ -137,6 +138,6 @@ Gatsby だけで今まで WordPress などで構築していたウェブサイ�
 
 ## 参考
 
-[Gatsby公式](https://www.gatsbyjs.org)
+[Gatsby 公式](https://www.gatsbyjs.org)
 
-[React用静的サイトジェネレータのGatsbyJsでブログを構築した](https://tsukamon.com/blogs/2)
+[React 用静的サイトジェネレータの GatsbyJs でブログを構築した](https://tsukamon.com/blogs/2)

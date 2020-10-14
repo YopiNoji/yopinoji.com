@@ -1,11 +1,11 @@
 ---
 title: "GraphQL で一意の値を取得することで Gatsby ブログにタグ一覧を作る"
-cover: '2019-09-19-gatsby-js-tags/header.png'
+cover: "2019-09-19-gatsby-js-tags/header.png"
 category: "Tech"
 date: "2019-09-19"
 slug: "gatsby-js-tags"
 tags:
-    - Gatsby
+  - Gatsby
 ---
 
 ![Gatsby](./gatsby.png)
@@ -22,7 +22,7 @@ GraphQL を用いて重複しないタグ情報を取得するということに
 もうすでにご存知かもしれませんが、Gatsby では GraphQL を用いてデータを取得しています。  
 GraphQL で取得したデータを元に、静的サイトを生成しているわけです。
 
-Gatsby をローカル環境で動作している場合、[localhost:8000/___graphql](http://localhost:8000/___graphql)にアクセスすることで、GraphQL のクエリを GUI から試してみることができます。  
+Gatsby をローカル環境で動作している場合、[localhost:8000/\_\_\_graphql](http://localhost:8000/___graphql)にアクセスすることで、GraphQL のクエリを GUI から試してみることができます。  
 GUI の左側の入力欄にクエリを入力して実行ボタンを押すと、取得したデータ（JSON 形式）を確認できます。
 
 試しに、自分の環境で以下のクエリを実行してみます。
@@ -81,7 +81,7 @@ GUI の左側の入力欄にクエリを入力して実行ボタンを押すと�
 
 あとはタグの一覧を表示するコンポーネントを作成するだけですね。
 
-## StaticQueryを用いたコンポーネントを作成する
+## StaticQuery を用いたコンポーネントを作成する
 
 Gatsby で React コンポーネントから GraphQL を呼ぶ場合、StaticQuery というものを使います。  
 この StaticQuery を使う事で、ページ生成用のファイル以外からも GraphQL を使う事ができます。
@@ -91,39 +91,36 @@ Gatsby の Link コンポーネントを用いて、各タグが使われてい�
 
 ```javascript
 import React from "react";
-import { StaticQuery,  graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby";
 import _ from "lodash";
 import { Link } from "gatsby";
 
 const TagListing = () => (
   <StaticQuery
     query={graphql`
-    query {
-      allMarkdownRemark(
-        limit: 1000
-        sort: { fields: [fields___date], order: DESC }
-      ) {
-        distinct(field: frontmatter___tags)
+      query {
+        allMarkdownRemark(
+          limit: 1000
+          sort: { fields: [fields___date], order: DESC }
+        ) {
+          distinct(field: frontmatter___tags)
+        }
       }
-    }
     `}
-
     render={(data) => {
-      const tags = data.allMarkdownRemark.distinct
+      const tags = data.allMarkdownRemark.distinct;
       return (
-      <ul>
-      {tags.map(tag => (
-        <Link
-            to={`/tags/${_.kebabCase(tag)}`}
-          >
-            <li>{tag}</li>
-        </Link>
-      ))}
-      </ul>
+        <ul>
+          {tags.map((tag) => (
+            <Link to={`/tags/${_.kebabCase(tag)}`}>
+              <li>{tag}</li>
+            </Link>
+          ))}
+        </ul>
       );
     }}
   />
-)
+);
 
 export default TagListing;
 ```
@@ -137,4 +134,4 @@ export default TagListing;
 
 ## 参考
 
-[Gatsby公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)
+[Gatsby 公式 StaticQuery](https://www.gatsbyjs.org/docs/static-query/)

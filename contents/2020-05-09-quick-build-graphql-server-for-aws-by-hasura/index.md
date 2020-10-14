@@ -150,4 +150,4 @@ Docker がエラーを吐くことなく立ち上げることができたら、�
 
 ただ、今回は AWS EC2 で構築しましたが、EKS で構築した方が設定の変更などが簡単になりそうなのでそちらで試してみるのもありだと思います。
 
-HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。
+また、HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。

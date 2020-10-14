@@ -1,12 +1,12 @@
 ---
 title: "Gatsby を使ったブログのはじめ方"
-cover: '2019-09-12-how-to-start-gatsby-js/header.png'
+cover: "2019-09-12-how-to-start-gatsby-js/header.png"
 category: "Tech"
 date: "2019-09-12"
 slug: "how-to-start-gatsby-js"
 tags:
-    - Gatsby
-    - Blog
+  - Gatsby
+  - Blog
 ---
 
 ![Gatsby](./gatsby.png)
@@ -22,7 +22,7 @@ Gatsby を使ったブログのはじめ方についての解説記事です。
 Gatsby は [Node.js](https://nodejs.org/ja/) が使える環境で動きます。  
 インストールしていない場合は、PC に [Node.js](https://nodejs.org/ja/) をインストールしておきましょう。
 
-Node.js を PC にインストールしたくない場合、[DockerでNode.jsが使える仮想環境を準備する方法](docker-for-gatsby-js)もあるので、興味があればそちらも参照してみてください。
+Node.js を PC にインストールしたくない場合、[Docker で Node.js が使える仮想環境を準備する方法](docker-for-gatsby-js)もあるので、興味があればそちらも参照してみてください。
 
 インストールが済んだら、Node.js 本体とそのパッケージ管理ツール npm が使えることを確認しましょう。  
 npm は Node.js インストール時にインストールされます。
@@ -75,7 +75,7 @@ npx gatsby new gatsby-site https://github.com/Vagr9K/gatsby-material-starter
 - CSS Module による CSS 記述
 - JSX による記述
 
-## Gatsbyの開発環境を立ち上げる
+## Gatsby の開発環境を立ち上げる
 
 Gatsby のプロジェクトファイルを作成したら、ローカル環境で Gatsby を動作させてみましょう。  
 ひとまず、CUI から作成したフォルダに移動します。
@@ -111,31 +111,37 @@ public フォルダに Gatsby により静的サイトが生成されます。
 ただ、使用するスターターによってフォルダ構成は異なるので参考程度に考えてもらえればと思います。  
 今回は[gatsby-material-starter](https://www.gatsbyjs.org/starters/Vagr9K/gatsby-material-starter/)でのフォルダ構成を例に解説していきます。
 
-
 ### gatsby-config.js
+
 プラグインの情報やサイト全体で使う情報などを記述するファイルです。  
 プラグインを追加する際には編集する必要が出てきます。
 
 ### gatsby-node.js
+
 投稿データを GraphQL で取得しページとして生成する際の情報などを記述するファイルです。  
 投稿データによりページ生成する際の動作をカスタマイズする場合に編集します。
 
 ### content
+
 Markdown ファイルで書かれた投稿データを配置する場所です。  
 初期状態ではサンプル記事がいくつか存在するので、ここを書き直せば個人ブログになりますね。
 
 ### src/components
+
 再利用可能なコンポーネントファイルを配置する場所です。
 
 ### src/pages
+
 固定の URL を持つページを作る際のファイルを配置する場所です。  
 WordPress でいうところの固定ページを作る際に弄ります。  
 ここにあるファイルを使ってルーティングも行ってくれます。
 
 ### src/templates
+
 投稿ページなどの固定の URL ではないページを生成するためのファイルを配置する場所です。
 
 ### src/layout
+
 サイト全体での共通のレイアウトを配置する場所です。  
 レイアウトを複数作ることで、ページによりレイアウトを切り替えることも可能です。
 

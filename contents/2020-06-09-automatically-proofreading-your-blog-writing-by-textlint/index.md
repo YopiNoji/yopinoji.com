@@ -130,7 +130,7 @@ module.exports = {
       "1.1.3.箇条書き": false, // 箇条書きの文末に句点(。)以外を許可
       "3.1.1.全角文字と半角文字の間": false, // 全角文字と半角文字の間にスペースを入れる
       "2.1.6.カタカナの長音": false, // カタカナ語の長音は基本的に伸ばす
-      "2.2.1.ひらがなと漢字の使い分け": true // ひらがなにしたほうが良い漢字
+      "2.2.1.ひらがなと漢字の使い分け": true, // ひらがなにしたほうが良い漢字
     },
     // https://github.com/textlint-rule/textlint-rule-prh
     prh: { rulePaths: ["./prh.yml"] },
@@ -144,22 +144,22 @@ module.exports = {
     "textlint-rule-ja-hiragana-fukushi": true, // ひらがなにしたほうが良い副詞
     "ja-space-between-half-and-full-width": {
       space: "always",
-      exceptPunctuation: true
+      exceptPunctuation: true,
     }, // 半角文字と全角文字の切替時にスペースを入れる
     "ja-space-around-code": {
       before: true,
-      after: true
+      after: true,
     }, // インラインコードの周りにスペースを入れる
-    "ja-no-space-around-parentheses": true // かっこの外側、内側ともにスペースを入れない
+    "ja-no-space-around-parentheses": true, // かっこの外側、内側ともにスペースを入れない
   },
   filters: {
     // https://github.com/textlint/textlint-filter-rule-comments
     comments: true,
     // https://github.com/textlint/textlint-filter-rule-whitelist
     whitelist: {
-      allow: ["/^<[\\s\\S]*?/>/m"] // Reactコンポーネントをlintしない
-    }
-  }
+      allow: ["/^<[\\s\\S]*?/>/m"], // Reactコンポーネントをlintしない
+    },
+  },
 };
 ```
 
