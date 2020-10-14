@@ -12,10 +12,9 @@ tags:
 
 一般的に、GraphQL サーバーを立てたいときって、どういう手順を想像するでしょうか？
 
-Node.js で Apollo Server、Golang、Python、Scala。  
-手段は色々あると思います。
+Node.js で Apollo Server を使うなど、手段は色々あると思います。
 
-だけど、どの手順でもわざわざサーバーサイドのプログラム組むのはしんどいですよね。
+でも GraphQL のためにわざわざサーバーサイドのプログラム組むのはしんどいですよね。
 
 そんなあなたに [Hasura](https://hasura.io/) です。
 
@@ -29,7 +28,7 @@ Hasura を使えば、**データベースさえ用意すれば爆速で GraphQL
 Hasura とは何なのか、ざっくりとまとめると以下のようになります。（2020 年 4 月現在）
 
 - いわゆる Backend as a Service (BaaS) とか Platform as a Service (PaaS) の部類
-- データベースさえ用意すれば、GraphQL サーバーの処理を書かなくても GraphQL を使う API を用意できる
+- データベースさえ用意すれば、サーバーの処理を書かなくても GraphQL を使う API を用意できる
 - 既存のデータベースに対しても、GraphQL API を使うための入り口を簡単に作ることが可能
 - GUI からデータベースや Hasura の機能について設定できる
 - [GitHub](https://github.com/hasできるGitHubできるGitHubura/graphql-engine)からサンプルコードを確認したり、Issue で質問したりできる
@@ -197,15 +196,15 @@ GraphQL API の接続先は、先ほどの [localhost:8080](http://localhost:808
 
 ```js
 import { InMemoryCache } from "apollo-cache-inmemory";
-export default function(context) {
+export default function (context) {
   return {
     httpLinkOptions: {
       uri: "http://localhost:8080/v1/graphql",
-      credentials: "same-origin"
+      credentials: "same-origin",
     },
     cache: new InMemoryCache(),
     wsEndpoint: "ws://localhost:8080/v1/graphql",
-    context
+    context,
   };
 }
 ```
