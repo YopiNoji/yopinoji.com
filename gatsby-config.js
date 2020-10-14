@@ -121,8 +121,8 @@ module.exports = {
                   title: edge.node.frontmatter.title,
                   categories: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  url: site.siteMetadata.siteUrl + '/' + edge.node.frontmatter.slug,
+                  guid: site.siteMetadata.siteUrl + '/' + edge.node.frontmatter.slug,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
                     { author: '' }
