@@ -253,7 +253,7 @@ const WrappedButton = styled.button<Props>`
 
 ところで、このスタイルの書き方どこかで似たようなものを見たことがありませんか？
 
-私は Tailwind CSS に少し似ているなと思いました。
+私は [Tailwind CSS](https://tailwindcss.com/) に少し似ているなと思いました。
 
 ```html
 <button class="text-red-600 m-auto p-12 w-20 inline-block">
@@ -261,7 +261,7 @@ const WrappedButton = styled.button<Props>`
 </button>
 ```
 
-Tailwind CSS の場合、上記のように書きます。  
+[Tailwind CSS](https://tailwindcss.com/) の場合、上記のように書きます。  
 クラス名に変更したい CSS プロパティに対応するクラスを記述していく形です。  
 カラーコードをテーマに設定しておいて使うということも同様にできますね。
 
