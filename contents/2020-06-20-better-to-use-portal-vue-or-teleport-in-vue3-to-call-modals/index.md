@@ -10,8 +10,6 @@ tags:
   - npm
 ---
 
-Vue.js ユーザーの皆さん、おはこんばんにちわ。
-
 今回は、Vue.js でモーダルを実装する際の方法について、考察を交えて紹介していきます。  
 モーダルと言いましたが、メッセージボックス、ダイアログボックス、スナックバーなどの実装にも同じことが言えます。
 
@@ -66,8 +64,8 @@ export default {
     event() {
       const val = "メッセージ";
       this.$emit("open-modal", val);
-    }
-  }
+    },
+  },
 };
 ```
 
@@ -85,8 +83,8 @@ export default {
     ...mapActions("modules/modal", ["setMessage"]),
     event() {
       this.setMessage("メッセージ");
-    }
-  }
+    },
+  },
 };
 ```
 
