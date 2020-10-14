@@ -21,7 +21,7 @@ const Post: React.FC<PropsType> = props => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {postList.map((row, index) => (
-      <div className="rounded overflow-hidden shadow-lg m-2 p-2" key={index}>
+      <div className="rounded overflow-hidden shadow-lg m-2 p-2 transition duration-500 ease-in-out hover:bg-black hover:text-white" key={index}>
         <Link to={String(row.slug)} key={row.title}>
           {/* <Image filename={String(row.cover)} /> */}
           <div className="px-6 py-4">
