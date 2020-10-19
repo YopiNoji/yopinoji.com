@@ -23,8 +23,8 @@ VSCode で SSH を使う前の準備段階として、SSH のコンフィグ（�
 各自の環境に合わせて適宜書き換えてください。
 
 ```
-Host yopinoji-com
-    HostName yopinoji.com
+Host example-com
+    HostName example.com
     User ec2-user
     Port 22
     IdentityFile ~/.ssh/key.pem
@@ -52,6 +52,7 @@ https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh
 ![VScode-Remote-SSH-02](./VScode-Remote-SSH-02.png)
 
 VSCode の左下を押下し後に、「Remote-SSH:Connect to Host...」と書かれた箇所を選択します。
+もしくは、`command` + `p` 入力から「Remote-SSH:Connect to Host」を選択でも構いません。
 
 ![VScode-Remote-SSH-03](./VScode-Remote-SSH-03.png)
 
@@ -70,11 +71,11 @@ SSH 先で VSCode による開発行う際に役立つ情報をおまけとし�
 ### SSH 先でコマンドライン操作を行う
 
 Mac の場合、`control` + `shift` + `` ` `` で VSCode でのコマンドライン入力が行えるようになります。
-SSH 先で入力することで SSH 先でのコマンドライン入力することが可能になります。
+SSH 先で使うことで SSH 先でのコマンドライン入力することが可能になります。
 
 これが何を意味するのかというと、わざわざ Mac のターミナルから SSH 接続を行い SSH 先で操作を行う行為が一切不要になります。
 
-開発環境で `npm run dev` するのも、Nginx のログを覗くのも、Laravel のログを覗くのも、全て VSCode 上で実行できるようになります。
+開発環境で `npm run dev` するのも、`tail` コマンドを使って Nginx のログを覗くのも、全て VSCode 上で実行できるようになります。
 
 ## 終わりに
 

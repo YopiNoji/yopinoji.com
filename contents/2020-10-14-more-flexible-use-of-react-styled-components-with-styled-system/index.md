@@ -1,5 +1,5 @@
 ---
-title: "Styled System でより柔軟に React の styled-components を使う"
+title: "React の styled-components をより柔軟に使うためのライブラリ Styled System の紹介"
 cover: "2020-10-14-more-flexible-use-of-react-styled-components-with-styled-system/header.png"
 category: "Tech"
 date: "2020-10-14"
