@@ -65,7 +65,7 @@ VSCode のプラグインが存在します。
 
 JavaScript や TypeScript だけでなく、JSON、CSS、YAML など多種多様なファイルに対応しています。
 
-ESlint と組み合わせて使う場合、ESLint 側にプラグインを追加してあげることで上手く共存できるようになります。  
+ESlint と組み合わせて使う場合、ESLint 側にプラグインを追加してあげることなどで上手く共存できるようになります。  
 （なお、今回はその解説は省きます）
 
 https://www.npmjs.com/package/prettier
@@ -86,8 +86,6 @@ npm i husky lint-staged eslint prettier -D
 
 ```json
 {
-  // 中略 //
-  // Omitted //
   "scripts": {
     "eslint:format": "eslint --ext .js,.ts,.vue,.jsx,.tsx --ignore-path .gitignore .",
     "prettier:format": "prettier '**/*.{js,jsx,ts,tsx,vue}' --write"
@@ -105,10 +103,10 @@ npm i husky lint-staged eslint prettier -D
     "*.vue": ["prettier --write", "eslint --fix"],
     "*.json": ["prettier --write"]
   }
-  // 中略 //
-  // Omitted //
 }
 ```
+
+上記の例の場合、Git に Commit したタイミングで、`package.json` の `lint-staged`　以下に定義されたスクリプトが動きます。
 
 あとは、試しに動作確認するだけです。
 
@@ -117,7 +115,7 @@ git add .
 git commit -m "Add automation lint module"
 ```
 
-以下のように husky と lint-staged が動いてくれれば完了です。
+以下のように husky と `lint-staged が動いてくれれば完了です。
 
 ```bash
 husky > pre-commit (node v12.16.1)
