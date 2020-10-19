@@ -74,7 +74,7 @@ sudo apt-get -y install postgresql-client
 クライアントをインストールしたら、RDS に接続してみます。
 
 ```bash
-psql -h hasura.123456789012.ap-northeast-1.rds.amazonaws.com -p 5432 -U photoruction --password -d postgres
+psql -h hasura.123456789012.ap-northeast-1.rds.amazonaws.com -p 5432 -U user --password -d postgres
 ```
 
 RDS に接続できたら、Hasura で使う用の DB を作成します。  
@@ -150,4 +150,7 @@ Docker がエラーを吐くことなく立ち上げることができたら、�
 
 ただ、今回は AWS EC2 で構築しましたが、EKS で構築した方が設定の変更などが簡単になりそうなのでそちらで試してみるのもありだと思います。
 
-また、HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。
+EC2 上の Hasura を HTTPS(SSL) に対応するための手順は[別記事](enable-https-ssl-for-hasura-graphql-server-on-aws)でまとめました。
+
+また、Hasura を手っ取り早く試してみたいのであれば、Docker をローカルで立ち上げて試すのもありですし、Heroku で試すのもありです。  
+特に Heroku についてはコンソール画面から簡単に環境を作成できる上にデフォルトで SSL に対応しているなど手っ取り早く試す用途に向いていると思っています。
