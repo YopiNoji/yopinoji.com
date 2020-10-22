@@ -10,11 +10,16 @@ tags:
   - JAMstack
 ---
 
+Netlify にホスティングしていた当サイトですが、Vercel に移行したのでその話です。
+
+## 日本で Netlify を使う際の問題
+
 ![Google PageSpeed Insight Score](./Google_PageSpeed_Insight_score_20201016.png)
 
-上の画像は 2020 年 10 月現在の当サイトの Google PageSpeed Insight でのスコアです。
+上の画像は 2020 年 10 月の当サイトの Google PageSpeed Insight でのスコアです。
 
-一見すると良さそうに見えますが、たまにアクセスするまで時間が少しかかることがあって気になっていました。
+スコア自体は 100 点なので、一見すると良さそうに見えます。  
+ただ、たまにアクセスするまで時間が少しかかることがあって気になっていました。
 
 ![Google PageSpeed Insight Server](./Google_PageSpeed_Insight_server_problem_20201016.png)
 
