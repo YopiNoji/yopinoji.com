@@ -1,5 +1,5 @@
 ---
-title: "React の styled-components をより柔軟に使うためのライブラリ Styled System の紹介"
+title: "React の styled-components でより柔軟にスタイルを拡張するためのライブラリ Styled System の紹介"
 cover: "2020-10-14-more-flexible-use-of-react-styled-components-with-styled-system/header.png"
 category: "Tech"
 date: "2020-10-14"
@@ -235,7 +235,6 @@ export const CommonStyledSystem = css`
 import { CommonStyledSystem } from "./common";
 const WrappedButton = styled.button<Props>`
   ${CommonStyledSystem}
-  border-radius: 2rem;
 `;
 ```
 
@@ -265,9 +264,9 @@ const WrappedButton = styled.button<Props>`
 
 [Tailwind CSS](https://tailwindcss.com/) の場合、上記のように書きます。  
 クラスに CSS プロパティと対応するクラスを追加していくスタイルです。  
-カラーコードをテーマに設定してから使うということも、styled-components と同様に可能です。
+カラーコードをテーマに設定してから使うということも同様に可能です。
 
-ただ、クラス名に追加していくという性質上 TypeScript を使う場合に型による制御がしづらいという欠点があると思います。
+ただ、tailwind CSS ではクラス名に追加していくという性質上 TypeScript を使う場合に型による制御がしづらいという欠点があると思います。
 
 Style System を用いた場合、プロパティに対する型の定義が提供されているのでそのような問題も起こりづらいのは良い点だと思います。
 
