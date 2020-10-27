@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { SiteSiteMetadata, MarkdownRemark } from '../../gatsby-graphql'
+import { SiteSiteMetadata, MarkdownRemark } from '../../../gatsby-graphql'
 
 type PropsType = {
     postMeta: MarkdownRemark | null | undefined,
@@ -8,7 +8,7 @@ type PropsType = {
     siteMeta: SiteSiteMetadata | null | undefined,
 }
 
-const SEO: React.FC<PropsType> = props => {
+export const SEO: React.FC<PropsType> = props => {
     const { postMeta, isPost, siteMeta } = props;
     const title = isPost ? String(siteMeta?.title) + ' | ' + postMeta?.frontmatter?.title : String(siteMeta?.title);
     const description = siteMeta?.description ? siteMeta?.description : '';
@@ -62,5 +62,3 @@ const SEO: React.FC<PropsType> = props => {
       </Helmet>
     );
 }
-
-export default SEO;

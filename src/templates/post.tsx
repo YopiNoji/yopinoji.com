@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from '../layout/Base'
-import SEO from '../components/SEO/SEO'
+import Layout from '@Layout/Base'
+import { SEO } from '@Components/util/SEO'
+import { H1 } from '@Components/atoms/Typography'
 import { Query } from '../gatsby-graphql'
 
 type PropsType = {
@@ -14,7 +15,7 @@ const Post: React.FC<PropsType> = props => {
     <Layout>
       <SEO siteMeta={props.data.site?.siteMetadata} postMeta={props.data.markdownRemark} isPost={true}/>
       <div className="mb-6">
-        <h1 className="text-3xl py-0">{props.data.markdownRemark?.frontmatter?.title}</h1>
+        <H1>{props.data.markdownRemark?.frontmatter?.title}</H1>
         <span className="text-sm">{props.data.markdownRemark?.frontmatter?.date}</span>
       </div>
       <div dangerouslySetInnerHTML={{ __html: html }}/>

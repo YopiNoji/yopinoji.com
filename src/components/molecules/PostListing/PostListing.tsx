@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Query, MarkdownRemarkFrontmatter } from '../../gatsby-graphql'
+import { Query, MarkdownRemarkFrontmatter } from '../../../gatsby-graphql'
 
 type PropsType = {
   data: Query;
 }
 
-const Post: React.FC<PropsType> = props => {
+export const PostListing: React.FC<PropsType> = props => {
   const postList: MarkdownRemarkFrontmatter[] = props.data.allMarkdownRemark.edges.map(edges => {
     const post = {
       slug: edges.node.frontmatter?.slug,
@@ -39,4 +39,3 @@ const Post: React.FC<PropsType> = props => {
   </div>
   )
 }
-export default Post

@@ -9,6 +9,7 @@ module.exports = {
     charSet: `utf-8`
   },
   plugins: [
+    `gatsby-plugin-tsconfig-paths`,
     'gatsby-plugin-react-helmet',
     {
       resolve: "gatsby-plugin-google-analytics",
