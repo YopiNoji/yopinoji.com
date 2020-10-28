@@ -11,14 +11,18 @@ const Footer: React.FC = () => {
     const url = "https://github.com/yopinoji/yopinoji.com";
     window.open(url, "_blank");
   };
+  const moveToTop = () => {
+    window.location.href = window.location.origin;
+  };
 
   return (
     <footer>
       <div className="py-28 flex flex-col items-center">
         <NormalButton onClick={moveToProfile}>
-          View Author&apos;s Profile
+          View Author&apos;s Profile.
         </NormalButton>
-        <NormalButton onClick={moveToGitHub}>View on GitHub</NormalButton>
+        <NormalButton onClick={moveToGitHub}>View on GitHub.</NormalButton>
+        <NormalButton onClick={moveToTop}>Back to Top Page.</NormalButton>
         <BoldText>{"© YopiNoji. All Rights Reserved."}</BoldText>
       </div>
     </footer>

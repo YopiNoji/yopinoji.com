@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../layout/Base";
-import { PostListing } from "../components/molecules/PostListing/PostListing";
-import { SEO } from "../components/util/SEO/SEO";
+import Layout from "@Components/templates/Base";
+import { PostListing } from "@Components/molecules/PostListing/PostListing";
+import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
 import { Query } from "../gatsby-graphql";
 

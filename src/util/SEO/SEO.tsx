@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { SiteSiteMetadata, MarkdownRemark } from "../../../gatsby-graphql";
+import { SiteSiteMetadata, MarkdownRemark } from "../../gatsby-graphql";
 
 type PropsType = {
   postMeta: MarkdownRemark | null | undefined;

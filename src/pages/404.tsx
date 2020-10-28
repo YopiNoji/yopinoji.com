@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@Layout/Base";
+import Layout from "@Components/templates/Base";
 import { H1 } from "@Components/atoms/Typography";
 
 const Index: React.FC = (props) => {
