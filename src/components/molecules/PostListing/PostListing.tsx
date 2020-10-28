@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Query, MarkdownRemarkFrontmatter } from '../../../gatsby-graphql'
 import { H2 } from '@Components/atoms/Typography'
+import { Badge } from '@Components/atoms/Badge'
 
 type PropsType = {
   data: Query;
@@ -30,9 +31,9 @@ export const PostListing: React.FC<PropsType> = props => {
             <p className="text-lg mb-2">
               {row.date}
             </p>
-            <p className="text-lg mb-2">
+            <Badge>
               {row.category}
-            </p>
+            </Badge>
           </div>
         </Link>
       </div>
