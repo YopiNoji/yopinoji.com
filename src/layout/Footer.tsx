@@ -1,21 +1,22 @@
 import React from 'react'
+import { NormalButton } from '@Components/atoms/Button'
 
 const Footer: React.FC = () => {
+  const moveToProfile = () => {
+    const url = 'https://yopinoji.info'
+    window.open(url, '_blank')
+  }
+  const moveToGitHub = () => {
+    const url = 'https://github.com/yopinoji/yopinoji.com'
+    window.open(url, '_blank')
+  }
+
+
   return (
     <footer>
         <div className="py-28 flex flex-col items-center">
-            <a
-              href={`https://yopinoji.info`}
-              className="mx-2 mb-2 py-2 px-12 bg-black border border-black text-white font-bold transition duration-500 ease-in-out hover:bg-white hover:text-black duration-200 transition-colors"
-            >
-              View Author&apos;s Profile
-            </a>
-            <a
-              href={`https://github.com/yopinoji/yopinoji.com`}
-              className="mx-2 mb-2 py-2 px-12 border border-black font-bold hover:bg-black transition duration-500 ease-in-out hover:text-white duration-200 transition-colors"
-            >
-              View on GitHub
-            </a>
+            <NormalButton onClick={moveToProfile}>View Author&apos;s Profile</NormalButton>
+            <NormalButton onClick={moveToGitHub}>View on GitHub</NormalButton>
             <div className="mx-2 mb-2 text-sm font-bold tracking-tighter leading-tight text-center">
               © YopiNoji. All Rights Reserved.
             </div>
