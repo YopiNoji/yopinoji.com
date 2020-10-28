@@ -1,5 +1,9 @@
 import React, { HtmlHTMLAttributes } from "react"
 
-export const Badge: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({...props}) => {
-  return <label className="px-1 text-sm bg-teal-300 text-gray-700 rounded" {...props}>{props.children}</label>
+interface BadgeProps {
+  bgColor?: string;
+}
+
+export const Badge: React.FC<HtmlHTMLAttributes<HTMLHeadElement> & BadgeProps> = ({bgColor , ...props}) => {
+  return <label className={`px-1 mx-1 text-sm text-gray-800 rounded whitespace-no-wrap ${ bgColor ? bgColor : "bg-teal-200" }`} {...props}>{props.children}</label>
 }

@@ -29,7 +29,11 @@ export const PostListing: React.FC<PropsType> = props => {
           <div className="px-6 py-4">
             <H2>{row.title}</H2>
             <SmallText>{row.date}</SmallText>
-            <Badge>{row.category}</Badge>
+            <Badge bgColor="bg-pink-300">{row.category}</Badge>
+            <br />
+            {row.tags?.map((row, index) => {
+              return <Badge key={index}>{row}</Badge>
+            })}
           </div>
         </Link>
       </div>
