@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/YopiNoji/gatsby-js-blog#readme",
   "dependencies": {
-    "cypress": "^5.4.0",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
