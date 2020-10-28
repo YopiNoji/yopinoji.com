@@ -28,7 +28,6 @@ export const PostListing: React.FC<PropsType> = (props) => {
       {postList.map((row, index) => (
         <Card key={index}>
           <Link to={String(row.slug)} key={row.title}>
-            {/* <Image filename={String(row.cover)} /> */}
             <div className="px-6 py-4">
               <H2>{row.title}</H2>
               <SmallText>{row.date}</SmallText>
