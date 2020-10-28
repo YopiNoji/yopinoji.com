@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Query, MarkdownRemarkFrontmatter } from '../../../gatsby-graphql'
-import { H2 } from '@Components/atoms/Typography'
+import { H2, SmallText } from '@Components/atoms/Typography'
 import { Badge } from '@Components/atoms/Badge'
 
 type PropsType = {
@@ -28,12 +28,8 @@ export const PostListing: React.FC<PropsType> = props => {
           {/* <Image filename={String(row.cover)} /> */}
           <div className="px-6 py-4">
             <H2>{row.title}</H2>
-            <p className="text-lg mb-2">
-              {row.date}
-            </p>
-            <Badge>
-              {row.category}
-            </Badge>
+            <SmallText>{row.date}</SmallText>
+            <Badge>{row.category}</Badge>
           </div>
         </Link>
       </div>
