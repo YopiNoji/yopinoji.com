@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { Query, MarkdownRemarkFrontmatter } from '../../../gatsby-graphql'
 import { H2, SmallText } from '@Components/atoms/Typography'
 import { Badge } from '@Components/atoms/Badge'
+import { Card } from '@Components/atoms/Card'
 
 type PropsType = {
   data: Query;
@@ -21,9 +22,9 @@ export const PostListing: React.FC<PropsType> = props => {
     return post
   })
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {postList.map((row, index) => (
-      <div className="rounded overflow-hidden shadow-lg m-2 p-2 transition duration-500 ease-in-out hover:bg-black hover:text-white" key={index}>
+      <Card key={index}>
         <Link to={String(row.slug)} key={row.title}>
           {/* <Image filename={String(row.cover)} /> */}
           <div className="px-6 py-4">
@@ -31,12 +32,12 @@ export const PostListing: React.FC<PropsType> = props => {
             <SmallText>{row.date}</SmallText>
             <Badge bgColor="bg-pink-300">{row.category}</Badge>
             <br />
-            {row.tags?.map((row, index) => {
-              return <Badge key={index}>{row}</Badge>
-            })}
+            {row.tags?.map((row, index) => (
+              <Badge key={index}>{row}</Badge>
+            ))}
           </div>
         </Link>
-      </div>
+      </Card>
     ))}
   </div>
   )
