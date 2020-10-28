@@ -1,5 +1,6 @@
 import React from 'react'
 import { NormalButton } from '@Components/atoms/Button'
+import { BoldText } from '@Components/atoms/Typography'
 
 const Footer: React.FC = () => {
   const moveToProfile = () => {
@@ -17,9 +18,7 @@ const Footer: React.FC = () => {
         <div className="py-28 flex flex-col items-center">
             <NormalButton onClick={moveToProfile}>View Author&apos;s Profile</NormalButton>
             <NormalButton onClick={moveToGitHub}>View on GitHub</NormalButton>
-            <div className="mx-2 mb-2 text-sm font-bold tracking-tighter leading-tight text-center">
-              © YopiNoji. All Rights Reserved.
-            </div>
+            <BoldText>{'© YopiNoji. All Rights Reserved.'}</BoldText>
         </div>
     </footer>
   )

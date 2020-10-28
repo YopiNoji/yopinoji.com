@@ -1,10 +1,11 @@
 import React from "react"
-import Layout from '../layout/Base'
+import Layout from '@Layout/Base'
+import { H1 } from '@Components/atoms/Typography'
 
 const Index: React.FC  = props => {
   return (
     <Layout>
-        <div>404 not found</div>
+        <H1>404 not found</H1>
     </Layout>
   )
 }

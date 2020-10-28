@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Query, MarkdownRemarkFrontmatter } from '../../../gatsby-graphql'
+import { H2 } from '@Components/atoms/Typography'
 
 type PropsType = {
   data: Query;
@@ -25,7 +26,7 @@ export const PostListing: React.FC<PropsType> = props => {
         <Link to={String(row.slug)} key={row.title}>
           {/* <Image filename={String(row.cover)} /> */}
           <div className="px-6 py-4">
-            <h2 className="text-2xl mb-2 leading-snug">{row.title}</h2>
+            <H2>{row.title}</H2>
             <p className="text-lg mb-2">
               {row.date}
             </p>

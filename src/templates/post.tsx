@@ -14,10 +14,9 @@ const Post: React.FC<PropsType> = props => {
   return (
     <Layout>
       <SEO siteMeta={props.data.site?.siteMetadata} postMeta={props.data.markdownRemark} isPost={true}/>
-      <div className="mb-6">
-        <H1>{props.data.markdownRemark?.frontmatter?.title}</H1>
-        <SmallText>{props.data.markdownRemark?.frontmatter?.date}</SmallText>
-      </div>
+      <H1>{props.data.markdownRemark?.frontmatter?.title}</H1>
+      <SmallText>{props.data.markdownRemark?.frontmatter?.date}</SmallText>
+      <div className="mb-6" />
       <div dangerouslySetInnerHTML={{ __html: html }}/>
     </Layout>
   )

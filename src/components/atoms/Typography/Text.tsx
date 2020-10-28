@@ -7,3 +7,7 @@ export const BaseText: React.FC<HtmlHTMLAttributes<HTMLParagraphElement>> = ({..
 export const SmallText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({...props}) => {
   return <span className="text-sm" {...props}>{props.children}</span>
 }
+
+export const BoldText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({...props}) => {
+  return <span className="text-base font-bold" {...props}>{props.children}</span>
+}
