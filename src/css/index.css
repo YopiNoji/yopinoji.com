@@ -1,15 +1,5 @@
 @tailwind base;
 
-h1 {
-  @apply text-3xl py-6;
-}
-h2 {
-  @apply text-2xl py-4;
-}
-h3 {
-  @apply text-xl py-4;
-}
-
 img {
   @apply py-4 px-2;
 }
@@ -22,10 +12,6 @@ ul {
 
 p {
   @apply select-none py-2;
-}
-
-a {
-  @apply underline;
 }
 
 @tailwind components;
