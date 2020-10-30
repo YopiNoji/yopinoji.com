@@ -25,13 +25,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true,
-        purgeOnly: ['src/css/index.css'],
-      },
-    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -80,23 +73,29 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // maxWidth: 590,
+              maxWidth: 600,
+              withWebp: true,
+              backgroundColor: 'none',
+              quality: 60,
             },
           },
           
         ],
       },
     },
+    // If you need to analyze bundle size, uncomment following.
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: true,
+    //   },
+    // },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./src/gatsby-graphql.ts`,
         codegenDelay: 200000,
-        // documentPaths: [
-        //   './src/**/*.{ts,tsx}',
-        //   './node_modules/gatsby-*/**/*.{ts,tsx}',
-        // ],
       }
     },
     {
