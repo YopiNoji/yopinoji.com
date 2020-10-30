@@ -2476,6 +2476,10 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___options___emitWarning'
   | 'pluginCreator___pluginOptions___options___failOnError'
   | 'pluginCreator___pluginOptions___classPrefix'
+  | 'pluginCreator___pluginOptions___maxWidth'
+  | 'pluginCreator___pluginOptions___withWebp'
+  | 'pluginCreator___pluginOptions___backgroundColor'
+  | 'pluginCreator___pluginOptions___quality'
   | 'pluginCreator___pluginOptions___devMode'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___codegenDelay'
@@ -2677,6 +2681,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___name'
   | 'pluginOptions___plugins___version'
   | 'pluginOptions___plugins___pluginOptions___classPrefix'
+  | 'pluginOptions___plugins___pluginOptions___maxWidth'
+  | 'pluginOptions___plugins___pluginOptions___withWebp'
+  | 'pluginOptions___plugins___pluginOptions___backgroundColor'
+  | 'pluginOptions___plugins___pluginOptions___quality'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
   | 'pluginOptions___trackingId'
@@ -2698,6 +2706,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___options___emitWarning'
   | 'pluginOptions___options___failOnError'
   | 'pluginOptions___classPrefix'
+  | 'pluginOptions___maxWidth'
+  | 'pluginOptions___withWebp'
+  | 'pluginOptions___backgroundColor'
+  | 'pluginOptions___quality'
   | 'pluginOptions___devMode'
   | 'pluginOptions___fileName'
   | 'pluginOptions___codegenDelay'
@@ -2838,6 +2850,10 @@ export type SitePluginPluginOptions = {
   stages?: Maybe<Array<Maybe<Scalars['String']>>>;
   options?: Maybe<SitePluginPluginOptionsOptions>;
   classPrefix?: Maybe<Scalars['String']>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
   devMode?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   codegenDelay?: Maybe<Scalars['Int']>;
@@ -2882,6 +2898,10 @@ export type SitePluginPluginOptionsFilterInput = {
   stages?: Maybe<StringQueryOperatorInput>;
   options?: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  quality?: Maybe<IntQueryOperatorInput>;
   devMode?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
@@ -2926,10 +2946,18 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   classPrefix?: Maybe<Scalars['String']>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  quality?: Maybe<Scalars['Int']>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   classPrefix?: Maybe<StringQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  quality?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
