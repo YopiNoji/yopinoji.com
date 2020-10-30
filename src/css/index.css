@@ -24,6 +24,10 @@ p {
   @apply select-none py-2;
 }
 
+a {
+  @apply no-underline;
+}
+
 @tailwind components;
 
 @tailwind utilities;

@@ -25,13 +25,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true,
-        purgeOnly: ['src/css/index.css'],
-      },
-    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -87,16 +80,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `./src/gatsby-graphql.ts`,
         codegenDelay: 200000,
-        // documentPaths: [
-        //   './src/**/*.{ts,tsx}',
-        //   './node_modules/gatsby-*/**/*.{ts,tsx}',
-        // ],
       }
     },
     {

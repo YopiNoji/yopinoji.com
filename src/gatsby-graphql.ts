@@ -1812,8 +1812,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1950,8 +1948,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2158,8 +2154,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author'
   | 'siteMetadata___lang'
   | 'siteMetadata___charSet'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2252,8 +2246,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2468,8 +2460,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___trackingId'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___tailwind'
-  | 'pluginCreator___pluginOptions___purgeOnly'
   | 'pluginCreator___pluginOptions___short_name'
   | 'pluginCreator___pluginOptions___lang'
   | 'pluginCreator___pluginOptions___start_url'
@@ -2486,6 +2476,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___options___emitWarning'
   | 'pluginCreator___pluginOptions___options___failOnError'
   | 'pluginCreator___pluginOptions___classPrefix'
+  | 'pluginCreator___pluginOptions___devMode'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___codegenDelay'
   | 'pluginCreator___pluginOptions___query'
@@ -2691,8 +2682,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___trackingId'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
-  | 'pluginOptions___tailwind'
-  | 'pluginOptions___purgeOnly'
   | 'pluginOptions___short_name'
   | 'pluginOptions___lang'
   | 'pluginOptions___start_url'
@@ -2709,6 +2698,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___options___emitWarning'
   | 'pluginOptions___options___failOnError'
   | 'pluginOptions___classPrefix'
+  | 'pluginOptions___devMode'
   | 'pluginOptions___fileName'
   | 'pluginOptions___codegenDelay'
   | 'pluginOptions___query'
@@ -2833,8 +2823,6 @@ export type SitePluginPluginOptions = {
   trackingId?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  tailwind?: Maybe<Scalars['Boolean']>;
-  purgeOnly?: Maybe<Array<Maybe<Scalars['String']>>>;
   short_name?: Maybe<Scalars['String']>;
   lang?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
@@ -2850,6 +2838,7 @@ export type SitePluginPluginOptions = {
   stages?: Maybe<Array<Maybe<Scalars['String']>>>;
   options?: Maybe<SitePluginPluginOptionsOptions>;
   classPrefix?: Maybe<Scalars['String']>;
+  devMode?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   codegenDelay?: Maybe<Scalars['Int']>;
   query?: Maybe<Scalars['String']>;
@@ -2878,8 +2867,6 @@ export type SitePluginPluginOptionsFilterInput = {
   trackingId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  tailwind?: Maybe<BooleanQueryOperatorInput>;
-  purgeOnly?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
@@ -2895,6 +2882,7 @@ export type SitePluginPluginOptionsFilterInput = {
   stages?: Maybe<StringQueryOperatorInput>;
   options?: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
+  devMode?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
