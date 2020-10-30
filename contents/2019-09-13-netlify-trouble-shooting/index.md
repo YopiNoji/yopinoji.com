@@ -10,7 +10,7 @@ tags:
   - Webサービス
 ---
 
-![Netlify](./netlify.png)
+![Netlify](./Netlify.png)
 
 Netlify は本当に便利なサービスで、Git リポジトリが更新されるたびに、  
 最新の状態にサイトを自動でビルド＆デプロイしてくれます。  
