@@ -83,12 +83,13 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-      options: {
-        devMode: true,
-      },
-    },
+    // If you need to analyze bundle size, uncomment following.
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: true,
+    //   },
+    // },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
