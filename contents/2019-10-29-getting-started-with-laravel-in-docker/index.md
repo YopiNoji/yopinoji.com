@@ -77,9 +77,9 @@ Laravel を動かす最低限の環境として、以下の 3 つの Docker イ�
 下記のコマンドを入力します。
 
 ```bash
-$ git clone https://github.com/YopiNoji/docker-for-laravel.git
-$ cd docker-for-laravel/
-$ rm -rf .git
+git clone https://github.com/YopiNoji/docker-for-laravel.git
+cd docker-for-laravel/
+rm -rf .git
 ```
 
 なお、今回はこのまま「docker-for-laravel」というプロジェクトフォルダに環境を構築しますが、作成するアプリによってプロジェクトフォルダの名前は適宜書き換えた方が良いと思います。
@@ -95,7 +95,7 @@ Docker Compose は複数のコンテナを使う Docker 環境を YML ファイ�
 docker-compose.yml に起動時の処理が定義してあるので、入力するコマンドはたったの 1 行だけです。
 
 ```bash
-$ docker-compose up -d --build
+docker-compose up -d --build
 ```
 
 上手くコンテナが立ち上げっていれば、以下のログが表示されるはずです。  
@@ -114,7 +114,7 @@ Creating docker-for-laravel_web_1 ... done
 以下のコマンドを実行して、3 つコンテナが存在していれば OK です。
 
 ```bash
-$ docker ps
+docker ps
 CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                               NAMES
 393ea9dec90e        nginx                    "nginx -g 'daemon of…"   4 minutes ago       Up 4 minutes        0.0.0.0:80->80/tcp                  docker-for-laravel_web_1
 588739d27992        docker-for-laravel_app   "docker-php-entrypoi…"   4 minutes ago       Up 4 minutes        9000/tcp                            docker-for-laravel_app_1
@@ -130,7 +130,7 @@ Docker を立ち上げる際に、PHP のパッケージ管理ツール Composer
 下記のコマンドを実行するだけで Laravel を用意できます。
 
 ```bash
-$ docker-compose exec app laravel new
+docker-compose exec app laravel new
 ```
 
 インストール完了後に Web ブラウザから localhost にアクセスすると Laravel の初期ページが表示されているはずです。
@@ -143,7 +143,7 @@ $ docker-compose exec app laravel new
 MySQL コンテナに入るため、以下を入力します。
 
 ```bash
-$ docker-compose exec db mysql -uroot -ppassword
+docker-compose exec db mysql -uroot -ppassword
 ```
 
 MySQL コンテナに入れたら以下を入力して DB を作成します。
@@ -175,7 +175,7 @@ DB のセットアップが完了したので、試しに Laravel の DB にテ�
 以下のコマンドでアクセスできるはずです。
 
 ```bash
-$ docker-compose exec app bash
+docker-compose exec app bash
 ```
 
 Laravel のアプリケーションコンテナにアクセスできたら、マイグレーション実行コマンド（php artisan migrate）を入力してみます。

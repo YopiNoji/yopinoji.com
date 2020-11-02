@@ -27,14 +27,14 @@ Google で「Git Mac インストール」と検索してみましたが、Homeb
 Mac に元々用意されているものは、以下の Path にインストールされています。
 
 ```bash
-$ which git
+which git
 /usr/bin/git
 ```
 
 Homebrew でインストールした場合、以下の Path にインストールされています。
 
 ```bash
-$ which git
+which git
 /usr/local/bin/git
 ```
 
@@ -54,7 +54,7 @@ Git がインストールされていない場合、コマンドラインデベ�
 また、以下のコマンドからインストールすることも可能です。
 
 ```bash
-$ xcode-select --install
+xcode-select --install
 ```
 
 他にも Xcode 経由でインストールすることも可能ですが、当方の PC に Xcode をインストールしていないため説明は省かせていただきます。

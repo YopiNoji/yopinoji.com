@@ -35,26 +35,26 @@ Markdown 形式で職務経歴書を簡単に書いておいて、文章校正�
 まずは、Node.js が動作する環境があることを確かめます。
 
 ```bash
-$ node -v
+node -v
 v14.5.0
 ```
 
 次に、プロジェクトの初期設定を行います。
 
 ```bash
-$ npm init
+npm init
 ```
 
 プロジェクトの設定を終えたら、先ほど紹介した [`md-to-pdf`](https://www.npmjs.com/package/md-to-pdf) をインストールします。
 
 ```bash
-$ npm i md-to-pdf
+npm i md-to-pdf
 ```
 
 次に、実際に PDF 化する対象の Markdown を作っておきます。
 
 ```
-$ echo "# This is a sample." >> README.md
+echo "# This is a sample." >> README.md
 ```
 
 npm スクリプトで PDF 生成を実行できるように、生成用のスクリプトを書き加えます。  
@@ -80,7 +80,7 @@ npm スクリプトで PDF 生成を実行できるように、生成用のス�
 最後に、作った npm スクリプトを実行します。
 
 ```bash
-$ npm run generate
+npm run generate
 
 > sample-md-to-pdf@1.0.0 generate /Users/masakiyoshiiwa/Workspace/sample-md-to-pdf
 > md-to-pdf ./*.md

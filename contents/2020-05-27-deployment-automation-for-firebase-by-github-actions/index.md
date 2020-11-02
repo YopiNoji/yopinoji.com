@@ -123,8 +123,8 @@ jobs:
 以下のコマンドを参考にしてください。
 
 ```bash
-$ npm i -g firebase-tools
-$ firebase login:ci
+npm i -g firebase-tools
+firebase login:ci
 ```
 
 ログインに完了すると以下のようにトークンが表示されます。
