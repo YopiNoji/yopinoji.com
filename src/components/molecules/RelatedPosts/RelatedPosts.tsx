@@ -60,7 +60,9 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
         {relatedPosts.map((row, index) => (
           <Card key={index}>
             <Link
-              to={String(row.node.frontmatter?.slug)}
+              to={String(
+                window.location.origin + "/" + row.node.frontmatter?.slug
+              )}
               key={row.node.frontmatter?.title}
             >
               <div className="px-6 py-4">
