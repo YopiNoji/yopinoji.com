@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@Components/templates/Base";
+import Layout from "@Components/organisms/Base";
 import { PostListing } from "@Components/molecules/PostListing/PostListing";
 import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
