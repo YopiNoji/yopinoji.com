@@ -29,7 +29,7 @@ Web サーバー不要なサーバーレスで API を作れるというと AWS 
 まず最初に Firebase Hosting を使った時と同じように `firebase init` コマンドで設定ファイルを生成します。
 
 ```bash
-$ npm run firebase init
+npm run firebase init
 ```
 
 矢印キーとスペースキーで Functions を選んで、エンターキーで次に進みます。
@@ -137,7 +137,7 @@ Gmail アカウントの ID と Password はソースに直書きだとまずい
 `gmail.email`と `gmail.password` にはメール転送に使う Gmail アカウントの情報を、`gmail.destination`にはメールの転送先のメールアドレスを入れます。
 
 ```
-$ npm run firebase functions:config:set gmail.email="from@gmail.com" gmail.password="yourpassword" gmail.destination="to@gmail.com"
+npm run firebase functions:config:set gmail.email="from@gmail.com" gmail.password="yourpassword" gmail.destination="to@gmail.com"
 ```
 
 ここで気をつけてほしいのが、メール転送に使う Gmail アカウントは Firebase の API からログインする都合で Google アカウントのセキュリティレベルを落とさざるを得ません。  
@@ -148,7 +148,7 @@ $ npm run firebase functions:config:set gmail.email="from@gmail.com" gmail.passw
 Firebase Functions の環境変数を取得するには、以下のコマンドを実行します。
 
 ```bash
-$ npm run firebase functions:config:get
+npm run firebase functions:config:get
 ```
 
 設定に問題なければ以下のような JSON 形式で環境変数が返ってきます。
@@ -166,7 +166,7 @@ $ npm run firebase functions:config:get
 最後に依存ライブラリ（nodemailer）をインストールしておきます。
 
 ```bash
-$ npm install nodemailer
+npm install nodemailer
 ```
 
 これで Firebase Functions を使い、お問い合わせ内容をメールで転送する API の作成はほぼ完成です。
@@ -180,13 +180,13 @@ $ npm install nodemailer
 まず、Nuxt.js で `.env` を使えるようにするためのライブラリをインストールします。
 
 ```
-$ npm install @nuxtjs/dotenv
+npm install @nuxtjs/dotenv
 ```
 
 ついでに、Firebase に Nuxt.js アプリから簡単にアクセスするためのライブラリをインストールしておきます。
 
 ```
-$ npm install firebase
+npm install firebase
 ```
 
 Nuxt.js で `.env` を使うためのライブラリをインストールできたら、`nuxt.config.js`に以下 2 つ記載を追記してあげます。
@@ -353,11 +353,11 @@ export default {
 最後に、作成したお問い合わせフォームを実際に確認します。
 
 ```bash
-$ npm run generate
+npm run generate
 ```
 
 ```bash
-$ npm run firebase deploy
+npm run firebase deploy
 ```
 
 実際にデプロイしてお問い合わせフォームを動かして問題なければ完了です。

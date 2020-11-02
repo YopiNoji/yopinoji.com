@@ -137,5 +137,5 @@ docker-compose up -d --build
 `sh` でアクセスしていますが、コンテナ内部に `zsh` や `bash` をインストールすればそちらでアクセスすることも可能です。
 
 ```bash
-$ docker-compose exec your-app-name sh
+docker-compose exec your-app-name sh
 ```

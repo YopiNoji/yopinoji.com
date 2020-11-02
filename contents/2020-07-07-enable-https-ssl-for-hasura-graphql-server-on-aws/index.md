@@ -35,9 +35,9 @@ AWS EC2 で動く Ubuntu にどうやって Hasura GraphQL サーバーを立て
 Ubuntu に SSH 接続ができているという状態から解説をします。
 
 ```bash
-$ sudo apt update
-$ sudo apt install nginx
-$ service nginx start
+sudo apt update
+sudo apt install nginx
+service nginx start
 ```
 
 まず、リバースプロキシをインストールします。  
@@ -78,7 +78,7 @@ server {
 （`OPTIONS` でリクエストがきた際の処理が CORS 対応の処理です）
 
 ```bash
-$ service nginx restart
+service nginx restart
 ```
 
 Nginx 設定を書き換えたら、忘れずに再起動しておきます。

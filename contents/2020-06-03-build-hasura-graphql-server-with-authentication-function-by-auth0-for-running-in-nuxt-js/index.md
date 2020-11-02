@@ -202,7 +202,7 @@ Nuxt.js と Hasura を使った環境のセットアップは、[こちらの過
 [`@auth0/auth0-spa-js`](https://auth0.github.io/auth0-spa-js/) を使います。
 
 ```bash
-$ npm install @auth0/auth0-spa-js
+npm install @auth0/auth0-spa-js
 ```
 
 また、今回は Nuxt.js のプラグイン機能にログイン関数を閉じ込めるので、`plugins/auth0.js` を作成します。  

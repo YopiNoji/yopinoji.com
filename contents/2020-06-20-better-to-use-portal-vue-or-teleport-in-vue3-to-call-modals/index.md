@@ -137,10 +137,10 @@ export default {
 利用する環境は以下のバージョンで行います。
 
 ```bash
-$ npx nuxt -v
+npx nuxt -v
 @nuxt/cli v2.12.1
 
-$ node -v
+node -v
 v12.17.0
 ```
 
