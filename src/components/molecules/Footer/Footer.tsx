@@ -1,7 +1,7 @@
 import React from "react";
 import { NormalButton } from "@Components/atoms/Button";
 import { BoldText } from "@Components/atoms/Typography";
-import { Twitter } from "@Components/atoms/Twitter";
+import { TwitterTimeline } from "@Components/atoms/TwitterTimeline";
 
 const Footer: React.FC = () => {
   const [isTop, setIsTop] = React.useState(true);
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         {!isTop && (
           <NormalButton onClick={moveToTop}>Back to Top.</NormalButton>
         )}
-        <Twitter />
+        <TwitterTimeline />
         <BoldText>{"© YopiNoji. All Rights Reserved."}</BoldText>
       </div>
     </footer>
