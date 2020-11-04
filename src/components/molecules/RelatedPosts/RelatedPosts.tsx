@@ -49,7 +49,6 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
       getArraysIntersect(post.node.frontmatter?.tags, tags) &&
       post.node.frontmatter?.title !== title
   );
-  console.log(relatedPosts);
   if (!relatedPosts.length) {
     return null;
   }
