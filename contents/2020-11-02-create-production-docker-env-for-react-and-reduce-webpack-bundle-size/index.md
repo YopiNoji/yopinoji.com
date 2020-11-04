@@ -1,9 +1,9 @@
 ---
 title: "React で作ったサイトの本番環境としての Docker コンテナとそのバンドルサイズ削減のお話"
-cover: "2020-11-02-reduce-docker-image-size-and-webpack-react-bundle-size/header.png"
+cover: "2020-11-02-create-production-docker-env-for-react-and-reduce-webpack-bundle-size/header.png"
 category: "Tech"
 date: "2020-11-02"
-slug: "reduce-docker-image-size-and-webpack-react-bundle-size"
+slug: "create-production-docker-env-for-react-and-reduce-webpack-bundle-size"
 tags:
   - Webpack
   - Nginx
