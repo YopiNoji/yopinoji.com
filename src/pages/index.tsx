@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "@Components/templates/Base";
-import { PostListing } from "@Components/molecules/PostListing/PostListing";
+import Layout from "@Components/organisms/Base";
+import { PostListing } from "@Components/molecules/PostListing";
 import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
 import { Query } from "../gatsby-graphql";

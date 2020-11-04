@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "@Components/templates/PostBase";
+import Layout from "@Components/organisms/PostBase";
 import { SEO } from "@Util/SEO";
 import { H1, SmallText } from "@Components/atoms/Typography";
 import { Query } from "../gatsby-graphql";
