@@ -5,6 +5,7 @@ category: "Tech"
 date: "2020-11-02"
 slug: "create-production-docker-env-for-react-and-reduce-webpack-bundle-size"
 tags:
+  - React
   - Webpack
   - Nginx
   - Docker
