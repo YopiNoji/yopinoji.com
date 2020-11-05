@@ -6,6 +6,7 @@ date: "2020-10-14"
 slug: "more-flexible-use-of-react-css-in-js-with-styled-system"
 tags:
   - React
+  - CSS-in-JS
 ---
 
 **唐突ですが、CSS-in-JS を使い React コンポーネントを作る際、コンポーネントのスタイルを柔軟に変更する必要がある場合にどのようにコンポーネントを作るでしょうか？**
