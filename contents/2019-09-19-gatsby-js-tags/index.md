@@ -89,40 +89,39 @@ Gatsby で React コンポーネントから GraphQL を呼ぶ場合、StaticQue
 StaticQuery を用いてタグの一覧を表示するコンポーネントを作ってみました。  
 Gatsby の Link コンポーネントを用いて、各タグが使われている記事の一覧を表示するページへのリンクもつけてみました。
 
-```javascript
+```js
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import _ from "lodash";
-import { Link } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
-const TagListing = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMarkdownRemark(
-          limit: 1000
-          sort: { fields: [fields___date], order: DESC }
-        ) {
-          distinct(field: frontmatter___tags)
-        }
+export const TagListing = ({ category, title }) => {
+  // タグを取得
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        limit: 1000
+        sort: { fields: [fields___date], order: DESC }
+      ) {
+        distinct(field: frontmatter___tags)
       }
-    `}
-    render={(data) => {
-      const tags = data.allMarkdownRemark.distinct;
-      return (
-        <ul>
-          {tags.map((tag) => (
-            <Link to={`/tags/${_.kebabCase(tag)}`}>
-              <li>{tag}</li>
-            </Link>
-          ))}
-        </ul>
-      );
-    }}
-  />
-);
+    }
+  `);
 
-export default TagListing;
+  const tags = data.allMarkdownRemark.distinct;
+
+  // タグがあれば表示する
+  if (!tags) {
+    return null;
+  }
+  return (
+    <ul>
+      {tags.map((tag) => (
+        <Link to={`/tags/${tag}`}>
+          <li>{tag}</li>
+        </Link>
+      ))}
+    </ul>
+  );
+};
 ```
 
 上記のコンポーネントを使う事で、任意の場所にタグ一覧を表示させる事ができました。

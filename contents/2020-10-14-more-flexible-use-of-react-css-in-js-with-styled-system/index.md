@@ -1,18 +1,19 @@
 ---
-title: "React の styled-components でより柔軟にスタイルを拡張するためのライブラリ Styled System の紹介"
-cover: "2020-10-14-more-flexible-use-of-react-styled-components-with-styled-system/header.png"
+title: "React の CSS-in-JS でより柔軟にスタイルを拡張するためのライブラリ Styled System の紹介"
+cover: "2020-10-14-more-flexible-use-of-react-css-in-js-with-styled-system/header.png"
 category: "Tech"
 date: "2020-10-14"
-slug: "more-flexible-use-of-react-styled-components-with-styled-system"
+slug: "more-flexible-use-of-react-css-in-js-with-styled-system"
 tags:
   - React
+  - CSS-in-JS
 ---
 
-**唐突ですが、styled-components を使い React コンポーネントを作る際、コンポーネントのスタイルを柔軟に変更する必要がある場合にどのようにコンポーネントを作るでしょうか？**
+**唐突ですが、CSS-in-JS を使い React コンポーネントを作る際、コンポーネントのスタイルを柔軟に変更する必要がある場合にどのようにコンポーネントを作るでしょうか？**
 
 大抵の場合は、プロパティの値に応じてコンポーネントのスタイル変更をするのではないでしょうか。
 
-簡単な例として以下のようなコンポーネントを書いてみました。
+簡単な例として、styled-components を用いて以下のようなコンポーネントを書いてみました。
 
 ```ts
 import styled from "styled-components";
@@ -82,7 +83,7 @@ const Button: React.FC<Props> = ({ label, ...props }) => {
 export default Button;
 ```
 
-このように styled-components を使えばコンポーネントに任意のスタイルを当てることは可能です。
+このように styled-components（CSS-in-JS） を使えばコンポーネントに任意のスタイルを当てることは可能です。
 
 **ただ、もっと柔軟にコンポーネントのスタイルを変更したいという需要がある場合はどうしますか？**  
 例えば、コンポーネントのマージンや高さや幅の数値を指定したい場合などです。
@@ -120,7 +121,7 @@ export default interface Props {
 }
 ```
 
-このように styled-components で柔軟に CSS の数値を変更して使いたい時って色々と面倒な問題も多いですよね？
+このように CSS-in-JS で柔軟に CSS の数値を変更して使いたい時って色々と面倒な問題も多いですよね？
 
 そんな問題解決の手助けをしてくれるのが Styled System です。
 
@@ -128,7 +129,7 @@ export default interface Props {
 
 さて、本題に入る前に [Styled System](https://styled-system.com) についてざっくり解説しておきます。
 
-[Styled System](https://styled-system.com) は React で styled-components を使う際にスタイル適用の補助をしてくれる UI ライブラリです。
+[Styled System](https://styled-system.com) は React で CSS-in-JS を使う際にスタイル適用の補助をしてくれる UI ライブラリです。
 
 [Ant Design](https://ant.design/) や [Material-UI](https://material-ui.com/) のようにスタイルの付いた React コンポーネントを提供してくれる訳ではなく、あくまでスタイルを適用するための補助的なライブラリになります。
 

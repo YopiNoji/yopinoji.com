@@ -1,10 +1,11 @@
 ---
 title: "React で作ったサイトの本番環境としての Docker コンテナとそのバンドルサイズ削減のお話"
-cover: "2020-11-02-reduce-docker-image-size-and-webpack-react-bundle-size/header.png"
+cover: "2020-11-02-create-production-docker-env-for-react-and-reduce-webpack-bundle-size/header.png"
 category: "Tech"
 date: "2020-11-02"
-slug: "reduce-docker-image-size-and-webpack-react-bundle-size"
+slug: "create-production-docker-env-for-react-and-reduce-webpack-bundle-size"
 tags:
+  - React
   - Webpack
   - Nginx
   - Docker
@@ -24,6 +25,8 @@ tags:
 ![React Nginx Docker](./React_Nginx_Docker.png)
 
 簡易的に図で表すと上記のような感じですね。
+
+静的サイトホスティングサービスでは CDN に分散系の処理を任せていたところを、コンテナ側で分散系の処理を行うことになります。
 
 ただ、上記の環境を作るだけだと内容も薄くなってしまうので、上記の環境を用いつつできる限りサイズを軽量化して、フロントエンド全体のパフォーマンスを向上させていきます。
 
@@ -141,6 +144,30 @@ IE6 以前のブラウザをサポートする場合は、以下の設定を追�
 gzip_disable "msie6";
 ```
 
+### ファイル分割数（chunk）をある程度の数まで減らす
+
+Webpack でビルドを行うと自動的にファイルを分割して書き出してくれますが、デフォルトの設定だとファイルを細かく分割しすぎてしまい gzip 圧縮の恩恵を最大限受けることができないことがあるようです。
+
+以下はそれを表す例です。
+
+![Max Chunk 10](./max_chunk_10.png)
+![Max Chunk 80](./max_chunk_80.png)
+
+ファイル分割数の最大が 10 ファイルのときは 3.6Mb まで圧縮できていたのに、ファイル分割数の最大を 80 ファイルに増やすと 4.2Mb に大きくなっています。
+
+詳細な調査をしていないので憶測ですが、ファイルを分割しすぎると gzip 圧縮の恩恵を受けることができない小さなファイルが増えるのでこのような結果になるのではないかと推測しています。
+
+そのため、以下のように Weback に設定を加えてファイル分割数をある程度の数に抑制しました。
+
+```js
+const webpack = require("webpack");
+const plugins = [
+  new webpack.optimize.LimitChunkCountPlugin({
+    maxChunks: 10,
+  }),
+];
+```
+
 ### おまけ：Webpack を使わずに gzip 圧縮する方法
 
 [Gzipper](https://www.npmjs.com/package/gzipper) なる npm パッケージを見つけたので、その紹介。
@@ -163,11 +190,17 @@ Webpack を使わずに npm script で gzip 圧縮したい場合、選択肢と
 
 ## その他にも試せること
 
-他にもバンドルサイズを減らすためには色々とできることがあります。  
+他にもバンドルサイズを減らすためには色々とできることがあると思います。  
 以下はその例です。
 
 - PurgeCSS で不要な CSS を減らす
 - React を Preact に変更する
 - ファイル容量の大きいライブラリ（Lodash 等）の利用を停止する
 
-gzip 圧縮することでファイルサイズを大幅に削減できたので、今回はここで終わりにします。
+実は、`terser-webpack-plugin` などを導入してみたのですが、今回の私の環境ではそれほど効果がありませんでした。
+
+ひとまず、gzip 圧縮することでファイルサイズを大幅に削減できたので、今回はここで終わりにします。
+
+## 参考文献
+
+[compression-webpack-plugin + zopfli で gzip 圧縮ファイルを用意する](https://gfx.hatenablog.com/entry/2017/10/20/211136)
