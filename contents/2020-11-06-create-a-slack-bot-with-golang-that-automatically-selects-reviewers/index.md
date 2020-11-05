@@ -29,8 +29,10 @@ tags:
 - ソリューション
 
   - 特定の文字を入力することで起動する Slack Bot を作る
-  - ランダムでチームメンバーから数名を選択して通知をする
+  - ランダムでチームメンバーから数名を選択して Slack で通知をする
   - Go 言語で書いた API サーバーを Heroku にデプロイすることで無料で運用
+
+要するに Slack でレビュー依頼をするとランダムで数名選んで通知してくれるという API を作るわけです。
 
 ## ソースコード
 
@@ -103,9 +105,19 @@ https://github.com/YopiNoji/slack-bot-randam-picker
 
 ## 使い方
 
+以下の流れで使います。
+
 - 対象者をリストアップしリストを書き換える
-- Heroku にデプロイする
-- Slack で API が使えるように設定する
+- Heroku に API をデプロイする
+- Slack 側で API が使えるように設定する
+
+![Slack User ID](Slack_user_id.png)
+
+Slack から ユーザー ID を取得する必要がありますが、プロフィール画面から取得可能です。
+
+Heroku へのデプロイは、README.md に設置してあるボタンを押下することで行えます。（要登録）
+
+https://github.com/YopiNoji/slack-bot-randam-picker
 
 需要はないと思いますが、後日加筆予定です。
 
