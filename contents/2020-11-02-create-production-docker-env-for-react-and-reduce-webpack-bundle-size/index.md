@@ -200,3 +200,7 @@ Webpack を使わずに npm script で gzip 圧縮したい場合、選択肢と
 実は、`terser-webpack-plugin` などを導入してみたのですが、今回の私の環境ではそれほど効果がありませんでした。
 
 ひとまず、gzip 圧縮することでファイルサイズを大幅に削減できたので、今回はここで終わりにします。
+
+## 参考文献
+
+[compression-webpack-plugin + zopfli で gzip 圧縮ファイルを用意する](https://gfx.hatenablog.com/entry/2017/10/20/211136)
