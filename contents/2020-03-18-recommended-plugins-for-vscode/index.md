@@ -53,11 +53,24 @@ VSCode でペアプログラミングできるプラグイン。
 このプラグインを活用することで、ソースコードを保存した際に ESLint のルールに乗っ取って自動でソースコードを整形してくれます。  
 こいつのおかげで、わざわざ ESLint のルールを確認してソースコードを修正する手間は限りなくなくなります。
 
-プラグインをインストールした後に、設定を追加する必要があるのですが、[こちら](https://qiita.com/moriyuu/items/6bac1c75c61d9d359f96)を参考に設定してみてください。
+VSCode の設定ファイル `settings.json` に以下のように記述することで、ファイルを保存した際などに自動で ESLint を走らせることができます。
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.lintTask.enable": true,
+  "eslint.run": "onType",
+  "editor.suggestSelection": "first"
+}
+```
 
 ## [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-ソースコードを自動整形してくれます。
+ESLint 同様にソースコードを自動整形してくれます。
 
 CSS や SCSS、JSON の整形もできるのが地味に嬉しいところ。  
 （CSS ってインデントが崩れてくることがよくありませんか？）
