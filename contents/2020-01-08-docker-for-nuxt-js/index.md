@@ -49,7 +49,7 @@ Docker コンテナ内部の `/usr/src/` フォルダで Nuxt.js を動かす算
 
 Docker Compose を動かした際に、`npm run dev`コマンドをコンテナ内で実行します。
 
-### Dockerfile
+### 開発環境用 Dockerfile
 
 ```Dockerfile
 FROM node:10.14.1-alpine
@@ -57,7 +57,8 @@ EXPOSE 3000
 ENV HOST 0.0.0.0
 
 WORKDIR /usr/src
-COPY ./package.json .
+COPY ./package.json ./
+COPY ./package-lock.json ./
 RUN npm install
 COPY . .
 # CMD ["npm", "run", "dev"]
@@ -83,10 +84,62 @@ EXPOSE 3000
 ENV HOST 0.0.0.0
 
 WORKDIR /usr/src
-COPY ./package.json .
+COPY ./package.json ./
+COPY ./package-lock.json ./
 RUN npm install
 COPY . .
 ```
+
+### 本番環境用 Dockerfile
+
+本番環境をコンテナごとデプロイしたい場合は、以下のような Dockerfile を用意します。  
+`Dockerfile.production` という感じに、ファイル名を本番環境だと分かるようにすると親切ですね。
+
+ちなみに、以下の環境は SSR（サーバーサイドレンダリング）ではなく SSG（静的サイト生成）による運用を想定しています。
+
+```Dockerfile
+# ビルド用の環境
+FROM node:14.10.1-alpine as builder
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY ./package-lock.json ./
+RUN npm --frozen-lockfile --silent
+COPY . ./
+RUN npm run build
+
+# 本番環境
+FROM nginx:1.16.0-alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8000
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+ビルド用の Linux 環境でビルドを行い、生成した静的サイトのみを Nginx の動いている環境に移すという構成です。
+
+Docker の[マルチステージビルド](https://matsuand.github.io/docs.docker.jp.onthefly/develop/develop-images/multistage-build/)を用いることでイメージのサイズを縮小しています。
+
+```conf
+server {
+    listen          8000;
+    server_name     your-domain;
+    gzip            on;
+    gzip_types      text/plain application/xml text/css application/javascript;
+    gzip_min_length 1000;
+
+  location ~* \.(css|js|html)$ {
+    gunzip on;
+  }
+
+  location / {
+    try_files $uri $uri/ = 404;
+  }
+}
+```
+
+`nginx.conf` は別途用意してあげる必要があります。  
+上記はサンプルです。
 
 ### .dockerignore
 
