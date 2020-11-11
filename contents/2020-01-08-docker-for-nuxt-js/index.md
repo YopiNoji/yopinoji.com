@@ -106,7 +106,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY ./package-lock.json ./
-RUN npm --frozen-lockfile --silent
+RUN npm install
 COPY . ./
 RUN npm run build
 
@@ -124,11 +124,11 @@ Docker の[マルチステージビルド](https://matsuand.github.io/docs.docke
 
 ```conf
 server {
-    listen          8000;
-    server_name     your-domain;
-    gzip            on;
-    gzip_types      text/plain application/xml text/css application/javascript;
-    gzip_min_length 1000;
+  listen          8000;
+  server_name     your-domain;
+  gzip            on;
+  gzip_types      text/plain application/xml text/css application/javascript;
+  gzip_min_length 1000;
 
   location ~* \.(css|js|html)$ {
     gunzip on;

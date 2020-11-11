@@ -108,6 +108,27 @@ npm i husky lint-staged eslint prettier -D
 
 上記の例の場合、Git に Commit したタイミングで、`package.json` の `lint-staged`　以下に定義されたスクリプトが動きます。
 
+```json
+{
+  "scripts": {
+    "lint-fix:scripts": "eslint --fix \"src/**/*.{ts,tsx}\" \"tests/**/*{ts,tsx}\"",
+    "lint-fix:style": "stylelint --fix \"src/**/*.{css,scss,sass,tsx}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": ["yarn lint-fix:scripts"],
+    "*.{tsx,css,scss,sass}": ["yarn lint-fix:style"]
+  }
+}
+```
+
+npm script を使いたい場合、上記のように記述することで独自のスクリプトを使用することも可能です。  
+一度定義したスクリプトを再利用かつ共通して利用できるという観点からもこちらの方が望ましい気がします。
+
 あとは、試しに動作確認するだけです。
 
 ```bash
