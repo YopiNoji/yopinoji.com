@@ -120,13 +120,14 @@ npm i husky lint-staged eslint prettier -D
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": ["yarn lint-fix:scripts"],
+    "*.{ts,tsx}": ["yarn lint-fix:scripts"],
     "*.{tsx,css,scss,sass}": ["yarn lint-fix:style"]
   }
 }
 ```
 
-npm script を使いたい場合、上記のように記述することで独自のスクリプトを使用することも可能です。
+npm script を使いたい場合、上記のように記述することで独自のスクリプトを使用することも可能です。  
+一度定義したスクリプトを再利用かつ共通して利用できるという観点からもこちらの方が望ましい気がします。
 
 あとは、試しに動作確認するだけです。
 
