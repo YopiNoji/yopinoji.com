@@ -1,7 +1,7 @@
 ---
 title: "エンジニアにとって働きやすい組織・開発体制とは何かを考えたメモ"
 cover: "2020-06-13-what-is-a-good-organization-for-developer-to-work/header.png"
-category: "Tech"
+category: "Poem"
 date: "2020-06-13"
 slug: "what-is-a-good-organization-for-developer-to-work"
 tags:
