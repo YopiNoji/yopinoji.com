@@ -23,7 +23,9 @@
     "develop-in-container": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby build && gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
   },
   "bugs": {
     "url": "https://github.com/YopiNoji/gatsby-js-blog/issues"
@@ -36,12 +38,18 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/react": "^6.0.28",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.1.0",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.1",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-react-app": "^5.2.1",
@@ -71,6 +79,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
     "prettier": "^2.1.2",
+    "react-is": "^17.0.1",
     "tailwindcss": "^1.8.2",
     "typescript": "^4.0.2"
   },
