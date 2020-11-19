@@ -18,6 +18,16 @@ export type Scalars = {
   JSON: any;
 };
 
+export type BlurredOptions = {
+  /** Width of the generated low-res preview. Default is 20px */
+  width?: Maybe<Scalars["Int"]>;
+  /**
+   * Force the output format for the low-res preview. Default is to use the same
+   * format as the input. You should rarely need to change this
+   */
+  toFormat?: Maybe<ImageFormat>;
+};
+
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars["Boolean"]>;
   ne?: Maybe<Scalars["Boolean"]>;
@@ -532,6 +542,7 @@ export type FileFieldsEnum =
   | "childImageSharp___sizes___originalName"
   | "childImageSharp___sizes___presentationWidth"
   | "childImageSharp___sizes___presentationHeight"
+  | "childImageSharp___gatsbyImageData"
   | "childImageSharp___original___width"
   | "childImageSharp___original___height"
   | "childImageSharp___original___src"
@@ -808,7 +819,15 @@ export type ImageCropFocus =
 
 export type ImageFit = "COVER" | "CONTAIN" | "FILL" | "INSIDE" | "OUTSIDE";
 
-export type ImageFormat = "NO_CHANGE" | "JPG" | "PNG" | "WEBP";
+export type ImageFormat = "NO_CHANGE" | "AUTO" | "JPG" | "PNG" | "WEBP";
+
+export type ImageLayout = "FIXED" | "FLUID" | "CONSTRAINED";
+
+export type ImagePlaceholder =
+  | "DOMINANT_COLOR"
+  | "TRACED_SVG"
+  | "BLURRED"
+  | "NONE";
 
 export type ImageSharp = Node & {
   fixed?: Maybe<ImageSharpFixed>;
@@ -817,6 +836,7 @@ export type ImageSharp = Node & {
   fluid?: Maybe<ImageSharpFluid>;
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ImageSharpSizes>;
+  gatsbyImageData: Scalars["JSON"];
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars["ID"];
@@ -917,6 +937,26 @@ export type ImageSharpSizesArgs = {
   srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>;
 };
 
+export type ImageSharpGatsbyImageDataArgs = {
+  layout?: Maybe<ImageLayout>;
+  maxWidth?: Maybe<Scalars["Int"]>;
+  maxHeight?: Maybe<Scalars["Int"]>;
+  width?: Maybe<Scalars["Int"]>;
+  height?: Maybe<Scalars["Int"]>;
+  placeholder?: Maybe<ImagePlaceholder>;
+  blurredOptions?: Maybe<BlurredOptions>;
+  tracedSVGOptions?: Maybe<Potrace>;
+  formats?: Maybe<Array<Maybe<ImageFormat>>>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars["Float"]>>>;
+  sizes?: Maybe<Scalars["String"]>;
+  quality?: Maybe<Scalars["Int"]>;
+  jpgOptions?: Maybe<JpgOptions>;
+  pngOptions?: Maybe<PngOptions>;
+  webpOptions?: Maybe<WebPOptions>;
+  transformOptions?: Maybe<TransformOptions>;
+  background?: Maybe<Scalars["String"]>;
+};
+
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars["Int"]>;
   height?: Maybe<Scalars["Int"]>;
@@ -1009,6 +1049,7 @@ export type ImageSharpFieldsEnum =
   | "sizes___originalName"
   | "sizes___presentationWidth"
   | "sizes___presentationHeight"
+  | "gatsbyImageData"
   | "original___width"
   | "original___height"
   | "original___src"
@@ -1110,6 +1151,7 @@ export type ImageSharpFilterInput = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1305,6 +1347,11 @@ export type IntQueryOperatorInput = {
   lte?: Maybe<Scalars["Int"]>;
   in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
   nin?: Maybe<Array<Maybe<Scalars["Int"]>>>;
+};
+
+export type JpgOptions = {
+  quality?: Maybe<Scalars["Int"]>;
+  progressive?: Maybe<Scalars["Boolean"]>;
 };
 
 export type JsonQueryOperatorInput = {
@@ -1608,6 +1655,11 @@ export type PageInfo = {
   totalCount: Scalars["Int"];
 };
 
+export type PngOptions = {
+  quality?: Maybe<Scalars["Int"]>;
+  compressionSpeed?: Maybe<Scalars["Int"]>;
+};
+
 export type Potrace = {
   turnPolicy?: Maybe<PotraceTurnPolicy>;
   turdSize?: Maybe<Scalars["Float"]>;
@@ -1770,15 +1822,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type QueryAllSitePageArgs = {
@@ -1793,6 +1845,7 @@ export type QueryImageSharpArgs = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2195,15 +2248,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars["String"];
   componentChunkName: Scalars["String"];
   matchPath?: Maybe<Scalars["String"]>;
-  id: Scalars["ID"];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars["String"]>;
   componentPath?: Maybe<Scalars["String"]>;
+  id: Scalars["ID"];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -2245,6 +2298,129 @@ export type SitePageFieldsEnum =
   | "internalComponentName"
   | "componentChunkName"
   | "matchPath"
+  | "isCreatedByStatefulCreatePages"
+  | "context___slug"
+  | "pluginCreator___id"
+  | "pluginCreator___parent___id"
+  | "pluginCreator___parent___parent___id"
+  | "pluginCreator___parent___parent___children"
+  | "pluginCreator___parent___children"
+  | "pluginCreator___parent___children___id"
+  | "pluginCreator___parent___children___children"
+  | "pluginCreator___parent___internal___content"
+  | "pluginCreator___parent___internal___contentDigest"
+  | "pluginCreator___parent___internal___description"
+  | "pluginCreator___parent___internal___fieldOwners"
+  | "pluginCreator___parent___internal___ignoreType"
+  | "pluginCreator___parent___internal___mediaType"
+  | "pluginCreator___parent___internal___owner"
+  | "pluginCreator___parent___internal___type"
+  | "pluginCreator___children"
+  | "pluginCreator___children___id"
+  | "pluginCreator___children___parent___id"
+  | "pluginCreator___children___parent___children"
+  | "pluginCreator___children___children"
+  | "pluginCreator___children___children___id"
+  | "pluginCreator___children___children___children"
+  | "pluginCreator___children___internal___content"
+  | "pluginCreator___children___internal___contentDigest"
+  | "pluginCreator___children___internal___description"
+  | "pluginCreator___children___internal___fieldOwners"
+  | "pluginCreator___children___internal___ignoreType"
+  | "pluginCreator___children___internal___mediaType"
+  | "pluginCreator___children___internal___owner"
+  | "pluginCreator___children___internal___type"
+  | "pluginCreator___internal___content"
+  | "pluginCreator___internal___contentDigest"
+  | "pluginCreator___internal___description"
+  | "pluginCreator___internal___fieldOwners"
+  | "pluginCreator___internal___ignoreType"
+  | "pluginCreator___internal___mediaType"
+  | "pluginCreator___internal___owner"
+  | "pluginCreator___internal___type"
+  | "pluginCreator___resolve"
+  | "pluginCreator___name"
+  | "pluginCreator___version"
+  | "pluginCreator___pluginOptions___plugins"
+  | "pluginCreator___pluginOptions___plugins___resolve"
+  | "pluginCreator___pluginOptions___plugins___id"
+  | "pluginCreator___pluginOptions___plugins___name"
+  | "pluginCreator___pluginOptions___plugins___version"
+  | "pluginCreator___pluginOptions___plugins___nodeAPIs"
+  | "pluginCreator___pluginOptions___plugins___browserAPIs"
+  | "pluginCreator___pluginOptions___plugins___pluginFilepath"
+  | "pluginCreator___pluginOptions___trackingId"
+  | "pluginCreator___pluginOptions___head"
+  | "pluginCreator___pluginOptions___anonymize"
+  | "pluginCreator___pluginOptions___respectDNT"
+  | "pluginCreator___pluginOptions___pageTransitionDelay"
+  | "pluginCreator___pluginOptions___name"
+  | "pluginCreator___pluginOptions___path"
+  | "pluginCreator___pluginOptions___isTSX"
+  | "pluginCreator___pluginOptions___jsxPragma"
+  | "pluginCreator___pluginOptions___allExtensions"
+  | "pluginCreator___pluginOptions___short_name"
+  | "pluginCreator___pluginOptions___lang"
+  | "pluginCreator___pluginOptions___start_url"
+  | "pluginCreator___pluginOptions___background_color"
+  | "pluginCreator___pluginOptions___theme_color"
+  | "pluginCreator___pluginOptions___display"
+  | "pluginCreator___pluginOptions___icon"
+  | "pluginCreator___pluginOptions___legacy"
+  | "pluginCreator___pluginOptions___theme_color_in_head"
+  | "pluginCreator___pluginOptions___cache_busting_mode"
+  | "pluginCreator___pluginOptions___crossOrigin"
+  | "pluginCreator___pluginOptions___include_favicon"
+  | "pluginCreator___pluginOptions___cacheDigest"
+  | "pluginCreator___pluginOptions___stages"
+  | "pluginCreator___pluginOptions___options___emitWarning"
+  | "pluginCreator___pluginOptions___options___failOnError"
+  | "pluginCreator___pluginOptions___base64Width"
+  | "pluginCreator___pluginOptions___stripMetadata"
+  | "pluginCreator___pluginOptions___defaultQuality"
+  | "pluginCreator___pluginOptions___failOnError"
+  | "pluginCreator___pluginOptions___classPrefix"
+  | "pluginCreator___pluginOptions___maxWidth"
+  | "pluginCreator___pluginOptions___withWebp"
+  | "pluginCreator___pluginOptions___backgroundColor"
+  | "pluginCreator___pluginOptions___quality"
+  | "pluginCreator___pluginOptions___linkImagesToOriginal"
+  | "pluginCreator___pluginOptions___showCaptions"
+  | "pluginCreator___pluginOptions___markdownCaptions"
+  | "pluginCreator___pluginOptions___sizeByPixelDensity"
+  | "pluginCreator___pluginOptions___tracedSVG"
+  | "pluginCreator___pluginOptions___loading"
+  | "pluginCreator___pluginOptions___disableBgImageOnAlpha"
+  | "pluginCreator___pluginOptions___disableBgImage"
+  | "pluginCreator___pluginOptions___fileName"
+  | "pluginCreator___pluginOptions___codegenDelay"
+  | "pluginCreator___pluginOptions___query"
+  | "pluginCreator___pluginOptions___feeds"
+  | "pluginCreator___pluginOptions___feeds___query"
+  | "pluginCreator___pluginOptions___feeds___output"
+  | "pluginCreator___pluginOptions___feeds___title"
+  | "pluginCreator___pluginOptions___pathCheck"
+  | "pluginCreator___nodeAPIs"
+  | "pluginCreator___browserAPIs"
+  | "pluginCreator___ssrAPIs"
+  | "pluginCreator___pluginFilepath"
+  | "pluginCreator___packageJson___name"
+  | "pluginCreator___packageJson___description"
+  | "pluginCreator___packageJson___version"
+  | "pluginCreator___packageJson___main"
+  | "pluginCreator___packageJson___license"
+  | "pluginCreator___packageJson___dependencies"
+  | "pluginCreator___packageJson___dependencies___name"
+  | "pluginCreator___packageJson___dependencies___version"
+  | "pluginCreator___packageJson___devDependencies"
+  | "pluginCreator___packageJson___devDependencies___name"
+  | "pluginCreator___packageJson___devDependencies___version"
+  | "pluginCreator___packageJson___peerDependencies"
+  | "pluginCreator___packageJson___peerDependencies___name"
+  | "pluginCreator___packageJson___peerDependencies___version"
+  | "pluginCreator___packageJson___keywords"
+  | "pluginCreatorId"
+  | "componentPath"
   | "id"
   | "parent___id"
   | "parent___parent___id"
@@ -2330,109 +2506,7 @@ export type SitePageFieldsEnum =
   | "internal___ignoreType"
   | "internal___mediaType"
   | "internal___owner"
-  | "internal___type"
-  | "isCreatedByStatefulCreatePages"
-  | "context___slug"
-  | "pluginCreator___id"
-  | "pluginCreator___parent___id"
-  | "pluginCreator___parent___parent___id"
-  | "pluginCreator___parent___parent___children"
-  | "pluginCreator___parent___children"
-  | "pluginCreator___parent___children___id"
-  | "pluginCreator___parent___children___children"
-  | "pluginCreator___parent___internal___content"
-  | "pluginCreator___parent___internal___contentDigest"
-  | "pluginCreator___parent___internal___description"
-  | "pluginCreator___parent___internal___fieldOwners"
-  | "pluginCreator___parent___internal___ignoreType"
-  | "pluginCreator___parent___internal___mediaType"
-  | "pluginCreator___parent___internal___owner"
-  | "pluginCreator___parent___internal___type"
-  | "pluginCreator___children"
-  | "pluginCreator___children___id"
-  | "pluginCreator___children___parent___id"
-  | "pluginCreator___children___parent___children"
-  | "pluginCreator___children___children"
-  | "pluginCreator___children___children___id"
-  | "pluginCreator___children___children___children"
-  | "pluginCreator___children___internal___content"
-  | "pluginCreator___children___internal___contentDigest"
-  | "pluginCreator___children___internal___description"
-  | "pluginCreator___children___internal___fieldOwners"
-  | "pluginCreator___children___internal___ignoreType"
-  | "pluginCreator___children___internal___mediaType"
-  | "pluginCreator___children___internal___owner"
-  | "pluginCreator___children___internal___type"
-  | "pluginCreator___internal___content"
-  | "pluginCreator___internal___contentDigest"
-  | "pluginCreator___internal___description"
-  | "pluginCreator___internal___fieldOwners"
-  | "pluginCreator___internal___ignoreType"
-  | "pluginCreator___internal___mediaType"
-  | "pluginCreator___internal___owner"
-  | "pluginCreator___internal___type"
-  | "pluginCreator___resolve"
-  | "pluginCreator___name"
-  | "pluginCreator___version"
-  | "pluginCreator___pluginOptions___plugins"
-  | "pluginCreator___pluginOptions___plugins___resolve"
-  | "pluginCreator___pluginOptions___plugins___id"
-  | "pluginCreator___pluginOptions___plugins___name"
-  | "pluginCreator___pluginOptions___plugins___version"
-  | "pluginCreator___pluginOptions___plugins___browserAPIs"
-  | "pluginCreator___pluginOptions___plugins___pluginFilepath"
-  | "pluginCreator___pluginOptions___trackingId"
-  | "pluginCreator___pluginOptions___name"
-  | "pluginCreator___pluginOptions___path"
-  | "pluginCreator___pluginOptions___short_name"
-  | "pluginCreator___pluginOptions___lang"
-  | "pluginCreator___pluginOptions___start_url"
-  | "pluginCreator___pluginOptions___background_color"
-  | "pluginCreator___pluginOptions___theme_color"
-  | "pluginCreator___pluginOptions___display"
-  | "pluginCreator___pluginOptions___icon"
-  | "pluginCreator___pluginOptions___cache_busting_mode"
-  | "pluginCreator___pluginOptions___include_favicon"
-  | "pluginCreator___pluginOptions___legacy"
-  | "pluginCreator___pluginOptions___theme_color_in_head"
-  | "pluginCreator___pluginOptions___cacheDigest"
-  | "pluginCreator___pluginOptions___stages"
-  | "pluginCreator___pluginOptions___options___emitWarning"
-  | "pluginCreator___pluginOptions___options___failOnError"
-  | "pluginCreator___pluginOptions___classPrefix"
-  | "pluginCreator___pluginOptions___maxWidth"
-  | "pluginCreator___pluginOptions___withWebp"
-  | "pluginCreator___pluginOptions___backgroundColor"
-  | "pluginCreator___pluginOptions___quality"
-  | "pluginCreator___pluginOptions___fileName"
-  | "pluginCreator___pluginOptions___codegenDelay"
-  | "pluginCreator___pluginOptions___query"
-  | "pluginCreator___pluginOptions___feeds"
-  | "pluginCreator___pluginOptions___feeds___query"
-  | "pluginCreator___pluginOptions___feeds___output"
-  | "pluginCreator___pluginOptions___feeds___title"
-  | "pluginCreator___pluginOptions___pathCheck"
-  | "pluginCreator___nodeAPIs"
-  | "pluginCreator___browserAPIs"
-  | "pluginCreator___ssrAPIs"
-  | "pluginCreator___pluginFilepath"
-  | "pluginCreator___packageJson___name"
-  | "pluginCreator___packageJson___description"
-  | "pluginCreator___packageJson___version"
-  | "pluginCreator___packageJson___main"
-  | "pluginCreator___packageJson___license"
-  | "pluginCreator___packageJson___dependencies"
-  | "pluginCreator___packageJson___dependencies___name"
-  | "pluginCreator___packageJson___dependencies___version"
-  | "pluginCreator___packageJson___devDependencies"
-  | "pluginCreator___packageJson___devDependencies___name"
-  | "pluginCreator___packageJson___devDependencies___version"
-  | "pluginCreator___packageJson___peerDependencies"
-  | "pluginCreator___packageJson___peerDependencies___name"
-  | "pluginCreator___packageJson___peerDependencies___version"
-  | "pluginCreator___packageJson___keywords"
-  | "pluginCreatorId"
-  | "componentPath";
+  | "internal___type";
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -2440,15 +2514,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {
@@ -2606,11 +2680,27 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___plugins___pluginOptions___withWebp"
   | "pluginOptions___plugins___pluginOptions___backgroundColor"
   | "pluginOptions___plugins___pluginOptions___quality"
+  | "pluginOptions___plugins___pluginOptions___linkImagesToOriginal"
+  | "pluginOptions___plugins___pluginOptions___showCaptions"
+  | "pluginOptions___plugins___pluginOptions___markdownCaptions"
+  | "pluginOptions___plugins___pluginOptions___sizeByPixelDensity"
+  | "pluginOptions___plugins___pluginOptions___tracedSVG"
+  | "pluginOptions___plugins___pluginOptions___loading"
+  | "pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha"
+  | "pluginOptions___plugins___pluginOptions___disableBgImage"
+  | "pluginOptions___plugins___nodeAPIs"
   | "pluginOptions___plugins___browserAPIs"
   | "pluginOptions___plugins___pluginFilepath"
   | "pluginOptions___trackingId"
+  | "pluginOptions___head"
+  | "pluginOptions___anonymize"
+  | "pluginOptions___respectDNT"
+  | "pluginOptions___pageTransitionDelay"
   | "pluginOptions___name"
   | "pluginOptions___path"
+  | "pluginOptions___isTSX"
+  | "pluginOptions___jsxPragma"
+  | "pluginOptions___allExtensions"
   | "pluginOptions___short_name"
   | "pluginOptions___lang"
   | "pluginOptions___start_url"
@@ -2618,19 +2708,32 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___theme_color"
   | "pluginOptions___display"
   | "pluginOptions___icon"
-  | "pluginOptions___cache_busting_mode"
-  | "pluginOptions___include_favicon"
   | "pluginOptions___legacy"
   | "pluginOptions___theme_color_in_head"
+  | "pluginOptions___cache_busting_mode"
+  | "pluginOptions___crossOrigin"
+  | "pluginOptions___include_favicon"
   | "pluginOptions___cacheDigest"
   | "pluginOptions___stages"
   | "pluginOptions___options___emitWarning"
   | "pluginOptions___options___failOnError"
+  | "pluginOptions___base64Width"
+  | "pluginOptions___stripMetadata"
+  | "pluginOptions___defaultQuality"
+  | "pluginOptions___failOnError"
   | "pluginOptions___classPrefix"
   | "pluginOptions___maxWidth"
   | "pluginOptions___withWebp"
   | "pluginOptions___backgroundColor"
   | "pluginOptions___quality"
+  | "pluginOptions___linkImagesToOriginal"
+  | "pluginOptions___showCaptions"
+  | "pluginOptions___markdownCaptions"
+  | "pluginOptions___sizeByPixelDensity"
+  | "pluginOptions___tracedSVG"
+  | "pluginOptions___loading"
+  | "pluginOptions___disableBgImageOnAlpha"
+  | "pluginOptions___disableBgImage"
   | "pluginOptions___fileName"
   | "pluginOptions___codegenDelay"
   | "pluginOptions___query"
@@ -2755,8 +2858,15 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   trackingId?: Maybe<Scalars["String"]>;
+  head?: Maybe<Scalars["Boolean"]>;
+  anonymize?: Maybe<Scalars["Boolean"]>;
+  respectDNT?: Maybe<Scalars["Boolean"]>;
+  pageTransitionDelay?: Maybe<Scalars["Int"]>;
   name?: Maybe<Scalars["String"]>;
   path?: Maybe<Scalars["String"]>;
+  isTSX?: Maybe<Scalars["Boolean"]>;
+  jsxPragma?: Maybe<Scalars["String"]>;
+  allExtensions?: Maybe<Scalars["Boolean"]>;
   short_name?: Maybe<Scalars["String"]>;
   lang?: Maybe<Scalars["String"]>;
   start_url?: Maybe<Scalars["String"]>;
@@ -2764,18 +2874,31 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars["String"]>;
   display?: Maybe<Scalars["String"]>;
   icon?: Maybe<Scalars["String"]>;
-  cache_busting_mode?: Maybe<Scalars["String"]>;
-  include_favicon?: Maybe<Scalars["Boolean"]>;
   legacy?: Maybe<Scalars["Boolean"]>;
   theme_color_in_head?: Maybe<Scalars["Boolean"]>;
+  cache_busting_mode?: Maybe<Scalars["String"]>;
+  crossOrigin?: Maybe<Scalars["String"]>;
+  include_favicon?: Maybe<Scalars["Boolean"]>;
   cacheDigest?: Maybe<Scalars["String"]>;
   stages?: Maybe<Array<Maybe<Scalars["String"]>>>;
   options?: Maybe<SitePluginPluginOptionsOptions>;
+  base64Width?: Maybe<Scalars["Int"]>;
+  stripMetadata?: Maybe<Scalars["Boolean"]>;
+  defaultQuality?: Maybe<Scalars["Int"]>;
+  failOnError?: Maybe<Scalars["Boolean"]>;
   classPrefix?: Maybe<Scalars["String"]>;
   maxWidth?: Maybe<Scalars["Int"]>;
   withWebp?: Maybe<Scalars["Boolean"]>;
   backgroundColor?: Maybe<Scalars["String"]>;
   quality?: Maybe<Scalars["Int"]>;
+  linkImagesToOriginal?: Maybe<Scalars["Boolean"]>;
+  showCaptions?: Maybe<Scalars["Boolean"]>;
+  markdownCaptions?: Maybe<Scalars["Boolean"]>;
+  sizeByPixelDensity?: Maybe<Scalars["Boolean"]>;
+  tracedSVG?: Maybe<Scalars["Boolean"]>;
+  loading?: Maybe<Scalars["String"]>;
+  disableBgImageOnAlpha?: Maybe<Scalars["Boolean"]>;
+  disableBgImage?: Maybe<Scalars["Boolean"]>;
   fileName?: Maybe<Scalars["String"]>;
   codegenDelay?: Maybe<Scalars["Int"]>;
   query?: Maybe<Scalars["String"]>;
@@ -2802,8 +2925,15 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
+  head?: Maybe<BooleanQueryOperatorInput>;
+  anonymize?: Maybe<BooleanQueryOperatorInput>;
+  respectDNT?: Maybe<BooleanQueryOperatorInput>;
+  pageTransitionDelay?: Maybe<IntQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
@@ -2811,18 +2941,31 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
-  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
+  crossOrigin?: Maybe<StringQueryOperatorInput>;
+  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   stages?: Maybe<StringQueryOperatorInput>;
   options?: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
+  base64Width?: Maybe<IntQueryOperatorInput>;
+  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
+  defaultQuality?: Maybe<IntQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
@@ -2846,6 +2989,7 @@ export type SitePluginPluginOptionsPlugins = {
   name?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["String"]>;
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>;
+  nodeAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>;
   browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>;
   pluginFilepath?: Maybe<Scalars["String"]>;
 };
@@ -2856,6 +3000,7 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>;
+  nodeAPIs?: Maybe<StringQueryOperatorInput>;
   browserAPIs?: Maybe<StringQueryOperatorInput>;
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
 };
@@ -2870,6 +3015,14 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   withWebp?: Maybe<Scalars["Boolean"]>;
   backgroundColor?: Maybe<Scalars["String"]>;
   quality?: Maybe<Scalars["Int"]>;
+  linkImagesToOriginal?: Maybe<Scalars["Boolean"]>;
+  showCaptions?: Maybe<Scalars["Boolean"]>;
+  markdownCaptions?: Maybe<Scalars["Boolean"]>;
+  sizeByPixelDensity?: Maybe<Scalars["Boolean"]>;
+  tracedSVG?: Maybe<Scalars["Boolean"]>;
+  loading?: Maybe<Scalars["String"]>;
+  disableBgImageOnAlpha?: Maybe<Scalars["Boolean"]>;
+  disableBgImage?: Maybe<Scalars["Boolean"]>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
@@ -2878,6 +3031,14 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   backgroundColor?: Maybe<StringQueryOperatorInput>;
   quality?: Maybe<IntQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -2919,6 +3080,19 @@ export type StringQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars["String"]>>>;
   regex?: Maybe<Scalars["String"]>;
   glob?: Maybe<Scalars["String"]>;
+};
+
+export type TransformOptions = {
+  grayscale?: Maybe<Scalars["Boolean"]>;
+  duotone?: Maybe<DuotoneGradient>;
+  rotate?: Maybe<Scalars["Int"]>;
+  trim?: Maybe<Scalars["Float"]>;
+  cropFocus?: Maybe<ImageCropFocus>;
+  fit?: Maybe<ImageFit>;
+};
+
+export type WebPOptions = {
+  quality?: Maybe<Scalars["Int"]>;
 };
 
 export type RelatedPostsQueryQueryVariables = Exact<{ [key: string]: never }>;
