@@ -70,15 +70,20 @@ git checkout 7aba6ab4b94bc5 -b feature/some-function
 
 ### 直前のコミットメッセージを変更する
 
-割とよくあるコミットメッセージのタイプミス。  
-以下のようにタイプミスしたとしても、コミットメッセージを修正できます。
+割とよくあるコミットメッセージのタイプミス。
 
 ```bash
 git add .
-git commit -m "Refactoringggg component"
+git commit -m "Refactoringggg componenttttt"
+```
 
+上記のようにコミットメッセージをタイプミスすることもあると思います。
+
+```bash
 git commit --amend -m "Refactoring component"
 ```
+
+上記のコマンドでメッセージを修正することができます。
 
 ## 取り消す系
 
