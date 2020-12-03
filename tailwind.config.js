@@ -3,9 +3,9 @@ module.exports = {
     extend: {},
   },
   purge: {
-    enabled: true,
+    enabled: false,
     mode: 'layers',
-    preserveHtmlElements: true,
+    preserveHtmlElements: false,
     content: ['./src/**/*.tsx',],
   },
   variants: {},
