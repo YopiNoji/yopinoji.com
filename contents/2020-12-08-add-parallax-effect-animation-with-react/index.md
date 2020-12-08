@@ -43,6 +43,8 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
+X と Y に数値を渡すだけなので、あまり学習コストをかけずにサッと実装可能です。
+
 ```tsx
 import React from "react";
 import { Parallax } from "react-scroll-parallax";
@@ -71,6 +73,12 @@ export defalut SampleParallax;
 Math.round(Math.random() * 100
 ```
 
+ビルド後のサイズは以下のような感じです。
+
+![react-scroll-parallax](./react-scroll-parallax-bundle.png)
+
+意外と大きいような気がします。
+
 ### react-scroll-parallax を使った感想
 
 - パララックス効果のみを簡単に実装できる
@@ -79,7 +87,7 @@ Math.round(Math.random() * 100
 
 ## react-spring を使った実装
 
-React でアニメーション系のライブラリの大本命だと自分が思っている react-spring からもパララックスを実装するための API が提供されていたので、こちらも試します。
+React でアニメーション系のライブラリの大本命だと自分が思っている react-spring からもパララックスを実装することができそうだったので、こちらも試します。
 
 https://www.react-spring.io/docs/props/parallax
 
@@ -149,12 +157,19 @@ export default App;
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
+ビルド後のサイズは以下のような感じです。
+
+![react-spring](./react-spring-bundle.png)
+
+react-scroll-parallax と大して変わらない気がします。
+
 ### react-spring を使った感想
 
 - パララックス効果以外のアニメーションの実装にも活用できる
 - 提供されている API の理解に少し学習する必要がありそう
 - より詳細な動きを指定したアニメーションの実装が可能
+- アニメーションの実装が楽しい
 
 ## まとめ
 
-- react-spring を使った方が良さそう
+react-spring を使った方が良さそうですね。
