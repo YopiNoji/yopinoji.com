@@ -4,13 +4,32 @@ import { Query, MarkdownRemarkFrontmatter } from "../../../gatsby-graphql";
 import { H2, SmallText } from "@Components/atoms/Typography";
 import { Badge } from "@Components/atoms/Badge";
 import { Card } from "@Components/atoms/Card";
-import { Parallax } from "react-scroll-parallax";
+import { useSpring, animated } from "react-spring";
 
 type PropsType = {
   data: Query;
 };
 
+const calc = (x: number, y: number) => [
+  -(y - window.innerHeight / 2) / 20,
+  (x - window.innerWidth / 2) / 20,
+  1.1,
+];
+const trans = (x: number, y: number, s: number) =>
+  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
 export const PostListing: React.FC<PropsType> = (props) => {
+  const [springProps, setSpring] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 10, tension: 550, friction: 140 },
+  }));
+
+  const onMouseMoveHandle = (e: { clientX: number; clientY: number }) =>
+    setSpring({ xys: calc(e.clientX, e.clientY) });
+
+  const onMouseLeaveHandle = (e: { clientX: number; clientY: number }) =>
+    setSpring({ xys: [0, 0, 1] });
+
   const postList: MarkdownRemarkFrontmatter[] = props.data.allMarkdownRemark.edges.map(
     (edges) => {
       const post = {
@@ -24,18 +43,15 @@ export const PostListing: React.FC<PropsType> = (props) => {
       return post;
     }
   );
-  let count = 0;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {postList.map((row, index) => {
-        count++;
         return (
-          <Parallax
-            y={[
-              Math.round(Math.random() * count),
-              Math.round(Math.random() * count),
-            ]}
+          <animated.div
             key={index}
+            onMouseMove={onMouseMoveHandle}
+            onMouseLeave={onMouseLeaveHandle}
+            style={{ transform: springProps.xys.interpolate(trans) }}
           >
             <Card>
               <Link to={String(row.slug)} key={row.title}>
@@ -50,7 +66,7 @@ export const PostListing: React.FC<PropsType> = (props) => {
                 </div>
               </Link>
             </Card>
-          </Parallax>
+          </animated.div>
         );
       })}
     </div>
