@@ -9,7 +9,7 @@ export const Badge: React.FC<
 > = ({ bgColor, ...props }) => {
   return (
     <label
-      className={`px-1 mx-1 text-sm text-gray-900 no-underline border border-gray-700 rounded whitespace-no-wrap ${
+      className={`px-1 mx-1 text-sm text-gray-900 no-underline border border-gray-700 rounded whitespace-nowrap ${
         bgColor ? bgColor : "bg-white"
       }`}
       {...props}

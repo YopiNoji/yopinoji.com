@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@Components/organisms/Base";
+import Base from "@Components/organisms/Base";
 import { PostListing } from "@Components/molecules/PostListing";
 import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
@@ -9,16 +9,16 @@ type PropsType = {
   data: Query;
 };
 
-const Index: React.FC<PropsType> = (props) => {
+const Index: React.VFC<PropsType> = (props) => {
   return (
-    <Layout>
+    <Base>
       <SEO
         siteMeta={props.data.site?.siteMetadata}
         postMeta={null}
         isPost={false}
       />
-      <PostListing data={props.data} />
-    </Layout>
+      <PostListing data={props.data.allMarkdownRemark.edges} />
+    </Base>
   );
 };
 
