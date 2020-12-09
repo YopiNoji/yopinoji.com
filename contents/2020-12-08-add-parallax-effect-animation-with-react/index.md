@@ -1,5 +1,5 @@
 ---
-title: "React で UI にパララックス効果アニメーションを追加するためのライブラリ比較のような記事"
+title: "React で UI にパララックス効果アニメーションを実装するためのライブラリ比較のような記事"
 cover: "2020-12-08-add-parallax-effect-animation-with-react/header.png"
 category: "Tech"
 date: "2020-12-08"
