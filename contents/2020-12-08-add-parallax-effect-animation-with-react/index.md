@@ -263,15 +263,6 @@ export default App;
 
 `translate3d()` のように CSS プロパティを自分で指定して使うことができ、任意のイベントを起点にして思い通りにアニメーションを実装できそうですね。
 
-サンプルを CodeSandbox で用意してみたので、自由に弄ってみてください。
-
-<iframe src="https://codesandbox.io/embed/react-spring-ti6s4?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:80%; height:400px; border:0; border-radius: 4px; overflow:hidden; margin:auto;"
-  title="react-spring"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
-
 ビルド後のサイズは以下のような感じです。
 
 ![react-spring](./react-spring-bundle.png)
@@ -285,6 +276,18 @@ react-scroll-parallax と大して変わらないですね。
 - 提供されている多彩な API の理解に学習コストがやや必要
 - より詳細な動きを指定したアニメーションの実装が可能
 
+サンプルを CodeSandbox で用意してみたので、自由に弄ってみてください。
+
+<iframe src="https://codesandbox.io/embed/react-spring-ti6s4?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:80%; height:400px; border:0; border-radius: 4px; overflow:hidden; margin:auto;"
+  title="react-spring"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 ## まとめ
 
-他のアニメーションの実装にも活用することを考えるなら react-spring を使った方が良さそうですね。
+適材適所という感じでしょうか。
+
+軽量でシンプルなものが良いなら、react-parallax を使うのが良さそうです。  
+また、他のアニメーションの実装にも活用することを考えるなら react-spring を使った方が良さそうです。
