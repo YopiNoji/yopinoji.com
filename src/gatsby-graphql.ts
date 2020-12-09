@@ -2478,7 +2478,6 @@ export type SitePageFieldsEnum =
   | "pluginCreator___pluginOptions___loading"
   | "pluginCreator___pluginOptions___disableBgImageOnAlpha"
   | "pluginCreator___pluginOptions___disableBgImage"
-  | "pluginCreator___pluginOptions___devMode"
   | "pluginCreator___pluginOptions___fileName"
   | "pluginCreator___pluginOptions___codegenDelay"
   | "pluginCreator___pluginOptions___query"
@@ -2735,7 +2734,6 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___loading"
   | "pluginOptions___disableBgImageOnAlpha"
   | "pluginOptions___disableBgImage"
-  | "pluginOptions___devMode"
   | "pluginOptions___fileName"
   | "pluginOptions___codegenDelay"
   | "pluginOptions___query"
@@ -2901,7 +2899,6 @@ export type SitePluginPluginOptions = {
   loading?: Maybe<Scalars["String"]>;
   disableBgImageOnAlpha?: Maybe<Scalars["Boolean"]>;
   disableBgImage?: Maybe<Scalars["Boolean"]>;
-  devMode?: Maybe<Scalars["Boolean"]>;
   fileName?: Maybe<Scalars["String"]>;
   codegenDelay?: Maybe<Scalars["Int"]>;
   query?: Maybe<Scalars["String"]>;
@@ -2969,7 +2966,6 @@ export type SitePluginPluginOptionsFilterInput = {
   loading?: Maybe<StringQueryOperatorInput>;
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
-  devMode?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
