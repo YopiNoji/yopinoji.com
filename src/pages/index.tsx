@@ -1,29 +1,24 @@
-import React, { Suspense } from "react";
-import Layout from "@Components/organisms/Base";
+import React from "react";
+import Base from "@Components/organisms/Base";
+import { PostListing } from "@Components/molecules/PostListing";
 import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
 import { Query } from "../gatsby-graphql";
-
-const PostListingComponents = React.lazy(
-  () => import("@Components/molecules/PostListing/PostListing")
-);
 
 type PropsType = {
   data: Query;
 };
 
-const Index: React.FC<PropsType> = (props) => {
+const Index: React.VFC<PropsType> = (props) => {
   return (
-    <Layout>
+    <Base>
       <SEO
         siteMeta={props.data.site?.siteMetadata}
         postMeta={null}
         isPost={false}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <PostListingComponents data={props.data.allMarkdownRemark.edges} />
-      </Suspense>
-    </Layout>
+      <PostListing data={props.data.allMarkdownRemark.edges} />
+    </Base>
   );
 };
 
