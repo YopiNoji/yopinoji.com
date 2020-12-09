@@ -18,7 +18,7 @@ const calc = (x: number, y: number) => [
 const trans = (x: number, y: number, s: number) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-export const PostListing: React.FC<PropsType> = (props) => {
+const PostListing: React.FC<PropsType> = (props) => {
   const [springProps, setSpring] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -30,10 +30,9 @@ export const PostListing: React.FC<PropsType> = (props) => {
   const onMouseLeaveHandle = (e: { clientX: number; clientY: number }) =>
     setSpring({ xys: [0, 0, 1] });
 
-  console.log(props);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {props.data.map((row, index) => {
+      {props.data?.map((row, index) => {
         return (
           <animated.div
             key={index}
@@ -63,3 +62,5 @@ export const PostListing: React.FC<PropsType> = (props) => {
     </div>
   );
 };
+
+export default PostListing;

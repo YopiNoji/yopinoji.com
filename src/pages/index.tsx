@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Layout from "@Components/organisms/Base";
-import { PostListing } from "@Components/molecules/PostListing";
 import { SEO } from "@Util/SEO";
 import { graphql } from "gatsby";
 import { Query } from "../gatsby-graphql";
+
+const PostListingComponents = React.lazy(
+  () => import("@Components/molecules/PostListing/PostListing")
+);
 
 type PropsType = {
   data: Query;
@@ -17,7 +20,9 @@ const Index: React.FC<PropsType> = (props) => {
         postMeta={null}
         isPost={false}
       />
-      <PostListing data={props.data.allMarkdownRemark.edges} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostListingComponents data={props.data.allMarkdownRemark.edges} />
+      </Suspense>
     </Layout>
   );
 };

@@ -1,9 +1,9 @@
-import React, { HtmlHTMLAttributes } from "react";
+import React, { useEffect, HtmlHTMLAttributes } from "react";
 
 export const TwitterTimeline: React.FC<HtmlHTMLAttributes<
   HTMLAnchorElement
 >> = ({ ...props }) => {
-  React.useEffect(() => {
+  useEffect(() => {
     const s = document.createElement("script");
     s.setAttribute("src", "https://platform.twitter.com/widgets.js");
     document.body.appendChild(s);
