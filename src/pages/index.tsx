@@ -17,7 +17,7 @@ const Index: React.FC<PropsType> = (props) => {
         postMeta={null}
         isPost={false}
       />
-      <PostListing data={props.data} />
+      <PostListing data={props.data.allMarkdownRemark.edges} />
     </Layout>
   );
 };
