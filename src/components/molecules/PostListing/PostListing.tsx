@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 import { MarkdownRemarkEdge } from "../../../gatsby-graphql";
 import { H2, SmallText } from "@Components/atoms/Typography";
 import { Badge } from "@Components/atoms/Badge";
@@ -18,7 +18,7 @@ const calc = (x: number, y: number) => [
 const trans = (x: number, y: number, s: number) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
-const PostListing: React.FC<PropsType> = (props) => {
+const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
   const [springProps, setSpring] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -30,9 +30,12 @@ const PostListing: React.FC<PropsType> = (props) => {
   const onMouseLeaveHandle = (e: { clientX: number; clientY: number }) =>
     setSpring({ xys: [0, 0, 1] });
 
+  const handleOnClick = React.useCallback((e) => {
+    navigate("/" + e);
+  }, []);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {props.data?.map((row, index) => {
+      {data?.map((row, index) => {
         return (
           <animated.div
             key={index}
@@ -40,21 +43,18 @@ const PostListing: React.FC<PropsType> = (props) => {
             onMouseLeave={onMouseLeaveHandle}
             style={{ transform: springProps.xys.interpolate(trans) }}
           >
-            <Card>
-              <Link
-                to={String(row.node.frontmatter?.slug)}
-                key={row.node.frontmatter?.title}
-              >
-                <div className="px-6 py-4">
-                  <H2>{row.node.frontmatter?.title}</H2>
-                  <SmallText>{row.node.frontmatter?.date}</SmallText>
-                  <Badge>{row.node.frontmatter?.category}</Badge>
-                  <br />
-                  {row.node.frontmatter?.tags?.map((row, index) => (
-                    <Badge key={index}>{row}</Badge>
-                  ))}
-                </div>
-              </Link>
+            <Card
+              onClick={() => handleOnClick(String(row.node.frontmatter?.slug))}
+            >
+              <div className="px-6 py-4">
+                <H2>{String(row.node.frontmatter?.title)}</H2>
+                <SmallText>{row.node.frontmatter?.date}</SmallText>
+                <Badge>{row.node.frontmatter?.category}</Badge>
+                <br />
+                {row.node.frontmatter?.tags?.map((row, index) => (
+                  <Badge key={index}>{row}</Badge>
+                ))}
+              </div>
             </Card>
           </animated.div>
         );
