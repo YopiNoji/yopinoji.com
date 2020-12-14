@@ -8,6 +8,7 @@ module.exports = {
     preserveHtmlElements: false,
     content: ['./src/**/*.tsx',],
   },
+  darkMode: 'class',
   variants: {},
   plugins: [],
 }

@@ -24,7 +24,10 @@ const Post: React.FC<PropsType> = (props) => {
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="mb-6" />
-      <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+      <div
+        className="dark:text-gray-100"
+        dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+      />
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
     </PostBase>
   );
