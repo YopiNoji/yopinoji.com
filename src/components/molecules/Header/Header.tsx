@@ -3,7 +3,11 @@ import React from "react";
 import { H1 } from "@Components/atoms/Typography";
 import { Toggle } from "@Components/atoms/Toggle";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  title?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title, ...props }) => {
   const handleOnChange = (v: boolean) => {
     if (v) {
       document.querySelector("html")?.classList.add("dark");
@@ -13,11 +17,13 @@ const Header: React.FC = () => {
   };
   return (
     <header>
-      <div className="mx-12 flex">
+      <div className="mx-12 flex items-center">
         <Link to="/">
-          <H1>{"yopinoji.com"}</H1>
+          <H1>{title}</H1>
         </Link>
-        <Toggle onChange={handleOnChange}></Toggle>
+        <div className="w-12">
+          <Toggle onChange={handleOnChange}></Toggle>
+        </div>
       </div>
     </header>
   );

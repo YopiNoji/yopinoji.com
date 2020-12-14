@@ -51,9 +51,11 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
                 <SmallText>{row.node.frontmatter?.date}</SmallText>
                 <Badge>{row.node.frontmatter?.category}</Badge>
                 <br />
-                {row.node.frontmatter?.tags?.map((row, index) => (
-                  <Badge key={index}>{row}</Badge>
-                ))}
+                <div className="flex flex-wrap">
+                  {row.node.frontmatter?.tags?.map((row, index) => (
+                    <Badge key={index}>{row}</Badge>
+                  ))}
+                </div>
               </div>
             </Card>
           </animated.div>

@@ -1,6 +1,6 @@
-import React, { HtmlHTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 
-export const H1: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
+export const H1: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
   ...props
 }) => {
   return (
@@ -13,7 +13,7 @@ export const H1: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
   );
 };
 
-export const H2: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
+export const H2: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
   ...props
 }) => {
   return (
@@ -26,7 +26,7 @@ export const H2: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
   );
 };
 
-export const H3: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
+export const H3: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
   ...props
 }) => {
   return (

@@ -3,9 +3,9 @@ import Helmet from "react-helmet";
 import { SiteSiteMetadata, MarkdownRemark } from "../../gatsby-graphql";
 
 type PropsType = {
-  postMeta: MarkdownRemark | null | undefined;
+  postMeta?: MarkdownRemark | null;
   isPost: boolean;
-  siteMeta: SiteSiteMetadata | null | undefined;
+  siteMeta?: SiteSiteMetadata | null;
 };
 
 export const SEO: React.FC<PropsType> = (props) => {

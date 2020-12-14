@@ -8,7 +8,7 @@ interface ToggleProps {
 const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
   const [checked, setChecked] = useState(false);
   return (
-    <div className="flex items-center justify-center w-full mb-24" {...props}>
+    <div className="flex items-center justify-center w-full m-2" {...props}>
       <label htmlFor="toogleA" className="flex items-center cursor-pointer">
         <div className="relative">
           <input
