@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "@Components/organisms/PostBase";
+import PostBase from "@Components/organisms/PostBase";
 import { SEO } from "@Util/SEO";
 import { H1, SmallText } from "@Components/atoms/Typography";
 import { Query } from "../gatsby-graphql";
@@ -19,14 +19,14 @@ const Post: React.FC<PropsType> = (props) => {
     return null;
   }
   return (
-    <Layout>
+    <PostBase>
       <SEO siteMeta={siteMetadata} postMeta={markdownRemark} isPost={true} />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="mb-6" />
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
-    </Layout>
+    </PostBase>
   );
 };
 export const pageQuery = graphql`

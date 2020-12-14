@@ -1,7 +1,7 @@
 ---
 title: "Gatsby で技術ブログを作ってから半年が過ぎた"
 cover: "2020-03-09-half-year-passed-starting-gatsby-js-blog/header.png"
-category: "Tech"
+category: "Poem"
 date: "2020-03-09"
 slug: "half-year-passed-starting-gatsby-js-blog"
 tags:
