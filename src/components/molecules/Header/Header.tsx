@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ title, ...props }) => {
   };
   return (
     <header>
-      <div className="mx-12 flex items-center">
+      <div className="flex items-center">
         <Link to="/">
           <H1>{title}</H1>
         </Link>

@@ -9,10 +9,9 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
   const [checked, setChecked] = useState(false);
   return (
     <div className="flex items-center justify-center w-full m-2" {...props}>
-      <label htmlFor="toogleA" className="flex items-center cursor-pointer">
+      <label className="flex items-center cursor-pointer">
         <div className="relative">
           <input
-            id="toogleA"
             type="checkbox"
             className="hidden"
             onChange={() => {
@@ -21,8 +20,8 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
             }}
           />
           <div
-            className={`w-8 h-4 bg-gray-400 rounded-full shadow-inner ${
-              checked && "bg-green-50"
+            className={`w-8 h-4 bg-gray-500 rounded-full shadow-inner ${
+              checked && "bg-green-100"
             }`}
           ></div>
           <div

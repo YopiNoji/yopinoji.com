@@ -4,7 +4,9 @@ module.exports = {
     title: `YopiNoji.com`,
     description: `名も無い野良の技術者の個人ブログ`,
     image: `/Yopinoji.png`,
-    author: `@YopiNoji`,
+    author: `YopiNoji`,
+    twitter: `YopiNoji`,
+    copyright: `© YopiNoji. All Rights Reserved.`,
     lang: `ja`,
     charSet: `utf-8`
   },

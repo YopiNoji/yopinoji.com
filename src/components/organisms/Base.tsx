@@ -8,9 +8,9 @@ interface BaseProps {
 
 const Base: React.FC<BaseProps> = ({ title, children }) => {
   return (
-    <div className="min-h-screen p-12 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen py-12 px-14 bg-gray-50 dark:bg-gray-900">
       <Header title={title} />
-      <div className="container mx-auto my-12">{children}</div>
+      <div className="container">{children}</div>
       <Footer />
     </div>
   );

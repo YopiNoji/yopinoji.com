@@ -30,7 +30,7 @@ export const BoldText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
   ...props
 }) => {
   return (
-    <p className="text-base font-bold" {...props}>
+    <p className="text-base font-bold dark:text-gray-200" {...props}>
       {props.children}
     </p>
   );

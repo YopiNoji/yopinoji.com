@@ -45,6 +45,7 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
           >
             <Card
               onClick={() => handleOnClick(String(row.node.frontmatter?.slug))}
+              className="cursor-pointer"
             >
               <div className="px-6 py-4">
                 <H2>{String(row.node.frontmatter?.title)}</H2>
