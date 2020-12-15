@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PostBase from "@Components/organisms/PostBase";
+import Base from "@Components/organisms/Base";
 import { SEO } from "@Util/SEO";
 import { H1, SmallText } from "@Components/atoms/Typography";
 import { Query } from "../gatsby-graphql";
@@ -14,19 +14,25 @@ const Post: React.FC<PropsType> = (props) => {
   const markdownRemark = props.data.markdownRemark;
   const frontmatter = props.data.markdownRemark?.frontmatter;
   const siteMetadata = props.data.site?.siteMetadata;
+  const title = props.data.site?.siteMetadata?.title
+    ? props.data.site?.siteMetadata?.title
+    : "";
 
-  if (!markdownRemark?.html || !frontmatter || !siteMetadata) {
+  if (!markdownRemark?.html || !frontmatter || !siteMetadata || !title) {
     return null;
   }
   return (
-    <PostBase>
+    <Base title={title}>
       <SEO siteMeta={siteMetadata} postMeta={markdownRemark} isPost={true} />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="mb-6" />
-      <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+      <div
+        className="text-gray-900 dark:text-gray-100"
+        dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+      />
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
-    </PostBase>
+    </Base>
   );
 };
 export const pageQuery = graphql`

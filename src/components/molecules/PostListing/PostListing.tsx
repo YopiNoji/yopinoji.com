@@ -45,15 +45,18 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
           >
             <Card
               onClick={() => handleOnClick(String(row.node.frontmatter?.slug))}
+              className="cursor-pointer"
             >
               <div className="px-6 py-4">
                 <H2>{String(row.node.frontmatter?.title)}</H2>
                 <SmallText>{row.node.frontmatter?.date}</SmallText>
                 <Badge>{row.node.frontmatter?.category}</Badge>
                 <br />
-                {row.node.frontmatter?.tags?.map((row, index) => (
-                  <Badge key={index}>{row}</Badge>
-                ))}
+                <div className="flex flex-wrap">
+                  {row.node.frontmatter?.tags?.map((row, index) => (
+                    <Badge key={index}>{row}</Badge>
+                  ))}
+                </div>
               </div>
             </Card>
           </animated.div>

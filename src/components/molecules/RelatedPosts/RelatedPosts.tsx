@@ -30,8 +30,8 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
   const title = frontmatter?.title;
   const tags = frontmatter?.tags;
   const getArraysIntersect = (
-    array01: unknown[] | null | undefined,
-    array02: unknown[] | null | undefined
+    array01?: unknown[] | null,
+    array02?: unknown[] | null
   ) => {
     if (!array02 || !array01) {
       return false;
