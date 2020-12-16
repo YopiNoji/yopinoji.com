@@ -155,7 +155,7 @@ mysql> create database laravel default character set utf8;
 DB が作成できたら、Laravel の環境変数を設定してあげて、Laravel から DB にアクセスできるようにしてあげます。
 .env にある環境変数の以下の部分を書き換えてあげます。
 
-```
+```none
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306

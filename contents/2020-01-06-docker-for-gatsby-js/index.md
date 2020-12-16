@@ -101,7 +101,7 @@ RUN npm install
 
 ### .dockerignore
 
-```
+```ignore
 node_modules
 .dockerignore
 Dockerfile

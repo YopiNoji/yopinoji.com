@@ -77,7 +77,7 @@ https://www.npmtrends.com/jspdf-vs-pdfkit-vs-pdfmake
 pdfmake 自体は `npm` か `yarn` を使ってインストールします。  
 今回は `npm` を使います。
 
-```
+```bash
 npm i pdfmake --save
 ```
 
@@ -181,7 +181,7 @@ Canvas に変換するためのパッケージとして `html2canvas` という�
 使用するパッケージは `npm` か `yarn` を使ってインストールします。  
 今回は例によって `npm` を使います。
 
-```
+```bash
 npm i jspdf html2canvas --save
 ```
 

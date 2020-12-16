@@ -57,7 +57,7 @@ Github の特定のブランチへの更新などをトリガーにして、色�
 
 yml ファイルには以下を記入します。
 
-```
+```yml
 name: Deploy to AWS S3
 
 on:
@@ -93,11 +93,10 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'ap-northeast-1'
-          FROM_PATH: './dist'
-          DEST_PATH: 's3://targetS3bucket/'
+          AWS_REGION: "ap-northeast-1"
+          FROM_PATH: "./dist"
+          DEST_PATH: "s3://targetS3bucket/"
           OPTIONS: "--acl public-read --delete"
-
 ```
 
 上記の yml ファイルについて簡単に解説します。

@@ -78,7 +78,7 @@ https://forest.watch.impress.co.jp/docs/news/1223826.html
 
 こういった際に Homebrew を使っていれば、以下のコマンド一行でアップデートできます。
 
-```
+```bash
 brew upgrade
 ```
 

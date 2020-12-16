@@ -24,7 +24,7 @@ git config --local -l
 
 ### 設定の追加
 
-```
+```bash
 git config --global user.email "your@email.address"
 ```
 

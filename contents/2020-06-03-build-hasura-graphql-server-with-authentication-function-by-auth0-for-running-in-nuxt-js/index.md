@@ -123,7 +123,7 @@ Hasura を使用する権限については上記の画面から追加できま�
 
 なお、権限がないのにリソースへアクセスしようとすると、以下のようなエラーでデータが取得できないことになってしまいます。
 
-```
+```bash
 Error: GraphQL error: field "users" not found in type: 'query_root'
 ```
 

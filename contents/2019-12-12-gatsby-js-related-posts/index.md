@@ -49,7 +49,7 @@ https://www.gatsbyjs.com/docs/static-query/#how-staticquery-differs-from-page-qu
 
 試しに以下のようなクエリを作ってみました。
 
-```gql
+```graphql
 query RelatedPostsQuery {
   allMarkdownRemark(filter: { frontmatter: { category: { eq: "Tech" } } }) {
     edges {
@@ -69,7 +69,7 @@ query RelatedPostsQuery {
 
 また GraphQL では、以下のように変数（`variables`）をクエリに設定して特定の値で動的に検索するということも可能です。
 
-```gql
+```graphql
 query PostQuery($slug: String!) {
   markdownRemark(frontmatter: { slug: { eq: $slug } }) {
     html
