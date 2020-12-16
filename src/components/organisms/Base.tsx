@@ -10,7 +10,7 @@ interface BaseProps {
 const Base: React.FC<BaseProps> = ({ siteMetadata, children }) => {
   console.log(siteMetadata);
   return (
-    <div className="min-h-screen py-12 px-14 bg-white dark:bg-black">
+    <div className="min-h-screen py-12 px-14 bg-white dark:bg-black transition duration-500 ease-in-out">
       <Header title={siteMetadata?.title} />
       <div className="container">{children}</div>
       <Footer
