@@ -1,17 +1,22 @@
 import React from "react";
 import { Header } from "@Components/molecules/Header";
 import { Footer } from "@Components/molecules/Footer";
+import { SiteSiteMetadata } from "../../gatsby-graphql";
 
 interface BaseProps {
-  title?: string;
+  siteMetadata?: SiteSiteMetadata | null;
 }
 
-const Base: React.FC<BaseProps> = ({ title, children }) => {
+const Base: React.FC<BaseProps> = ({ siteMetadata, children }) => {
+  console.log(siteMetadata);
   return (
     <div className="min-h-screen py-12 px-14 bg-white dark:bg-black">
-      <Header title={title} />
+      <Header title={siteMetadata?.title} />
       <div className="container">{children}</div>
-      <Footer />
+      <Footer
+        twitterId={siteMetadata?.twitterId}
+        copyright={siteMetadata?.copyright}
+      />
     </div>
   );
 };

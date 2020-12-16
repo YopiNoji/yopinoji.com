@@ -22,8 +22,12 @@ const Post: React.FC<PropsType> = (props) => {
     return null;
   }
   return (
-    <Base title={title}>
-      <SEO siteMeta={siteMetadata} postMeta={markdownRemark} isPost={true} />
+    <Base siteMetadata={siteMetadata}>
+      <SEO
+        siteMetadata={siteMetadata}
+        postMeta={markdownRemark}
+        isPost={true}
+      />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="mb-6" />
@@ -44,6 +48,10 @@ export const pageQuery = graphql`
         description
         author
         image
+        twitterId
+        copyright
+        lang
+        charSet
       }
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {

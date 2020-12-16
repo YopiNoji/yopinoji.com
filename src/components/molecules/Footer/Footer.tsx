@@ -4,8 +4,8 @@ import { BoldText } from "@Components/atoms/Typography";
 import { TwitterTimeline } from "@Components/atoms/TwitterTimeline";
 
 interface FooterProps {
-  twitterId?: string;
-  copyright?: string;
+  twitterId?: string | null;
+  copyright?: string | null;
 }
 
 const Footer: React.FC<FooterProps> = ({ twitterId, copyright }) => {
@@ -16,6 +16,7 @@ const Footer: React.FC<FooterProps> = ({ twitterId, copyright }) => {
   const moveToTop = () => {
     window.location.href = window.location.origin;
   };
+  console.log(twitterId);
 
   return (
     <footer>

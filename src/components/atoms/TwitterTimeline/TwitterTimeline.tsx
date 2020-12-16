@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 interface TwitterTimelineProps {
-  twitterId: string;
+  twitterId?: string;
 }
 
 export const TwitterTimeline: React.FC<TwitterTimelineProps> = ({

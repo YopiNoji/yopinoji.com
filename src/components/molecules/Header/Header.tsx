@@ -4,7 +4,7 @@ import { H1 } from "@Components/atoms/Typography";
 import { Toggle } from "@Components/atoms/Toggle";
 
 interface HeaderProps {
-  title?: string;
+  title?: string | null;
 }
 
 const Header: React.FC<HeaderProps> = ({ title, ...props }) => {

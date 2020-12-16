@@ -2127,7 +2127,7 @@ export type SiteFieldsEnum =
   | "siteMetadata___siteUrl"
   | "siteMetadata___image"
   | "siteMetadata___author"
-  | "siteMetadata___twitter"
+  | "siteMetadata___twitterId"
   | "siteMetadata___copyright"
   | "siteMetadata___lang"
   | "siteMetadata___charSet"
@@ -3054,7 +3054,7 @@ export type SiteSiteMetadata = {
   siteUrl?: Maybe<Scalars["String"]>;
   image?: Maybe<Scalars["String"]>;
   author?: Maybe<Scalars["String"]>;
-  twitter?: Maybe<Scalars["String"]>;
+  twitterId?: Maybe<Scalars["String"]>;
   copyright?: Maybe<Scalars["String"]>;
   lang?: Maybe<Scalars["String"]>;
   charSet?: Maybe<Scalars["String"]>;
@@ -3066,7 +3066,7 @@ export type SiteSiteMetadataFilterInput = {
   siteUrl?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
-  twitter?: Maybe<StringQueryOperatorInput>;
+  twitterId?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   charSet?: Maybe<StringQueryOperatorInput>;
@@ -3125,7 +3125,15 @@ export type IndexQuery = {
     siteMetadata?: Maybe<
       Pick<
         SiteSiteMetadata,
-        "title" | "siteUrl" | "description" | "author" | "image"
+        | "title"
+        | "siteUrl"
+        | "description"
+        | "author"
+        | "image"
+        | "twitterId"
+        | "copyright"
+        | "lang"
+        | "charSet"
       >
     >;
   }>;
@@ -3152,7 +3160,15 @@ export type PostQuery = {
     siteMetadata?: Maybe<
       Pick<
         SiteSiteMetadata,
-        "title" | "siteUrl" | "description" | "author" | "image"
+        | "title"
+        | "siteUrl"
+        | "description"
+        | "author"
+        | "image"
+        | "twitterId"
+        | "copyright"
+        | "lang"
+        | "charSet"
       >
     >;
   }>;
