@@ -8,7 +8,7 @@ interface BaseProps {
 
 const Base: React.FC<BaseProps> = ({ title, children }) => {
   return (
-    <div className="min-h-screen py-12 px-14 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen py-12 px-14 bg-white dark:bg-black">
       <Header title={title} />
       <div className="container">{children}</div>
       <Footer />
