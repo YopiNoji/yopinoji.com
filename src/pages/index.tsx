@@ -10,13 +10,10 @@ type PropsType = {
 };
 
 const Index: React.VFC<PropsType> = (props) => {
-  const title = props.data.site?.siteMetadata?.title
-    ? props.data.site?.siteMetadata?.title
-    : "";
   const siteMetadata = props.data.site?.siteMetadata;
   return (
-    <Base title={title}>
-      <SEO siteMeta={siteMetadata} isPost={false} />
+    <Base siteMetadata={siteMetadata}>
+      <SEO siteMetadata={siteMetadata} isPost={false} />
       <PostListing data={props.data.allMarkdownRemark.edges} />
     </Base>
   );
@@ -33,6 +30,10 @@ export const pageQuery = graphql`
         description
         author
         image
+        twitterId
+        copyright
+        lang
+        charSet
       }
     }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {

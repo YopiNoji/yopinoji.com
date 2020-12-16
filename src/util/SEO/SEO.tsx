@@ -5,33 +5,40 @@ import { SiteSiteMetadata, MarkdownRemark } from "../../gatsby-graphql";
 type PropsType = {
   postMeta?: MarkdownRemark | null;
   isPost: boolean;
-  siteMeta?: SiteSiteMetadata | null;
+  siteMetadata?: SiteSiteMetadata | null;
 };
 
 export const SEO: React.FC<PropsType> = (props) => {
-  const { postMeta, isPost, siteMeta } = props;
+  const { postMeta, isPost, siteMetadata } = props;
   const title = isPost
-    ? String(siteMeta?.title) + " | " + postMeta?.frontmatter?.title
-    : String(siteMeta?.title);
-  const description = siteMeta?.description ? siteMeta?.description : "";
-  const image = siteMeta?.image ? siteMeta?.siteUrl + siteMeta?.image : "";
-  const blogURL = siteMeta?.siteUrl ? siteMeta?.siteUrl : "";
+    ? String(siteMetadata?.title) + " | " + postMeta?.frontmatter?.title
+    : String(siteMetadata?.title);
+  const description = siteMetadata?.description
+    ? siteMetadata?.description
+    : "";
+  const image = siteMetadata?.image
+    ? siteMetadata?.siteUrl + siteMetadata?.image
+    : "";
+  const charSet = siteMetadata?.charSet ? siteMetadata?.charSet : "utf-8";
+  const lang = siteMetadata?.lang ? siteMetadata?.lang : "en";
+  const author = siteMetadata?.author ? siteMetadata?.author : "author";
+  const blogURL = siteMetadata?.siteUrl ? siteMetadata?.siteUrl : "";
   const postURL = blogURL + "";
   const schemaOrgJSONLD = [
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
       url: blogURL,
-      name: siteMeta?.title,
-      alternateName: siteMeta?.title,
+      name: siteMetadata?.title,
+      alternateName: siteMetadata?.title,
     },
   ];
   return (
     <Helmet>
       {/* General tags */}
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <html lang="ja" />
+      <meta charSet={charSet} />
+      <html lang={lang} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
 
@@ -50,7 +57,7 @@ export const SEO: React.FC<PropsType> = (props) => {
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={"YopiNoji"} />
+      <meta name="twitter:creator" content={author} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />

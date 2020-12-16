@@ -1799,6 +1799,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1925,6 +1927,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars["Date"]>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars["Int"]>;
+  host?: Maybe<Scalars["String"]>;
   polyfill?: Maybe<Scalars["Boolean"]>;
   pathPrefix?: Maybe<Scalars["String"]>;
   id: Scalars["ID"];
@@ -2123,10 +2127,12 @@ export type SiteFieldsEnum =
   | "siteMetadata___siteUrl"
   | "siteMetadata___image"
   | "siteMetadata___author"
-  | "siteMetadata___twitter"
+  | "siteMetadata___twitterId"
   | "siteMetadata___copyright"
   | "siteMetadata___lang"
   | "siteMetadata___charSet"
+  | "port"
+  | "host"
   | "polyfill"
   | "pathPrefix"
   | "id"
@@ -2219,6 +2225,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3046,7 +3054,7 @@ export type SiteSiteMetadata = {
   siteUrl?: Maybe<Scalars["String"]>;
   image?: Maybe<Scalars["String"]>;
   author?: Maybe<Scalars["String"]>;
-  twitter?: Maybe<Scalars["String"]>;
+  twitterId?: Maybe<Scalars["String"]>;
   copyright?: Maybe<Scalars["String"]>;
   lang?: Maybe<Scalars["String"]>;
   charSet?: Maybe<Scalars["String"]>;
@@ -3058,7 +3066,7 @@ export type SiteSiteMetadataFilterInput = {
   siteUrl?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
-  twitter?: Maybe<StringQueryOperatorInput>;
+  twitterId?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   charSet?: Maybe<StringQueryOperatorInput>;
@@ -3117,7 +3125,15 @@ export type IndexQuery = {
     siteMetadata?: Maybe<
       Pick<
         SiteSiteMetadata,
-        "title" | "siteUrl" | "description" | "author" | "image"
+        | "title"
+        | "siteUrl"
+        | "description"
+        | "author"
+        | "image"
+        | "twitterId"
+        | "copyright"
+        | "lang"
+        | "charSet"
       >
     >;
   }>;
@@ -3144,7 +3160,15 @@ export type PostQuery = {
     siteMetadata?: Maybe<
       Pick<
         SiteSiteMetadata,
-        "title" | "siteUrl" | "description" | "author" | "image"
+        | "title"
+        | "siteUrl"
+        | "description"
+        | "author"
+        | "image"
+        | "twitterId"
+        | "copyright"
+        | "lang"
+        | "charSet"
       >
     >;
   }>;

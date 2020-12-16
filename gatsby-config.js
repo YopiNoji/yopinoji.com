@@ -5,7 +5,7 @@ module.exports = {
     description: `名も無い野良の技術者の個人ブログ`,
     image: `/Yopinoji.png`,
     author: `YopiNoji`,
-    twitter: `YopiNoji`,
+    twitterId: `YopiNoji`,
     copyright: `© YopiNoji. All Rights Reserved.`,
     lang: `ja`,
     charSet: `utf-8`
