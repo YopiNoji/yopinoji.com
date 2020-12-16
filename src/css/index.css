@@ -25,7 +25,7 @@ p {
 }
 
 a {
-  @apply text-indigo-700;
+  @apply text-green-700 dark:text-red-500;
 }
 
 @tailwind components;
