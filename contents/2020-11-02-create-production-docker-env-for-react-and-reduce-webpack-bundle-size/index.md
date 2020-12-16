@@ -101,7 +101,7 @@ const plugins = [
 
 以下は Nginx の設定ファイルのサンプルです。
 
-```conf
+```nginx
 server {
   gzip_static always;
   gzip on;
@@ -140,7 +140,7 @@ server {
 IE6 以前のブラウザをサポートする場合は、以下の設定を追加して特定のブラウザで gzip による配信を無効化する必要があります。  
 （今回は古いバージョンの IE についてはサポート対象外のため省いています）
 
-```conf
+```nginx
 gzip_disable "msie6";
 ```
 

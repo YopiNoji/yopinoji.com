@@ -136,7 +136,7 @@ Gmail アカウントの ID と Password はソースに直書きだとまずい
 環境変数への設定は以下のコマンドで行います。  
 `gmail.email`と `gmail.password` にはメール転送に使う Gmail アカウントの情報を、`gmail.destination`にはメールの転送先のメールアドレスを入れます。
 
-```
+```bash
 npm run firebase functions:config:set gmail.email="from@gmail.com" gmail.password="yourpassword" gmail.destination="to@gmail.com"
 ```
 
@@ -179,28 +179,24 @@ npm install nodemailer
 
 まず、Nuxt.js で `.env` を使えるようにするためのライブラリをインストールします。
 
-```
+```bash
 npm install @nuxtjs/dotenv
 ```
 
 ついでに、Firebase に Nuxt.js アプリから簡単にアクセスするためのライブラリをインストールしておきます。
 
-```
+```bash
 npm install firebase
 ```
 
 Nuxt.js で `.env` を使うためのライブラリをインストールできたら、`nuxt.config.js`に以下 2 つ記載を追記してあげます。
 
-```
-plugins: [
-  '~/plugins/firebase.js'
-]
+```javascript
+plugins: ["~/plugins/firebase.js"];
 ```
 
-```
-modules: [
-  '@nuxtjs/dotenv'
-]
+```javascript
+modules: ["@nuxtjs/dotenv"];
 ```
 
 次に、Nuxt.js プロジェクトの `plugins` フォルダに `firebase.js` を作成します。
@@ -227,7 +223,7 @@ export default firebase;
 最後に、上記の `firebase.js` で使用する `.env` を作成します。  
 雛形は以下を使ってください。
 
-```
+```none
 FB_API_KEY = ''
 FB_AUTH_DOMAIN = ''
 FB_DATABASE_URL = ''

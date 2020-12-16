@@ -188,7 +188,7 @@ Next steps can be found in the README file at ./SAMPLE/README.md
 
 SAMPLE プロジェクトの配下は以下のような構成になっているかと思います。
 
-```
+```none
 /usr/src/SAMPLE
 |--.gitignore
 |--README.md

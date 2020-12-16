@@ -53,7 +53,7 @@ npm i md-to-pdf
 
 次に、実際に PDF 化する対象の Markdown を作っておきます。
 
-```
+```bash
 echo "# This is a sample." >> README.md
 ```
 

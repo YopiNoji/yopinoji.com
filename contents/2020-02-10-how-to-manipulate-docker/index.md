@@ -1,11 +1,11 @@
 ---
 title: "Docker と Docker Compose の操作をまとめたカンニングペーパー"
-cover: '2020-02-10-how-to-manipulate-docker/header.png'
+cover: "2020-02-10-how-to-manipulate-docker/header.png"
 category: "Tech"
 date: "2020-02-10"
 slug: "how-to-manipulate-docker"
 tags:
-    - Docker
+  - Docker
 ---
 
 表題の通り。  
@@ -17,7 +17,7 @@ Docker の操作について自分用にあらためてまとめた記事です�
 
 ### イメージを一覧で確認
 
-```
+```bash
 docker images
 ```
 
@@ -25,19 +25,19 @@ docker images
 
 `-a` は停止しているコンテナも含めて全てという意味です。
 
-```
+```bash
 docker ps -a
 ```
 
 ### ボリュームを一覧で確認
 
-```
+```bash
 docker volume ls
 ```
 
 ### ネットワークを一覧で確認
 
-```
+```bash
 docker network ls
 ```
 
@@ -47,31 +47,31 @@ docker network ls
 
 ### 停止コンテナ、未使用イメージ、未使用ボリューム、未使用ネットワーク一括削除
 
-```
+```bash
 docker system prune
 ```
 
 ### 停止コンテナ一括削除
 
-```
+```bash
 docker container prune
 ```
 
 ### 未使用イメージ一括削除
 
-```
+```bash
 docker image prune
 ```
 
 ### 未使用ボリューム一括削除
 
-```
+```bash
 docker volume prune
 ```
 
 ### 未使用ネットワーク一括削除
 
-```
+```bash
 docker network prune
 ```
 
@@ -81,7 +81,7 @@ docker network prune
 
 ### コンテナの中に入る（Docker Compose）
 
-```
+```bash
 docker-compose exec app bash
 ```
 
@@ -94,9 +94,8 @@ docker-compose exec app bash
 以下のやり方は基本的にもう使わないけど、念のためメモ。  
 Docker Compose 使う場合、使う必要がないです。
 
-```
+```bash
 docker exec　-it {container-id} bash
 ```
 
 対象のコンテナ ID は、`docker ps` で調べる必要があります。
-

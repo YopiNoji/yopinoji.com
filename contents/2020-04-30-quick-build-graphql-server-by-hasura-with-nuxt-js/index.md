@@ -282,7 +282,7 @@ TypeScript で開発を行う際に、Apollo Client で使う gql ファイル�
 
 以下のようなエラーが出るパターンですね。
 
-```
+```bash
  ERROR  ERROR in /Users/yopinoji/Workspace/nuxt-hasura/pages/users.vue(12,20):
 12:20 Cannot find module '~/apollo/queries/fetchUsers'.
     10 | import Vue from 'vue'

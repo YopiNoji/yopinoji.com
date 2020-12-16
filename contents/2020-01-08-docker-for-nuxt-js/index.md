@@ -122,7 +122,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 Docker の[マルチステージビルド](https://matsuand.github.io/docs.docker.jp.onthefly/develop/develop-images/multistage-build/)を用いることでイメージのサイズを縮小しています。
 
-```conf
+```nginx
 server {
   listen          8000;
   server_name     your-domain;
@@ -145,7 +145,7 @@ server {
 
 ### .dockerignore
 
-```
+```ignore
 node_modules
 .nuxt
 ```
@@ -174,7 +174,7 @@ docker-compose up -d --build
 
 #### Nuxt.js を Docker 化したタイミングで core-js 関連のエラーが出るようになった
 
-```
+```bash
 These dependencies were not found:
 
 * core-js/modules/es6.array.find in ./.nuxt/client.js
@@ -208,7 +208,7 @@ These dependencies were not found:
 `core-js`自体はバージョン 2 系のメンテナンスを終了しちゃってるみたいなので、  
 本当はインストールしたくないのですが、渋々`core-js`のバージョン 2 系をインストールします。
 
-```
+```bash
 npm i --save core-js@2
 ```
 

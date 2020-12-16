@@ -50,7 +50,7 @@ AWS コンソール上での EC2 / RDS の作成を完了したら、ようや�
 Mac ユーザーの場合、`.ssh/config`に接続先の情報を追加しておくと楽です。  
 コンフィグに記載しておくことで、`ssh hasura-server` とコマンド入力することで EC2 へ SSH 接続が行えます。
 
-```
+```none
 Host hasura-server
     HostName 11.111.11.255
     User ubuntu
