@@ -5,7 +5,7 @@ export const H1: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => {
   return (
     <h1
-      className="text-3xl font-bold text-gray-900 no-underline dark:text-gray-200"
+      className="text-3xl font-bold text-gray-700 no-underline dark:text-gray-300"
       {...props}
     >
       {props.children}
@@ -18,7 +18,7 @@ export const H2: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => {
   return (
     <h2
-      className="text-2xl text-gray-900 no-underline dark:text-gray-200"
+      className="text-2xl text-gray-700 no-underline dark:text-gray-300"
       {...props}
     >
       {props.children}
@@ -31,7 +31,7 @@ export const H3: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => {
   return (
     <h3
-      className="text-xl text-gray-900 no-underline dark:text-gray-200"
+      className="text-xl text-gray-700 no-underline dark:text-gray-300"
       {...props}
     >
       {props.children}

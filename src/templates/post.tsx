@@ -32,7 +32,7 @@ const Post: React.FC<PropsType> = (props) => {
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="mb-6" />
       <div
-        className="text-gray-900 dark:text-gray-100"
+        className="text-gray-700 dark:text-gray-300"
         dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
       />
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
