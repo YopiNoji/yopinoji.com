@@ -26,7 +26,7 @@ https://blog.tailwindcss.com/tailwindcss-v2#dark-mode
 簡単に言うと、クラスベースで CSS のスタイリングをするためのフレームワークです。
 
 ```html
-<div class="text-white bg-red-700 rounded px-2">Sample Div</div>
+<div class="text-gray-300 bg-red-700 rounded px-2">Sample Div</div>
 ```
 
 提供されるのはあくまでもクラスに対応する CSS だけ。  
@@ -101,7 +101,7 @@ import React from "react";
 
 export const Sample: React.FC = ({ ...props }) => {
   return (
-    <div className="text-black dark:text-white dark:bg-black dark:hover:bg-red-500">
+    <div className="text-black dark:text-white dark:bg-black dark:hover:bg-red-400">
       {props.children}
     </div>
   );
@@ -156,7 +156,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
             }}
           />
           <div
-            className={`w-8 h-4 bg-gray-400 rounded-full shadow-inner ${
+            className={`w-8 h-4 bg-gray-300 rounded-full shadow-inner ${
               checked && "bg-green-50"
             }`}
           ></div>
@@ -166,7 +166,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
             }`}
           ></div>
         </div>
-        <div className="ml-3 text-gray-900 font-medium">{text}</div>
+        <div className="ml-3 text-gray-700 font-medium">{text}</div>
       </label>
     </div>
   );

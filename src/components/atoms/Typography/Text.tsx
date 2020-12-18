@@ -5,7 +5,7 @@ export const BaseText: React.FC<HtmlHTMLAttributes<HTMLParagraphElement>> = ({
 }) => {
   return (
     <p
-      className="text-base text-gray-900 no-underline dark:text-gray-200"
+      className="text-base text-gray-700 no-underline dark:text-gray-300"
       {...props}
     >
       {props.children}
@@ -18,7 +18,7 @@ export const SmallText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
 }) => {
   return (
     <p
-      className="text-sm text-gray-900 no-underline dark:text-gray-200"
+      className="text-sm text-gray-700 no-underline dark:text-gray-300"
       {...props}
     >
       {props.children}
@@ -30,7 +30,7 @@ export const BoldText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
   ...props
 }) => {
   return (
-    <p className="text-base font-bold dark:text-gray-200" {...props}>
+    <p className="text-base font-bold dark:text-gray-300" {...props}>
       {props.children}
     </p>
   );

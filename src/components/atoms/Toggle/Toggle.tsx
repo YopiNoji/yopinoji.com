@@ -20,7 +20,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
             }}
           />
           <div
-            className={`w-8 h-4 bg-gray-500 rounded-full shadow-inner ${
+            className={`w-8 h-4 bg-gray-300 rounded-full shadow-inner ${
               checked && "bg-green-100"
             }`}
           ></div>
@@ -30,7 +30,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
             }`}
           ></div>
         </div>
-        <div className="ml-3 text-gray-900 font-medium">{text}</div>
+        <div className="ml-3 text-gray-700 font-medium">{text}</div>
       </label>
     </div>
   );
