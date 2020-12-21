@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Base from "@Components/organisms/Base";
 import { SEO } from "@Util/SEO";
 import { H1, SmallText } from "@Components/atoms/Typography";
+import { Card } from "@Components/atoms/Card";
 import { Query } from "../gatsby-graphql";
 import { RelatedPosts } from "@Components/molecules/RelatedPosts";
 
@@ -17,6 +18,9 @@ const Post: React.FC<PropsType> = (props) => {
   const title = props.data.site?.siteMetadata?.title
     ? props.data.site?.siteMetadata?.title
     : "";
+  const tableOfContents = markdownRemark?.tableOfContents
+    ? markdownRemark.tableOfContents
+    : "";
 
   if (!markdownRemark?.html || !frontmatter || !siteMetadata || !title) {
     return null;
@@ -30,11 +34,18 @@ const Post: React.FC<PropsType> = (props) => {
       />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
-      <div className="mb-6" />
-      <div
-        className="text-gray-700 dark:text-gray-300"
-        dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
-      />
+      <div className="w-full mb-6">
+        <Card className="z-20 relative sm:fixed sm:opacity-25 sm:hover:opacity-100 right-0 top-0">
+          <div
+            className="text-gray-700 dark:text-gray-300"
+            dangerouslySetInnerHTML={{ __html: tableOfContents }}
+          />
+        </Card>
+        <div
+          className="text-gray-700 dark:text-gray-300"
+          dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+        />
+      </div>
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
     </Base>
   );
@@ -56,6 +67,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      tableOfContents(pathToSlugField: "frontmatter.slug")
       frontmatter {
         date
         slug

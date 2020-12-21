@@ -70,6 +70,9 @@ module.exports = {
             resolve: "gatsby-remark-external-links",
           },
           {
+            resolve: `gatsby-remark-autolink-headers`,
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: "language-",

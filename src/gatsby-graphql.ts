@@ -2436,6 +2436,7 @@ export type SitePageFieldsEnum =
   | "pluginCreator___pluginOptions___plugins___version"
   | "pluginCreator___pluginOptions___plugins___nodeAPIs"
   | "pluginCreator___pluginOptions___plugins___browserAPIs"
+  | "pluginCreator___pluginOptions___plugins___ssrAPIs"
   | "pluginCreator___pluginOptions___plugins___pluginFilepath"
   | "pluginCreator___pluginOptions___trackingId"
   | "pluginCreator___pluginOptions___head"
@@ -2467,6 +2468,8 @@ export type SitePageFieldsEnum =
   | "pluginCreator___pluginOptions___stripMetadata"
   | "pluginCreator___pluginOptions___defaultQuality"
   | "pluginCreator___pluginOptions___failOnError"
+  | "pluginCreator___pluginOptions___offsetY"
+  | "pluginCreator___pluginOptions___className"
   | "pluginCreator___pluginOptions___classPrefix"
   | "pluginCreator___pluginOptions___maxWidth"
   | "pluginCreator___pluginOptions___withWebp"
@@ -2677,6 +2680,8 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___plugins___id"
   | "pluginOptions___plugins___name"
   | "pluginOptions___plugins___version"
+  | "pluginOptions___plugins___pluginOptions___offsetY"
+  | "pluginOptions___plugins___pluginOptions___className"
   | "pluginOptions___plugins___pluginOptions___classPrefix"
   | "pluginOptions___plugins___pluginOptions___maxWidth"
   | "pluginOptions___plugins___pluginOptions___withWebp"
@@ -2692,6 +2697,7 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___plugins___pluginOptions___disableBgImage"
   | "pluginOptions___plugins___nodeAPIs"
   | "pluginOptions___plugins___browserAPIs"
+  | "pluginOptions___plugins___ssrAPIs"
   | "pluginOptions___plugins___pluginFilepath"
   | "pluginOptions___trackingId"
   | "pluginOptions___head"
@@ -2723,6 +2729,8 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___stripMetadata"
   | "pluginOptions___defaultQuality"
   | "pluginOptions___failOnError"
+  | "pluginOptions___offsetY"
+  | "pluginOptions___className"
   | "pluginOptions___classPrefix"
   | "pluginOptions___maxWidth"
   | "pluginOptions___withWebp"
@@ -2888,6 +2896,8 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars["Boolean"]>;
   defaultQuality?: Maybe<Scalars["Int"]>;
   failOnError?: Maybe<Scalars["Boolean"]>;
+  offsetY?: Maybe<Scalars["Int"]>;
+  className?: Maybe<Scalars["String"]>;
   classPrefix?: Maybe<Scalars["String"]>;
   maxWidth?: Maybe<Scalars["Int"]>;
   withWebp?: Maybe<Scalars["Boolean"]>;
@@ -2955,6 +2965,8 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
+  offsetY?: Maybe<IntQueryOperatorInput>;
+  className?: Maybe<StringQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
   withWebp?: Maybe<BooleanQueryOperatorInput>;
@@ -2993,6 +3005,7 @@ export type SitePluginPluginOptionsPlugins = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>;
   nodeAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>;
   browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  ssrAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>;
   pluginFilepath?: Maybe<Scalars["String"]>;
 };
 
@@ -3004,6 +3017,7 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>;
   nodeAPIs?: Maybe<StringQueryOperatorInput>;
   browserAPIs?: Maybe<StringQueryOperatorInput>;
+  ssrAPIs?: Maybe<StringQueryOperatorInput>;
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3012,6 +3026,8 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
+  offsetY?: Maybe<Scalars["Int"]>;
+  className?: Maybe<Scalars["String"]>;
   classPrefix?: Maybe<Scalars["String"]>;
   maxWidth?: Maybe<Scalars["Int"]>;
   withWebp?: Maybe<Scalars["Boolean"]>;
@@ -3028,6 +3044,8 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
+  offsetY?: Maybe<IntQueryOperatorInput>;
+  className?: Maybe<StringQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
   withWebp?: Maybe<BooleanQueryOperatorInput>;
@@ -3173,7 +3191,7 @@ export type PostQuery = {
     >;
   }>;
   markdownRemark?: Maybe<
-    Pick<MarkdownRemark, "html"> & {
+    Pick<MarkdownRemark, "html" | "tableOfContents"> & {
       frontmatter?: Maybe<
         Pick<
           MarkdownRemarkFrontmatter,
