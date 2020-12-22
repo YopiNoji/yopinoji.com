@@ -27,8 +27,7 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
   const onMouseMoveHandle = (e: { clientX: number; clientY: number }) =>
     setSpring({ xys: calc(e.clientX, e.clientY) });
 
-  const onMouseLeaveHandle = (e: { clientX: number; clientY: number }) =>
-    setSpring({ xys: [0, 0, 1] });
+  const onMouseLeaveHandle = () => setSpring({ xys: [0, 0, 1] });
 
   const handleOnClick = React.useCallback((e) => {
     navigate("/" + e);

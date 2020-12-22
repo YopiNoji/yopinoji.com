@@ -65,6 +65,7 @@
     "gatsby-plugin-tsconfig-paths": "^1.0.2",
     "gatsby-plugin-typescript": "^2.9.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.16",
+    "gatsby-remark-autolink-headers": "^2.8.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.5.1",
     "gatsby-remark-prismjs": "^3.7.0",
