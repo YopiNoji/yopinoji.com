@@ -16,7 +16,6 @@ const Footer: React.FC<FooterProps> = ({ twitterId, copyright }) => {
   const moveToTop = () => {
     window.location.href = window.location.origin;
   };
-  console.log(twitterId);
 
   return (
     <footer>
