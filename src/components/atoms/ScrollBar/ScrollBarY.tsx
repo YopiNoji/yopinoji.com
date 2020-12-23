@@ -1,7 +1,7 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
 
-const scrollTop = (): number => {
+const scrollRatio = (): number => {
   return Math.round(
     (document.documentElement.scrollTop /
       (document.documentElement.scrollHeight -
@@ -15,7 +15,7 @@ const Base: React.VFC = () => {
     return (): void => document.removeEventListener("scroll", onScroll);
   });
   const onScroll = () => {
-    const position = scrollTop();
+    const position = scrollRatio();
     setSpring({ height: `${position}%` });
   };
   const [springProps, setSpring] = useSpring(() => ({ height: `1%` }));
