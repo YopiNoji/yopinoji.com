@@ -9,7 +9,7 @@ const scrollRatio = (): number => {
       100
   );
 };
-const Base: React.VFC = () => {
+const ScrollBarY: React.VFC = () => {
   React.useEffect(() => {
     document.addEventListener("scroll", onScroll);
     return (): void => document.removeEventListener("scroll", onScroll);
@@ -27,4 +27,4 @@ const Base: React.VFC = () => {
   );
 };
 
-export default Base;
+export default ScrollBarY;
