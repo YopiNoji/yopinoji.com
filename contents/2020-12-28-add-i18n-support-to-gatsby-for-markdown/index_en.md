@@ -1,5 +1,5 @@
 ---
-title: "Support for dark mode using React and Tailwind CSS"
+title: "Add i18n support to Markdown of Gatsby"
 cover: "2020-12-28-add-i18n-support-to-gatsby-for-markdown/header.png"
 category: "Tech"
 lang: "en"

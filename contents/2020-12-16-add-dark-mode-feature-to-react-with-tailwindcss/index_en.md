@@ -1,5 +1,5 @@
 ---
-title: "Support for dark mode using React and Tailwind CSS"
+title: "Support dark mode using React and Tailwind CSS"
 cover: "2020-12-16-add-dark-mode-feature-to-react-with-tailwindcss/header.png"
 category: "Tech"
 lang: "en"
