@@ -3132,7 +3132,7 @@ export type RelatedPostsQueryQuery = {
         frontmatter?: Maybe<
           Pick<
             MarkdownRemarkFrontmatter,
-            "slug" | "title" | "category" | "tags"
+            "slug" | "title" | "category" | "lang" | "tags"
           >
         >;
       };
