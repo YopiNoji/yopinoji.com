@@ -1,9 +1,9 @@
 ---
 title: "Gatsby によるブログを i18n対応（多言語化対応）して Markdown を言語によって出し分ける"
-cover: "2020-12-28-add-i18n-support-to-gatsby-for-markdown/header.png"
+cover: "2020-12-26-add-i18n-support-to-gatsby-for-markdown/header.png"
 category: "Tech"
 lang: "ja"
-date: "2020-12-28"
+date: "2020-12-26"
 slug: "add-i18n-support-to-gatsby-for-markdown"
 tags:
   - Gatsby
