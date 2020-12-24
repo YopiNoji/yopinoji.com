@@ -1,5 +1,5 @@
 ---
-title: "Gatsby によるブログを i18n対応（多言語化対応）して Markdown を言語によって出し分ける"
+title: "i18n support for Gatsby blogs (multilingual support) and Markdown for different languages"
 cover: "2020-12-28-add-i18n-support-to-gatsby-for-markdown/header.png"
 category: "Tech"
 lang: "ja"
@@ -10,42 +10,42 @@ tags:
   - i18n
 ---
 
-## 求めるもの
+## What I am looking for
 
-- Gatsby(React.js)を使った環境を想定
-- Gatsby では Markdown に投稿内容を記載する使い方をしている
-- ブラウザの言語設定に応じて、Markdown で書いた記事を各言語に応じたものを表示したい
+- Assuming an environment using Gatsby (React.js)
+- In Gatsby, we are using Markdown to write posts.
+- Need to display articles written in Markdown according to the language settings of the browser.
 
-## 一般的な i18n 対応（多言語化対応）のライブラリについて
+## About libraries for general i18n support
 
-まず、i18n 対応する際に一般的なライブラリについての話です。
+First, let's talk about the general libraries for i18n support.
 
 - [react-i18next](https://github.com/i18next/react-i18next)
 - [polyglot](https://github.com/airbnb/polyglot.js)
 
-どのライブラリも基本的には Json ファイルに各言語の文言を記載しておいて、言語設定に応じて Json から読み込む言語を切り替えるといった使い方をします。
+Basically, all of these libraries use a Json file that contains the text of each language, and switch the language to be read from the Json depending on the language setting.
 
-ただ、今回は Json による多言語化対応を行いません。  
-今回行うのはあくまでも言語設定に応じた Markdown の出しわけです。
+This time, however, I will not use Json to support multilingualization.  
+What I am going to do this time is to output Markdown according to the language settings.
 
-なので基本的にライブラリを使わずに行います。
+So, I would basically do this without using any libraries.
 
-## ブラウザの言語設定に応じて処理を出し分ける
+## Differentiate the process according to the browser's language settings
 
-まず、ブラウザの言語設定をどうやって取得するのかについてですが、これは簡単です。  
-ブラウザで `window.navigator.language` から取得可能です。
+First of all, how to get the language setting of the browser is easy.  
+You can get it from `window.navigator.language` in your browser.
 
-以下が参考になります。
+The following is a good reference.
 
 https://developer.mozilla.org/en-US/docs/Web/API/NavigatorLanguage/language
 
-ブラウザ側での言語の識別子は、英語だけでも `en`、`en-US`、`en-GB` など様々な種類があり、それをサポートする必要があります。
+There are various types of language identifiers in the browser, such as `en`, `en-US`, `en-GB`, etc., even for English alone, which need to be supported.
 
-言語の識別子について、詳細は以下に書いてあります。
+More information about language identifiers can be found at
 
 https://www.ietf.org/rfc/bcp/bcp47.txt
 
-さて、今まで述べたことを JavaScript のコードとして簡単に落とし込むと、下記のようになります。
+Now, the following is a simple JavaScript code for what I have described so far.
 
 ```js
 // Get browser language
@@ -67,20 +67,20 @@ switch (language) {
 }
 ```
 
-ブラウザの言語設定を取得して、言語に応じて処理を分岐させます。  
-あとは、これを応用して Markdown を言語によって使い分ける処理を書けば完了です。
+It retrieves the browser's language settings and splits the process according to the language.  
+You can then apply this to write a process that uses Markdown differently depending on the language, and you are done.
 
-## Gatsby でマークダウンをブラウザの言語設定に応じて出し分ける
+## Use Gatsby to serve markdowns according to the language setting of the browser.
 
-まず、各 Markdown の Frontmatter に言語設定（language）を追加します。
+First, add a language setting (language) to the Frontmatter of each Markdown.
 
-また、投稿 URL のスラッグについて各言語で被ることが無いように、`en/` などの接頭辞を追加します。
+Also, add a prefix such as `en/` for the slug of the post URL so that there is no conflict between languages.
 
-Frontmatter については以下を参照。
+See below for more information about Frontmatter.
 
 https://www.gatsbyjs.com/docs/how-to/routing/adding-markdown-pages/#frontmatter-for-metadata-in-markdown-files
 
-以下はサンプルです。
+The following is a sample.
 
 ```md
 ---
@@ -97,7 +97,7 @@ tags:
 Your post contents is here...
 ```
 
-上記のように追加することで、Gatsby の GraphQL を使い各記事の言語情報を取得可能になります。
+By adding the above, you can use Gatsby's GraphQL to get the language information of each article.
 
 ```graphql
 query Index {
@@ -118,11 +118,11 @@ query Index {
 }
 ```
 
-GraphQL のサンプルは上記です。
+The GraphQL sample is shown above.
 
-あとは、先ほど述べたようにブラウザの言語設定を取得して処理を分岐させるだけです。
+All that is left to do is to get the language settings of the browser and branch the process as mentioned earlier.
 
-以下はサンプルです。
+The following is a sample.
 
 ```tsx
 import React, { useState, useEffect } from "react";
@@ -195,8 +195,8 @@ export const pageQuery = graphql`
 `;
 ```
 
-上記のようにしておけば、後々にボタンを設置して表示する言語の切替なども楽に実装できそうです。
+If you do the above, you will be able to easily implement buttons to switch languages later on.
 
-以下に自分が Gatsby の多言語化対応をした際の変更箇所が見れるのでそちらも参考にしてみてください。
+You can see the changes I made to Gatsby when I made it multilingual below.
 
 https://github.com/YopiNoji/yopinoji.com/pull/54
