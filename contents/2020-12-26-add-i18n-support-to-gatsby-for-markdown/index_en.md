@@ -2,9 +2,9 @@
 title: "i18n support for Gatsby blogs (multilingual support) and Markdown for different languages"
 cover: "2020-12-26-add-i18n-support-to-gatsby-for-markdown/header.png"
 category: "Tech"
-lang: "ja"
+lang: "en"
 date: "2020-12-26"
-slug: "add-i18n-support-to-gatsby-for-markdown"
+slug: "en/add-i18n-support-to-gatsby-for-markdown"
 tags:
   - Gatsby
   - i18n

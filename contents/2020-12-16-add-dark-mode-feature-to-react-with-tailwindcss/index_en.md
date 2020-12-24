@@ -18,7 +18,7 @@ Among the new features released is dark mode support.
 
 https://blog.tailwindcss.com/tailwindcss-v2#dark-mode
 
-If you take advantage of this, you can use Tailwind CSS alone to support dark mode.
+If you take advantage of this update, you can use Tailwind CSS alone to support dark mode.
 
 I personally use dark mode most of the time, so I really wanted to try it out, so I did.
 
@@ -39,7 +39,7 @@ This is one of the solutions to solve such chaos without messing with CSS.
 
 https://tailwindcss.com/
 
-## Implement Tailwind CSS
+## Implement Tailwind CSS in your project
 
 I may write about this later, but I'm sure you can find the information by searching, so I'll skip it for now.
 

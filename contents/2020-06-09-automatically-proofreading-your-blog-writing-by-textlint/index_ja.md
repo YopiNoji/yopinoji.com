@@ -1,5 +1,5 @@
 ---
-title: "ブログの文章は textlint を使って自動で誤字脱字・表記揺れを校正する時代"
+title: "ブログの文章を textlint を使って自動で誤字脱字・表記揺れを校正する"
 cover: "2020-06-09-automatically-proofreading-your-blog-writing-by-textlint/header.png"
 category: "Tech"
 lang: "ja"

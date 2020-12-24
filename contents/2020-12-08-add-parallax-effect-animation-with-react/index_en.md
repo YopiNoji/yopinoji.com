@@ -1,19 +1,19 @@
 ---
-title: "React で UI にパララックス効果アニメーションを実装するためのライブラリ比較"
+title: "React Library Comparison for Implementing Parallax Effect Animation"
 cover: "2020-12-08-add-parallax-effect-animation-with-react/header.png"
 category: "Tech"
-lang: "ja"
+lang: "en"
 date: "2020-12-08"
-slug: "add-parallax-effect-animation-with-react"
+slug: "en/add-parallax-effect-animation-with-react"
 tags:
   - React
 ---
 
-React を使ってパララックス効果を付与した UI を楽に実装したいなと思いまして、色々なライブラリを使ってみたので、その備忘録的なメモです
+I wanted to implement a UI with parallax effect easily using React, so I tried using various libraries.
 
-## react-parallax を使った実装
+## Implementation using react-parallax
 
-まずは react-parallax というライブラリから使ってみます。
+Let's start with the react-parallax library.
 
 https://github.com/rrutsche/react-parallax
 
@@ -21,7 +21,7 @@ https://github.com/rrutsche/react-parallax
 npm i react-parallax
 ```
 
-試したバージョンは以下の通りです。
+The versions we tried are as follows.
 
 ```json
 {
@@ -31,7 +31,7 @@ npm i react-parallax
 }
 ```
 
-実装したサンプルは以下です。
+The samples we implemented are as follows.
 
 ```jsx
 import React from "react";
@@ -85,23 +85,23 @@ export default function App() {
 }
 ```
 
-スクロール量に応じて、`renderLayer()` という関数に渡ってくる引数の値が変わるので、その値を使ってスタイルを書き換えることでスクロールによるパララックスなアニメーションを実現できます。
+Depending on the amount of scrolling, the value of the argument passed to the function `renderLayer()` changes, so you can rewrite the style using the value to achieve parallax animation by scrolling.
 
-提供されている API も比較的分かりやすいので、学習コストをかけずに実装を進めることができそうですね。
+The provided API is relatively easy to understand, so you can proceed with the implementation without any learning cost.
 
-ビルド後のサイズは以下の通りです。
+The size after the build is as follows.
 
 ![react-parallax](./react-parallax-bundle.png)
 
-軽量と言っても問題ない部類だと思います。
+I think it's a good category to call it lightweight.
 
-### react-parallax を使った感想
+### Thoughts on using react-parallax
 
-- 元から TypeScript で実装されているので型のサポートは期待できる
-- ビルド後のサイズが軽量
-- パララックス効果以外のアニメーションの実装は期待できない
+- It is originally implemented in TypeScript, so type support is expected.
+- Light in size after build
+- Implementation of animations other than the parallax effect is not expected.
 
-以下にサンプルを作ってみたので、自由に書き換えて色々と試してみてください。
+I've created a sample below, so feel free to rewrite it and try different things.
 
 <iframe src="https://codesandbox.io/embed/sad-shamir-z3v6r?fontsize=14&hidenavigation=1&theme=dark"
   style="width:80%; height:400px; border:0; border-radius: 4px; overflow:hidden; margin:auto;"
@@ -112,8 +112,8 @@ export default function App() {
 
 ## react-scroll-parallax を使った実装
 
-次に react-scroll-parallax というライブラリを使ってみます。  
-ライブラリの名前が示す通り、スクロールの際のアニメーションに限定した使い方になりそうです。
+Next, let's use the react-scroll-parallax library.  
+As the name of the library suggests, it will be used only for scrolling animation.
 
 https://github.com/jscottsmith/react-scroll-parallax
 
@@ -121,7 +121,7 @@ https://github.com/jscottsmith/react-scroll-parallax
 npm i react-scroll-parallax
 ```
 
-試したバージョンは以下です。
+The versions we tried are as follows.
 
 ```json
 {
@@ -131,7 +131,7 @@ npm i react-scroll-parallax
 }
 ```
 
-React を使っている場合は、ルートコンポーネントもしくは react-scroll-parallax を使う範囲を ParallaxProvider でラップしてあげる必要があります。
+You need to wrap the root component or the area where react-scroll-parallax is used with ParallaxProvider.
 
 ```js
 import React from "react";
@@ -147,8 +147,8 @@ ReactDom.render(
 );
 ```
 
-Gatsby を使っている場合は、`gatsby-browser.js` で以下のように ParallaxProvider でラップしてあげる必要があります。  
-（現行バージョンの Gatsby では `gatsby-browser.js` がルートファイルとしての役割を持ちます）
+If you are using Gatsby, you need to wrap it in `gatsby-browser.js` with ParallaxProvider as shown below.  
+(In the current version of Gatsby, `gatsby-browser.js` acts as the root file.)
 
 ```js
 import React from "react";
@@ -159,9 +159,9 @@ export const wrapRootElement = ({ element }) => (
 );
 ```
 
-X と Y に数値を渡すだけなので、あまり学習コストをかけずにサッと実装可能です。
+Since we only need to pass numerical values for X and Y, it can be implemented quickly without much learning cost.
 
-以下の例では、乱数を生成することでランダムに不規則なパララックス効果が実装しています
+In the following example, a random and irregular parallax effect is implemented by generating random numbers.
 
 ```tsx
 import React from "react";
@@ -185,22 +185,22 @@ const SampleParallax: React.FC = (props) => {
 export defalut SampleParallax;
 ```
 
-ビルド後のサイズは以下のような感じです。
+The size after the build is following.
 
 ![react-scroll-parallax](./react-scroll-parallax-bundle.png)
 
-機能が限定されている割には、意外とサイズが大きいような気がします。
+It seems to be surprisingly large in size for its limited functionality.
 
-### react-scroll-parallax を使った感想
+### Comments on react-scroll-parallax
 
-- パララックス効果のみを簡単に実装できる
-- パララックス効果以外のアニメーションの実装は期待できない
-- 複雑なアニメーションの実装は厳しそう
-- 現バージョンだと TypeScript 周りのサポートが弱い
+- Easy to implement only parallax effect.
+- Can't expect to implement animations other than the parallax effect
+- It's hard to implement complex animations.
+- TypeScript support is weak in the current version.
 
-## react-spring を使った実装
+## Implementation using react-spring
 
-最後に React でアニメーション系のライブラリの大本命だと自分が思っている react-spring からもパララックスを実装することができそうだったので、こちらも試します。
+Finally, I found that it is possible to implement parallax using react-spring, which I think is one of the best animation libraries in React.
 
 https://www.react-spring.io/docs/props/parallax
 
@@ -216,7 +216,7 @@ npm install react-spring
 }
 ```
 
-マウスカーソル移動でパララックスのような動きをするようなサンプルを以下に用意してみました。
+The following is a sample of how to make a parallax-like movement by moving the mouse cursor.
 
 ```jsx
 import React from "react";
@@ -259,26 +259,26 @@ const App = (props) => {
 export default App;
 ```
 
-`useSpring()` 関数で生成した関数に値を設定することで、対象の CSS を動的に操作することができます。
+By setting a value to the function generated by the `useSpring()` function, you can dynamically manipulate the target CSS.
 
-上記の例の場合、`onMouseMove` イベントを検知して対象の CSS の `translate3d()` を操作することで、マウス移動によるアニメーションを実現しています。
+In the above example, the `translate3d()` of the target CSS is manipulated by detecting the `onMouseMove` event to realize animation by mouse movement.
 
-`translate3d()` のように CSS プロパティを自分で指定して使うことができ、任意のイベントを起点にして思い通りにアニメーションを実装できそうですね。
+You can use your own CSS properties like `translate3d()`, and you can implement the animation as you want by starting from any event.
 
-ビルド後のサイズは以下のような感じです。
+The size after the build looks like the following.
 
 ![react-spring](./react-spring-bundle.png)
 
-react-scroll-parallax と大して変わらないですね。
+It's not much different from react-scroll-parallax.
 
-### react-spring を使った感想
+### Thoughts on react-spring
 
-- 元から TypeScript で実装されているので型のサポートは期待できる
-- パララックス効果以外のアニメーションの実装にも活用できる
-- 提供されている多彩な API の理解に学習コストがやや必要
-- より詳細な動きを指定したアニメーションの実装が可能
+- It is originally implemented in TypeScript, so type support is expected.
+- It can be used to implement animations other than parallax effects.
+- A bit of learning cost is required to understand the various APIs provided.
+- Can be used to implement animations with more detailed movement specifications.
 
-サンプルを CodeSandbox で用意してみたので、自由に弄ってみてください。
+I've prepared a sample in CodeSandbox, so feel free to play around with it.
 
 <iframe src="https://codesandbox.io/embed/react-spring-ti6s4?fontsize=14&hidenavigation=1&theme=dark"
   style="width:80%; height:400px; border:0; border-radius: 4px; overflow:hidden; margin:auto;"
@@ -287,13 +287,13 @@ react-scroll-parallax と大して変わらないですね。
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-また、公式でもサンプルを色々と用意してくれているので参考にしてみると良いかもしれません。
+Also, the official website provides a variety of samples, so you may want to refer to them.
 
 https://www.react-spring.io/docs/hooks/examples
 
-## まとめ
+## Summary
 
-適材適所という感じでしょうか。
+I guess it's a matter of using the right tool for the right job.
 
-軽量でシンプルなものが良いなら、react-parallax を使うのが良さそうです。  
-また、他のアニメーションの実装にも活用することを考えるなら react-spring を使った方が良さそうです。
+If you want something lightweight and simple, react-parallax is a good choice.  
+If you want something lightweight and simple, use react-parallax. If you want to use it for other animations, use react-spring.

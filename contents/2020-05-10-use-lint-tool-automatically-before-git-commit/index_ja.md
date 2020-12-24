@@ -49,25 +49,18 @@ https://www.npmjs.com/package/lint-staged
 
 ### eslint
 
-フロントエンド界隈で知らない者はいない（と思われる）超有名 Lint ツールです。
+JavaScript や TypeScript 向けの Lint ツールです。
 
-設定項目の数が膨大なことでも有名であります。
-メソッドの行数や、ログ出力の制限など設定できる項目は多岐に渡ります。
-
-上手く活用することで、比較的綺麗なソースコードを書けるようになります。  
-（なお、上手く設定する方法についての解説は今回省きます）
+上手く活用することで、比較的綺麗でバグの少ないソースコードを書けるようになります。
 
 https://www.npmjs.com/package/eslint
 
 ### prettier
 
-有名なコードフォーマッターです。  
-VSCode のプラグインが存在します。
+コードフォーマッターです。  
+綺麗で読みやすいコードに整形してくれます。
 
 JavaScript や TypeScript だけでなく、JSON、CSS、YAML など多種多様なファイルに対応しています。
-
-ESlint と組み合わせて使う場合、ESLint 側にプラグインを追加してあげることなどで上手く共存できるようになります。  
-（なお、今回はその解説は省きます）
 
 https://www.npmjs.com/package/prettier
 

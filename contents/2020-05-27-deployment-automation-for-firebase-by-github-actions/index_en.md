@@ -4,7 +4,7 @@ cover: "2020-05-27-deployment-automation-for-firebase-by-github-actions/header.p
 category: "Tech"
 lang: "en"
 date: "2020-05-27"
-slug: "deployment-automation-for-firebase-by-github-actions"
+slug: "en/deployment-automation-for-firebase-by-github-actions"
 tags:
   - GitHub Actions
   - Firebase
