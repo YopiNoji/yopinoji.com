@@ -22,22 +22,12 @@ const Index: React.VFC<PropsType> = (props) => {
     switch (state) {
       case "en":
       case "en-US":
+      case "en-GB":
         filterdPost = edge.node.frontmatter?.lang === "en";
         break;
       case "ja":
       case "ja-JP":
         filterdPost = edge.node.frontmatter?.lang === "ja";
-        break;
-      case "zh-CN":
-      case "zh-Hans":
-      case "zh-SG":
-        filterdPost = edge.node.frontmatter?.lang === "en";
-        break;
-      case "zh-Hant":
-      case "zh-MO":
-      case "zh-HK":
-      case "zh-TW":
-        filterdPost = edge.node.frontmatter?.lang === "en";
         break;
       default:
         return edge.node.frontmatter?.lang === "en";
