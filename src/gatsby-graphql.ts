@@ -680,6 +680,7 @@ export type FileFieldsEnum =
   | "childMarkdownRemark___frontmatter___title"
   | "childMarkdownRemark___frontmatter___cover"
   | "childMarkdownRemark___frontmatter___category"
+  | "childMarkdownRemark___frontmatter___lang"
   | "childMarkdownRemark___frontmatter___date"
   | "childMarkdownRemark___frontmatter___slug"
   | "childMarkdownRemark___frontmatter___tags"
@@ -1453,6 +1454,7 @@ export type MarkdownRemarkFieldsEnum =
   | "frontmatter___title"
   | "frontmatter___cover"
   | "frontmatter___category"
+  | "frontmatter___lang"
   | "frontmatter___date"
   | "frontmatter___slug"
   | "frontmatter___tags"
@@ -1579,6 +1581,7 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars["String"]>;
   cover?: Maybe<Scalars["String"]>;
   category?: Maybe<Scalars["String"]>;
+  lang?: Maybe<Scalars["String"]>;
   date?: Maybe<Scalars["Date"]>;
   slug?: Maybe<Scalars["String"]>;
   tags?: Maybe<Array<Maybe<Scalars["String"]>>>;
@@ -1595,6 +1598,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   cover?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<DateQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
@@ -3128,7 +3132,7 @@ export type RelatedPostsQueryQuery = {
         frontmatter?: Maybe<
           Pick<
             MarkdownRemarkFrontmatter,
-            "slug" | "title" | "category" | "tags"
+            "slug" | "title" | "category" | "lang" | "tags"
           >
         >;
       };
@@ -3161,7 +3165,7 @@ export type IndexQuery = {
         frontmatter?: Maybe<
           Pick<
             MarkdownRemarkFrontmatter,
-            "category" | "cover" | "date" | "slug" | "tags" | "title"
+            "category" | "lang" | "cover" | "date" | "slug" | "tags" | "title"
           >
         >;
       };
@@ -3195,7 +3199,7 @@ export type PostQuery = {
       frontmatter?: Maybe<
         Pick<
           MarkdownRemarkFrontmatter,
-          "date" | "slug" | "title" | "category" | "tags"
+          "category" | "lang" | "cover" | "date" | "slug" | "tags" | "title"
         >
       >;
     }

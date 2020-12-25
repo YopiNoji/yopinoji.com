@@ -13,7 +13,7 @@ type PropsType = {
 
 const Post: React.FC<PropsType> = (props) => {
   const markdownRemark = props.data.markdownRemark;
-  const frontmatter = props.data.markdownRemark?.frontmatter;
+  const frontmatter = markdownRemark?.frontmatter;
   const siteMetadata = props.data.site?.siteMetadata;
   const title = props.data.site?.siteMetadata?.title
     ? props.data.site?.siteMetadata?.title
@@ -69,11 +69,13 @@ export const pageQuery = graphql`
       html
       tableOfContents(pathToSlugField: "frontmatter.slug")
       frontmatter {
+        category
+        lang
+        cover
         date
         slug
-        title
-        category
         tags
+        title
       }
     }
   }
