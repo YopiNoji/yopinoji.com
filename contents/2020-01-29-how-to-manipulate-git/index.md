@@ -61,10 +61,22 @@ git checkout -b local_branch_name remotes/origin/remote_branch_name
 `git log` でコミットハッシュを特定してブランチ作成するときは、以下のコマンドです。
 
 ```bash
-git checkout 7aba6ab4b94bc5 -b feature/some-function
+git checkout 9aaa6bbbb9a6b9 -b feature/some-function
 ```
 
-上記を活用することで
+上記を活用することで、特定のコミットまで遡った状態でローカルに環境を作成することができます。
+
+## コミット
+
+### 何も変更を加えずにコミットする
+
+```bash
+git commit --allow-empty -m "empty commit"
+```
+
+GitHub Actions や Jenkins など CI 環境を作成していると、テスト目的で Git にコミットしたくなることがあると思います。
+
+そういう際には何も変更を加えずにコミットできます。
 
 ## 変更する系
 
