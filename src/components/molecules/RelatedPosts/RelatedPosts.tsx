@@ -19,6 +19,7 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
               slug
               title
               category
+              lang
               tags
             }
           }
@@ -28,6 +29,7 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
   `);
   const category = frontmatter?.category;
   const title = frontmatter?.title;
+  const lang = frontmatter?.lang;
   const tags = frontmatter?.tags;
   const getArraysIntersect = (
     array01?: unknown[] | null,
@@ -45,6 +47,7 @@ export const RelatedPosts: React.FC<PropsType> = ({ frontmatter }) => {
   const relatedPosts = data.allMarkdownRemark.edges.filter(
     (post) =>
       post.node.frontmatter?.category === category &&
+      post.node.frontmatter?.lang === lang &&
       getArraysIntersect(post.node.frontmatter?.tags, tags) &&
       post.node.frontmatter?.title !== title
   );
