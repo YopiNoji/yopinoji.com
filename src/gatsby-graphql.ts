@@ -2132,6 +2132,7 @@ export type SiteFieldsEnum =
   | "siteMetadata___image"
   | "siteMetadata___author"
   | "siteMetadata___twitterId"
+  | "siteMetadata___githubId"
   | "siteMetadata___copyright"
   | "siteMetadata___lang"
   | "siteMetadata___charSet"
@@ -3077,6 +3078,7 @@ export type SiteSiteMetadata = {
   image?: Maybe<Scalars["String"]>;
   author?: Maybe<Scalars["String"]>;
   twitterId?: Maybe<Scalars["String"]>;
+  githubId?: Maybe<Scalars["String"]>;
   copyright?: Maybe<Scalars["String"]>;
   lang?: Maybe<Scalars["String"]>;
   charSet?: Maybe<Scalars["String"]>;
@@ -3089,6 +3091,7 @@ export type SiteSiteMetadataFilterInput = {
   image?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
   twitterId?: Maybe<StringQueryOperatorInput>;
+  githubId?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   charSet?: Maybe<StringQueryOperatorInput>;
@@ -3153,6 +3156,7 @@ export type IndexQuery = {
         | "author"
         | "image"
         | "twitterId"
+        | "githubId"
         | "copyright"
         | "lang"
         | "charSet"
@@ -3188,6 +3192,7 @@ export type PostQuery = {
         | "author"
         | "image"
         | "twitterId"
+        | "githubId"
         | "copyright"
         | "lang"
         | "charSet"

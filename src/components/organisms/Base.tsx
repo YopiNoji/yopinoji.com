@@ -15,8 +15,8 @@ const Base: React.FC<BaseProps> = ({ siteMetadata, children }) => {
       <Background>
         <ScrollBarY />
         <div className="min-h-screen py-12 px-14">
-          <div className="container">
-            <Header title={siteMetadata?.title} />
+          <div className="container text-gray-700 dark:text-gray-300">
+            <Header siteMetadata={siteMetadata} />
             {children}
             <Footer
               twitterId={siteMetadata?.twitterId}

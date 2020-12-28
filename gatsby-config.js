@@ -6,6 +6,7 @@ module.exports = {
     image: `/Yopinoji.png`,
     author: `YopiNoji`,
     twitterId: `YopiNoji`,
+    githubId: `YopiNoji`,
     copyright: `© YopiNoji. All Rights Reserved.`,
     lang: `ja`,
     charSet: `utf-8`
@@ -62,6 +63,14 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets\/.*\.svg/,
+        }
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

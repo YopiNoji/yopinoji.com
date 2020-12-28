@@ -60,6 +60,7 @@ export const pageQuery = graphql`
         author
         image
         twitterId
+        githubId
         copyright
         lang
         charSet
