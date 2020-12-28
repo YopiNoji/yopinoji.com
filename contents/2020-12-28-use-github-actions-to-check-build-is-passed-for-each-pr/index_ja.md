@@ -64,3 +64,7 @@ GitHub の GUI からプルリクエストの向き先になるブランチに�
 GitHub でのブランチの保護については、詳しくは以下を読んでください。
 
 https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/enabling-branch-restrictions
+
+![GitHub require to check](github_require_to_check.png)
+
+ブランチの保護を有効にすることで、上記の画像のようにチェックを通ってないプルリクエストに警告を表示させることができています。
