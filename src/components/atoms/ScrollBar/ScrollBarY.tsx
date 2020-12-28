@@ -21,7 +21,7 @@ const ScrollBarY: React.VFC = () => {
   };
   return (
     <animated.div
-      className="fixed w-6 top-0 right-0 bg-green-300 dark:bg-red-700"
+      className="fixed w-4 top-0 right-0 bg-green-300 dark:bg-red-700"
       style={springProps}
     />
   );
