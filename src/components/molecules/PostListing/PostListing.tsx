@@ -29,11 +29,6 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
       transform: `perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)`,
     });
 
-  const onTouchStartHandle = () =>
-    setSpring({
-      transform: `perspective(600px) scale(1.1)`,
-    });
-
   const handleOnClick = React.useCallback((e) => {
     navigate("/" + e);
   }, []);
@@ -45,7 +40,6 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
             key={index}
             onMouseMove={onMouseMoveHandle}
             onMouseLeave={onMouseLeaveHandle}
-            onTouchStart={onTouchStartHandle}
             style={springProps}
           >
             <Card
