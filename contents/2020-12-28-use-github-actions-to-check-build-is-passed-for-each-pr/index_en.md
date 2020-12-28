@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actionsを使って、プルリクエストごとにビルドが成功するかどうかを確認する"
+title: "Use GitHub actions to check build is passed for each Pull Request"
 cover: "2020-12-28-use-github-actions-to-check-build-is-passed-for-each-pr/header.png"
 category: "Tech"
 lang: "en"
