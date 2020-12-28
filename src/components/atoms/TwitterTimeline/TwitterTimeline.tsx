@@ -25,7 +25,7 @@ export const TwitterTimeline: React.FC<TwitterTimelineProps> = ({
       href={"https://twitter.com/" + twitterId}
       {...props}
     >
-      Tweets by {twitterId}
+      @{twitterId}
     </a>
   );
 };
