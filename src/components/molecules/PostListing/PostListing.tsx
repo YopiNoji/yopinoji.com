@@ -10,24 +10,24 @@ type PropsType = {
   data: MarkdownRemarkEdge[];
 };
 
-const calc = (x: number, y: number) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
-  1.1,
-];
-const trans = (x: number, y: number, s: number) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+const calc = (x: number, y: number) =>
+  `perspective(600px) rotateX(${
+    -(y - window.innerWidth / 2) / 20
+  }deg) rotateY(${(x - window.innerHeight / 2) / 20}deg) scale(1.1)`;
 
 const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
   const [springProps, setSpring] = useSpring(() => ({
-    xys: [0, 0, 1],
+    transform: `perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)`,
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 
   const onMouseMoveHandle = (e: { clientX: number; clientY: number }) =>
-    setSpring({ xys: calc(e.clientX, e.clientY) });
+    setSpring({ transform: calc(e.clientX, e.clientY) });
 
-  const onMouseLeaveHandle = () => setSpring({ xys: [0, 0, 1] });
+  const onMouseLeaveHandle = () =>
+    setSpring({
+      transform: `perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)`,
+    });
 
   const handleOnClick = React.useCallback((e) => {
     navigate("/" + e);
@@ -40,7 +40,7 @@ const PostListing: React.FC<PropsType> = ({ data, ...props }) => {
             key={index}
             onMouseMove={onMouseMoveHandle}
             onMouseLeave={onMouseLeaveHandle}
-            style={{ transform: springProps.xys.interpolate(trans) }}
+            style={springProps}
           >
             <Card
               onClick={() => handleOnClick(String(row.node.frontmatter?.slug))}

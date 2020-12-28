@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "@Components/molecules/Header";
 import { Footer } from "@Components/molecules/Footer";
 import { ScrollBarY } from "@Components/atoms/ScrollBar";
+import { Background } from "@Components/atoms/Background";
 import { SiteSiteMetadata } from "../../gatsby-graphql";
 
 interface BaseProps {
@@ -10,17 +11,21 @@ interface BaseProps {
 
 const Base: React.FC<BaseProps> = ({ siteMetadata, children }) => {
   return (
-    <div className="min-h-screen py-12 px-14 bg-white dark:bg-black transition duration-500 ease-in-out">
-      <div className="container">
+    <>
+      <Background>
         <ScrollBarY />
-        <Header title={siteMetadata?.title} />
-        {children}
-        <Footer
-          twitterId={siteMetadata?.twitterId}
-          copyright={siteMetadata?.copyright}
-        />
-      </div>
-    </div>
+        <div className="min-h-screen py-12 px-14">
+          <div className="container text-gray-700 dark:text-gray-300">
+            <Header siteMetadata={siteMetadata} />
+            {children}
+            <Footer
+              twitterId={siteMetadata?.twitterId}
+              copyright={siteMetadata?.copyright}
+            />
+          </div>
+        </div>
+      </Background>
+    </>
   );
 };
 

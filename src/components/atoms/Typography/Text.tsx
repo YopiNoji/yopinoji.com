@@ -18,7 +18,7 @@ export const SmallText: React.FC<HtmlHTMLAttributes<HTMLHeadElement>> = ({
 }) => {
   return (
     <p
-      className="text-sm text-gray-700 no-underline dark:text-gray-300"
+      className="text-sm no-underline text-gray-700 dark:text-gray-300"
       {...props}
     >
       {props.children}

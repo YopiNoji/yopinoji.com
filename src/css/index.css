@@ -1,5 +1,9 @@
 @tailwind base;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 h1 {
   @apply text-3xl py-6;
 }
