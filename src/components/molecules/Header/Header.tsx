@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
             rel="noreferrer"
             className="w-8 mr-2"
           >
-            <TwitterIcon className="fill-current" />
+            <TwitterIcon className="fill-current text-gray-700 dark:text-gray-300" />
           </a>
         )}
         {githubId && (
@@ -50,11 +50,11 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
             rel="noreferrer"
             className="w-8 mr-2"
           >
-            <GitHubIcon className="fill-current" />
+            <GitHubIcon className="fill-current text-gray-700 dark:text-gray-300" />
           </a>
         )}
         <Link to="/rss.xml" className="w-8 mr-2">
-          <RssIcon className="fill-current" />
+          <RssIcon className="fill-current text-gray-700 dark:text-gray-300" />
         </Link>
       </div>
     </header>

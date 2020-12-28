@@ -18,7 +18,7 @@ export const H2: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => {
   return (
     <h2
-      className="text-2xl text-gray-700 no-underline dark:text-gray-300"
+      className="text-2xl no-underline text-gray-700 dark:text-gray-300"
       {...props}
     >
       {props.children}
