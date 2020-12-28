@@ -67,4 +67,4 @@ https://docs.github.com/en/free-pro-team@latest/github/administering-a-repositor
 
 ![GitHub require to check](github_require_to_check.png)
 
-By enabling branch protection, I am able to display a warning for unchecked pull requests as shown in the image above.
+By enabling branch protection, be able to display a warning for unchecked pull requests as shown in the image above.
