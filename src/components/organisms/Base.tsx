@@ -1,14 +1,31 @@
 import React from "react";
 import { Header } from "@Components/molecules/Header";
 import { Footer } from "@Components/molecules/Footer";
+import { ScrollBarY } from "@Components/atoms/ScrollBar";
+import { Background } from "@Components/atoms/Background";
+import { SiteSiteMetadata } from "../../gatsby-graphql";
 
-const Base: React.FC = ({ children }) => {
+interface BaseProps {
+  siteMetadata?: SiteSiteMetadata | null;
+}
+
+const Base: React.FC<BaseProps> = ({ siteMetadata, children }) => {
   return (
-    <div className="min-h-screen m-12">
-      <Header />
-      <div className="container mx-auto my-12">{children}</div>
-      <Footer />
-    </div>
+    <>
+      <Background>
+        <ScrollBarY />
+        <div className="min-h-screen py-12 px-14">
+          <div className="container text-gray-700 dark:text-gray-300">
+            <Header siteMetadata={siteMetadata} />
+            {children}
+            <Footer
+              twitterId={siteMetadata?.twitterId}
+              copyright={siteMetadata?.copyright}
+            />
+          </div>
+        </div>
+      </Background>
+    </>
   );
 };
 

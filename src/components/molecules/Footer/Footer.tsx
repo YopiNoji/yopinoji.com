@@ -3,7 +3,12 @@ import { NormalButton } from "@Components/atoms/Button";
 import { BoldText } from "@Components/atoms/Typography";
 import { TwitterTimeline } from "@Components/atoms/TwitterTimeline";
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  twitterId?: string | null;
+  copyright?: string | null;
+}
+
+const Footer: React.FC<FooterProps> = ({ twitterId, copyright }) => {
   const [isTop, setIsTop] = React.useState(true);
   React.useEffect(() => {
     setIsTop(window.location.pathname === "/");
@@ -18,8 +23,8 @@ const Footer: React.FC = () => {
         {!isTop && (
           <NormalButton onClick={moveToTop}>Back to Top.</NormalButton>
         )}
-        <TwitterTimeline />
-        <BoldText>{"© YopiNoji. All Rights Reserved."}</BoldText>
+        {twitterId && <TwitterTimeline twitterId={twitterId} />}
+        {copyright && <BoldText>{copyright}</BoldText>}
       </div>
     </footer>
   );

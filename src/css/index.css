@@ -1,5 +1,9 @@
 @tailwind base;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 h1 {
   @apply text-3xl py-6;
 }
@@ -25,7 +29,7 @@ p {
 }
 
 a {
-  @apply text-indigo-700;
+  @apply text-green-600 dark:text-pink-400;
 }
 
 @tailwind components;

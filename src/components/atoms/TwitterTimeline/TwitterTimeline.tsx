@@ -1,8 +1,13 @@
-import React, { useEffect, HtmlHTMLAttributes } from "react";
+import React, { useEffect } from "react";
 
-export const TwitterTimeline: React.FC<HtmlHTMLAttributes<
-  HTMLAnchorElement
->> = ({ ...props }) => {
+interface TwitterTimelineProps {
+  twitterId?: string;
+}
+
+export const TwitterTimeline: React.FC<TwitterTimelineProps> = ({
+  twitterId,
+  ...props
+}) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       const s = document.createElement("script");
@@ -17,10 +22,10 @@ export const TwitterTimeline: React.FC<HtmlHTMLAttributes<
       data-lang="en"
       data-width="300"
       data-height="200"
-      href="https://twitter.com/YopiNoji"
+      href={"https://twitter.com/" + twitterId}
       {...props}
     >
-      Tweets by YopiNoji
+      @{twitterId}
     </a>
   );
 };

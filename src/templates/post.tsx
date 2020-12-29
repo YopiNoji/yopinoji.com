@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PostBase from "@Components/organisms/PostBase";
+import Base from "@Components/organisms/Base";
 import { SEO } from "@Util/SEO";
 import { H1, SmallText } from "@Components/atoms/Typography";
+import { Card } from "@Components/atoms/Card";
 import { Query } from "../gatsby-graphql";
 import { RelatedPosts } from "@Components/molecules/RelatedPosts";
 
@@ -12,21 +13,41 @@ type PropsType = {
 
 const Post: React.FC<PropsType> = (props) => {
   const markdownRemark = props.data.markdownRemark;
-  const frontmatter = props.data.markdownRemark?.frontmatter;
+  const frontmatter = markdownRemark?.frontmatter;
   const siteMetadata = props.data.site?.siteMetadata;
+  const title = props.data.site?.siteMetadata?.title
+    ? props.data.site?.siteMetadata?.title
+    : "";
+  const tableOfContents = markdownRemark?.tableOfContents
+    ? markdownRemark.tableOfContents
+    : "";
 
-  if (!markdownRemark?.html || !frontmatter || !siteMetadata) {
+  if (!markdownRemark?.html || !frontmatter || !siteMetadata || !title) {
     return null;
   }
   return (
-    <PostBase>
-      <SEO siteMeta={siteMetadata} postMeta={markdownRemark} isPost={true} />
+    <Base siteMetadata={siteMetadata}>
+      <SEO
+        siteMetadata={siteMetadata}
+        postMeta={markdownRemark}
+        isPost={true}
+      />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
-      <div className="mb-6" />
-      <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+      <div className="w-full mb-6">
+        <Card className="z-20 relative sm:fixed sm:opacity-25 sm:hover:opacity-100 right-0 top-0">
+          <div
+            className="text-gray-700 dark:text-gray-300"
+            dangerouslySetInnerHTML={{ __html: tableOfContents }}
+          />
+        </Card>
+        <div
+          className="text-gray-700 dark:text-gray-300"
+          dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+        />
+      </div>
       <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
-    </PostBase>
+    </Base>
   );
 };
 export const pageQuery = graphql`
@@ -38,16 +59,24 @@ export const pageQuery = graphql`
         description
         author
         image
+        twitterId
+        githubId
+        copyright
+        lang
+        charSet
       }
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      tableOfContents(pathToSlugField: "frontmatter.slug")
       frontmatter {
+        category
+        lang
+        cover
         date
         slug
-        title
-        category
         tags
+        title
       }
     }
   }

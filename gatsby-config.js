@@ -2,9 +2,12 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://yopinoji.com/`,
     title: `YopiNoji.com`,
-    description: `名も無い野良の技術者の個人ブログ`,
+    description: `A certain software engineer's notes and labs.`,
     image: `/Yopinoji.png`,
-    author: `@YopiNoji`,
+    author: `YopiNoji`,
+    twitterId: `YopiNoji`,
+    githubId: `YopiNoji`,
+    copyright: `© YopiNoji. All Rights Reserved.`,
     lang: `ja`,
     charSet: `utf-8`
   },
@@ -61,9 +64,23 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets\/.*\.svg/,
+        }
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: "gatsby-remark-external-links",
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -90,7 +107,7 @@ module.exports = {
     //     devMode: true,
     //   },
     // },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
