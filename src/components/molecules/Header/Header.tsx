@@ -46,38 +46,36 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
     setIsDarkMode(false);
   };
   return (
-    <header>
-      <div className="flex items-center">
-        <Link to="/" className="mr-2">
-          <H1>{title}</H1>
-        </Link>
-        <div className="w-12 mr-2">
-          <Toggle onChange={handleOnChange} defaultValue={!isDarkMode}></Toggle>
-        </div>
-        {twitterId && (
-          <a
-            href={`https://twitter.com/${twitterId}`}
-            target="_blank"
-            rel="noreferrer"
-            className="w-8 mr-2"
-          >
-            <TwitterIcon className="fill-current text-gray-700 dark:text-gray-300" />
-          </a>
-        )}
-        {githubId && (
-          <a
-            href={`https://github.com/${githubId}`}
-            target="_blank"
-            rel="noreferrer"
-            className="w-8 mr-2"
-          >
-            <GitHubIcon className="fill-current text-gray-700 dark:text-gray-300" />
-          </a>
-        )}
-        <Link to="/rss.xml" className="w-8 mr-2">
-          <RssIcon className="fill-current text-gray-700 dark:text-gray-300" />
-        </Link>
+    <header className="pb-6 flex items-center">
+      <Link to="/" className="mr-2">
+        <H1>{title}</H1>
+      </Link>
+      <div className="w-12 mr-2">
+        <Toggle onChange={handleOnChange} defaultValue={!isDarkMode}></Toggle>
       </div>
+      {twitterId && (
+        <a
+          href={`https://twitter.com/${twitterId}`}
+          target="_blank"
+          rel="noreferrer"
+          className="w-8 mr-2"
+        >
+          <TwitterIcon className="fill-current text-gray-700 dark:text-gray-300" />
+        </a>
+      )}
+      {githubId && (
+        <a
+          href={`https://github.com/${githubId}`}
+          target="_blank"
+          rel="noreferrer"
+          className="w-8 mr-2"
+        >
+          <GitHubIcon className="fill-current text-gray-700 dark:text-gray-300" />
+        </a>
+      )}
+      <Link to="/rss.xml" className="w-8 mr-2">
+        <RssIcon className="fill-current text-gray-700 dark:text-gray-300" />
+      </Link>
     </header>
   );
 };

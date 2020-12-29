@@ -18,14 +18,10 @@ const Footer: React.FC<FooterProps> = ({ twitterId, copyright }) => {
   };
 
   return (
-    <footer>
-      <div className="py-28 flex flex-col items-center">
-        {!isTop && (
-          <NormalButton onClick={moveToTop}>Back to Top.</NormalButton>
-        )}
-        {twitterId && <TwitterTimeline twitterId={twitterId} />}
-        {copyright && <BoldText>{copyright}</BoldText>}
-      </div>
+    <footer className="pt-28 flex flex-col items-center">
+      {!isTop && <NormalButton onClick={moveToTop}>Back to Top.</NormalButton>}
+      {twitterId && <TwitterTimeline twitterId={twitterId} />}
+      {copyright && <BoldText>{copyright}</BoldText>}
     </footer>
   );
 };
