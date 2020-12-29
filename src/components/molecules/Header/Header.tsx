@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { H1 } from "@Components/atoms/Typography";
 import { Toggle } from "@Components/atoms/Toggle";
 import { SiteSiteMetadata } from "../../../gatsby-graphql";
@@ -10,19 +10,40 @@ import GitHubIcon from "@Assets/Icon/github.svg";
 interface HeaderProps {
   siteMetadata?: SiteSiteMetadata | null;
 }
+const checkDarkMode = () => {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+};
 
 const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
   const title = siteMetadata?.title;
   const twitterId = siteMetadata?.twitterId;
-  const twitterURL = `https://twitter.com/${twitterId}`;
   const githubId = siteMetadata?.githubId;
-  const githubURL = `https://github.com/${githubId}`;
+  const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
+  useEffect(() => {
+    // Set `Dark Mode` option
+    if (isDarkMode) {
+      setDarkMode();
+    } else {
+      unsetDarkMode();
+    }
+  }, [isDarkMode]);
   const handleOnChange = (v: boolean) => {
     if (v) {
-      document.querySelector("html")?.classList.add("dark");
+      setDarkMode();
     } else {
-      document.querySelector("html")?.classList.remove("dark");
+      unsetDarkMode();
     }
+  };
+  const setDarkMode = () => {
+    document.querySelector("html")?.classList.add("dark");
+    setIsDarkMode(true);
+  };
+  const unsetDarkMode = () => {
+    document.querySelector("html")?.classList.remove("dark");
+    setIsDarkMode(false);
   };
   return (
     <header>
@@ -31,30 +52,30 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
           <H1>{title}</H1>
         </Link>
         <div className="w-12 mr-2">
-          <Toggle onChange={handleOnChange}></Toggle>
+          <Toggle onChange={handleOnChange} defaultValue={!isDarkMode}></Toggle>
         </div>
         {twitterId && (
           <a
-            href={twitterURL}
+            href={`https://twitter.com/${twitterId}`}
             target="_blank"
             rel="noreferrer"
             className="w-8 mr-2"
           >
-            <TwitterIcon className="fill-current" />
+            <TwitterIcon className="fill-current text-gray-700 dark:text-gray-300" />
           </a>
         )}
         {githubId && (
           <a
-            href={githubURL}
+            href={`https://github.com/${githubId}`}
             target="_blank"
             rel="noreferrer"
             className="w-8 mr-2"
           >
-            <GitHubIcon className="fill-current" />
+            <GitHubIcon className="fill-current text-gray-700 dark:text-gray-300" />
           </a>
         )}
         <Link to="/rss.xml" className="w-8 mr-2">
-          <RssIcon className="fill-current" />
+          <RssIcon className="fill-current text-gray-700 dark:text-gray-300" />
         </Link>
       </div>
     </header>

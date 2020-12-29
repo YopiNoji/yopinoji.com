@@ -2,11 +2,17 @@ import React, { useState } from "react";
 
 interface ToggleProps {
   onChange?: (v: boolean) => void;
+  defaultValue?: boolean;
   text?: string;
 }
 
-const Toggle: React.FC<ToggleProps> = ({ onChange, text, ...props }) => {
-  const [checked, setChecked] = useState(false);
+const Toggle: React.FC<ToggleProps> = ({
+  onChange,
+  text,
+  defaultValue = false,
+  ...props
+}) => {
+  const [checked, setChecked] = useState(defaultValue);
   return (
     <div className="flex items-center justify-center w-full m-2" {...props}>
       <label className="flex items-center cursor-pointer">
