@@ -1,7 +1,7 @@
 declare module "*.svg" {
-  import * as React from "react";
+  import { FunctionComponent } from "react";
 
-  const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  const ReactComponent: FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   export default ReactComponent;
 }
