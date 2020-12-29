@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { H1 } from "@Components/atoms/Typography";
 import { Toggle } from "@Components/atoms/Toggle";
 import { SiteSiteMetadata } from "../../../gatsby-graphql";
@@ -10,18 +10,36 @@ import GitHubIcon from "@Assets/Icon/github.svg";
 interface HeaderProps {
   siteMetadata?: SiteSiteMetadata | null;
 }
+const checkDarkMode = () => {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+};
+const setDarkMode = () => {
+  document.querySelector("html")?.classList.add("dark");
+};
+const unsetDarkMode = () => {
+  document.querySelector("html")?.classList.remove("dark");
+};
 
 const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
   const title = siteMetadata?.title;
   const twitterId = siteMetadata?.twitterId;
-  const twitterURL = `https://twitter.com/${twitterId}`;
   const githubId = siteMetadata?.githubId;
-  const githubURL = `https://github.com/${githubId}`;
+  useEffect(() => {
+    // Set `Dark Mode` option
+    if (checkDarkMode()) {
+      setDarkMode();
+    } else {
+      unsetDarkMode();
+    }
+  }, []);
   const handleOnChange = (v: boolean) => {
     if (v) {
-      document.querySelector("html")?.classList.add("dark");
+      setDarkMode();
     } else {
-      document.querySelector("html")?.classList.remove("dark");
+      unsetDarkMode();
     }
   };
   return (
@@ -31,11 +49,14 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
           <H1>{title}</H1>
         </Link>
         <div className="w-12 mr-2">
-          <Toggle onChange={handleOnChange}></Toggle>
+          <Toggle
+            onChange={handleOnChange}
+            defaultValue={!checkDarkMode()}
+          ></Toggle>
         </div>
         {twitterId && (
           <a
-            href={twitterURL}
+            href={`https://twitter.com/${twitterId}`}
             target="_blank"
             rel="noreferrer"
             className="w-8 mr-2"
@@ -45,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
         )}
         {githubId && (
           <a
-            href={githubURL}
+            href={`https://github.com/${githubId}`}
             target="_blank"
             rel="noreferrer"
             className="w-8 mr-2"
