@@ -16,31 +16,34 @@ const checkDarkMode = () => {
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 };
-const setDarkMode = () => {
-  document.querySelector("html")?.classList.add("dark");
-};
-const unsetDarkMode = () => {
-  document.querySelector("html")?.classList.remove("dark");
-};
 
 const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
   const title = siteMetadata?.title;
   const twitterId = siteMetadata?.twitterId;
   const githubId = siteMetadata?.githubId;
+  const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
   useEffect(() => {
     // Set `Dark Mode` option
-    if (checkDarkMode()) {
+    if (isDarkMode) {
       setDarkMode();
     } else {
       unsetDarkMode();
     }
-  }, []);
+  }, [isDarkMode]);
   const handleOnChange = (v: boolean) => {
     if (v) {
       setDarkMode();
     } else {
       unsetDarkMode();
     }
+  };
+  const setDarkMode = () => {
+    document.querySelector("html")?.classList.add("dark");
+    setIsDarkMode(true);
+  };
+  const unsetDarkMode = () => {
+    document.querySelector("html")?.classList.remove("dark");
+    setIsDarkMode(false);
   };
   return (
     <header>
@@ -49,10 +52,7 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
           <H1>{title}</H1>
         </Link>
         <div className="w-12 mr-2">
-          <Toggle
-            onChange={handleOnChange}
-            defaultValue={!checkDarkMode()}
-          ></Toggle>
+          <Toggle onChange={handleOnChange} defaultValue={!isDarkMode}></Toggle>
         </div>
         {twitterId && (
           <a
