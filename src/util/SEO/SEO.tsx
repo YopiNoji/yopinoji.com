@@ -4,18 +4,17 @@ import { SiteSiteMetadata, MarkdownRemark } from "../../gatsby-graphql";
 
 type PropsType = {
   postMeta?: MarkdownRemark | null;
-  isPost: boolean;
   siteMetadata?: SiteSiteMetadata | null;
 };
 
-export const SEO: React.FC<PropsType> = (props) => {
-  const { postMeta, isPost, siteMetadata } = props;
-  const title = isPost
+export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
+  const siteName = String(siteMetadata?.title);
+  const title = postMeta
     ? String(siteMetadata?.title) + " | " + postMeta?.frontmatter?.title
     : String(siteMetadata?.title);
-  const description = siteMetadata?.description
-    ? siteMetadata?.description
-    : "";
+  const description = postMeta
+    ? String(postMeta?.frontmatter?.title)
+    : String(siteMetadata?.title);
   const image = siteMetadata?.image
     ? siteMetadata?.siteUrl + siteMetadata?.image
     : "";
@@ -23,14 +22,18 @@ export const SEO: React.FC<PropsType> = (props) => {
   const lang = siteMetadata?.lang ? siteMetadata?.lang : "en";
   const author = siteMetadata?.author ? siteMetadata?.author : "author";
   const blogURL = siteMetadata?.siteUrl ? siteMetadata?.siteUrl : "";
-  const postURL = blogURL + "";
+  const postURL = postMeta?.frontmatter?.slug
+    ? blogURL + "/" + postMeta?.frontmatter?.slug
+    : blogURL;
   const schemaOrgJSONLD = [
     {
       "@context": "http://schema.org",
-      "@type": "WebSite",
-      url: blogURL,
-      name: siteMetadata?.title,
-      alternateName: siteMetadata?.title,
+      "@type": postMeta ? "Article" : "WebSite",
+      url: postURL,
+      name: title,
+      headline: title,
+      description: description,
+      author: author,
     },
   ];
   return (
@@ -48,10 +51,11 @@ export const SEO: React.FC<PropsType> = (props) => {
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={isPost ? postURL : blogURL} />
-      {isPost ? <meta property="og:type" content="article" /> : null}
+      <meta property="og:url" content={postURL} />
+      <meta property="og:type" content={postMeta ? "article" : "website"} />
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={title} />
-      {/* <meta property="og:description" content={description} /> */}
+      <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="fb:app_id" content={""} />
 

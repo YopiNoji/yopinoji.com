@@ -6,6 +6,7 @@ import { SiteSiteMetadata } from "../../../gatsby-graphql";
 import TwitterIcon from "@Assets/Icon/twitter.svg";
 import RssIcon from "@Assets/Icon/rss.svg";
 import GitHubIcon from "@Assets/Icon/github.svg";
+import EmailIcon from "@Assets/Icon/email.svg";
 
 interface HeaderProps {
   siteMetadata?: SiteSiteMetadata | null;
@@ -21,6 +22,7 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
   const title = siteMetadata?.title;
   const twitterId = siteMetadata?.twitterId;
   const githubId = siteMetadata?.githubId;
+  const email = siteMetadata?.email;
   const [isDarkMode, setIsDarkMode] = useState(checkDarkMode());
   useEffect(() => {
     // Set `Dark Mode` option
@@ -71,6 +73,11 @@ const Header: React.FC<HeaderProps> = ({ siteMetadata }) => {
           className="w-8 mr-2"
         >
           <GitHubIcon className="fill-current text-gray-700 dark:text-gray-300" />
+        </a>
+      )}
+      {email && (
+        <a href={`mailto:${email}`} className="w-8 mr-2">
+          <EmailIcon className="fill-current text-gray-700 dark:text-gray-300" />
         </a>
       )}
       <Link to="/rss.xml" className="w-8 mr-2">

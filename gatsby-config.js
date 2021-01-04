@@ -5,6 +5,7 @@ module.exports = {
     description: `A certain software engineer's notes and labs.`,
     image: `/Yopinoji.png`,
     author: `YopiNoji`,
+    email: `yopinoji@gmail.com`,
     twitterId: `YopiNoji`,
     githubId: `YopiNoji`,
     copyright: `© YopiNoji. All Rights Reserved.`,
@@ -19,6 +20,12 @@ module.exports = {
       options: {
         trackingId: 'UA-131756589-2'
       }
+    },
+    {
+        resolve: `gatsby-plugin-google-adsense`,
+        options: {
+            publisherId: `ca-pub-1604121216663260`
+        },
     },
     {
       resolve: 'gatsby-source-filesystem',

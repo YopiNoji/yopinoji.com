@@ -36,7 +36,7 @@ const Index: React.VFC<PropsType> = (props) => {
   });
   return (
     <Base siteMetadata={siteMetadata}>
-      <SEO siteMetadata={siteMetadata} isPost={false} />
+      <SEO siteMetadata={siteMetadata} />
       <PostListing data={Posts} />
     </Base>
   );
@@ -52,6 +52,7 @@ export const pageQuery = graphql`
         siteUrl
         description
         author
+        email
         image
         twitterId
         githubId
