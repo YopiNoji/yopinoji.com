@@ -27,11 +27,7 @@ const Post: React.FC<PropsType> = (props) => {
   }
   return (
     <Base siteMetadata={siteMetadata}>
-      <SEO
-        siteMetadata={siteMetadata}
-        postMeta={markdownRemark}
-        isPost={true}
-      />
+      <SEO siteMetadata={siteMetadata} postMeta={markdownRemark} />
       <H1>{frontmatter?.title}</H1>
       <SmallText>{frontmatter?.date}</SmallText>
       <div className="w-full mb-6">
