@@ -5,6 +5,7 @@ module.exports = {
     description: `A certain software engineer's notes and labs.`,
     image: `/Yopinoji.png`,
     author: `YopiNoji`,
+    email: `yopinoji@gmail.com`,
     twitterId: `YopiNoji`,
     githubId: `YopiNoji`,
     copyright: `© YopiNoji. All Rights Reserved.`,

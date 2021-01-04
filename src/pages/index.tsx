@@ -52,6 +52,7 @@ export const pageQuery = graphql`
         siteUrl
         description
         author
+        email
         image
         twitterId
         githubId
