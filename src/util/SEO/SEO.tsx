@@ -65,6 +65,12 @@ export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <script
+        data-ad-client="ca-pub-1604121216663260"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
     </Helmet>
   );
 };
