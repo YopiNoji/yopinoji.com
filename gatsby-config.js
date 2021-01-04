@@ -8,6 +8,7 @@ module.exports = {
     email: `yopinoji@gmail.com`,
     twitterId: `YopiNoji`,
     githubId: `YopiNoji`,
+    googleAdSense: `ca-pub-1604121216663260`,
     copyright: `© YopiNoji. All Rights Reserved.`,
     lang: `ja`,
     charSet: `utf-8`
@@ -20,12 +21,6 @@ module.exports = {
       options: {
         trackingId: 'UA-131756589-2'
       }
-    },
-    {
-        resolve: `gatsby-plugin-google-adsense`,
-        options: {
-            publisherId: `ca-pub-1604121216663260`
-        },
     },
     {
       resolve: 'gatsby-source-filesystem',

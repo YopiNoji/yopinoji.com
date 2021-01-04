@@ -2134,6 +2134,7 @@ export type SiteFieldsEnum =
   | "siteMetadata___email"
   | "siteMetadata___twitterId"
   | "siteMetadata___githubId"
+  | "siteMetadata___googleAdSense"
   | "siteMetadata___copyright"
   | "siteMetadata___lang"
   | "siteMetadata___charSet"
@@ -2449,7 +2450,6 @@ export type SitePageFieldsEnum =
   | "pluginCreator___pluginOptions___anonymize"
   | "pluginCreator___pluginOptions___respectDNT"
   | "pluginCreator___pluginOptions___pageTransitionDelay"
-  | "pluginCreator___pluginOptions___publisherId"
   | "pluginCreator___pluginOptions___name"
   | "pluginCreator___pluginOptions___path"
   | "pluginCreator___pluginOptions___isTSX"
@@ -2711,7 +2711,6 @@ export type SitePluginFieldsEnum =
   | "pluginOptions___anonymize"
   | "pluginOptions___respectDNT"
   | "pluginOptions___pageTransitionDelay"
-  | "pluginOptions___publisherId"
   | "pluginOptions___name"
   | "pluginOptions___path"
   | "pluginOptions___isTSX"
@@ -2880,7 +2879,6 @@ export type SitePluginPluginOptions = {
   anonymize?: Maybe<Scalars["Boolean"]>;
   respectDNT?: Maybe<Scalars["Boolean"]>;
   pageTransitionDelay?: Maybe<Scalars["Int"]>;
-  publisherId?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   path?: Maybe<Scalars["String"]>;
   isTSX?: Maybe<Scalars["Boolean"]>;
@@ -2950,7 +2948,6 @@ export type SitePluginPluginOptionsFilterInput = {
   anonymize?: Maybe<BooleanQueryOperatorInput>;
   respectDNT?: Maybe<BooleanQueryOperatorInput>;
   pageTransitionDelay?: Maybe<IntQueryOperatorInput>;
-  publisherId?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -3085,6 +3082,7 @@ export type SiteSiteMetadata = {
   email?: Maybe<Scalars["String"]>;
   twitterId?: Maybe<Scalars["String"]>;
   githubId?: Maybe<Scalars["String"]>;
+  googleAdSense?: Maybe<Scalars["String"]>;
   copyright?: Maybe<Scalars["String"]>;
   lang?: Maybe<Scalars["String"]>;
   charSet?: Maybe<Scalars["String"]>;
@@ -3099,6 +3097,7 @@ export type SiteSiteMetadataFilterInput = {
   email?: Maybe<StringQueryOperatorInput>;
   twitterId?: Maybe<StringQueryOperatorInput>;
   githubId?: Maybe<StringQueryOperatorInput>;
+  googleAdSense?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   charSet?: Maybe<StringQueryOperatorInput>;
@@ -3165,6 +3164,7 @@ export type IndexQuery = {
         | "image"
         | "twitterId"
         | "githubId"
+        | "googleAdSense"
         | "copyright"
         | "lang"
         | "charSet"
@@ -3202,6 +3202,7 @@ export type PostQuery = {
         | "image"
         | "twitterId"
         | "githubId"
+        | "googleAdSense"
         | "copyright"
         | "lang"
         | "charSet"
