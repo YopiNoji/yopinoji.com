@@ -1,5 +1,5 @@
 ---
-title: "Next.js と Firebase を使い、認証機能付きのWebページを爆速で構築する"
+title: "Next.js と Firebase を使い、認証機能（ログイン画面）付きのWebページを爆速で構築する"
 cover: "2021-01-06-using-next-js-and-firebase-to-create-a-web-page-with-authentication-function/header.png"
 category: "Tech"
 lang: "ja"
@@ -12,7 +12,7 @@ tags:
 
 2021 年も始まりまして、新年ということで新しく何かを始めたい気持ちになってくる人もいるかと思います。
 
-自分も新しく Web サービスを個人で作ってみようかなと思いまして、とりあえず Next.js + Firebase で認証機能付きの Web サイトを作ってみました。
+自分も新しく Web サービスを個人で作ってみようかなと思いまして、とりあえず Next.js + Firebase で認証機能（ログイン画面）付きの Web サイトを作ってみました。
 
 ## なぜ Next.js と Firebase を選んだか
 
