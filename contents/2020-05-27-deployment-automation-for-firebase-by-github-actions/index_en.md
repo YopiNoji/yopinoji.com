@@ -7,6 +7,7 @@ date: "2020-05-27"
 slug: "en/deployment-automation-for-firebase-by-github-actions"
 tags:
   - GitHub Actions
+  - GitHub
   - Firebase
   - Nuxt.js
 ---

@@ -7,6 +7,7 @@ date: "2020-12-28"
 slug: "use-github-actions-to-check-build-is-passed-for-each-pr"
 tags:
   - GitHub Actions
+  - GitHub
 ---
 
 GitHub を用いて何名かのチームで開発をしていると、メンバーから送られてくるプルリクエストを確認する必要がありますよね。

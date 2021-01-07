@@ -7,6 +7,7 @@ date: "2020-04-04"
 slug: "deploy-to-aws-s3-by-using-github-actions"
 tags:
   - GitHub Actions
+  - GitHub
   - AWS
   - Nuxt.js
 ---
