@@ -7,6 +7,7 @@ date: "2020-12-28"
 slug: "en/use-github-actions-to-check-build-is-passed-for-each-pr"
 tags:
   - GitHub Actions
+  - GitHub
 ---
 
 When you are developing on GitHub with a team of several people, you need to check the pull requests sent by the members.

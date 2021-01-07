@@ -7,6 +7,7 @@ date: "2020-07-28"
 slug: "github-actions-automatically-generate-pdf-of-resume-written-in-markdown"
 tags:
   - GitHub Actions
+  - GitHub
 ---
 
 エンジニア界隈では、[職務経歴書を GitHub 上で公開する](https://qiita.com/okohs/items/abcad0b4aefa585bc50b)というムーブメントが一部であります。  
