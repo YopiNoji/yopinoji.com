@@ -12,7 +12,7 @@
     "tailwind",
     "blog"
   ],
-  "author": "YopiNoji <yopinoji@gmail.com>",
+  "author": "Masaki Yoshiiwa <yopinoji@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "npm run develop",
