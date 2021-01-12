@@ -20,6 +20,13 @@ tags:
 
 ![WhiteSource Renovate](WhiteSource_Renovate.png)
 
+公式サイトから抜粋してきただけですが、以下のようなことが可能になります。
+
+- ライブラリなどの依存関係のあるソフトウェア更新を自動化可能
+- あらゆるワークフローに合わせた設定で完全にカスタマイズ可能
+
+詳細は以下を読んでみてください。
+
 https://www.whitesourcesoftware.com/free-developer-tools/renovate
 
 ## GitHub リポジトリ内のライブラリのバージョンを自動的に更新してみる

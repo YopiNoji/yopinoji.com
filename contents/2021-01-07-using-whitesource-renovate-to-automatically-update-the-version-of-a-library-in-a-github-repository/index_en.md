@@ -20,6 +20,13 @@ WhiteSource Renovate is for you.
 
 ![WhiteSource Renovate](WhiteSource_Renovate.png)
 
+I've just taken an excerpt from the official site, but it allows you to do the following
+
+- Software updates with dependencies such as libraries can be automated
+- Fully customizable with settings to suit any workflow
+
+For more details, please read the following.
+
 https://www.whitesourcesoftware.com/free-developer-tools/renovate
 
 ## Automatically update the version of a library in a GitHub repository.
