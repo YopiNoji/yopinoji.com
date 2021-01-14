@@ -49,7 +49,9 @@ https://docs.renovatebot.com/configuration-options/
 
 After a while, WhiteSource Renovate will create a pull request to update the library.
 
-![bot make PR](renovate_bot_make_PR.png)
+![bot make PR](renovate_bot_make_PR_1.png)
+
+![bot make PR](renovate_bot_make_PR_2.png)
 
 It is possible that the library update will cause your app to stop working, so you might want to check that it works just in case.  
 [It is safe to use GitHub Actions to check the behavior of each pull request.](/use-github-actions-to-check-build-is-passed-for-each-pr)
