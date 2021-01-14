@@ -49,5 +49,7 @@ https://docs.renovatebot.com/configuration-options/
 
 しばらくするとライブラリを更新するためのプルリクエストを WhiteSource Renovate が作成してくれます。
 
+![bot make PR](renovate_bot_make_PR.png)
+
 ライブラリの更新でアプリが動作しなくなることも考えられるので、念のため動作確認をしておいた方がいいでしょう。  
 [GitHub Actions などでプルリクエストごとに動作確認できるようにしておく](/use-github-actions-to-check-build-is-passed-for-each-pr)のが無難な気がします。
