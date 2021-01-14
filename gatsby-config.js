@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://yopinoji.com/`,
-    title: `YopiNoji.com`,
+    title: `yopinoji.com`,
     description: `A certain software engineer's notes and labs.`,
     image: `/Yopinoji.png`,
-    author: `YopiNoji`,
+    author: `yopinoji`,
     email: `yopinoji@gmail.com`,
-    twitterId: `YopiNoji`,
+    twitterId: `yopinoji`,
     githubId: `YopiNoji`,
     googleAdSense: `ca-pub-1604121216663260`,
     copyright: `© YopiNoji. All Rights Reserved.`,
