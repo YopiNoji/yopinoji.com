@@ -20,6 +20,13 @@ WhiteSource Renovate is for you.
 
 ![WhiteSource Renovate](WhiteSource_Renovate.png)
 
+I've just taken an excerpt from the official site, but it allows you to do the following
+
+- Software updates with dependencies such as libraries can be automated
+- Fully customizable with settings to suit any workflow
+
+For more details, please read the following.
+
 https://www.whitesourcesoftware.com/free-developer-tools/renovate
 
 ## Automatically update the version of a library in a GitHub repository.
@@ -41,6 +48,10 @@ https://docs.renovatebot.com/configuration-options/
 ![Pin dependecies](Pin_dependecies.png)
 
 After a while, WhiteSource Renovate will create a pull request to update the library.
+
+![bot make PR](renovate_bot_make_PR_1.png)
+
+![bot make PR](renovate_bot_make_PR_2.png)
 
 It is possible that the library update will cause your app to stop working, so you might want to check that it works just in case.  
 [It is safe to use GitHub Actions to check the behavior of each pull request.](/use-github-actions-to-check-build-is-passed-for-each-pr)

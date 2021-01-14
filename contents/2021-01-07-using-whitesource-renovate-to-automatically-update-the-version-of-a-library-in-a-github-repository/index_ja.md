@@ -20,6 +20,13 @@ tags:
 
 ![WhiteSource Renovate](WhiteSource_Renovate.png)
 
+公式サイトから抜粋してきただけですが、以下のようなことが可能になります。
+
+- ライブラリなどの依存関係のあるソフトウェア更新を自動化可能
+- あらゆるワークフローに合わせた設定で完全にカスタマイズ可能
+
+詳細は以下を読んでみてください。
+
 https://www.whitesourcesoftware.com/free-developer-tools/renovate
 
 ## GitHub リポジトリ内のライブラリのバージョンを自動的に更新してみる
@@ -41,6 +48,10 @@ https://docs.renovatebot.com/configuration-options/
 ![Pin dependecies](Pin_dependecies.png)
 
 しばらくするとライブラリを更新するためのプルリクエストを WhiteSource Renovate が作成してくれます。
+
+![bot make PR](renovate_bot_make_PR_1.png)
+
+![bot make PR](renovate_bot_make_PR_2.png)
 
 ライブラリの更新でアプリが動作しなくなることも考えられるので、念のため動作確認をしておいた方がいいでしょう。  
 [GitHub Actions などでプルリクエストごとに動作確認できるようにしておく](/use-github-actions-to-check-build-is-passed-for-each-pr)のが無難な気がします。
