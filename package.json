@@ -83,7 +83,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "husky": "4.3.7",
     "lint-staged": "10.5.3",
-    "postcss": "8.1.7",
+    "postcss": "8.2.4",
     "prettier": "2.2.1",
     "tailwindcss": "2.0.2",
     "typescript": "4.1.3"
