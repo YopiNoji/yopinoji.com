@@ -55,3 +55,11 @@ After a while, WhiteSource Renovate will create a pull request to update the lib
 
 It is possible that the library update will cause your app to stop working, so you might want to check that it works just in case.  
 [It is safe to use GitHub Actions to check the behavior of each pull request.](/use-github-actions-to-check-build-is-passed-for-each-pr)
+
+In some cases, you may have conflicts in Git that prevent you from merging.
+
+![bot make PR](renovate_bot_make_PR_2.png)
+
+In such cases, WhiteSource Renovate will detect the conflict and perform a `git rebase` to resolve the conflict.
+
+How convenience!

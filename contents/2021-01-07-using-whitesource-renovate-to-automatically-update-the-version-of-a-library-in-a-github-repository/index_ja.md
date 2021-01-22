@@ -55,3 +55,11 @@ https://docs.renovatebot.com/configuration-options/
 
 ライブラリの更新でアプリが動作しなくなることも考えられるので、念のため動作確認をしておいた方がいいでしょう。  
 [GitHub Actions などでプルリクエストごとに動作確認できるようにしておく](/use-github-actions-to-check-build-is-passed-for-each-pr)のが無難な気がします。
+
+Git でコンフリクトが起こってマージ出来ないという場合もあると思います。
+
+![bot make PR](renovate_bot_make_PR_2.png)
+
+` If you want to rebase/retry this PR, check this box` というチェックボックスにチェックを入れるだけで WhiteSource Renovate が検知してくれて、 `git rebase` を実行してコンフリクトを解消してくれます。
+
+便利！
