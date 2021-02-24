@@ -29,7 +29,7 @@ p {
 }
 
 a {
-  @apply text-green-600 dark:text-pink-400;
+  @apply text-green-600 dark:text-purple-400;
 }
 
 @tailwind components;
