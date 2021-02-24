@@ -25,17 +25,15 @@ export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
   const postURL = postMeta?.frontmatter?.slug
     ? blogURL + "/" + postMeta?.frontmatter?.slug
     : blogURL;
-  const schemaOrgJSONLD = [
-    {
-      "@context": "http://schema.org",
-      "@type": postMeta ? "Article" : "WebSite",
-      url: postURL,
-      name: title,
-      headline: title,
-      description: description,
-      author: author,
-    },
-  ];
+  const schemaOrgJSONLD = {
+    "@context": "http://schema.org",
+    "@type": postMeta ? "Article" : "WebSite",
+    name: title,
+    description: description,
+    url: postURL,
+    image: siteMetadata?.image,
+    datePublished: postMeta?.frontmatter?.date,
+  };
   return (
     <Helmet>
       {/* General tags */}
@@ -45,11 +43,6 @@ export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
       <meta name="description" content={description} />
       <meta name="image" content={image} />
 
-      {/* Schema.org tags */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
-
       {/* OpenGraph tags */}
       <meta property="og:url" content={postURL} />
       <meta property="og:type" content={postMeta ? "article" : "website"} />
@@ -57,7 +50,6 @@ export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="fb:app_id" content={""} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -65,6 +57,11 @@ export const SEO: React.FC<PropsType> = ({ postMeta, siteMetadata }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      {/* Schema.org tags */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
 
       {siteMetadata?.googleAdSense && (
         <script
