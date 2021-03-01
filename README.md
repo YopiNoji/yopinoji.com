@@ -1,5 +1,7 @@
 # yopinoji.com
 
+[![codebeat badge](https://codebeat.co/badges/0ab577af-4224-4fc5-a04e-3764988b3416)](https://codebeat.co/projects/github-com-yopinoji-yopinoji-com-master)
+
 There's two way to set up.
 
 ## Set up with Docker
